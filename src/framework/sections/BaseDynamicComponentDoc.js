@@ -83,9 +83,7 @@ export const LOADING_INDICATOR_CONFIG = {
                 <summary>Example</summary>
                                   <base-code-display-component>
   getTemplateStyle() {
-    return \`
-    <link rel="stylesheet" type="text/css" href="/styles/sharedHtmlAndComponentStyles.css"/>
-  
+    return \`  
     <style>
       a {
         color: white;

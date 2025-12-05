@@ -1,0 +1,26 @@
+html,
+body,
+div,
+p,
+span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+html,
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding: 1.5rem;
+  height: 100%;
+}
+
+#container {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 1rem;
+  flex: 1 0 auto;
+  max-width: 65rem;
+  margin-inline: auto;
+}
