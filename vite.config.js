@@ -16,7 +16,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         billOne: resolve(__dirname, "src/static/b26-0132.html"),
-        framework: resolve(__dirname, "src/framework/placesjs.html"),
+        framework: resolve(__dirname, "src/placesjs.html"),
         main: resolve(__dirname, "src/index.html"),
       },
     },
