@@ -51,11 +51,16 @@
 
   <h2>Overview</h2>
 
-  <p> Places.js is a lightweight Javascript framework for creating interactive websites promoting
-    in person interaction. It includes functionality for state management and asynchronous data fetching with zero
-    dependencies. Places.js is also designed to support shadow dom to encapsulate styles and deter bot scraping.
+  <p> Places.js is a  Javascript framework for creating interactive websites promoting in person interaction.
     Source code is <a href="https://github.com/gatherspiel/places-js">here </a></p>
 
+  <br>
+  <b>Places.js supports the following features and has no dependencies.</b>
+  <ul>
+    <li>State management that integrates with components and data fetching logic.</li>
+    <li>Asynchronous data fetching</li>
+    <li>Components with Shadow DOM to encapsulate styles and deter bot scraping.</li>
+  </ul>
   <main-component></main-component>
 
   <h2>Notes about the design goals of places.js</h2>
@@ -83,6 +88,44 @@
       generative AI tools aren't likely to have a large amount of training data for the framework that they can
       use.
     </li>
+
+    <li>State updates that are easy to reason about, even if it increases coupling. Places.js uses synchronous
+      publish subscribe code to make sure components have the correct UI state. While there is some complexity
+      from the fact that the components are coupled with state management logic, it reduces complexity
+      by making the code easier to reason about.
+      <br>
+      <br>
+      When there is a logic error in components that use places.js, understanding how and when the component is
+      updated helps address bugs. The synchronous updates also help when generating stack traces to
+      give information about the cause of an error.
+      <br>
+      <br>
+      If multiple components are subscribed to the state, the components will be updated in the order that
+       they were added to the DOM. As a result, parent components will always be updated before child components.
+      If a parent component and a child component are subscribed to the same state, the child component will be
+      temporarily unsubscribed from the state when the parent component re-renders. When the child component
+      re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state
+      and re-render.
+
+
+    </li>
+
+    <li>No virtual dom diffing: One possible way of optimising rendering is by using virtual DOM diffing. While virtual
+      DOM diffing is likely to make re-rendering of places.js components faster, it does have costs.
+      <br>
+      <br>
+      Virtual dom diffing would add complexity to places.js, which would make the framework significantly harder
+      to test and increase the risk of bugs. Also, virtual dom diffing introduces a layer of complexity that makes
+      it harder to reason about updates that are being made. When a places.js component is updated, all
+      the DOM within the component is re-rendered.
+      <br>
+      <br>
+      If an entire UI component should not re-render every time there is a state change, one alternative could
+      be to split up the component and have each one of smaller components subscribed ot the state.
+    </li>
+
+
+    <li>Why not virtual dom diffing like react?</li>
   </ul>
 
 </div>

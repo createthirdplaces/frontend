@@ -28,15 +28,15 @@ export class SetupInstructionsComponent extends HTMLElement {
          
       </details>
       
+      <b>Example of how to create a user feedback component</b> 
+
       <details open>
-        <summary>Creating your first component</summary>
-        
-        Below is an example of how to create a user feeedback component 
-        
-        <h4>HTML</h4>
+        <summary>HTML</summary>
         <setup-html-example></setup-html-example>
-        
-        <b>FeedbackComponent.js</b>
+      </details>
+      
+      <details open>
+        <summary>FeedbackComponent.js</summary>
         <setup-component-example></setup-component-example>
       </details>
 

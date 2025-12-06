@@ -6,63 +6,58 @@ export class BaseDynamicComponentDoc extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
 
-          <p>This is the base class for a state based UI component with support for asynchronous data fetching. It also
-          has styles scoped to the ShadowDOM. All state based UI components using places.js should extend this class.</p>
-        <!-- Format header -->
-          <h4>Constructor paramaeters </h4>
-
-          <ul>
-            <li><b>dataStoreSubscriptions</b>: An optional array of subscription configurations the component will subscribe to.
-              <h5>Parameters</h5>
-            </li>
-            <ul>
-              <li><b>dataStore</b>: The <a href="#data-store-class-guide"> Data Store</a> that that will load and store state. </li>
-              <li><b>fieldName</b>: The name that the subscribed data should be stored under. This is an optional field unless the component is subscribed to multiple stores.</li>
-              <li><b><a href="#component-reducer-function-guide">componentReducer</a>:</b>Optional reducer
-                function that defines any transformations that should be made to state data being sent to a component
-     
-                <details open="true">
-                  <summary>Example</summary>
-                <base-code-display-component>
-export const componentReducer: (groupData) => {
-  return {
-    ...groupData,
-    [SUCCESS_MESSAGE_KEY]: "",
-  };
-},
-                </base-code-display-component>
-               </details>
-                
-                Read only state for the component can be accessed inside the component from the componentStore field.
-              </li>
-            </ul>
-            <li><b>loadingIndicatorConfig</b>: Optional configuration settings for a loading indicator. When
-              defined a loading indicator will be displayed when the component needs to load data from an external store.
-              <h5>Parameters</h5>
-            </li>
-            <ul>
-              <li><b>generateLoadingIndicatorHtml</b>: A function returning the HTML that should be shown.</li>
-              <li><b>minTimeMs</b>: Optional setting minimum amount of time in miliseconds that the loading indicator will be shown for, regardless of
-                  how quickly data is loaded for store subscriptions.  If this value is not specified, then the loading indicator
-                  will be shown until the data has loaded.</li>
-            </ul>
-
-            
+      <p>Base class for a state based UI component with support for asynchronous data fetching. It also
+      has styles scoped to the ShadowDOM. All state based UI components using places.js should extend this class.</p>
+    <!-- Format header -->
+      <h4>Constructor paramaeters </h4>
+  
+      <ul>
+        <li><b>dataStoreSubscriptions</b>: An optional array of subscription configurations the component will subscribe to.
+          <h5>Parameters</h5>
+        </li>
+        <ul>
+          <li><b>dataStore</b>: The Data Store that that will load and store state. </li>
+          <li><b>fieldName</b>: The name that the subscribed data should be stored under. This is an optional field unless the component is subscribed to multiple stores.</li>
+          <li><b>componentReducer: </b>Optional reducer
+            function that defines any transformations that should be made to state data being sent to a component.
+  
             <details open="true">
               <summary>Example</summary>
             <base-code-display-component>
+  export const componentReducer: (groupData) => {
+    return {
+      ...groupData,
+      [SUCCESS_MESSAGE_KEY]: "",
+    };
+  },
+            </base-code-display-component>
+           </details>
+        </li>     
+        <li><b>loadingIndicatorConfig</b>: Optional configuration settings for a loading indicator. When
+          defined a loading indicator will be displayed when the component needs to load data from an external store.
+          <h5>Parameters</h5>
+          <ul>
+            <li><b>generateLoadingIndicatorHtml</b>: A function returning the HTML that should be shown.</li>
+            <li><b>minTimeMs</b>: Optional setting minimum amount of time in miliseconds that the loading indicator will be shown for, regardless of
+                how quickly data is loaded for store subscriptions.  If this value is not specified, then the loading indicator
+                will be shown until the data has loaded.</li>
+          </ul>
+          <details open="true">
+            <summary>Example</summary>
+              <base-code-display-component>
 export const LOADING_INDICATOR_CONFIG = {
   generateLoadingIndicatorHtml: () => {
     return \`<p>Loading</p>\`;
   },
   minTimeMs: 500,
 };
-            </base-code-display-component>
+              </base-code-display-component>
             </details>
-            <h5><a href="#loading-indicator-component-detailed">Detailed example</a></h5>
-
-          </ul>
-
+          </li>
+        </ul>
+  
+  
+       
           <!-- Make it clear that this is part of the BaseDynamicComponent class -->
           <h4>Functions </h4>
           <ul>
@@ -153,8 +148,12 @@ const attachHandlersToShadowRoot = function (shadowRoot) {
 
           <h4>Other notes</h4>
           <ul>
-            <li>Note: The BaseDynamicComponent object uses the disconnectedCallback function to make sure store subscriptions are up to date when a component is disconnected.Overriding
-            this method could lead to unpredicatable rendering behavior.</li>
+            <li>The BaseDynamicComponent object uses the disconnectedCallback function to make sure store 
+            subscriptions are up to date when a component is disconnected. Overriding this method could lead to 
+            unpredicatable rendering behavior.</li>
+            <li>Multiple components can subscribe to the same data store. </li>
+            <li> Read only state for the component can be accessed inside the component from the componentStore 
+            field.</li>
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements">
               More information</a> about web component lifecycle methods.</li>
           </ul>

@@ -39,10 +39,6 @@ export class MainComponent extends BaseDynamicComponent {
         #container > details > summary {
           font-weight: 600;
         }
-
-        #container > details details > summary {
-          margin-left: 1rem;
-        }
         
         #guidelines-list li {
           margin-top:1rem;

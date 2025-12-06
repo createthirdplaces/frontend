@@ -19,13 +19,11 @@ import {
 const API_ROOT = "http://localhost:7070"
 const ENTER_NAME_INPUT_ID = "enter-name-input-id";
 const ENTER_EMAIL_INPUT_ID = "enter-email-input-id";
+const ERROR_MESSAGE_KEY = "errorMessage";
 const FEEDBACK_TEXT_INPUT_ID = "feedback-text-input-id";
 const FEEDBACK_TYPE_INPUT_ID = "feedback-type-input-id";
 const SUBMIT_FEEDBACK_ID = "submit-feedback-id";
-
-
 const SUCCESS_MESSAGE_KEY = "successMessage";
-const ERROR_MESSAGE_KEY = "errorMessage";
 
  generateErrorMessage(message) {
   if (Array.isArray(message)) {
@@ -46,12 +44,10 @@ const ERROR_MESSAGE_KEY = "errorMessage";
   \`;
 }
 
-
 export class FeedbackComponent extends BaseDynamicComponent {
   constructor() {
     super();
   }
-
 
   getTemplateStyle() {
     return \`
@@ -200,36 +196,27 @@ export class FeedbackComponent extends BaseDynamicComponent {
         <label class="section-label" id="feedback-type-label">Feedback type:</label>  
         <div id="feedback-type-select">
           <div>
-          <label>General feedback</label> 
-          <input type="radio" name=\${FEEDBACK_TYPE_INPUT_ID} value="general_feedback" \${data.checkedState?.["general_feedback"]}>
+            <label>General feedback</label> 
+            <input type="radio" name=\${FEEDBACK_TYPE_INPUT_ID} value="general_feedback" \${data.checkedState?.["general_feedback"]}>
           </div>
-          
           <div>
-          <label for="javascript">Bug report</label> 
-          <input type="radio" name="\${FEEDBACK_TYPE_INPUT_ID} value="bug_report" \${data?.checkedState?.["bug_report"]}>
+            <label for="javascript">Bug report</label> 
+            <input type="radio" name="\${FEEDBACK_TYPE_INPUT_ID} value="bug_report" \${data?.checkedState?.["bug_report"]}>
+          </div>   
+          <div>
+            <label>New feature</label>
+            <input type="radio" name=\${FEEDBACK_TYPE_INPUT_ID} value="new_feature" \${data?.checkedState?.["new_feature"]}>
           </div>
-          
           <div>
-          <label>New feature</label>
-          <input type="radio" name=\${FEEDBACK_TYPE_INPUT_ID} value="new_feature" \${data?.checkedState?.["new_feature"]}>
-          </div>
-          
-          <div>
-          <label>Feature enhancement</label>
-          <input type="radio" name="\${FEEDBACK_TYPE_INPUT_ID} value="feature_enhancement" \${data?.checkedState?.["feature_enhancement"]}>
+            <label>Feature enhancement</label>
+            <input type="radio" name="\${FEEDBACK_TYPE_INPUT_ID} value="feature_enhancement" \${data?.checkedState?.["feature_enhancement"]}>
           </div>
         </div>
-     
-        <button id=\${SUBMIT_FEEDBACK_ID} type="submit"></button>
-
-        
+        <button id=\${SUBMIT_FEEDBACK_ID} type="submit"></button>  
       </form>
     </div>
     \`;
   }
-}
-
-    
-    `
+}  `
   }
 }
