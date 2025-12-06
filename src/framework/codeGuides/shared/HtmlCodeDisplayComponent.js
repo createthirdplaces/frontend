@@ -15,7 +15,6 @@ export class HtmlCodeDisplayComponent extends BaseTemplateComponent {
   }
 
   render(){
-
     const code = this.getCode().replaceAll("&gt;",">")
       .replaceAll("&lt;","<");
     return `

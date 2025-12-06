@@ -66,36 +66,36 @@
   <h2>Notes about the design goals of places.js</h2>
 
   <ul>
-    <li>Encourage manual testing of UI by people: Places.js is designed around supporting manual testing by humans instead
-      of automated testing. Human testing is helpful for subjective criteria such as usability. Websites built with
-      places.js should have frontends that minimize complexity with most of the complexity on the backend, which
-      will minimize the amount of testing that needs to be done on the UI.
+    <li>Encourage people to manually test UIs and giving feedback. Human testing is helpful for subjective criteria
+      such as usability that cannot be tested with automation. Places.js is designed around the idea that complexity
+      on the frontend is minimized, while the backend has most of the complexity. Minimizing complexity on the frontend
+      will help make sure that UI testing can focus on subjective criteria.
       <br>
       <br>
       Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
       content. This increases the complexity of writing automated UI tests.
       <br>
       <br>
+      On the other hand, places.js is also has support for asynchronous data fetching from a backend API, and automated
+      testing efforts should be focused there. API endpoints used by places.js should have clearly defined
+      correct behavior not defined by subjective criteria,and they should be covered by automated testing.
 
-      On the other hand, places.js is also has support for asynchronous data fetching from a backend API, and it is recommended
-      that the automated testing efforts are focused there. API endpoints used by places.js should have clearly defined
-      correct behavior not defined by subjective criteria that can be covered by automated testing on the backend.
     </li>
-
+    <br>
     <li>Promote creating websites without the use of generative AI tools such as ChatGPT, GitHub Copilot, or
       Claude Code. The documentation uses a places.js shadow DOM component and a couple of other measures to
       make sure bots are less likely to be able to scrape the documentation. Places.js is also new, and
       generative AI tools aren't likely to have a large amount of training data for the framework that they can
       use.
     </li>
-
+    <br>
     <li>State updates that are easy to reason about, even if it increases coupling. Places.js uses synchronous
-      publish subscribe code to make sure components have the correct UI state. While there is some complexity
+      publish subscribe code to make sure components have correct UI state. While there is some complexity
       from the fact that the components are coupled with state management logic, it reduces complexity
       by making the code easier to reason about.
       <br>
       <br>
-      When there is a logic error in components that use places.js, understanding how and when the component is
+      When there is a logic error in a places.js component, understanding how and when the component is
       updated helps address bugs. The synchronous updates also help when generating stack traces to
       give information about the cause of an error.
       <br>
@@ -106,9 +106,8 @@
       temporarily unsubscribed from the state when the parent component re-renders. When the child component
       re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state
       and re-render.
-
-
     </li>
+    <br>
 
     <li>No virtual dom diffing: One possible way of optimising rendering is by using virtual DOM diffing. While virtual
       DOM diffing is likely to make re-rendering of places.js components faster, it does have costs.
@@ -123,13 +122,8 @@
       If an entire UI component should not re-render every time there is a state change, one alternative could
       be to split up the component and have each one of smaller components subscribed ot the state.
     </li>
-
-
-    <li>Why not virtual dom diffing like react?</li>
   </ul>
-
 </div>
-
 
 <div id="bot-container"></div>
 </body>

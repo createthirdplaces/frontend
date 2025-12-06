@@ -34,6 +34,7 @@ export class MainComponent extends BaseDynamicComponent {
     })
   }
   getTemplateStyle() {
+
     return `
       <style>
         #container > details > summary {
@@ -116,11 +117,8 @@ export class MainComponent extends BaseDynamicComponent {
             DataStoreLoadAction
           </summary>
           <h3>DataStoreLoadAction</h3>
-          <p>This class defines an action used to load data into a store. Places.js includes two types of actions</p>
-          <ul>
-            <li><a href="#api-load-action-class-guide">APILoadAction</a></li>
-            <li><a href="#custom-load-action-class-guide">CustomLoadAction</a></li>
-          </ul>
+          <p>This class defines an action used to load data into a store. Places.js includes two classes used for 
+          load actions, ApiLoadAction, and CustomLoadAction.</p>
         </details>
   
         <h2>Objects</h2>
@@ -139,34 +137,44 @@ export class MainComponent extends BaseDynamicComponent {
           <div id="data-store-load-config-info">
             <p>Configuration settings describing how a data store can be loaded from an API.</p>
             <ul>
-              <li><b>url</b>: Required field representing the URL for the API request</li>
-              <li><b>headers</b>: A list of headers included with the request.</li>
-              <li><b>method</b>: The API request method, GET, PUST, POUT, ...etc. GET will be used by default if
-                no value is specified for this field.</li>
-              <li><b>body</b>: Data that should be sent as part of the request body.</li>
+              <li>
+                <b>body</b>: Data that should be sent as part of the request body.
+              </li>
+
+              <li>
+                <b>headers</b>: A list of headers included with the request.
+              </li>
+              <li>
+                <b>method</b>: The API request method, GET, PUST, POUT, ...etc. GET will be used by default if
+                no value is specified.
+              </li>
+              <li>
+                <b>url</b>: Required field representing the URL for the API request.
+              </li>
             </ul>
           </div>
         </details>
   
         <details id="functions-details" ${urlParams.get("functions-details") ? "open" : ''}>
           <summary class="summary-level-one">Functions</summary>
-          <h3>clearSessionStorage</h3>
+          <h3>clearSessionStorage()</h3>
   
-          <p>Clear GET API request cache and other data in session storage.</p>
+          <p>Clears GET API request cache and other data in session storage.</p>
   
           <h3>addLocalStorageData()</h3>
-          <p>Adds auth data to session storage. This allows the data to be used in API requests. The access token
-            should be stored with the field "accessToken".</p>
+          <p>Adds data to session storage for use. The access token
+            data stored with the field "accessToken will be used in API requests.</p>
   
           <h3>deleteLocalStorageData(key)</h3>
-          <p>Deletes data from local storage</p>
+          <p>Deletes data from local storage.</p>
   
           <h3>getLocalStorageDataIfPresent(key)</h3>
           <p>Retrieves data from local storage if present.</p>
   
-          <h3>getResponseData(DataStoreLoadConfig></h3>
-          <p>Retrieves data from an API. See <a href="#data-store-load-config-info">DataStoreLoadConfig info</a>
-            for more information about the parameters</p>
+          <h3>getResponseData(dataStoreLoadConfigInfo)</h3>
+          <p>Static asynchronous method to fetch data from an API. Use this method if the API request needs
+           to be run as part of an event handler and no other components subscribe to the request.
+           Cache data will not be used or updated. See DataStoreLoadConfig for more information about the parameters</p>
         </details>
   
   

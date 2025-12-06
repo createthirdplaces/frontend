@@ -16,23 +16,24 @@ export class BaseDynamicComponentDoc extends HTMLElement {
           <h5>Parameters</h5>
         </li>
         <ul>
+          <li><b>componentReducer: </b>Optional reducer
+              function that defines any transformations that should be made to state data being sent to a component.
+    
+              <details open="true">
+                <summary>Example</summary>
+              <base-code-display-component>
+    export const componentReducer: (groupData) => {
+      return {
+        ...groupData,
+        [SUCCESS_MESSAGE_KEY]: "",
+      };
+    },
+              </base-code-display-component>
+             </details>
+          </li> 
           <li><b>dataStore</b>: The Data Store that that will load and store state. </li>
           <li><b>fieldName</b>: The name that the subscribed data should be stored under. This is an optional field unless the component is subscribed to multiple stores.</li>
-          <li><b>componentReducer: </b>Optional reducer
-            function that defines any transformations that should be made to state data being sent to a component.
-  
-            <details open="true">
-              <summary>Example</summary>
-            <base-code-display-component>
-  export const componentReducer: (groupData) => {
-    return {
-      ...groupData,
-      [SUCCESS_MESSAGE_KEY]: "",
-    };
-  },
-            </base-code-display-component>
-           </details>
-        </li>     
+              
         <li><b>loadingIndicatorConfig</b>: Optional configuration settings for a loading indicator. When
           defined a loading indicator will be displayed when the component needs to load data from an external store.
           <h5>Parameters</h5>
@@ -61,13 +62,37 @@ export const LOADING_INDICATOR_CONFIG = {
           <!-- Make it clear that this is part of the BaseDynamicComponent class -->
           <h4>Functions </h4>
           <ul>
-            <li><b>render(data)</b>: Required function used to render HTML for the component. The data parameter
-              is a read-only representation of the component's store data.
-            <details open="true">
-              <summary>Example</summary>
-                <render-function-example>
-                </render-function-example>
-               </details>
+            <li><b>attachHandlersToShadowRoot(shadowRoot)</b>: Use this function to define event handlers on a component.
+            
+              <details open="true">
+                <summary>Example</summary>
+                <base-code-display-component>
+attachHandlersToShadowRoot(shadowRoot) {
+  shadowRoot.addEventListener("click", (event) => {
+    if (event.target.id === SIGN_OUT_LINK_ID) {
+      LOGOUT_STORE.fetchData({}, LOGIN_STORE);
+    }
+  });
+}
+                </base-code-display-component>
+              </details>
+            </li>
+            
+            <li>
+              <b>connectedCallback</b>: Standard web component lifecycle method. Use for initializing component state if it
+              does not rely on an external store. A component must be state before it is rendered
+              <details open="true">
+                <summary>Example</summary>
+                  <base-code-display-component>
+connectedCallback() {
+  document.title = \`Add event for group ${new URLSearchParams(document.location.search).get("name") ?? ""}\`;
+  this.updateData({
+    name: "",
+    groupName: new URLSearchParams(document.location.search).get("name") ?? ""
+  });
+}
+                  </base-code-display-component>
+              </details>
             </li>
             
             <li>
@@ -91,37 +116,19 @@ export const LOADING_INDICATOR_CONFIG = {
               </details>
 
             </li>
-            <li><b>attachHandlersToShadowRoot(shadowRoot)</b>: Use this function to define event handlers on a component.
             
-              <details open="true">
-                <summary>Example</summary>
-                <base-code-display-component>
-attachHandlersToShadowRoot(shadowRoot) {
-  shadowRoot.addEventListener("click", (event) => {
-    if (event.target.id === SIGN_OUT_LINK_ID) {
-      LOGOUT_STORE.fetchData({}, LOGIN_STORE);
-    }
-  });
-}
-              </details>
+            <li><b>render(data)</b>: Required function used to render HTML for the component. The data parameter
+              is a read-only representation of the component's store data.
+            <details open="true">
+              <summary>Example</summary>
+                <render-function-example>
+                </render-function-example>
+               </details>
+            </li>
+            
 
-                </base-code-display-component>
-            </li>
-            <li><b>connectedCallback</b>: Standard web component lifecycle method. Use for initializing component state if it
-              does not rely on an external store.
-              <details open="true">
-                <summary>Example</summary>
-                  <base-code-display-component>
-connectedCallback() {
-  document.title = \`Add event for group ${new URLSearchParams(document.location.search).get("name") ?? ""}\`;
-  this.updateData({
-    name: "",
-    groupName: new URLSearchParams(document.location.search).get("name") ?? ""
-  });
-}
-                  </base-code-display-component>
-              </details>
-            </li>
+      
+           
             <li><b>updateData(data)</b>Use this function to update the state of a component inside an event handler or
               connectedCallback. <b>Calling this method from another other location can lead to infinite rendering loops
               or other unpredictable effects.</b>

@@ -1,11 +1,10 @@
 export class LoadingIndicatorComponentGuide extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
-
-          <h3>Detailed example of using loading indicator config with a custom image</h3>
-
-          <h4>Loading config</h4>
-          <base-code-display-component>
+      <h3>Detailed example of using loading indicator config with a custom image</h3>
+  
+      <h4>Loading config</h4>
+      <base-code-display-component>
 export class LoadingIndicatorComponent extends HTMLElement {
   constructor() {
     super();
@@ -154,9 +153,7 @@ export const LOADING_INDICATOR_CONFIG = {
     \`;
     },
   minTimeMs: 500,
-};
-
-          </base-code-display-component>    
+}; </base-code-display-component>    
     `
   }
 }

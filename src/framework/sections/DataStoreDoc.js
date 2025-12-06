@@ -1,30 +1,43 @@
 export class DataStoreDoc extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
-     <h3>DataStore</h3>
-          <p>This class is responsible for storing state and fetching data from an external source</p>
-          <h4>Parameters</h4>
-          <ul>
-            <li><a href="#data-store-load-action-class-guide">loadAction: </a>An instance of DataStoreLoadAction describing how data should be loaded</li>
-          </ul>
-          <h4>Functions</h4>
-          <ul>
-            <li><b>updateStoreData(storeUpdates)</b>: Update data in the store and trigger a render of components
-              subscribed to the store. Only fields specified by the store updates parameter will be modified. <b>
-              It is strongly recommended that this method is only called from event handlers.</b></li>
-            <li><b>getStoreData</b>: Returns data from the store. The data is read-only and must be modified using
-              updateStoreData.</li>
-            <li><b>isWaitingForData</b>: Returns false if the data in the store is null or undefined and is
-              not in a loading state, and returns false otherwise.</li>
-            <li><b>fetchData(params,dataStore)</b>:This function retries data from an external source and then upgrades
-              any subscribed stores.<b>It is strongly recommended that this method is only called from
-              event handlers.</b></li>
-            <h5>Parameters</h5>
+      <h3>DataStore</h3>
+        <p>Class for storing state that is shared between components or data that is from an external
+        source</p>
+        <h4>Parameters</h4>
+        <ul>
+          <li>LoadAction:An instance of DataStoreLoadAction describing how data should be loaded into a store.
+          Data loading will be asynchronous. </li>
+        </ul>
+        <h4>Functions</h4>
+        <ul>
+          <li>
+            <b>fetchData(params,dataStore)</b>:Retrieves data from an external source and then updates 
+            subscribers<b>It is strongly recommended that this method is only called from component
+            event handlers.</b>
+            It has the following parameters <br>
             <ul>
-              <li><b>params:</b>Parameters for this request.</li>
-              <li><b>dataStore:</b>An optional data store that will be subscribed to updates from this store.</li>
+              <li>
+                <b>params:</b>Parameters for this request.
+              </li>
+              <li>
+                <b>dataStore:</b>An optional data store that will be subscribed to updates from this store.
+              </li>
             </ul>
-          </ul>
+          </li>
+          <li>
+            <b>getStoreData</b>: Returns a read only reference to store data.
+          </li>
+          <li>
+            <b>isWaitingForData</b>: Returns false if the data in the store is null or undefined and is
+            not in a loading state. Otherwise, it returns false.
+          </li>
+          <li>
+            <b>updateStoreData(storeUpdates)</b>: Updates data in the store and trigger a render of components
+            subscribed to the store. Only fields specified by the store updates parameter will be modified. <b>
+            It is strongly recommended that this method is only called from event handlers.</b>
+          </li>
+        </ul>
           <details open>
             <summary>Example</summary>
             <base-code-display-component>
@@ -39,13 +52,8 @@ function getUserQueryConfig() {
 
 export const USER_DATA_STORE = new DataStore(
   new ApiLoadAction(getUserQueryConfig);
-);
-
-            </base-code-display-component>
-          </details>
-        </div>
-    
- 
+);</base-code-display-component>
+      </details> 
     `
   }
 }

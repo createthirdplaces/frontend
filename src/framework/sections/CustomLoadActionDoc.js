@@ -7,7 +7,10 @@ export class CustomLoadActionDoc extends HTMLElement {
           to combine data from multiple sources.</p>
 
         <details open>
-          <summary>Example</summary>
+          <summary>Here is an example of a load action that will attempt to logout by calling an
+          external service used to manage authentication. If the logout attempt succeeds, the user's auth token will
+          be deleted and they will be redirected to index.html. If the logout attempt fails, an error message
+          will be returned.</summary>
           <base-code-display-component>
 async function retrieveData() {
   const data = await fetch(
@@ -36,7 +39,28 @@ async function retrieveData() {
 }
 
 export const LOGOUT_STORE = new DataStore(new CustomLoadAction(retrieveData));
-          </base-code-display-component>
+
+class AuthResponse {
+  constructor(loggedIn, data, error) {
+    this.loggedIn = loggedIn;
+    this.data = data;
+    this.errorMessage = error ?? "";
+  }
+
+  isLoggedIn() {
+    return this.loggedIn;
+  }
+
+  getData() {
+    return this.data;
+  }
+
+  getErrorMessage() {
+    return this.errorMessage || this.errorMessage.length > 0
+      ? this.errorMessage.toString()
+      : "";
+  }
+}         </base-code-display-component>
         </details>
     
     `

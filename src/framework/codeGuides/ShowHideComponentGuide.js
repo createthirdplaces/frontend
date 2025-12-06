@@ -3,9 +3,8 @@ export class ShowHideComponentGuide extends HTMLElement {
     this.innerHTML = `
       
       <p>Note: This was only created to demonstrate how a places.js dynamic component can be created. It is recommended
-      that you use the standard html details element instead.</p>
+      that you use a standard html details element for a show hide component.</p>
       <base-code-display-component>
-      
 import {BaseDynamicComponent} from "@bponnaluri/places-js";
 
 const DEFAULT_SHOW_TEXT = "show";
@@ -65,9 +64,7 @@ export class ShowHideComponent extends BaseDynamicComponent {
     }
     return html;
   }
-}
-      
-</base-code-display-component>
+}</base-code-display-component>
     
     `
   }
