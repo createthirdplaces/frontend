@@ -1,7 +1,7 @@
 export class SetupGuideComponent extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
-       <ul>
+      <ul>
         <p>Note: This tutorial assumes you are not using a build step. In production, it is recommended that you split
               up components in a manner similar to the example
               <a href="https://github.com/gatherspiel/DMVBoardGames/blob/main/src/index.html">here</a></p>
@@ -16,12 +16,8 @@ export class SetupGuideComponent extends HTMLElement {
           </details>
           <p>Afterwards, you should see a page that looks like the following example.</p>
           <img src="/images/tutorial/setup_screenshot_one.png"></img>
-        
-</li>
-</ul>
-
-      
-    
-    `
+        </li>
+      </ul>
+  `
   }
 }

@@ -70,7 +70,7 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
     return `
       <div id="container">
         
-        <h1>Using places.js for a location listing component</h1>
+        <h1>A tutorial on using places.js</h1>
         <p>By Bharat Ponnaluri</p>
         
         <details id="identify-problem-details" ${urlParams.get("identify-problem-details") ? "open" : ''}>
@@ -78,7 +78,9 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
             1.Identify what problem you are trying to solve
           </summary>
           <p> It is important to understand why you are using a new technology, and this requires understanding your 
-          goal. One should not be writing code or installing a framework without this understanding. </p>
+          goal. One should not be writing code or installing a framework without this understanding. Unless the goal is
+           something specific to yourself such as learning a JavaScript component framework, then you should also
+           spend time talking to potential users.</p>
                    
          <p>For example, I decided to create a location listing component using a map after a Strong Towns DMV 
          discussion about community bulletin boards. We were talking about locations for bulletin boards to post event 
