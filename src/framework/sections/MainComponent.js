@@ -1,5 +1,5 @@
 
-import {BaseDynamicComponent} from "../../static/places-js-latest.js";
+import {BaseDynamicComponent} from "../../shared/places-js-latest.js";
 
 export class MainComponent extends BaseDynamicComponent {
 
@@ -184,9 +184,9 @@ export class MainComponent extends BaseDynamicComponent {
   
         <h2>Examples</h2>
 
-        <a href="/static/locationListingTutorial.html">Creating a location listing using places.js</a>
+        <!--<a href="/static/locationListingTutorial.html">Creating a location listing using places.js</a>
         <br>
-        <br>
+        <br> -->
 
         <details id="example-details" ${urlParams.get("example-details") ? "open" : ''}>
            <summary>Show/hide component</summary>

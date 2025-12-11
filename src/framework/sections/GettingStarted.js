@@ -1,6 +1,6 @@
 import {SetupComponentExample} from "../codeGuides/setup/SetupComponentExample.js";
 import {SetupHtmlExample} from "../codeGuides/setup/SetupHtmlExample.js";
-import {BaseDynamicComponent} from "../../static/places-js-latest.js";
+import {BaseDynamicComponent} from "../../shared/places-js-latest.js";
 
 customElements.define('setup-component-example',SetupComponentExample);
 customElements.define('setup-html-example',SetupHtmlExample);
@@ -17,7 +17,7 @@ export class GettingStarted extends HTMLElement {
               <details open>
                 <summary>Example</summary>
               <base-code-display-component><script type="module">
-  import {BaseDynamicComponent} from "../../static/places-js-latest.js";
+  import {BaseDynamicComponent} from "./places-js-latest.js";
                          
   class MainComponent extends BaseDynamicComponent {
   
