@@ -18,7 +18,7 @@ export default defineConfig({
         billOne: resolve(__dirname, "src/static/b26-0132.html"),
         createTimerTutorial: resolve(__dirname, "src/static/createTimerTutorial.html"),
 
-        framework: resolve(__dirname, "src/placesjs.html"),
+        framework: resolve(__dirname, "src/static/placesjs.html"),
         main: resolve(__dirname, "src/index.html"),
       },
     },
