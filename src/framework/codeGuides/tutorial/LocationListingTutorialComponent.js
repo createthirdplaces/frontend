@@ -1,7 +1,6 @@
 
 import {BaseDynamicComponent} from "../../../shared/places-js-latest.js";
 
-
 export class LocationListingTutorialComponent extends BaseDynamicComponent {
 
   constructor(){
@@ -106,6 +105,8 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
           <summary class="summary-level-one">
             3. Create list with the ability to add items
           </summary>
+          <create-list-guide-component></create-list-guide-component>
+
         </details>
  
         <details id="part-four" ${urlParams.get("part-four") ? "open" : ''}>

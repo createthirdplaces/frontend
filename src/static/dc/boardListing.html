@@ -10,11 +10,24 @@
       getTemplateStyle() {
         return `<style></style>`
       }
+
       connectedCallback(){
         this.updateData({});
       }
+
+      attachHandlersToShadowRoot(shadowRoot){
+        shadowRoot.addEventListener("click",(event)=>{
+          if(event.target.id === 'add-board-location'){
+            console.log("A board location should be added");
+          }
+        })
+      }
+
       render(){
-        return `<h1>Listing component</h1>`
+        return `
+          <h1>Listing component</h1>
+          <button id="add-board-location">Add board location</button>
+        `
       }
     }
     customElements.define('listing-component',ListingComponent);

@@ -1,3 +1,6 @@
+import {AttributePassingExample} from "../codeGuides/guidelines/AttributePassingExample.js";
+
+customElements.define('attribute-passing-example',AttributePassingExample)
 export class GuidelinesComponent extends HTMLElement{
   connectedCallback(){
     this.innerHTML = `
@@ -10,9 +13,9 @@ export class GuidelinesComponent extends HTMLElement{
           <br>
           In a website that uses places.js, often it will make sense to create pages using standard web components
           or not use any JavaScript. There are many instances where standard web components will be less complex to use, 
-          and standard web components will be sigificantly faster to render for large numers of simple components. 
-          Places.js is designed to be used specific parts of a webpage with
-          complex interactivity or backend data fetching.
+          and standard web components will be significantly faster to render for large numbers of simple components. 
+          Places.js is designed to be used on specific parts of a webpage with complex interactivity or backend data
+           fetching.
           <br>
           <br>
           As a general rule, one should make sure to minimize the amount of complexity
@@ -20,6 +23,83 @@ export class GuidelinesComponent extends HTMLElement{
           involve tech. For example, places.js could theoretically be used for a coin flipping application 
           to randomly pick the start player for a 2 player board game. However, if one of the players has a physical coin, that
           could be used instead.
+          <br>
+          <br>
+          Web components can also have attributes passed to them, and this includes places.js web components. Here
+          is an example of passing data to a web component.
+                    
+          <details open>
+            <summary>Passing data using attributes</summary>
+             <attribute-passing-example></attribute-passing-example>
+             
+             An attribute can then be retrieved by calling the getAttribute method.
+             <base-code-display-component>export class ImageUploadComponent extends HTMLElement {
+
+  constructor() {
+    super();
+  
+    const filePath = this.getAttribute("image-path");
+    if (
+      filePath === null ||
+      filePath === undefined ||
+      filePath === "null" ||
+      filePath === "undefined" ||
+      filePath.length === 0
+    ) {
+      this.setAttribute("image-path", "");
+    }
+    this.addEventListener("change", this.uploadImage);
+    this.addEventListener("click", this.deleteImage);
+  }      
+
+  deleteImage(event) {
+    const self = this;
+
+    if (event.target.id === "remove-uploaded-image") {
+      self.setAttribute("image-path", "");
+      self.innerHTML = self.#getHtml();
+      event.preventDefault();
+    }
+  }
+  
+  uploadImage(event) {
+    const self = this;
+    if (event.target.id === "upload-image-input") {
+      let file = event.target.files[0];
+      let reader = new FileReader();
+
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        if (reader.result !== null) {
+          self.setAttribute("image-path", reader.result.toString());
+          self.innerHTML = self.#getHtml();
+        }
+      };
+    }
+  }
+}</base-code-display-component>
+          </details>
+         
+          <details open>
+            <summary>Passing data to web component through DOM. base-code-display-component is a static places.js
+            component used to display code and use the highlight.js library for syntax highlighting.
+            </summary>
+<base-code-display-component>
+<base-code-display-component>
+  function getCitiesQueryConfig() {
+    return {
+      url: API_ROOT + "/listCities?area=dmv",
+    };
+  }
+  
+  export const CITY_LIST_STORE = new DataStore(
+   new ApiLoadAction(getCitiesQueryConfig),
+  );
+</base-code-display-component>
+</base-code-display-component>
+          </details>
+          <p>The code display component is a places.js component to make sure styling is done in shadow DOM. This
+          ensures that outside styles and the code syntax highlighting styles are applied to the correct areas.</p>
        </li>
         <li>Create your website a multi page application(MPA) instead of a single page application(SPA): Places.js is
           designed around support for an MPA. The framework has not been fully tested with a SPA. 
@@ -66,6 +146,7 @@ export class GuidelinesComponent extends HTMLElement{
             RSVP status, show the status of the RSVP API call, and show an updated RSVP count is a good candidate
             for a places.js component.
           </li>
+          Abstractions and custom components
         </ul>
     `
   }

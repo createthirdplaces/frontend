@@ -20,6 +20,7 @@ export class BaseCodeDisplayComponent extends BaseTemplateComponent{
   disconnectedCallback(){
     this.innerHTML = `<p>Potato</p>`
   }
+
   getTemplateStyle(){
     return `
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">

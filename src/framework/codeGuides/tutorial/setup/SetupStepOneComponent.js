@@ -1,4 +1,4 @@
-import {HtmlCodeDisplayComponent} from "../shared/HtmlCodeDisplayComponent.js";
+import {HtmlCodeDisplayComponent} from "../../shared/HtmlCodeDisplayComponent.js";
 
 export class SetupStepOneComponent extends HtmlCodeDisplayComponent {
   getCode() {
