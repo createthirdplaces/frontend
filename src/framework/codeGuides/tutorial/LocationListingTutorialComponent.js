@@ -119,7 +119,7 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
         
         <details id="part-five" ${urlParams.get("part-five") ? "open" : ''}>
           <summary class="summary-level-one">
-            5. Add ability to edit items by clicing on them.
+            5. Add ability to edit items by clicking on them.
           </summary>
         </details>
         

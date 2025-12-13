@@ -13,7 +13,7 @@ export class AddItemsGuide extends HtmlCodeDisplayComponent{
       locationData.push({
         locationName: shadowRoot.getElementById('location-name-input').value
       })
-      this.updateData({"locations":locationData})
+      self.updateData({"locations":locationData})
     }
   })
 }
