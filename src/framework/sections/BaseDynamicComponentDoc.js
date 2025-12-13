@@ -1,4 +1,7 @@
+import {GetTemplateStyleExampleComponent} from "../codeGuides/baseDynamicComponent/GetTemplateStyleExampleComponent.js";
 import {RenderFunctionExample} from "../codeGuides/baseDynamicComponent/RenderFunctionExample.js";
+
+customElements.define('get-template-style-example-component',GetTemplateStyleExampleComponent);
 customElements.define('render-function-example',RenderFunctionExample);
 
 export class BaseDynamicComponentDoc extends HTMLElement {
@@ -7,9 +10,10 @@ export class BaseDynamicComponentDoc extends HTMLElement {
     this.innerHTML = `
 
       <p>Base class for a state based UI component with support for asynchronous data fetching. It also
-      has styles scoped to the ShadowDOM. All state based UI components using places.js should extend this class.</p>
+      has styles scoped to the ShadowDOM. All state based UI components using places.js should extend this class. A
+      component's state data can be accessed in a read only form with the field <b>componentStore.</b></p>
     <!-- Format header -->
-      <h4>Constructor paramaeters </h4>
+      <h4>Constructor parameters </h4>
   
       <ul>
         <li><b>dataStoreSubscriptions</b>: An optional array of data store subscription configurations.
@@ -104,18 +108,8 @@ connectedCallback() {
 
               <details open="true">
                 <summary>Example</summary>
-                                  <html-code-display-component>
-  getTemplateStyle() {
-    return \`
-      <link as="style" href="/styles/sharedHtmlAndComponentStyles.css" onload="this.rel='stylesheet'"/>
-      "&gtstyle>
-        a {
-          color: white;
-          text-decoration: none;
-        }
-      </style>
-    \`;
-  }</html-code-display-component>
+                  <get-template-style-example-component>
+                  </get-template-style-example-component>
               </details>
 
             </li>

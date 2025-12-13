@@ -113,6 +113,8 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
           <summary class="summary-level-one">
             4. Create map and connect it with list
           </summary>
+                      <add-map-guide-component></add-map-guide-component>
+
         </details>
         
         <details id="part-five" ${urlParams.get("part-five") ? "open" : ''}>

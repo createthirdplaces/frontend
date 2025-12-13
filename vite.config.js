@@ -16,6 +16,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         billOne: resolve(__dirname, "src/static/b26-0132.html"),
+        boardListing: resolve(__dirname, "src/static/dc/boardListing.html"),
+
         createTimerTutorial: resolve(__dirname, "src/static/locationListingTutorial.html"),
 
         framework: resolve(__dirname, "src/static/placesjs.html"),

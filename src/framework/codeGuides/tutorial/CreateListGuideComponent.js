@@ -1,9 +1,10 @@
-import {AddButtonGuide} from "./locationListing/addButtonGuide.js";
-customElements.define('add-button-guide',AddButtonGuide);
+import {AddItemsGuide} from "./locationListing/AddItemsGuide.js";
+
+customElements.define('add-items-guide',AddItemsGuide);
 
 export class CreateListGuideComponent extends HTMLElement {
   connectedCallback(){
-    this.innerHTML = `<p>Test</p>
+    this.innerHTML = `
 
       <details open>
         <summary>Add button with event handler</summary>
@@ -25,12 +26,9 @@ render(){
 }</base-code-display-component>
     </details>
 
-    <p>Create input fields and display them</p>
-  
+    <p>Add ability to enter location names and have them displayed as a list.</p>
+    <add-items-guide></add-items-guide>
 `
-
-
-
 
     ;
   }
