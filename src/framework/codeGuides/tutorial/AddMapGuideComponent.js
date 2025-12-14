@@ -73,7 +73,7 @@ render(data){
 </ul>
 
       <p>This code represents a proof of concept with basic features and styling. The latest version can be
-      viewed <a href="/locationMapListing.html">here</a>. Also, it is recommended that the JavaScript for the component
+      viewed <a href="/static/locationMapListing.html">here</a>. Also, it is recommended that the JavaScript for the component
       is in a separate file if it will be updated. The combined HTML and Javascript is for ease of use when getting 
       started.</p>
 
