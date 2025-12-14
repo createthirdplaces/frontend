@@ -1,5 +1,5 @@
 import hljs from 'https://unpkg.com/@highlightjs/cdn-assets@11.11.1/es/highlight.min.js';
-import {BaseTemplateComponent} from "../../../shared/places-js-latest.js";
+import {BaseTemplateComponent} from "../../../shared/lib/places-js-latest.js";
 
 
 /**
@@ -20,6 +20,7 @@ export class BaseCodeDisplayComponent extends BaseTemplateComponent{
   disconnectedCallback(){
     this.innerHTML = `<p>Potato</p>`
   }
+
   getTemplateStyle(){
     return `
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">

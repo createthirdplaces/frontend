@@ -1,6 +1,6 @@
 import {SetupComponentExample} from "../codeGuides/setup/SetupComponentExample.js";
 import {SetupHtmlExample} from "../codeGuides/setup/SetupHtmlExample.js";
-import {BaseDynamicComponent} from "../../shared/places-js-latest.js";
+import {BaseDynamicComponent} from "../../shared/lib/places-js-latest.js";
 
 customElements.define('setup-component-example',SetupComponentExample);
 customElements.define('setup-html-example',SetupHtmlExample);

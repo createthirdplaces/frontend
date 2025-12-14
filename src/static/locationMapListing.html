@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Location map listing </title>
+  </head>
+  <script type="module">
+    import {ImageUploadComponent} from "../shared/ImageUploadComponent.js";
+    import {LocationMapListingComponent} from "../shared/LocationMapListingComponent.js";
+
+    customElements.define('image-upload-component',ImageUploadComponent);
+    customElements.define('location-map-listing-component',LocationMapListingComponent)
+  </script>
+<body>
+  <h1>Location map listing</h1>
+
+  <location-map-listing-component></location-map-listing-component>
+</body>
+</html>

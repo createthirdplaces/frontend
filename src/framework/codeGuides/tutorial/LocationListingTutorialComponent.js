@@ -1,6 +1,5 @@
 
-import {BaseDynamicComponent} from "../../../shared/places-js-latest.js";
-
+import {BaseDynamicComponent} from "../../../shared/lib/places-js-latest.js";
 
 export class LocationListingTutorialComponent extends BaseDynamicComponent {
 
@@ -106,37 +105,17 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
           <summary class="summary-level-one">
             3. Create list with the ability to add items
           </summary>
+          <create-list-guide-component></create-list-guide-component>
+
         </details>
  
         <details id="part-four" ${urlParams.get("part-four") ? "open" : ''}>
           <summary class="summary-level-one">
             4. Create map and connect it with list
           </summary>
+            <add-map-guide-component></add-map-guide-component>
         </details>
         
-        <details id="part-five" ${urlParams.get("part-five") ? "open" : ''}>
-          <summary class="summary-level-one">
-            5. Add ability to edit items by clicing on them.
-          </summary>
-        </details>
-        
-         <details id="part-six" ${urlParams.get("part-six") ? "open" : ''}>
-          <summary class="summary-level-one">
-            6. Add ability to delete items
-          </summary>
-        </details>
-        
-         <details id="part-seven" ${urlParams.get("part-seven") ? "open" : ''}>
-          <summary class="summary-level-one">
-            7. JSON export and import
-          </summary>
-        </details>
-        
-         <details id="part-seven" ${urlParams.get("part-seven") ? "open" : ''}>
-          <summary class="summary-level-one">
-            8. Displaying error information by connecting to an API endpoint that does not exist.
-          </summary>
-        </details>
     `
   }
 }
