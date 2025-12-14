@@ -1,5 +1,5 @@
 
-import {BaseDynamicComponent} from "../../../shared/places-js-latest.js";
+import {BaseDynamicComponent} from "../../../shared/lib/places-js-latest.js";
 
 export class LocationListingTutorialComponent extends BaseDynamicComponent {
 
