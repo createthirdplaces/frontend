@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community bulletin boards in DC</title>
+  <link rel="stylesheet" type="text/css" href="/public/styles/sharedStyles.css">
+  <script type="module">
+    import {LocationMapListingComponent} from "../../shared/LocationMapListingComponent.js";
+    customElements.define('location-map-listing-component',LocationMapListingComponent)
+
+    class BoardListingComponent extends LocationMapListingComponent {
+      connectedCallback() {
+        this.updateData({"showInput":true,"canEdit":false,"mapClickX":280,"mapClickY":571,"offsetY":198.86666870117188,"locations":[{"displayX":426,"displayY":424,"locationName":"City State Brewery"},{"displayX":179,"displayY":450,"locationName":"Georgetown Library"},{"displayX":337,"displayY":459,"locationName":"Shaw Library"},{"displayX":245,"displayY":498,"locationName":" West End Neighborhood Library"},{"displayX":204,"displayY":364,"locationName":" Cleveland Park Library"},{"displayX":127,"displayY":296,"locationName":" Tenley-Friendship Neighborhood Library"},{"displayX":323,"displayY":513,"locationName":" Martin Luther King Jr. Memorial Library"},{"displayX":287,"displayY":387,"locationName":"Mt. Pleasant Neighborhood Library"},{"displayX":363,"displayY":610,"locationName":"Southwest Library"},{"displayX":265,"displayY":416,"locationName":"Adams Morgan community bulletin board"}],"statusMessage":"","editingLocation":null})
+      }
+    }
+    customElements.define('board-listing-component',BoardListingComponent)
+  </script>
+</head>
+<body>
+  <h1>A list of community boards in DC</h1>
+  <div id="container">
+    <board-listing-component></board-listing-component>
+  </div>
+</body>
+</html>

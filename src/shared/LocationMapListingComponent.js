@@ -15,9 +15,6 @@ export class LocationMapListingComponent extends BaseDynamicComponent{
         color: #00bb51;
         font-weight: 600;
       }
-      #status-section {
-        height: 1rem;
-      }
       .location-point {
         position: absolute;
         z-index:10;
