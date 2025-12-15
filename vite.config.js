@@ -21,6 +21,7 @@ export default defineConfig({
         createTimerTutorial: resolve(__dirname, "src/static/locationListingTutorial.html"),
 
         framework: resolve(__dirname, "src/static/placesjs.html"),
+        locationMapListing: resolve(__dirname, "src/static/locationMapListing.html"),
         main: resolve(__dirname, "src/index.html"),
       },
     },
