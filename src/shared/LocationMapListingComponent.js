@@ -79,7 +79,7 @@ export class LocationMapListingComponent extends BaseDynamicComponent{
             let data = JSON.parse(reader.result);
             data.editingLocation = null;
             for(let i=0;i<data.locations.length;i++){
-              data.locations[i].displayY +=10;
+              data.locations[i].displayY -=0;
             }
             self.updateData(data)
           }

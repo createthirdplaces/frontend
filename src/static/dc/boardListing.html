@@ -10,7 +10,23 @@
 
     class BoardListingComponent extends LocationMapListingComponent {
       connectedCallback() {
-        this.updateData({"showInput":true,"canEdit":false,"mapClickX":280,"mapClickY":571,"offsetY":198.86666870117188,"locations":[{"displayX":426,"displayY":424,"locationName":"City State Brewery"},{"displayX":179,"displayY":450,"locationName":"Georgetown Library"},{"displayX":337,"displayY":459,"locationName":"Shaw Library"},{"displayX":245,"displayY":498,"locationName":" West End Neighborhood Library"},{"displayX":204,"displayY":364,"locationName":" Cleveland Park Library"},{"displayX":127,"displayY":296,"locationName":" Tenley-Friendship Neighborhood Library"},{"displayX":323,"displayY":513,"locationName":" Martin Luther King Jr. Memorial Library"},{"displayX":287,"displayY":387,"locationName":"Mt. Pleasant Neighborhood Library"},{"displayX":363,"displayY":610,"locationName":"Southwest Library"},{"displayX":265,"displayY":416,"locationName":"Adams Morgan community bulletin board"}],"statusMessage":"","editingLocation":null})
+        this.updateData(
+          {"showInput":true,
+            "canEdit":false,
+            "mapClickX":386,"mapClickY":503,"offsetY":198.86666870117188,
+            "locations":[
+              {"displayX":416,"displayY":404,"locationName":"City State Brewery"},
+              {"displayX":179,"displayY":450,"locationName":"Georgetown Library"},
+              {"displayX":327,"displayY":449,"locationName":"Shaw Library"},
+              {"displayX":245,"displayY":488,"locationName":" West End Neighborhood Library"},
+              {"displayX":204,"displayY":354,"locationName":" Cleveland Park Library"},
+              {"displayX":127,"displayY":296,"locationName":" Tenley-Friendship Neighborhood Library"},
+              {"displayX":323,"displayY":513,"locationName":" Martin Luther King Jr. Memorial Library"},
+              {"displayX":287,"displayY":387,"locationName":"Mt. Pleasant Neighborhood Library"},
+              {"displayX":363,"displayY":600,"locationName":"Southwest Library"},
+              {"displayX":265,"displayY":416,"locationName":"Adams Morgan community bulletin board"},
+              {"displayX":371,"displayY":488,"locationName":"Truxton Circle bulletin board"}],
+            "statusMessage":"","editingLocation":null})
       }
     }
     customElements.define('board-listing-component',BoardListingComponent)
