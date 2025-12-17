@@ -32,11 +32,6 @@ body {
   margin-inline: auto;
 }
 
-#logo-section {
-  float:left;
-  font-size: 3rem;
-  width:18rem;
-}
 
 #navbar {
   font-size:1.5rem;
@@ -46,10 +41,6 @@ body {
 #navbar a {
   color:white;
   text-decoration: none;
-}
-
-#navbar-front {
-  height:6rem;
 }
 
 #top-nav {
@@ -115,14 +106,33 @@ body {
 }
 
 @media not screen and (width < 32em) {
+  #logo-section {
+    float:left;
+    font-size: 3rem;
+    width:18rem;
+  }
+
   #navbar a {
     margin-right: 2rem;
+  }
+
+  #navbar-front {
+    height: 6rem;
   }
 }
 
 @media screen and (width < 32em) {
-  #navbar a {
+  a {
+    margin-bottom: 0.5rem;
+  }
+  #top-nav {
     display: grid;
     text-align: center;
+  }
+  #logo-section {
+    display:flex;
+    font-size: 2rem;
+    font-weight: bold;
+    justify-content: center;
   }
 }

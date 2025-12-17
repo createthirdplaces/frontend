@@ -78,15 +78,12 @@ export class MainComponent extends BaseDynamicComponent {
         </details>
         
         <h2>Classes</h2>
-  
 
-        
         <details id="base-dynamic-component-details" ${urlParams.get("base-dynamic-component-details") ? "open" : ''}>
           <summary>
             BaseDynamicComponent
           </summary>
-          <base-dynamic-component-doc></base-dynamic-component-doc>
-  
+          <base-dynamic-component-doc></base-dynamic-component-doc>  
         </details>
   
         <details id="base-template-component-details" ${urlParams.get("base-template-component-details") ? "open" : ''}>
@@ -145,7 +142,6 @@ export class MainComponent extends BaseDynamicComponent {
               <li>
                 <b>body</b>: Data that should be sent as part of the request body.
               </li>
-
               <li>
                 <b>headers</b>: A list of headers included with the request.
               </li>
@@ -184,9 +180,9 @@ export class MainComponent extends BaseDynamicComponent {
   
         <h2>Examples</h2>
 
-        <!--<a href="/static/locationListingTutorial.html">Creating a location listing using places.js</a>
+        <a href="/static/locationListingTutorial.html">Creating a location listing page with places.js</a>
         <br>
-        <br> -->
+        <br>
 
         <details id="example-details" ${urlParams.get("example-details") ? "open" : ''}>
            <summary>Show/hide component</summary>
