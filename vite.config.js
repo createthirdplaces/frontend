@@ -22,7 +22,7 @@ export default defineConfig({
         billOne: resolve(__dirname, "src/static/b26-0132.html"),
         boardListing: resolve(__dirname, "src/static/dc/boardListing.html"),
 
-        decentralizedMeetup: resolve(__dirname, "src/static/decentralizedMeetup.html"),
+        decentralizedMeetup: resolve(__dirname, "src/static/events/decentralizedMeetup.html"),
 
         framework: resolve(__dirname, "src/static/placesjs.html"),
 
@@ -30,7 +30,7 @@ export default defineConfig({
         locationMapListing: resolve(__dirname, "src/static/locationMapListing.html"),
 
         main: resolve(__dirname, "src/index.html"),
-
+        meetupProblems: resolve(__dirname, "src/static/events/meetupProblems.html"),
         toasterTrouble: resolve(__dirname, "src/static/toasterTrouble.html"),
 
         vision: resolve(__dirname, "src/static/vision.html")
