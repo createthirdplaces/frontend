@@ -2,18 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="data:,">
+
     <title>Location map listing </title>
+    <link rel="stylesheet" type="text/css" href="/styles/sharedStyles.css" />
+
+    <script type="module">
+      import {ImageUploadComponent} from "../shared/ImageUploadComponent.js";
+      import {LocationMapListingComponent} from "../shared/LocationMapListingComponent.js";
+
+      customElements.define('image-upload-component',ImageUploadComponent);
+      customElements.define('location-map-listing-component',LocationMapListingComponent)
+    </script>
   </head>
-  <script type="module">
-    import {ImageUploadComponent} from "../shared/ImageUploadComponent.js";
-    import {LocationMapListingComponent} from "../shared/LocationMapListingComponent.js";
 
-    customElements.define('image-upload-component',ImageUploadComponent);
-    customElements.define('location-map-listing-component',LocationMapListingComponent)
-  </script>
-<body>
-  <h1>Location map listing</h1>
+  <body>
 
-  <location-map-listing-component></location-map-listing-component>
-</body>
+    <div id="container">
+      {{>navbar}}
+
+      <h1>Location map listing</h1>
+
+      <location-map-listing-component></location-map-listing-component>
+
+    </div>
+  </body>
 </html>

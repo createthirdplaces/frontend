@@ -28,6 +28,12 @@ export class LocationMapListingComponent extends BaseDynamicComponent{
           calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn)))
          );
       }
+      @media screen and (width < 32em) {
+        #clickable-map {
+          height: 100%;
+          width: 100%;
+        }
+      }
 
     </style>`
   }
@@ -221,12 +227,23 @@ export class LocationMapListingComponent extends BaseDynamicComponent{
 
   showLocationsOnMap(data){
 
+    let isMobile = false;
+    if(screen.width < 400) {
+      isMobile = true;
+    }
     if(data.locations){
 
       let html = `<div id="location-overlay" style="z-index: 10; top:${data.offsetY}px">`
+
       for(let i =0; i<data.locations.length; i++){
-        const location = data.locations[i]
-        html+= `<div class=location-point style="position: absolute;top:${location.displayY}px;left:${location.displayX}px">
+        const location = data.locations[i];
+        let displayTop = location.displayY*0.72;
+        let displayLeft = location.displayX*0.69;
+        if(isMobile){
+          displayLeft = displayLeft -30;
+          displayTop = displayTop  + 130;
+        }
+        html+= `<div class=location-point style="position: absolute;top:${displayTop}px;left:${displayLeft}px">
             </div>`
       }
 

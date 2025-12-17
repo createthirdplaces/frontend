@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" type="text/css" href="/styles/sharedStyles.css" />
-
+  <meta charset="UTF-8" />
   <style>
       h2 {
           margin-top:1rem;
@@ -43,106 +42,107 @@
   </script>
 </head>
 <body>
-<div id="container">
+  <div id="container">
+    {{>navbar}}
 
-  <h1>Documentation for places.js framework</h1>
+    <h1>Documentation for places.js framework</h1>
 
-  <h2>Overview</h2>
+    <h2>Overview</h2>
 
-  <p> Places.js is a Javascript framework for creating interactive websites promoting in person interaction.
-    Source code is <a href="https://github.com/createthirdplaces/places-js">here </a></p>
+    <p> Places.js is a Javascript framework for creating interactive websites promoting in person interaction.
+      Source code is <a href="https://github.com/createthirdplaces/places-js">here </a></p>
 
-  <br>
-  <b>Places.js supports the following features and has no external JS dependencies.</b>
-  <ul>
-    <li>State management that integrates with components and data fetching logic.</li>
-    <li>Asynchronous data fetching.</li>
-    <li>Components with Shadow DOM to encapsulate styles and deter bot scraping.</li>
-  </ul>
-  <main-component></main-component>
-
-  <h2>Notes about the design goals of places.js</h2>
-
-  <ol>
-    <li><b>UI state that easy to reason about.</b> Code should be understandable by people familiar with CSS, HTML,
-      and JavaScript without having to spend a long time learning about framework specific abstractions. This means
-      developers can spend more time learning about what users are looking for and improving quality.
-      <br>
-      <br>
-      Places.js uses synchronous  publish subscribe code to make sure components have correct UI state. While there is
-      some complexity from the fact that the components are coupled with state management logic, it reduces complexity
-      by making the code easier to reason about. When there is a logic error in a places.js component, understanding
-      how and when the component is updated helps address bugs. The synchronous updates also help when generating stack
-      traces to give information about the cause of an error.
-      <br>
-      <br>
-      If multiple components are subscribed to the state, the components will be updated in the order that
-      they were added to the DOM. As a result, parent components will always be updated before child components.
-      If a parent component and a child component are subscribed to the same state, the child component will be
-      temporarily unsubscribed from the state when the parent component re-renders. When the child component
-      re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state
-      and re-render.
-    </li>
     <br>
-    <li><b>Encourage people to manually test UIs</b>. Human testing is helpful for subjective criteria
-      such as usability that cannot be tested with automation. Places.js is designed around the idea that complexity
-      on the frontend is minimized, while the backend has most of the complexity. Minimizing complexity on the frontend
-      will help make sure that UI testing can focus on subjective criteria. Most of the testing for places.js
-      has been done through manual testing of a local dmvboardgames.com instance. Complexity for dmvboardgames.com
-      is mainly on the <a href="https://github.com/gatherspiel/backend">backend</a>, which includes comprehensive
-      <a href="https://github.com/gatherspiel/backend/tree/main/src/test/java/app">database integration tests.</a>
+    <b>Places.js supports the following features and has no external JS dependencies.</b>
+    <ul>
+      <li>State management that integrates with components and data fetching logic.</li>
+      <li>Asynchronous data fetching.</li>
+      <li>Components with Shadow DOM to encapsulate styles and deter bot scraping.</li>
+    </ul>
+    <main-component></main-component>
+
+    <h2>Notes about the design goals of places.js</h2>
+
+    <ol>
+      <li><b>UI state that easy to reason about.</b> Code should be understandable by people familiar with CSS, HTML,
+        and JavaScript without having to spend a long time learning about framework specific abstractions. This means
+        developers can spend more time learning about what users are looking for and improving quality.
+        <br>
+        <br>
+        Places.js uses synchronous  publish subscribe code to make sure components have correct UI state. While there is
+        some complexity from the fact that the components are coupled with state management logic, it reduces complexity
+        by making the code easier to reason about. When there is a logic error in a places.js component, understanding
+        how and when the component is updated helps address bugs. The synchronous updates also help when generating stack
+        traces to give information about the cause of an error.
+        <br>
+        <br>
+        If multiple components are subscribed to the state, the components will be updated in the order that
+        they were added to the DOM. As a result, parent components will always be updated before child components.
+        If a parent component and a child component are subscribed to the same state, the child component will be
+        temporarily unsubscribed from the state when the parent component re-renders. When the child component
+        re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state
+        and re-render.
+      </li>
       <br>
+      <li><b>Encourage people to manually test UIs</b>. Human testing is helpful for subjective criteria
+        such as usability that cannot be tested with automation. Places.js is designed around the idea that complexity
+        on the frontend is minimized, while the backend has most of the complexity. Minimizing complexity on the frontend
+        will help make sure that UI testing can focus on subjective criteria. Most of the testing for places.js
+        has been done through manual testing of a local dmvboardgames.com instance. Complexity for dmvboardgames.com
+        is mainly on the <a href="https://github.com/gatherspiel/backend">backend</a>, which includes comprehensive
+        <a href="https://github.com/gatherspiel/backend/tree/main/src/test/java/app">database integration tests.</a>
+        <br>
+        <br>
+        Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
+        content. This increases the complexity of writing automated UI tests.
+        <br>
+        <br>
+        On the other hand, places.js is also has support for asynchronous data fetching from a backend API, and automated
+        testing efforts should be focused there. API endpoints used by places.js should have clearly defined
+        correct behavior not defined by subjective criteria, and they should be covered by automated testing.
+      </li>
       <br>
-      Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
-      content. This increases the complexity of writing automated UI tests.
+      <li><b>Ensure that usability is prioritized.</b>: Places.js supports developers to make websites that are as
+        straightforward as possible from a user perspective.
+      </li>
       <br>
+      <li><b>Promote creating websites without the use of generative AI tools such as ChatGPT, GitHub Copilot, or
+        Claude Code.</b> The documentation uses a places.js shadow DOM component and a couple of other measures to
+        make sure bots are less likely to be able to scrape the documentation. Places.js is also new, and
+        generative AI tools aren't likely to have a large amount of training data for the framework that they can
+        use.
+      </li>
       <br>
-      On the other hand, places.js is also has support for asynchronous data fetching from a backend API, and automated
-      testing efforts should be focused there. API endpoints used by places.js should have clearly defined
-      correct behavior not defined by subjective criteria, and they should be covered by automated testing.
-    </li>
+
+
+      <li><b>When the state of a component changes, the whole component will re-render</b> Re-rendering a component for
+        every state change does have some performance overhead. However, the performance overhead does come with the benefit
+        of making cde easier to reason about.
+
+        One possible way of optimising rendering is by using virtual DOM diffing. While virtual
+        DOM diffing is likely to make re-rendering of places.js components faster, it does have costs. If a site made with
+        places.js is complex enough to the point where it is slow, then optimizing with virtual DOM isn’t going to fix
+        underlying issues with UI complexity or an architecture that should be updated.
+        <br>
+        <br>
+        Virtual dom diffing would add complexity to places.js, which would make the framework significantly harder
+        to test and increase the risk of bugs. Also, virtual dom diffing introduces a layer of complexity that makes
+        it harder to reason about updates that are being made. When a places.js component is updated, all
+        the DOM within the component is re-rendered.
+        <br>
+        <br>
+        <a href="https://krausest.github.io/js-framework-benchmark/">Performance benchmarks</a> comparing the React and
+        Solid JS libraries indicate the React is significantly slower. React uses virtual DOM, and Solid does not.
+        Both libraries are also designed for interactive component based UIs.
+        <br>
+        <br>
+        If an entire UI component should not re-render every time there is a state change, one alternative could
+        be to split up the component and have each one of smaller components subscribed ot the state.
+      </li>
+    </ol>
     <br>
-    <li><b>Ensure that usability is prioritized.</b>: Places.js supports developers to make websites that are as
-      straighforward as possible from a user perspective.
-    </li>
-    <br>
-    <li><b>Promote creating websites without the use of generative AI tools such as ChatGPT, GitHub Copilot, or
-      Claude Code.</b> The documentation uses a places.js shadow DOM component and a couple of other measures to
-      make sure bots are less likely to be able to scrape the documentation. Places.js is also new, and
-      generative AI tools aren't likely to have a large amount of training data for the framework that they can
-      use.
-    </li>
-    <br>
+  </div>
 
-
-    <li><b>When the state of a component changes, the whole component will re-render</b> Re-rendering a component for
-      every state change does have some performance overhead. However, the performance overhead does come with the benefit
-      of making cde easier to reason about.
-
-      One possible way of optimising rendering is by using virtual DOM diffing. While virtual
-      DOM diffing is likely to make re-rendering of places.js components faster, it does have costs. If a site made with
-      places.js is complex enough to the point where it is slow, then optimizing with virtual DOM isn’t going to fix
-      underlying issues with UI complexity or an architecture that should be updated.
-      <br>
-      <br>
-      Virtual dom diffing would add complexity to places.js, which would make the framework significantly harder
-      to test and increase the risk of bugs. Also, virtual dom diffing introduces a layer of complexity that makes
-      it harder to reason about updates that are being made. When a places.js component is updated, all
-      the DOM within the component is re-rendered.
-      <br>
-      <br>
-      <a href="https://krausest.github.io/js-framework-benchmark/">Performance benchmarks</a> comparing the React and
-      Solid JS libraries indicate the React is significantly slower. React uses virtual DOM, and Solid does not.
-      Both libraries are also designed for interactive component based UIs.
-      <br>
-      <br>
-      If an entire UI component should not re-render every time there is a state change, one alternative could
-      be to split up the component and have each one of smaller components subscribed ot the state.
-    </li>
-  </ol>
-  <br>
-</div>
-
-<div id="bot-container"></div>
-</body>
+  <div id="bot-container"></div>
+  </body>
 </html>
