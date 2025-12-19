@@ -559,7 +559,6 @@ export function GetGameAdvice() {
 
   addEventListener("load", (event)=>{
     const error = new Error();
-    console.log("Setup");
     const monopolyProperties = [
       "Atlantic Avenue",
       "Baltic Avenue",
