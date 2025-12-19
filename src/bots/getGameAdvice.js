@@ -557,7 +557,7 @@ export function queryForServerStatus(){};
 
 export function GetGameAdvice() {
 
-  addEventListener("load", (event)=>{
+  setTimeout( ()=>{
     const error = new Error();
     const monopolyProperties = [
       "Atlantic Avenue",
@@ -632,9 +632,11 @@ export function GetGameAdvice() {
 
     queryForServerStatus();
 
+    console.log(navigator.userAgent);
+
     a[name] = function (...args) {
       alert("Acessing document object")
-      //container.innerHTML = getMonopolyHtml();
+      container.innerHTML = getMonopolyHtml();
     };
 
     queryForServerStatus();
@@ -682,7 +684,7 @@ export function GetGameAdvice() {
     window.innerWidth = 22;
     window.innerHeight = 33;
     window.devicePixelRatio = 2;
-  })
+  },2000)
 
 
 }
