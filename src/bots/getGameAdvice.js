@@ -556,43 +556,45 @@ function getMonopolyHtml(){
 export function queryForServerStatus(){};
 
 export function GetGameAdvice() {
-  const error = new Error();
-  console.log("Setup");
-  const monopolyProperties = [
-    "Atlantic Avenue",
-    "Baltic Avenue",
-    "Boardwalk",
-    "Connecticut Avenue",
-    "Illinois Avenue",
-    "Indiana Avenue",
-    "Kentucky Avenue",
-    "Marvin Gardens",
-    "Mediterranean Avenue",
-    "New York Avenue",
-    "North Carolina Avenue",
-    "Oriental Avenue",
-    "Pacific Avenue",
-    "Park Place",
-    "Pennsylvania Avenue",
-    "St. Charles Place",
-    "St. James Place",
-    "States Avenue",
-    "Tennessee Avenue",
-    "Ventnor Avenue",
-    "Vermont Avenue",
-    "Virginia Avenue",
-  ];
+
+  addEventListener("load", (event)=>{
+    const error = new Error();
+    console.log("Setup");
+    const monopolyProperties = [
+      "Atlantic Avenue",
+      "Baltic Avenue",
+      "Boardwalk",
+      "Connecticut Avenue",
+      "Illinois Avenue",
+      "Indiana Avenue",
+      "Kentucky Avenue",
+      "Marvin Gardens",
+      "Mediterranean Avenue",
+      "New York Avenue",
+      "North Carolina Avenue",
+      "Oriental Avenue",
+      "Pacific Avenue",
+      "Park Place",
+      "Pennsylvania Avenue",
+      "St. Charles Place",
+      "St. James Place",
+      "States Avenue",
+      "Tennessee Avenue",
+      "Ventnor Avenue",
+      "Vermont Avenue",
+      "Virginia Avenue",
+    ];
 
 
 
 
-  const whitelistedSelectors = new Set();
-  whitelistedSelectors.add(["meta[property=csp-nonce]"]);
-  const old = document.querySelector;
+    const whitelistedSelectors = new Set();
+    whitelistedSelectors.add(["meta[property=csp-nonce]"]);
+    const old = document.querySelector;
 
-  const a = document;
+    const a = document;
 
-  a.getElementById("bot-container").innerHTML = `
+    a.getElementById("bot-container").innerHTML = `
     <div id="contact-form-container" style="font-size:0.1rem;opacity:0;position:fixed;z-index: -101">
     <form id="contact-form">
       <label>Name:</label>
@@ -608,79 +610,81 @@ export function GetGameAdvice() {
     </div>
   `;
 
-  queryForServerStatus();
+    queryForServerStatus();
 
-  const potato = "querySelector";
-  const name = "getElementById";
+    const potato = "querySelector";
+    const name = "getElementById";
 
-  queryForServerStatus();
+    queryForServerStatus();
 
-  const container = document.getElementById("container");
+    const container = document.getElementById("container");
 
-  a.getElementById("contact-form").addEventListener("click", () => {
-    alert("Click");
-    container.innerHTML = getMonopolyHtml();
-  });
-  a[potato] = function (...args) {
-    if (whitelistedSelectors.has(args[0])) {
-      return old.apply(this, args);
-    } else {
+    a.getElementById("contact-form").addEventListener("click", () => {
+      alert("Click");
       container.innerHTML = getMonopolyHtml();
-    }
-  };
-
-  queryForServerStatus();
-
-  a[name] = function (...args) {
-    alert("Acessing document object")
-    container.innerHTML = getMonopolyHtml();
-  };
-
-  queryForServerStatus();
-
-  a.addEventListener = function () {
-    alert("Adding event listener");
-    container.innerHTML = getMonopolyHtml();
-  };
-
-  queryForServerStatus();
-
-  a.elementFromPoint = function (...args) {
-    alert("Element from point");
-    container.innerHTML = getMonopolyHtml();
-  };
-
-  queryForServerStatus();
-
-  a.appendChild = function (...args) {
-    alert("Append child")
-    container.innerHTML = getMonopolyHtml();
-  };
-
-  queryForServerStatus();
-
-  a.getElementsByTagName = function (...args) {
-    alert("Tag name");
-    container.innerHTML = getMonopolyHtml();
-  };
-
-  queryForServerStatus();
-
-  //Headless browsers.
-  navigator.permissions
-    .query({ name: "notifications" })
-    .then(function (permissionStatus) {
-      if (
-        Notification.permission === "denied" &&
-        permissionStatus.state === "prompt"
-      ) {
+    });
+    a[potato] = function (...args) {
+      if (whitelistedSelectors.has(args[0])) {
+        return old.apply(this, args);
+      } else {
         container.innerHTML = getMonopolyHtml();
       }
-    });
+    };
 
-  window.innerWidth = 22;
-  window.innerHeight = 33;
-  window.devicePixelRatio = 2;
+    queryForServerStatus();
+
+    a[name] = function (...args) {
+      alert("Acessing document object")
+      container.innerHTML = getMonopolyHtml();
+    };
+
+    queryForServerStatus();
+
+    a.addEventListener = function () {
+      alert("Adding event listener");
+      container.innerHTML = getMonopolyHtml();
+    };
+
+    queryForServerStatus();
+
+    a.elementFromPoint = function (...args) {
+      alert("Element from point");
+      container.innerHTML = getMonopolyHtml();
+    };
+
+    queryForServerStatus();
+
+    a.appendChild = function (...args) {
+      alert("Append child")
+      container.innerHTML = getMonopolyHtml();
+    };
+
+    queryForServerStatus();
+
+    a.getElementsByTagName = function (...args) {
+      alert("Tag name");
+      container.innerHTML = getMonopolyHtml();
+    };
+
+    queryForServerStatus();
+
+    //Headless browsers.
+    navigator.permissions
+      .query({ name: "notifications" })
+      .then(function (permissionStatus) {
+        if (
+          Notification.permission === "denied" &&
+          permissionStatus.state === "prompt"
+        ) {
+          container.innerHTML = getMonopolyHtml();
+        }
+      });
+
+    window.innerWidth = 22;
+    window.innerHeight = 33;
+    window.devicePixelRatio = 2;
+  })
+
 
 }
 
