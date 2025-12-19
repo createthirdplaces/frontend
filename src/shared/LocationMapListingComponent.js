@@ -297,8 +297,6 @@ export class LocationMapListingComponent extends BaseDynamicComponent{
           id="clickable-map"
           src="${data.imageData ?? "/images/dc/dc-street-map.jpg"}"
          >
-
-        </img>
       </div>
       ${data.imageData ? ``: `Image from Ontheworldmap.com at <a href="https://ontheworldmap.com/usa/city/washington-dc/detailed-street-map-of-washington-dc.html">link</a>`}
       ${data.canEdit !== false ? `<p>Click on map to add or edit a location.</p>` : ``}
