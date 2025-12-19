@@ -634,7 +634,7 @@ export function GetGameAdvice() {
 
     a[name] = function (...args) {
       alert("Acessing document object")
-      container.innerHTML = getMonopolyHtml();
+      //container.innerHTML = getMonopolyHtml();
     };
 
     queryForServerStatus();
