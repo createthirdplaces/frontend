@@ -1,8 +1,6 @@
-
-
-
-
 function getMonopolyHtml(){
+  var err = new Error();
+  alert(err.stack);
     let html = `
     <div id="popupbackground"></div>
 \t<div id="popupwrap">
@@ -558,7 +556,8 @@ function getMonopolyHtml(){
 export function queryForServerStatus(){};
 
 export function GetGameAdvice() {
-
+  const error = new Error();
+  console.log("Setup");
   const monopolyProperties = [
     "Atlantic Avenue",
     "Baltic Avenue",
