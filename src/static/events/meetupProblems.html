@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/styles/sharedStyles.css" />
+  <link rel="icon" href="data:,">
 
   <title>Meetup.com challenges</title>
 
@@ -28,7 +29,7 @@
       <li>UI changes making the site harder to navigate.</li>
       <li>Changes to events not being saved correctly.</li>
       <li>Difficulty finding groups and events. I had multiple people directly tell me that
-      they had a hard  time finding my events. </li>
+      they had a hard time finding my events. </li>
     </ul>
 
     <p>These issues weren't getting resolved. At the same time, Meetup started increasing fees and
@@ -36,8 +37,94 @@
     Circle Gaming Group, and I ended up closing the group soon after. The cost for maintaining the group
     was too high, and people were not interested in using the group to host events.</p>
 
+    <h2>More details about issues I found with Meetup in December 2025.</h2>
+    <details>
+      <summary>Viewing page for the Sunday board game event I'm hosting.</summary>
+      <ul>
+        <li>The load time was 2.80 seconds, 2.08MB of Javascript was transferred, which translated to 8.08 MB of
+          uncompressed JavaScript. Meetup.com uses the Next.js framework, which is designed to optimize page
+        load time by rendering on the server and minimize the amount of JavaScript content transferred. Unless I edit the event
+        details, someone updates an RSVP or posts a comment, the page does not change. I reloaded the page, and the total
+        load time was 3.65 seconds with 2.08MB of JavaScript. </li>
+        <li>Meetup showed a banner called "Your 2025 recap is out" that took up page space. I had closed the banner multiple
+          times and did not want to see the recap Meetup generated. I also had to scroll to see RSVP information, which
+          I wanted to see as a host. There was also a banner at the bottom of the page showing the name of the event
+         and the event date a second time.</li>
+        <li>After scrolling down slightly, I saw the address and "How to find us" message displayed twice. The
+        banner at the bottom with redundant duplicate information was still visible and was covering up attendance
+        information.</li>
+        <li>There is a button called "2025" which opens a popup about my Meetup 2025 recap. It is the same
+        popup that opens up if I click on the recap banner. Also, viewing the recap requires downloading an app, when
+        it can be displayed on a regular webpage.</li>
+      </ul>
+      <img src="/images/events/meetup/SlowLoadA.png">
+      <img src="/images/events/meetup/SlowLoadB.png">
+      <img src="/images/events/meetup/RecapPopup.png">
+    </details>
 
+    <details>
+      <summary>Searching for board game events near DC in December 2025 </summary>
 
+      <ul>
+        <li>The same issues with slow loading speed and excessive JavaScript seen on my event page are also present. The
+        banner for my Meetup recap that I don't want to see is also not visible</li>
+        <li>Meetup showed a banner asking me to create a group to start organizing events. However, I was already
+        organizing events through a group I was go organizer for.</li>
+        <li>There is an open to view events by category, including categories that are not relevant for board games.</li>
+        <li>When scrolling down, I saw an online event from a group that was advertised as being for people in
+        and around NYC. An online event can't be considered to be near DC. Also, the group had its location listed as
+        NYC, which is more than 18 miles from DC.</li>
+        <li>One of the events was a recurring event for a location that has had no tables and chairs for more than a
+          year. The event description mentioned the tables and chairs that were removed, and it also mentioned a
+          restaurant that that was  no longer open. I had reported the event to Meetup months ago and no action was
+          taken.</li>
+      </ul>
+      <img src="/images/events/meetup/EventSearchUI.png">
+    </details>
+
+    <details>
+      <summary> Viewing Meetup homepage</summary>
+      <ul>
+        <li>The same issues with a slow loading time, excessive JavaScript loading, and unwanted recap banner were visible.</li>
+        <li>Meetup showed one group that I was an organizer for. Meetup also showed the text "Become an organizer". </li>
+        <li>There were duplicate buttons to try Meetup+ One was at the top and one was in a large banner near the bottom
+        of the page.</li>
+        <li>A significant amount of space was taken by two
+        unnecessary banners and a message saying "Looks like your groups are free on this date -- no events to show". Also,
+        the event I was going to host in a few days did not show up. However, an event afterwards was displayed.</li>
+        <li>Information is not logically consistent: The events under the "Your events" section and "From groups" you're
+          part of were different. The "Top picks for you"  section also showed two events I was going to attend that were
+          not visible in other sections.</li>
+        <li>The "Top picks for you" section showed an online event that I did not indicate any interest in. One event
+        I was going to host and two events I was planning to attend were shown afterwards.</li>
+      </ul>
+      <img src="/images/events/meetup/HomepageUI.png">
+    </details>
+
+    <details>
+      <summary>Excessive costs.</summary>
+      <ul>
+        <li>The cost for an organizer subscription to create a group as $25.00/month or $300.00 per year.</li>
+        <li>A subscription to Meetup+ costs $129.99/year. Without Meetup+, attendees to an event who aren't
+        organizers will not be able to see the names and pictures of people who are attending. $129.99/year is
+        excessive to charge for a feature many people find to be useful. Users can also use an avatar and pseudonym
+        if they don't want to show their real name.</li>
+      </ul>
+
+      <img src="/images/events/meetup/OrganizerSubscription.png">
+      <img src="/images/events/meetup/MeetupPlus.png">
+    </details>
+
+    <details>
+      <summary>Generative AI use</summary>
+      Generative AI is a fundamentally flawed technology, and it is not useful on Meetup.com
+
+      <li>When editing information for an event I'm hosting, Meetup shows a button that allows users to generate
+      an event description using AI. AI doesn't have the context to understand the games me and the people attending
+      my event enjoy, and it doesn't know anything about our personalities. </li>
+
+      <img src="/images/events/meetup/GenerateDescriptionWithAI.png">
+    </details>
     <!-- Show current fees -->
     <!-- Show screenshots of UX issues -->
   </div>

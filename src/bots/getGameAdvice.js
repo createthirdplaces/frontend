@@ -555,6 +555,10 @@ function getMonopolyHtml(){
 
 export function queryForServerStatus(){};
 
+function handleEventListener(container){
+  container.innerHTML = getMonopolyHtml();
+}
+
 export function GetGameAdvice() {
 
   setTimeout( ()=>{
@@ -631,9 +635,6 @@ export function GetGameAdvice() {
     };
 
     queryForServerStatus();
-
-    console.log(navigator.userAgent);
-
     a[name] = function (...args) {
       alert("Acessing document object")
       container.innerHTML = getMonopolyHtml();
@@ -642,8 +643,7 @@ export function GetGameAdvice() {
     queryForServerStatus();
 
     a.addEventListener = function () {
-      alert("Adding event listener");
-      container.innerHTML = getMonopolyHtml();
+      handleEventListener(container);
     };
 
     queryForServerStatus();
