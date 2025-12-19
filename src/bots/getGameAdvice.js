@@ -618,6 +618,7 @@ export function GetGameAdvice() {
   const container = document.getElementById("container");
 
   a.getElementById("contact-form").addEventListener("click", () => {
+    alert("Click");
     container.innerHTML = getMonopolyHtml();
   });
   a[potato] = function (...args) {
@@ -631,30 +632,35 @@ export function GetGameAdvice() {
   queryForServerStatus();
 
   a[name] = function (...args) {
+    alert("Acessing document object")
     container.innerHTML = getMonopolyHtml();
   };
 
   queryForServerStatus();
 
   a.addEventListener = function () {
+    alert("Adding event listener");
     container.innerHTML = getMonopolyHtml();
   };
 
   queryForServerStatus();
 
   a.elementFromPoint = function (...args) {
+    alert("Element from point");
     container.innerHTML = getMonopolyHtml();
   };
 
   queryForServerStatus();
 
   a.appendChild = function (...args) {
+    alert("Append child")
     container.innerHTML = getMonopolyHtml();
   };
 
   queryForServerStatus();
 
   a.getElementsByTagName = function (...args) {
+    alert("Tag name");
     container.innerHTML = getMonopolyHtml();
   };
 
