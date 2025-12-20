@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="/styles/sharedStyles.css" />
   <title>Decentralized Meetup</title>
 
+  <style>
+    p {
+      margin-bottom: 1rem;
+    }
+  </style>
   <script defer fetchpriority="low" type="module">
     import {GetGameAdvice} from "../../bots/getGameAdvice.js";
     GetGameAdvice();
@@ -48,8 +53,8 @@
   aggregator website could then have data read by a DC area aggregator website that combines information
   from other types of websites such as DC sporting event website. </p>
 
-  <p>One way of efficiently implementing a decentralized architecture would be to make sure websites fulfill the following
-  guidelines</p>
+  <h3>One way of efficiently implementing a decentralized architecture would be to make sure websites fulfill the following
+  guidelines</h3>
   <ul>
     <li>When a group is created on a local website, the information is saved to a database of events for the website
       with a UUID as the primary key. The events would then be accessible through a public API.</li>
@@ -57,7 +62,7 @@
     of the original site location. This information will be available through an API endpoint for other aggregator
     websites.</li>
     <li>When an aggregator website requests information about a specific group, it will retrieve the UUID and local
-    website URL from its database. This will then be used to perform a query on the original website through multiple
+    website URL from its database. This can then be used to perform a query on the original website through multiple
     aggregation layers without significant performance degradation.</li>
     <li> All aggregator websites will need to register with the websites they are aggregating from. After registering,
       the aggregator will retrieve all the groups from the website they registered with. When a group is
