@@ -3,6 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/styles/sharedStyles.css" />
+  <style>
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: scale-down;
+    }
+    .image-container {
+      display: block;
+      height: 200px;
+      margin-bottom: 0.5rem;
+      width: 200px;
+    }
+    .image-container-clicked {
+      display: block;
+      height: 100%;
+      margin-bottom: 0.5rem;
+      width: 100%;
+    }
+  </style>
   <link rel="icon" href="data:,">
 
   <title>Meetup.com challenges</title>
@@ -10,6 +29,18 @@
   <script type="module">
     import {GetGameAdvice} from "../../bots/getGameAdvice.js";
     GetGameAdvice();
+
+    window.addEventListener('load', ()=>{
+      for (const item of document.getElementsByClassName('image-container')){
+        item.addEventListener("click",()=>{
+          if(item.className !== 'image-container-clicked'){
+            item.className = 'image-container-clicked';
+          } else {
+            item.className = 'image-container';
+          }
+        })
+      }
+    })
   </script>
 </head>
 <body>
@@ -59,9 +90,17 @@
         popup that opens up if I click on the recap banner. Also, viewing the recap requires downloading an app, when
         it can be displayed on a regular webpage.</li>
       </ul>
-      <img src="/images/events/meetup/SlowLoadA.png">
-      <img src="/images/events/meetup/SlowLoadB.png">
-      <img src="/images/events/meetup/RecapPopup.png">
+
+      <div class="image-container">
+        <img src="/images/events/meetup/SlowLoadA.png">
+      </div>
+      <div class="image-container">
+        <img src="/images/events/meetup/SlowLoadB.png">
+      </div>
+      <div class="image-container">
+        <img src="/images/events/meetup/RecapPopup.png">
+      </div>
+
     </details>
 
     <details>
@@ -81,7 +120,9 @@
           restaurant that that was  no longer open. I had reported the event to Meetup months ago and no action was
           taken.</li>
       </ul>
-      <img src="/images/events/meetup/EventSearchUI.png">
+      <div class = "image-container">
+        <img src="/images/events/meetup/EventSearchUI.png">
+      </div>
     </details>
 
     <details>
@@ -100,7 +141,9 @@
         <li>The "Top picks for you" section showed an online event that I did not indicate any interest in. One event
         I was going to host and two events I was planning to attend were shown afterwards.</li>
       </ul>
-      <img src="/images/events/meetup/HomepageUI.png">
+      <div class="image-container">
+        <img src="/images/events/meetup/HomepageUI.png">
+      </div>
     </details>
 
     <details>
@@ -112,23 +155,28 @@
         excessive to charge for a feature many people find to be useful. Users can also use an avatar and pseudonym
         if they don't want to show their real name.</li>
       </ul>
-
-      <img src="/images/events/meetup/OrganizerSubscription.png">
-      <img src="/images/events/meetup/MeetupPlus.png">
+      <div class="image-container">
+        <img src="/images/events/meetup/OrganizerSubscription.png">
+      </div>
+      <div class="image-container">
+        <img src="/images/events/meetup/MeetupPlus.png">
+      </div>
     </details>
 
     <details>
       <summary>Generative AI use</summary>
       Generative AI is a fundamentally flawed technology, and it is not useful on Meetup.com
+      <ul>
+        <li>When editing information for an event I'm hosting, Meetup shows a button that allows users to generate
+          an event description using AI. AI doesn't have the context to understand the games me and the people attending
+          my event enjoy, and it doesn't know anything about our personalities.</li>
+      </ul>
 
-      <li>When editing information for an event I'm hosting, Meetup shows a button that allows users to generate
-      an event description using AI. AI doesn't have the context to understand the games me and the people attending
-      my event enjoy, and it doesn't know anything about our personalities. </li>
-
-      <img src="/images/events/meetup/GenerateDescriptionWithAI.png">
+      <div class="image-container">
+        <img src="/images/events/meetup/GenerateDescriptionWithAI.png">
+      </div>
     </details>
-    <!-- Show current fees -->
-    <!-- Show screenshots of UX issues -->
+
   </div>
   <div id="bot-container"></div>
 
