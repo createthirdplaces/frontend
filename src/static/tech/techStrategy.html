@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/sharedStyles.css" />
+    <link rel="icon" href="data:,">
+
+    <title>Create Third Places tech strategy</title>
+    <script type="module">
+      import {GetGameAdvice} from "../../bots/getGameAdvice.js";
+      GetGameAdvice();
+    </script>
+
+    <style>
+      p {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+  <div id="container">
+    {{>navbar}}
+    <h1>Create Third Places tech strategy</h1>
+
+    <b>The goal of Create Third Places is to promote accessible offline public spaces. Tech will be used as a way
+    to support this goal.</b>
+
+    <h2>Key priorities</h2>
+    <ol>
+      <li>Minimize dependence on 3rd party cloud providers such as AWS, Azure, or Google Cloud Platform.</li>
+      <li>Focus on developing using Linux</li>
+      <li>Focus on open source technology</li>
+      <li>Support for using <a href="https://docs.joinmastodon.org/spec/activitypub/">ActivityPub</a></li>
+      <li>Minimize the number of libraries and frameworks that are dependencies.</li>
+    </ol>
+
+    <h2>Learning</h2>
+
+    <p>When working on Create Third Places, tradeoffs should be considered when taking shortcuts. While shortcuts
+      might help productivity in the short term, they are likely to be detrimental to long term learning.</p>
+
+    <p>People working on the Create Third Places to also be developing skills for writing good software, and not just
+      focus on getting things done. Good software as something that is designed well from a technical perspective while
+      provides a good user experience for a user to do something they are looking to do. This also mean avoiding writing
+      software that is not relevant to the software's use case. Unnecessary software takes time to write and maintain.</p>
+
+    <p>While writing software that has minimal dependencies, that should be a limit to the amount of time spend on trying
+      to replace dependencies with handwritten code. For example, programming the entire backend for an event
+      hosting website entire would be great for learning how a computer works and how memory is managed. However,
+      programming in assembly language would be time consuming and add a significant amount of complexity to development.
+      Maintenance would also be a challenge because of the amount of assembly code that needs to be written </p>
+
+    <h2>User experience</h2>
+    <p>User experience is very important. In addition to regularly asking users for feedback, the following metrics
+      are used to make sure the site provides a good user experience </p>
+    <ul>
+      <li>All user actions on the website generate a visual response within 100 milliseconds.</li>
+      <li>If a user action is going to take more than 100 milliseconds to resolve, then a loading indicator should be shown. </li>
+      <li>User actions should not take more than 100 milliseconds to show a result when no API call is necessary. </li>
+    </ul>.
+
+    <h2>Notes on specific technologies that will be used.</h2>
+
+    <p>Create Third Places code will use vanilla JavaScript on the frontend with a
+      <a href="/static/tech/placesjs.html">custom framework places.js</a></p>
+
+    <details>
+      <summary>An evaluation of using React and Node.js</summary>
+
+      <p>Some advantages of using React and Node.js</p>
+      <ul>
+        <li>
+          Familiarity with React is likely to speed up development. There are variety of web development tools that exist that
+          have different strengths and weaknesses. However, many developers are familiar with React and Node.js, and a
+          large number of websites have been successfully designed with React.
+        </li>
+        <li>Using tools that developers are less likely to be familiar with such as Kotlin and Vue.js. Developers will
+          probably have to take time to learn them, which will slow them down in the short term. Code quality will
+          probably also become worse in the short term. </li>
+        <li>
+          Learning about an unfamiliar tool might end up being a waste of time if evidence ends up suggesting that
+          the tool is not useful.
+        </li>
+        <li>
+          The fact that React is widely used will make it easier to find other developers to help work on the website.
+        </li>
+      </ul>
+
+      <p>Challenges with using React</p>
+      <ul>
+        <li>
+          React guides encourage using dependencies, and too many dependencies can become a problem. Dependencies often
+          have other dependencies, and they often have breaking changes. These case compatibility issues.
+          <br>
+          Dependencies should not be added without a clear undestanding of the benefits and drawbacks. Tools can be
+          added later once developers have enough understanding to of the tool. For example, there might be a way to get
+          performance benefits from server side rendering in Next.js. However, getting a benefit from Next.js depends
+          on how the website develops and the functionality it provides.
+        </li>
+        <li>
+          Documentation is often inconsistent due to frequent changes. They might also come across as misleading because
+          they are pushing for solutions that do not make sense with the version of React that is being used. This
+          inconsistent documentation will lead to decreased code quality.
+          For example, here are 3 possible ways to manage UI state using React.
+          <ul>
+            <li><a href="https://react.dev/reference/react/useState">useState</a></li>
+            <li><a href="https://react.dev/reference/react/useContext">useContext</a></li>
+            <li><a href="https://react.dev/reference/react/useReducer">useReducer</a></li>
+          </ul>
+          There are also a variety of state management libraries that can be used, and sometimes they can be
+          combined such as using <a href="https://tanstack.com/query/latest">TanStack Query</a> and
+          <a href="https://zustand.docs.pmnd.rs/getting-started/introduction">Zustand.</a> If
+          <a href="https://redux-toolkit.js.org/introduction/getting-started">Redux Toolkit</a> is used, then
+          there is a TanStack Query equivalent called <a href="https://redux-toolkit.js.org/rtk-query/overview">
+          RTK query that can be used.
+          <br>
+          While useContext isn't a recommended way to manage complex state, it is possible to manage complex state
+          with useContext. Starting off with the useContext hook to store state in a React context will work for a
+          simple application, and the problems with useContext will probably reveal themselves in the form of
+          slow UI rendering and rendering logic that is hard to follow. At this point, the application will be
+          complex, and improving the state management code will be complex.
+        </a>
+        </li>
+        <li>
+          Documentation sometimes encourages solutions that may not be the right use case. For example, many articles
+          found in December 2024 were suggesting using Server Side React with a tool such as Next.js. At the time, it
+          seemed that Next.js would add a significant amount of complexity and performance overhead without benefits.
+          When searching the official React documentation in late 2025, it contained recommendations to get started
+          with React by using Next.js.
+        </li>
+      </ul>
+
+      <h2> Reasons why vanilla JavaScript should be used</h2>
+
+      <ul>
+        <li>Complexity of pages may not justify using React.</li>
+        <li>State can be managed in vanilla JavaScript such as by using the technique listed below</li>
+        <li>
+          <ul>
+            <li>
+              A custom JS file can be used to save a state object and return it. While the approach of using a custom
+              JS file is more complex, there is the advantage of having one less dependency.
+            </li>
+            <li>The state object can have callback lists for each getter for components to subscribe to.</li>
+            <li>Components can generate html and event listeners that subscribe to store and re-render as necessary.</li>
+            <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">Observer API</a>
+              can be used to subscribe to component visibility
+            </li>
+          </ul>
+        </li>
+        <li>All API calls save data to a global state.</li>
+        <li>When rendering, each component will create class id tags that will be linked to state.</li>
+        <li>Active visible components will be stored in a tree structure</li>
+        <li>
+          Less dependence on Internet to look up documentation, which helps with focus.
+          <ul>
+            <li>Developers will spend less time on the Internet. Many websites that answer technical questions about
+              frameworks have other distractions even though they are also giving useful information. Also, websites
+              have inaccurate or misleading information that needs to be parsed through. The usefulness of
+            online documentation has also declined as more people are generating documentation using AI.</li>
+          </ul>
+        </li>
+        <li>UI code does not have to rely on framework behavior that is hard to notice or understand. As a result
+          vanilla JavaScript lead to fewer rendering bugs and more UI responsiveness. </li>
+        <li>
+          Fewer challenges with patterns from outside a framework or library being used for the tool. For example,
+          when using React, patterns from other tools will often be applied to React that do not make sense in React.
+          One example is conditionally calling a hook within a React 16 functional component using an if statement, and
+          this method of calling a hook was not supported in React 16.
+          <br>
+          If someone is not aware of how a certain aspect of a framework works, there might be a challenge such as
+          correctly managing state in React without a significant performance overhead.
+          One example is trying to manage complex React state in a React context that is constantly changing.
+          The issue is that every component subscribed to the context when one part of the context updated, even if the
+          change was not relevant to the UI component. This can cause performance slowdowns that are challenging
+          to understand.
+        </li>
+        <li>
+          Improved rendering speed. UI loading speed is very important. It affects user experience as well. An interface
+          that loads quickly and is responsive is one that people want to use. A framework does add some amount of load
+          time, especially if it comes with other dependencies. For example, React is often combined with a state
+          management library.
+        </li>
+        <li>Sometimes, the added difficulty of implementing UI components in vanilla JS might be a good thing. If UI
+          changes are quicker to implement, that incentivizes more UI changes to be done. Create Third Places should
+          only focus on changes that are essential for people to find or host in person events. Focusing too much
+          on website features is a mistake.
+        </li>
+      </ul>
+    </details>
+
+      <h2>Notes about other technologies that can be used</h2>
+
+      <ul>
+        <li>
+          Deno.js: New Javascript runtime made by the creator of Node.js
+        </li>
+        <li>
+          Kubernetes
+          <ul>
+            <li>Kubernetes could be used to make a website cloud platform agnostic. </li>
+            <li>Other developers could then create forks of the website for their own location or activity specific
+              website. Kubernetes could simplify the process that other developers will have to follow to work on the
+              website.</li>
+          </ul>
+        </li>
+        <li>
+          Docker Compose
+          <ul>
+            <li>Less complex than Kubernetes for container orchestration. However, it doesn’t scale as well
+              and can only handle applications running on one host.
+            </li>
+            <li>
+              Docker Compose also seems to be more useful for local development.
+            </li>
+          </ul>
+        </li>
+        <li>
+        Solid Protocol: User creates data that is stored in pods where they have control over the data. The user can
+          distribute different types of information among several different pods.
+        <ul>
+          <li>Authenticated applications would then have access to specific pods.</li>
+          <li>Solid could be useful for storing user specific information such as group memberships.</li>
+        </ul>
+        </li>
+        <li>UI
+          <ul>
+            <li>Svelete</li>
+            <li>Angular: Angular less widely used compared to React, which could be an indicator that people find
+              Angular less useful. On the other hand, the quality of tutorials online seems to be better.
+              The learning curve for Angular might be an issue because it will slow down the creation of the website.
+            </li>
+            <li>Flutter</li>
+            <li>
+              Criteria to evaluate UI options
+              <ul>
+                <li>Code complexity </li>
+                <li> Rendering speed</li>
+                <li>UI quality</li>
+                <li>Ability to run UI without downloading an app</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+
+      <h2>Backend alternatives to Node.js with TypeScript</h2>
+
+      <ul>
+        <li>Java: Static typing and unit testing support with JUnit and Mockito are helpful. However, it is harder
+        to get a basic API running</li>
+        <li>Python</li>
+        <li>Using Node.js without TypeScript
+          While TypeScript type checking is helpful, there are some challenges with using TypeScript.
+          <ul>
+            <li>An extra step in the build process.</li>
+            <li>Typescript type checking can cause issues with certain versions of npm packages if
+              package and types are not defined.</li>
+            <li>Writing unit tests could be more challenging when trying to use mock objects because of type definitions.
+              For example, one common tool used for Node.js automated testing is Jest, which does support mocks.
+              However, Jest can be harder to use and more error prone compared to mocking in Java with Mockito mocks.</li>
+          </ul>
+        </li>
+        <li>PHP
+            <ul>
+              <li>PHP could be a useful way of rendering web pages on the server. The process for SSR with a UI library
+                appears to be less complex than using a JS framework such as Next.js based on
+                <a href=" https://inertiajs.com/client-side-setup">this example</a>. If a JS library is not necessary,
+                it is straightforward to just add a PHP page on the server.
+               </li>
+              <li>PHP appears to have more mature tooling compared to Node.js because it has been around for more time.</li>
+              <li> Node.js has a limited selection of built-in libraries compared to PHP. For example,
+                a database library has to be installed to connect to a database in Node.js, while PHP already has one.
+                Writing a custom database library would be a time-consuming process. The number of dependencies will
+                make the challenge of managing dependencies between libraries harder in Node.JS</li>
+            </ul>
+        </li>
+      </ul>
+
+
+    <h2>Lessons learned form initial development by Bharat Ponnaluri</h2>
+
+    <ul>
+      <li>Pivot away from a tool that does not seem to be working.</li>
+      <li>When planning how long a feature will take, account for the chance that you may be trying to use a tool that
+        does not address the use case. </li>
+      <li>Don’t spend too much time trying to pick the perfect set of tools before trying to write code. Sometimes,
+        seeing how a tool works when attempting to use it for a feature is the best way of knowing if it works or not.
+      </li>
+      <li>
+        Don’t rush to get something working, and make sure you are building off a good foundation.
+      </li>
+    </ul>
+      <h4><a href="https://deno.com/">Deno</a> evaluation</h4>
+
+      <p>
+        I found out that the creator of Node.js, Ryan Dahl created a new JavaScript runtime called Deno.js. I initially
+        thought it was an improvement over Node.js due to improved package management and built-in TypeScript support.
+        Also, I thought that the fact that Deno.js was new would be a good opportunity for Dahl and other Deno.js
+        developers to improve upon some challenges with Node.js I noticed such as intermittent build failures and
+        confusing error stack traces.
+      </p>
+
+      <p>
+        However, I ran into challenges when attempting to deploy Deno with React. Troubleshooting errors was difficult
+        because documentation was limited. The latest error I ran into was a build error when attempting to use the React
+        useState hook. Upon investigation, I found out that the error was related to how Deno imported the React
+        dependency, and I did not find any documentation on a workaround.
+      </p>
+
+      <p>
+        While I could’ve spent time trying to troubleshoot the issue with the useState hook, I decided that it was not
+        worthwhile. Troubleshooting the issue with the useState hook was going to take an uncertain amount of time if I
+        was able to resolve the issue. I also thought it was possible that I was going to spend a large amount of time trying
+        to resolve the issue and then running into a blocker that would’ve required solving the issue by either not
+        using React or Deno.js.
+      </p>
+
+      <p>
+      Also, the limited documentation and the fact that I was running into an issue with the useState hook made me
+        concerned about the risk of running into other challenges. React was the most popular library for building
+        interactive web applications in 2024, and useState was often used in React. If Deno.js was not able to have
+        a working script or documentation for a common use case, I was concerned about its ability to support less
+        common use cases.
+      </p>
+
+      <h4>Deployment pipeline</h4>
+
+      <p>
+        While it is possible to deploy the site by building it manually and then copying and pasting on the server, I
+        decided to build an automated pipeline for deployment. Although it involved some upfront time investment, I
+        thought it was worth the time.
+      </p>
+
+      <p>
+        Having to manually build and then copy and paste to the server would have been quicker in the short term. However,
+        it would have been very time-consuming in the long term. I decided to set up a test build on the site using the
+        main branch.
+      </p>
+
+      <p>
+        Then I set up an automated production deployment pipeline on DigitalOcean. Every time an update was made to the
+        prod branch, a deployment would happen and the updates would go live. The idea behind having a separate prod
+        branch was that the changes would be verified on the main branch, and then the changes would be merged to the
+        prod branch. From past experience, I have learned that merging code to a prod branch that has only been tested
+        locally is risky, even with automated tests.  Also, this testing setup was designed as a way for changes to be
+        verified by another person without them needing to manually download and run a test version of the website.
+      </p>
+  </div>
+  <div id="bot-container"></div>
+
+  </body>
+</html>
