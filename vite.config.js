@@ -24,13 +24,15 @@ export default defineConfig({
 
         decentralizedMeetup: resolve(__dirname, "src/static/events/decentralizedMeetup.html"),
 
-        framework: resolve(__dirname, "src/static/placesjs.html"),
+        framework: resolve(__dirname, "src/static/tech/placesjs.html"),
 
         locationListingTutorial: resolve(__dirname, "src/static/locationListingTutorial.html"),
         locationMapListing: resolve(__dirname, "src/static/locationMapListing.html"),
 
         main: resolve(__dirname, "src/index.html"),
         meetupProblems: resolve(__dirname, "src/static/events/meetupProblems.html"),
+
+        techStrategy: resolve(__dirname, "src/static/events/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/static/toasterTrouble.html"),
 
         vision: resolve(__dirname, "src/static/vision.html")
