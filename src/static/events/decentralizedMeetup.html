@@ -20,7 +20,7 @@
   <h1>Decentralized meetup alternative</h1>
 
   <p>
-    Createthirdplaces.com is  working on open source software
+    Createthirdplaces.com is working on open source software
     for people to find in person events as a way of promoting third places.
   </p>
 
@@ -35,11 +35,52 @@
     <li>Decentralization</li>
   </ul>
 
+  <h2>Details about the decentralized architecture</h2>
+
+  <p>The general idea behind the decentralized architecture will involve having 2 types of sites. Local websites
+  for a specific activities and aggregator websites. Local websites will be independently created and run
+  while sharing data through an API. Aggregator websites will read data from multiple local sites and allow users
+  to search through multiple sites at the same time. Aggregator websites can also be aggregators for other websites.</p>
+
+  <p>For example, there can be a local websites in DC for chess events and a website for playing resource
+  management games such as Catan. A board game aggregator website could then read information from the chess
+  website and Catan website, and allow users to search for events related to both activities. The board game
+  aggregator website could then have data read by a DC area aggregator website that combines information
+  from other types of websites such as DC sporting event website. </p>
+
+  <p>One way of efficiently implementing a decentralized architecture would be to make sure websites fulfill the following
+  guidelines</p>
+  <ul>
+    <li>When a group is created on a local website, the information is saved to a database of events for the website
+      with a UUID as the primary key. The events would then be accessible through a public API.</li>
+    <li>Aggregator websites save the UUIDs of all groups in their aggregation and include references to the API endpoint
+    of the original site location. This information will be available through an API endpoint for other aggregator
+    websites.</li>
+    <li>When an aggregator website requests information about a specific group, it will retrieve the UUID and local
+    website URL from its database. This will then be used to perform a query on the original website through multiple
+    aggregation layers without significant performance degradation.</li>
+    <li> All aggregator websites will need to register with the websites they are aggregating from. After registering,
+      the aggregator will retrieve all the groups from the website they registered with. When a group is
+      created or deleted, it will look at the websites that registered as aggregators, and then call an API endpoint for
+      the aggregator to make sure it has information about the group.
+    </li>
+  </ul>
+  <h3>Challenges that this architecture will address</h3>
+    <ul>
+      <li>Efficiently reading updated data from other websites. If an aggregator website has to check other websites to
+        get information and those websites are also aggregators, then it will be important to optimize performance. Also,
+        circular dependencies will also need to be handled. </li>
+      <li>Handling authentication and user permissions. One possible way to address the complexity would be for people to
+        have the ability to join group or modify groups they created through aggregator websites. This would help with
+        usability. However, it will add complexity in the short term and could make things too centralized.
+      </li>
+      <li>Handling issues with too many requests from a location</li>
+    </ul>
 
   <br>
   <p>
-    As a starting point, a local website for in person board games in the DC area
-    has been created at <a href="https://dmvboardgames.com/">dmvboardgames.com</a>.
+    As a starting point, a local website for in person board games in the DC area is
+    being worked on at <a href="https://dmvboardgames.com/">dmvboardgames.com</a>.
     Other third place websites will be able to read data from the dmvboardgames.com
     backend through an API. Source code for dmvboardgames.com is
     <a href="https://github.com/gatherspiel/DMVBoardGames">here</a>
