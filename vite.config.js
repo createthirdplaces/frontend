@@ -32,7 +32,7 @@ export default defineConfig({
         main: resolve(__dirname, "src/index.html"),
         meetupProblems: resolve(__dirname, "src/static/events/meetupProblems.html"),
 
-        techStrategy: resolve(__dirname, "src/static/events/techStrategy.html"),
+        techStrategy: resolve(__dirname, "src/static/tech/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/static/toasterTrouble.html"),
 
         vision: resolve(__dirname, "src/static/vision.html")
