@@ -151,7 +151,12 @@ export class GuidelinesComponent extends HTMLElement{
               <vanilla-js-click-resize-example></vanilla-js-click-resize-example>
           </details>
 
-
+          <p><a href="https://gomakethings.com/creating-a-toggle-switch-with-just-css/">Here </a> is an example
+          of how a toggle switch can be created using only HTML and CSS. It is also available as a 
+          <a href="https://kelpui.com/docs/components/switch/">web component</a> in the Kelp UI library. Kelp
+           can be installed without a build step by following 
+           <a href="https://kelpui.com/docs/getting-started/installation/">this</a> tutorial.</p> 
+          
     On the other hand, a component that is responsible for querying a backend API to update a user's event
             RSVP status, show the status of the RSVP API call, and show an updated RSVP count is a good candidate
             for a places.js component.
