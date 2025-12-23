@@ -30,7 +30,9 @@ export default defineConfig({
         locationMapListing: resolve(__dirname, "src/static/locationMapListing.html"),
 
         main: resolve(__dirname, "src/index.html"),
-        meetupProblems: resolve(__dirname, "src/static/events/meetupProblems.html"),
+        meetupProblems: resolve(__dirname, "src/static/places.html"),
+
+        places: resolve(__dirname, "src/static/events/meetupProblems.html"),
 
         techStrategy: resolve(__dirname, "src/static/tech/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/static/toasterTrouble.html"),
