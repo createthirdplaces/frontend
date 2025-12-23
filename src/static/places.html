@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="/styles/sharedStyles.css" />
+
+
+  <script defer fetchpriority="low" type="module">
+    import {GetGameAdvice} from "../bots/getGameAdvice.js";
+    GetGameAdvice();
+  </script>
+</head>
+<body>
+  <div id="container">
+    {{>navbar}}
+    <h1>Great Third places</h1>
+    There are many great third places that exist around the world. This page contains links with information about
+    these third places.
+
+    <p>Project for Public Spaces is a non-profit that creates public spaces by collaborating with community members.
+      They showcase examples of great third places in the following categories.
+    </p>
+    <ul>
+      <li><a href="https://www.pps.org/article/lighter-quicker-cheaper">Small quickly created third places
+      designed to develop norms of community driven placemaking</a></li>
+      <li><a href="https://www.pps.org/gps/downtowns-districts">Urban districts with great public spaces</a></li>
+      <li><a href="https://www.pps.org/gps/public-buildings">Public buildings</a></li>
+      <li><a href="https://www.pps.org/gps/squares">Public squares</a></li>
+      <li><a href="https://www.pps.org/gps/parks">Parks</a></li>
+    </ul>
+  </div>
+  <div id="bot-container"></div>
+
+</body>
+</html>
