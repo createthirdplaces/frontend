@@ -29,79 +29,89 @@
     {{>navbar}}
     <h1>Create Third Places tech strategy</h1>
 
-    <p>The goal of Create Third Places is to promote accessible offline public spaces. Tech will be used as a way
-    to support this goal.</p>
+    <p>The goal of Create Third Places is to promote accessible offline public spaces called third places. Tech will be
+      used as a way to support this goal.</p>
 
-    <h2>Key priorities</h2>
-    <ol>
-      <li>Minimize dependence on 3rd party cloud providers such as AWS, Azure, or Google Cloud Platform.</li>
-      <li>Focus on developing using Linux.</li>
-      <li>Focus on open source technology.</li>
-      <li>Support using <a href="https://docs.joinmastodon.org/spec/activitypub/">ActivityPub</a></li>
-      <li>Minimize dependencies.</li>
-    </ol>
 
     <h2>Learning</h2>
 
-    <p>When working on Create Third Places, long term learning should also be considered. While shortcuts
-      might help productivity in the short term, they are likely to be detrimental to long term learning.</p>
+    <p>When working on Create Third Places, long-term learning is important. While shortcuts
+      can improve short term productivity, they are likely to be detrimental to long term learning.</p>
 
-    <p>People working on createthirdplaces.com should also be developing skills for writing good software, and not just
-      focus on getting things done. Good software is designed well from a technical perspective while
-      provides a good user experience. This also mean avoiding writing software that is not relevant to a user.
+    <p>People working on Create Third Places should also be developing skills for writing good software, and not
+      just focus on getting things done. Good software is designed well from a technical perspective while
+      provides a good user experience. This also means avoiding writing software that is not relevant to a user.
       Unnecessary software takes time to write and maintain.</p>
 
     <p>While minimizing dependencies is important, there should be a limit to the amount of time spent on trying
       to replace dependencies with handwritten code. For example, programming the entire backend for an event
-      hosting website in assembly would be great for learning how a computer works and how memory is managed. However,
+      hosting website in assembly would be useful for learning how a computer works and how memory is managed. However,
       programming in assembly language would be time-consuming and add a significant amount of complexity.
       Maintenance would also be a challenge because of the amount of assembly code that needs to be written. </p>
 
     <h2>New features</h2>
 
-    <p>New features should support the goal of promoting accessible public spaces. This means features such as
-    discussion boards and private messaging should not be supported. They do not support the goal of encouraging
-    people to meet in person in a third place. Also, people should be encouraged to share contact information
-    in person in a third place if they want to communicate online.</p>
-
-    <p>Another example of a feature that will not be included is the ability to rate specific third places. This would
-      take up room in the UI and be a distraction for many people. People are also unlikely to
-      take time to rate every third place they visit, which wll probably make the ratings somewhat inaccurate. Also,
-      there are a variety of factors that go into determining the quality of a third place that cannot be simplified to
-      a numerical rating. </p>
-
-    <p>While ratings can also be a way for people to communicate their preferences for a third place, it can also lead to
-      people rating a third place without having been there. Not having ratings would also
-      encourage people to communicate with each other more to determine preferences.</p>
-
     <p>
-      It will be important to not add too many features to make sure createthirdplaces.com is an effective resource for
-      people. UI clutter will become an issue because some users may not be interested in using a certain feature.
-      UI clutter might also make it harder to find core features such as event filtering. Also, additional
-      features make the codebase larger, which will increase the tine necessary to maintain and test the codebase.
+      New features should support the goal of promoting accessible offline third places. While features such as
+      discussion boards and private messaging are useful, they will not be supported by Create Third Places because
+      they do not directly support the goal of encouraging people to meet in a third place. People should be encouraged
+      to meet new people in third places and then share contact information there if they want to communicate
+      online.
     </p>
 
     <p>
-      One possible way to add new features is a plugin system for users to customize their experience. These plugins
-      would use JavaScript and are loaded when a user logs in. Plugin support is also another reason why vanilla
-      JavaScript should be used. It will be easier to write plugins when they don’t have to consider rendering patterns
-      specific to a library. Also, anyone who wants to create a plugin and knows JavaScript will be able to do so without
-      knowing a specific framework.
+      Another example of a feature that will not be included is the ability to rate third places. Ratings
+      take up room in the UI and be a distraction for some people. People are also unlikely to
+      take time to rate every third place they visit, and there are already existing sites where people rate third
+      places.
+      For example, on December 23rd, 2025 there were <a href="https://www.yelp.com/biz/dupont-circle-washington">
+        130 Yelp ratings for Dupont Circle in Washington DC</a>, which is far less than the
+      <a href="https://maps.app.goo.gl/3BG5VUad82ZXsLi28">1022 ratings on Google Maps.</a> Google Maps reviews for
+      DuPont Circle started being added more than 5 years ago, which would translate to 0 or 1 review posted
+      on an average day and most people do not submit Google Maps ratings.
+      DuPont Circle is an area of DC that receives a high amount of foot traffic, which averages
+      to far more than 1 person per day.
     </p>
 
-    <p> However, there are some challenges to consider with plugins. There are security concerns if people are able to
-      add malicious scripts. To address this, all plugins should go through a review process before people can use them,
-      or the scripts need to be blocked from making API calls. Also, the complexity of maintaining support for custom
-      scripts and plugins needs to be considered.
+    <p>
+      While ratings can also be a way for people to communicate preferences for a third place, it can also lead to
+      people rating a third place without having been there. Create Third Places encourages people to talk with people
+      they met in person to get and share feedback on third places.
     </p>
 
+    <p>
+      Too many features will make Create Third Places a less effective resource for people. A large number of features
+      will make it harder to find core features such as event filtering. Also, additional features that add interactivity
+      will increase the tine necessary to maintain and test the codebase.
+    </p>
+
+    <p>
+      One possibility for adding new features is a plugin system for users to customize their experience. These plugins
+      would use JavaScript and be loaded when a user logs in. Also, the plugins would be integrated with the site without
+      using any external JavaScript dependencies. It will be easier to write plugins when they don’t have to consider
+      rendering patterns specific to a dependency such as React. Also, anyone who wants to create a plugin and knows
+      JavaScript will be able to do so without needing to know how a specific external dependency works.
+    </p>
+
+    <p> However, there are some challenges to consider with plugin support. One challenge is that plugins could cause
+      security issues through malicious scripts. To address this, all plugins should go through a review process before
+      people can use them, or the scripts need to be blocked from making API calls. Also, the complexity of maintaining
+      support for custom scripts and plugins needs to be considered.
+    </p>
+
+    <p>
+      A plugin system would also need to be designed in a way that doesn't make decentralization harder. If developers
+      are building plugins, there could be too much centralization because the plugins are dependent on
+      Create Third Places . Create Third Places will also encourage people to create their own third place websites to provide
+      customized functionality.
+    </p>
 
     <h2>User experience</h2>
 
-    <p>User experience is very important. In addition to regularly asking users for feedback, the following metrics
-      are used to make sure the site provides a good user experience. </p>
+    <p>User experience is very important  In addition to regularly asking users for feedback, the following metrics
+      are prioritized to make sure createthirdplaces.com provides a good user experience. </p>
     <ul>
-      <li>All user actions on the website generate a visual response within 100 milliseconds.</li>
+      <li>All user actions generate a visual response within 100 milliseconds.</li>
       <li>If a user action is going to take more than 100 milliseconds to resolve, then a loading indicator should be shown. </li>
       <li>User actions should not take more than 100 milliseconds to show a result when no API call is necessary. </li>
     </ul>
@@ -110,116 +120,123 @@
     <h2>Notes on key technical principles</h2>
 
     <h3>Minimize tech debt</h3>
+    <p>Minimizing tech debt will have the following main benefits</p>
       <ul>
-        <li><b>Minimizing costs.</b> Tech debt will increase the costs of createthirdplaces.com, and increase
-        the need for donations and paid features. This could cause a need to compromise on values.
-          People should use the site because they want to, and not because they have been manipulated into using the site.
-          They should think for themselves, which includes not making a decision about a
-          leisure activity because someone compelled them to do so. Higher costs are likely to cause a need for
-          manipulative tactics that make it harder for people to think for themselves.
+        <li><b>Lower costs.</b> Tech debt will increase the costs of createthirdplaces.com, and increase
+          the need for donations and paid features. This could cause a need to compromise on values to raise the necessary
+          money. Higher costs are likely to cause a need for manipulative tactics that make it harder for people to
+          think for themselves. People should use the site because they want to, and not because they have been manipulated
+          into using the site.
         </li>
-        <li><b>Addressing user feedback</b> People will be
-          using the website by choice and the website will not have a large advertising budget. As a result, information
+        <li><b>Addressing user feedback more quickly.</b>Less tech debt means the code is less complex, which
+          translates to a need to spend less time to make changes. People will be using createthirdplaces.com by choice and
+          the website will not have a large advertising budget. As a result, information
           about the website will likely spread more through word of mouth, and it will be important to provide a good
-          user experience.
-        </li>
+          user experience. This includes quickly addressing bugs that users report.
+        </li>      </ul>
+
+      <b>Some things that should be done to reduce tech debt.</b>
+      <ul>
         <li>
-          <b>Some things that should be done to reduce tech debt.</b>
+          <b>Prioritize readability</b>
           <ul>
-            <li>Prioritize readability.
-              <ul>
-                <li>Code should be straightforward to make sure developers can quickly understand it.
+            <li>
+              Code should be straightforward to make sure developers can quickly understand it.
               Readable code will lead to a reduced risk of developers accidentally making a change that adds a bug or
               one that adds complexity. Trying to look at complex the code might give the impression that it does
               one thing when reality is that it does something else.
-              <br>
-              <br>
-              Poor readability could also cause developers to become frustrated. As createthirdplaces.com is a website
-              that encourages community, it's important to make sure stress levels aren't high. Less stress will help
-              people enjoy their personal lives and make it easier to build community.</li>
-              </ul>
-            </li>
-        <li>Minimize dependencies
-          <ul>
-            <li>More dependencies adds more complexity and can make dependency management significantly harder.</li>
-            <li>More dependencies will increase load time, which can be a significant issue on the frontend.</li>
-            <li>
-              Learning how to use a dependency or choosing a dependency for a specific task will take time. Also, people
-              will recommend different solutions for the use case
-              a dependency is going to address. One example is when looking for recommendations for third party tools for React
-              State management. There are a variety of tools recommended including MobX, Redux Toolkit, and Zustand.
-            </li>
-            <li>
-              Another issue with too many dependency is breaking changes with an upgrade or recommendation to move to a new
-              pattern. While staying with an older version of a library is possible, it can cause challenges.
-              For example, class components were recommended for use in React in older versions. Later, functional components
-              were recommended, while documentation for class components remained. This fragmentation makes getting
-              help difficult.
-            </li>
-            <li>A dependency may have specific ways of providing functionality that can conflict with outside patterns
-              being applied.</li>
+            <br>
+            <br>
+            Poor readability could also cause developers to become frustrated. As createthirdplaces.com is a website
+            that encourages community, it's important to make sure stress levels aren't high. Less stress will help
+            people enjoy their personal lives and make it easier to build community.</li>
           </ul>
+        </li>
+    <li>
+      <b>Minimize dependencies</b>
+      <ul>
+        <li>More dependencies adds more complexity and can make dependency management significantly harder.</li>
+        <li>More dependencies will increase load time, which can be a significant issue on the frontend.</li>
+        <li>
+          Learning how to use a dependency or choosing a dependency for a specific task will take time. Also, people
+          might recommend different solutions for the use case
+          a dependency is going to address. One example is when looking for recommendations for third party tools to
+          manage UI state for a frontend mae with React. There are a variety of tools recommended including MobX,
+          Redux Toolkit, and Zustand.
         </li>
         <li>
-          Take time upfront to build features with minimal tech debt
-          <ul>
-            <li>
-              This ensures that there is a strong foundation that can effectively handle changes. New features are
-              probably not going to remain static as they will need to be updated to add enhancements or fix bugs.
-            </li>
-          </ul>
+          Another issue with too many dependencies is breaking changes with an upgrade or recommendation to move to a new
+          pattern. While staying with an older version of a library is possible, it can cause challenges.
+          For example, class components were recommended for use in React in older versions. Later, functional components
+          were recommended, while documentation for class components remained. This fragmentation increases the difficutly
+          of getting help.
         </li>
-        <li>Prioritize documentation
-          <ul>
-            Website documentation should be minimized while containing necessary information. Documentation needs to be
-            updated to be considered changes, which takes time. Not updating
-            documentation means that documentation can be a distraction because it contains outdated information that
-            seems relevant. In the case where documentation is clearly outdated, developers will spend
-            time looking through the documentation to realize it is out of date.
-          </ul>
-        </li>
-        <li>Use a multi page application(MPA) architecture instead of a Single page application(SPA)
-          <ul>
-            <li>There will be multiple pages, some of which are interactive. If JavaScript on a page becomes too
-              complicated, the page will be split.</li>
-            <li>
-              Using a SPA is likely to make the user experience slightly better. However, creating a high quality
-              SPA will add a significant amount of complexity and time needed to maintain the code. Complexity
-              will come from the code necessary to implement SPA functionality in addition to the fact that complexity
-              on one area of the website is less likely to be isolated. Trying to implement separately deployed
-              microfrontends as an alternative could add a significant amount of complexity
-            </li>
-          </ul>
-        </li>
-        <li>Decouple the backend from the frontend
-          <ul>
-            <li>
-              The backend should be decoupled from the frontend. While there are many powerful frameworks which rely on
-              coupling the frontend and the backend, and there could be performance or speed benefits from the coupling,
-              it is best to avoid the coupling. Flexibility from decoupling is helpful in case it is decided that a
-              different backend technology should be used. Decoupling also people the ability to write their own custom frontends.
-              <br>
-            </li>
-            <li>
-              Having a backend decoupled from the frontend will also help with creating a decentralized network
-              of third place websites with event information. If the event information for a third place website
-              is available through an API, then an aggregator website can then use that information to show
-              information about a larger variety of events.
-              <a href="https://github.com/gatherspiel/backend">Here </a> is an
-              example of a backend service for events with an API to access information.
-            </li>
-          </ul>
+        <li>A dependency may have specific ways of providing functionality that can conflict with outside patterns
+          being applied.</li>
+      </ul>
+    </li>
+    <li>
+      <b>Take time upfront to build features with minimal tech debt </b>
+      <ul>
+        <li>
+          This ensures that there is a strong foundation that can effectively handle changes. New features are
+          probably not going to remain static as they will need to be updated to add enhancements or fix bugs.
         </li>
       </ul>
-
-      </li>
-
-    </ul>
+    </li>
+    <li>
+      <b>Prioritize documentation </b>
+      <ul>
+        Website documentation should be minimized while containing necessary information. Documentation needs to be
+        updated to be considered changes, which takes time. Not updating
+        documentation means that documentation can be a distraction because it contains outdated information that
+        seems relevant. In the case where documentation is clearly outdated, developers will spend
+        time looking through the documentation to realize it is out of date.
+      </ul>
+    </li>
+    <li>
+      <b>Use a multi page application(MPA) architecture instead of a Single page application(SPA) </b>
+      <ul>
+        <li>There will be multiple pages, some of which are interactive. If JavaScript on a page becomes too
+          complicated, the page will be split.</li>
+        <li>
+          Using a SPA can make the user experience slightly better due to faster loading speed after the initial
+          page load. However, creating a high quality SPA will add a significant amount of complexity and time needed
+          to maintain  code. Complexity  will come from the code necessary to implement SPA functionality in addition to the fact that complexity
+          on one area of the website is less likely to be isolated.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <b>Decouple the backend from the frontend</b>
+      <ul>
+        <li>
+          The backend should be decoupled from the frontend. While there are many powerful frameworks which rely on
+          coupling the frontend and the backend, and there could be performance or speed benefits from the coupling,
+          it is best to avoid the coupling. A decoupled backend and frontend will help with complexity isolation,
+          which will become increasingly important as createthirdplaces.com code becomes more complex.
+          <br>
+        </li>
+        <li>
+          A large amount of createthirdplaces.com is static content that can be displayed with CSS, HTML, and
+          JavaScript. This static content does not need the complexity of a backend.
+        </li>
+        <li>
+          Having a backend decoupled from the frontend will also help with creating a decentralized network
+          of third place websites with event information. If event information for a third place website
+          is available through an API, then an aggregator website can then use that information to show
+          information about a larger variety of events.
+          <a href="https://github.com/gatherspiel/backend">Here </a> is an
+          example of a backend service for events with an API to access information.
+        </li>
+      </ul>
+    </li>
+   </ul>
 
     <h3>Prioritize site reliability</h3>
 
-    <p>It is important for createthirdplaces.com and any other third place websites to be as reliable as possible. This means
-    that backend services should not be complex and continue running with minimal to no downtime. One sign
+    <p>It is important for createthirdplaces.com and any other third place websites to prioritize reliability. This means
+    that backend services should not be complex and run with minimal to no downtime. One sign
       of good software is that it can stay running for long periods of time without downtime. </p>
     <p>A website that is likely to crash or have significant reliability issues requires on-call support to minimize
     downtime. Being on-call means that someone could have their personal life interrupted by an urgent need to fix
@@ -230,25 +247,38 @@
 
     <h2>Notes on technologies that will be used</h2>
 
+    <p>When picking technologies, the following criteria should be prioritized in additional to the ones
+    listed above</p>
+    <ol>
+      <li>Minimize dependencies on 3rd party cloud providers such as AWS, Azure, or Google Cloud Platform.</li>
+      <li>Support developing using Linux.</li>
+      <li>Use open source technology.</li>
+      <li>Support <a href="https://docs.joinmastodon.org/spec/activitypub/">ActivityPub.</a></li>
+      <li>Minimize dependencies on third party frameworks and libraries.</li>
+    </ol>
+
     <p>createthirdplaces.com code will use vanilla JavaScript on the frontend with
-      the <a href="/static/tech/placesjs.html"> places.js custom framework</a></p>
+      the <a href="/static/tech/placesjs.html">places.js custom framework</a></p>
 
     <details>
       <summary>An evaluation of using React and Node.js</summary>
 
-      <p><b>Some advantages of using React and Node.js</b></p>
+      <p>
+        <b>Some advantages of using React and Node.js</b>
+      </p>
       <ul>
         <li>
           Familiarity with React is likely to speed up development. There are a variety of web development tools that
           exist with different strengths and weaknesses. However, many developers are familiar with React and Node.js,
           and many websites have been successfully created with React.
         </li>
-        <li>Using tools that developers are less likely to be familiar with such as Kotlin and Vue.js is likely
-          to add short term challenges. Developers will probably have to take time to learn them, which will slow them
-          down in the short term. Code quality will probably also become worse in the short term. </li>
         <li>
-          Learning about an unfamiliar tool might end up being a waste of time if evidence ends up suggesting that
-          the tool is not useful.
+          Using tools that developers are less likely to be familiar with such as Kotlin and Vue.js will
+            add short term challenges. Developers will probably have to take time to learn them, which will slow them
+          down for a while. Code quality will probably also become worse in the short term. </li>
+        <li>
+          Learning about an unfamiliar tool might end up being a waste of time if it is not useful for
+          createthirdplaces.com
         </li>
         <li>
           The fact that React is widely used will make it easier to find other developers to help work on the website.
@@ -258,18 +288,35 @@
       <p><b>Challenges with using React</b></p>
       <ul>
         <li>
-          React guides encourage using dependencies, and too many dependencies can become a problem. Dependencies often
+          <b>React guides encourage too many dependencies</b>. Dependencies often
           have other dependencies that may not be compatible with each other or have breaking changes.
-          Dependencies should not be added without a clear understanding of the benefits and drawbacks. They can be
+          Dependencies should also not be added without a clear understanding of the benefits and drawbacks. They can be
           added later once developers have enough understanding of them. For example, server side rendering in Next.js
           does provide performance benefits on the initial website load. However, the magnitude of the performance
           benefit is dependent on the content being presented, and the drawbacks of additional complexity with Next.js
           should be considered.
+          <br>
+          <br>
+          Due to the large number of dependencies that a React codebase ends up including, upgrading to the
+          latest version of React may not be realistic possibility. Even if blockers with incompatible dependencies
+          can be resolved, there might be challenges with updating dependencies to handle breaking changes that would
+          take a very long time to handle.
+          <br>
+          <br>
+          For example, a codebase could be created using React 19 and a dependency on a custom library to provide
+          reusable React components. When the next version of React is released, upgrading can be a challenge
+          if the custom component library stays with React 19. It might end up being necessary to spend time
+          migrating to a different component library in order to upgrade React
         </li>
         <li>
-          Documentation is inconsistent due to updates made to React. They might also come across as misleading because
-          they are pushing for solutions that do not make sense with the version of React that is being used. This
-          inconsistent documentation will lead to decreased code quality.
+          <b>Documentation is inconsistent due to updates made to React.</b> While the official documentation
+          for React has remained up-to-date, many developers have published their own documentation which has become
+          outdated. They might also come across as misleading because
+          they are pushing for solutions that appear to make sense, although they are not compatible with the
+          version of React that is being used. that do not make sense with the version of React that is being used.
+          <br>
+          <br>
+
           For example, here are 3 possible ways to manage UI state using React.
           <ul>
             <li><a href="https://react.dev/reference/react/useState">useState</a></li>
@@ -289,10 +336,10 @@
           simple application, and the problems with useContext will probably reveal themselves in the form of
           slow UI rendering and rendering logic that is hard to follow. At this point, the application will be
           complex, and improving the state management code will be complex.
-        </a>
         </li>
         <li>
-          Documentation sometimes encourages solutions that may not be the right use case. For example, many articles
+          <b>Documentation sometimes encourages solutions that may not make sense for
+            a use case</b>. For example, many articles
           found in December 2024 were suggesting using Server Side React with a tool such as Next.js. At the time, it
           seemed that Next.js would add a significant amount of complexity and performance overhead without benefits.
           When searching the official React documentation in late 2025, it contained recommendations to get started
@@ -304,7 +351,7 @@
 
       <ul>
         <li>Complexity of pages may not justify using React.</li>
-        <li>State can be managed in vanilla JavaScript such as by using the technique listed below</li>
+        <li>State can be managed in vanilla JavaScript such as by using the technique listed below
           <ul>
             <li>
               A custom JS file can be used to save a state object and return it. While the approach of using a custom
@@ -315,42 +362,45 @@
             <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">Observer API</a>
               can be used to subscribe to component visibility
             </li>
+            <li>All API calls save data to a global state.</li>
+            <li>When rendering, each component will create class id tags that will be linked to state.</li>
+            <li>Active visible components will be stored in a tree structure.</li>
           </ul>
-        <li>All API calls save data to a global state.</li>
-        <li>When rendering, each component will create class id tags that will be linked to state.</li>
-        <li>Active visible components will be stored in a tree structure</li>
+        </li>
         <li>
-          Less dependence on Internet to look up documentation, which helps with focus.
+          <b>Less dependence on Internet to look up documentation</b>
           <ul>
-            <li>Developers will spend less time on the Internet. Many websites that answer technical questions about
+            <li>Developers will spend less time on the Internet, which helps with focus.
+              Many websites that answer technical questions about
               frameworks have other distractions even though they are also giving useful information. Also, websites
               have inaccurate or misleading information that needs to be parsed through. The usefulness of
-            online documentation has also declined as more people are generating documentation using AI.</li>
+            online documentation has also declined as more people are creating documentation with the help of generative
+              AI.</li>
           </ul>
         </li>
         <li>UI code does not have to rely on framework behavior that is hard to notice or understand. As a result
           vanilla JavaScript can lead to fewer rendering bugs and a UI that is more responsive.</li>
         <li>
-          Fewer challenges with patterns from outside a dependency being used. For example,
-          when using React, patterns from other tools will often be applied to React that do not make sense in React.
-          One example is conditionally calling a hook within a React 16 functional component using an if statement, and
-          this method of calling a hook was not supported in React 16.
+          <b>Fewer challenges with patterns from outside a dependency being used due to a misunderstanding of the
+          dependency.</b> For example, when using React, patterns from other tools will often be applied to React that do
+          not make sense in React. One example is conditionally calling a hook within a React 16 functional component
+          using an if statement, and this method of calling a hook was not supported in React 16.
           <br>
           <br>
           If someone is not aware of how a certain aspect of a framework works, there might be a challenge such as
           correctly managing state in React without a significant performance overhead.
-          One example is trying to manage complex React state in a React context that is constantly changing.
-          The issue is that every component subscribed to the context when one part of the context updated, even if the
-          change was not relevant to the UI component. This can cause performance slowdowns that are challenging
-          to understand.
+          One example is making the mistake of managing complex React state in a React context when the state is changing
+          frequently.  The issue is that every component subscribed to the context will update when one part of the
+          context is updated, even if the change was not relevant to the UI component. This can cause performance
+          slowdowns that are challenging to understand.
         </li>
         <li>
-          Improved rendering speed. UI loading speed is very important. It affects user experience as well. An interface
+          <b>Improved rendering speed.</b> UI loading speed is very important for a good user experience. An interface
           that loads quickly and is responsive is one that people want to use. A framework does add some amount of load
           time, especially if it comes with other dependencies. For example, React is often combined with a state
           management library.
         </li>
-        <li>Sometimes, the added difficulty of implementing UI components in vanilla JS might be a good thing. If UI
+        <li><b>Sometimes, the added difficulty of implementing UI components in vanilla could be a good thing.</b> If UI
           changes are quicker to implement, that incentivizes more UI changes to be done. Create Third Places should
           only focus on changes that are essential for people to find or host in person events. Focusing too much
           on website features is a mistake.
@@ -362,10 +412,10 @@
 
       <ul>
         <li>
-          Deno.js: New Javascript runtime made by the creator of Node.js
+          <a href="https://deno.com/">Deno</a>: New Javascript runtime made by the creator of Node.js
         </li>
         <li>
-          Kubernetes
+          <a href="https://kubernetes.io/">Kubernetes</a>
           <ul>
             <li>Kubernetes could be used to make a website cloud platform agnostic. </li>
             <li>Other developers could then create forks of the website for their own location or activity specific
@@ -374,18 +424,18 @@
           </ul>
         </li>
         <li>
-          Docker Compose
+          <a href="https://docs.docker.com/compose/">Docker Compose</a>
           <ul>
             <li>Less complex than Kubernetes for container orchestration. However, it doesn’t scale as well
               and can only handle applications running on one host.
             </li>
             <li>
-              Docker Compose also seems to be more useful for local development.
+              Docker Compose seems to be more useful for local development.
             </li>
           </ul>
         </li>
         <li>
-        Solid Protocol: User creates data that is stored in pods where they have control over the data. The user can
+        <a href="https://solidproject.org/">Solid</a>: User creates data that is stored in pods where they have control over the data. The user can
           distribute different types of information among several different pods.
         <ul>
           <li>Authenticated applications would then have access to specific pods.</li>
@@ -394,19 +444,24 @@
         </li>
         <li>UI tools
           <ul>
-            <li>Svelete</li>
-            <li>Angular: Angular less widely used compared to React, which could be an indicator that people find
+            <li><a href="https://svelte.dev/">Svelte</a>: Svelete appears to be straightforward to use, and compiles
+            to vanilla JS components to remove the need for deploying with an external dependency. However, Svelete
+            is prioritizing support for LLM AIs.</li>
+            <li><a href="https://angular.dev/">Angular</a>: Angular is less widely used compared to React, which could be an indicator that people find
               Angular less useful. On the other hand, the quality of tutorials online seems to be better.
-              The learning curve for Angular might be an issue because it will slow down the creation of the website.
+              The learning curve for Angular might also be an issue because it will slow down the creation of the website.
+              Also, Angular is prioritizing LLM AI support
             </li>
-            <li>Flutter</li>
+            <li><a href="https://flutter.dev/">Flutter</a></li>
             <li>
               Criteria to evaluate UI options
               <ul>
                 <li>Code complexity </li>
-                <li> Rendering speed</li>
+                <li>Rendering speed</li>
                 <li>UI quality</li>
                 <li>Ability to run UI without downloading an app</li>
+                <li>LLM AI support. Createthirdplaces.com will not use LLM code and should not use a framework
+                that is being designed to support the needs of LLMs.</li>
               </ul>
             </li>
           </ul>
@@ -417,7 +472,8 @@
       <h3>Backend alternatives to Node.js with TypeScript</h3>
 
       <ul>
-        <li>Java: Static typing and unit testing support with JUnit and Mockito are helpful. However, it is harder
+        <li><a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>:
+          Static typing and unit testing support with JUnit and Mockito are helpful. However, it is harder
         to get a basic API running.</li>
         <li>Using Node.js without TypeScript
           While TypeScript type checking is helpful, there are some challenges with using TypeScript.
@@ -430,7 +486,7 @@
               However, Jest can be harder to use and more error prone compared to mocking in Java with Mockito mocks.</li>
           </ul>
         </li>
-        <li>PHP
+        <li><a href="https://www.php.net/">PHP</a>
             <ul>
               <li>PHP could be a useful way of rendering web pages on the server. The process for SSR with a UI library
                 appears to be less complex than using a JS framework such as Next.js based on
@@ -444,7 +500,7 @@
                 make the challenge of managing dependencies between libraries harder in Node.JS</li>
             </ul>
         </li>
-        <li>Python</li>
+        <li><a href="https://www.python.org/">Python</a></li>
 
       </ul>
 
@@ -473,10 +529,10 @@
       </p>
 
       <p>
-        However, I ran into challenges when attempting to deploy Deno with React. Troubleshooting errors was difficult
-        because documentation was limited. The latest error I ran into was a build error when attempting to use the React
-        useState hook. Upon investigation, I found out that the error was related to how Deno imported the React
-        dependency, and I did not find any documentation on a workaround.
+        However, in December 2024, I ran into challenges when attempting to deploy dmvboardgames.com with Deno and React.
+        Troubleshooting errors was difficult because documentation was limited. The latest error I ran into was a build
+        error when attempting to use the React useState hook. Upon investigation, I found out that the error was related
+        to how Deno imported the React dependency, and I did not find any documentation on a workaround.
       </p>
 
       <p>
@@ -488,9 +544,9 @@
       </p>
 
       <p>
-      Also, the limited documentation and the fact that I was running into an issue with the useState hook made me
+        Also, the limited documentation and the fact that I was running into an issue with the useState hook made me
         concerned about the risk of running into other challenges. React was the most popular library for building
-        interactive web applications in 2024, and useState was often used in React. If Deno.js was not able to have
+        new interactive web applications in 2024, and useState was often used in React. If Deno.js was not able to have
         a working script or documentation for a common use case, I was concerned about its ability to support less
         common use cases.
       </p>
@@ -498,22 +554,24 @@
       <h4>Deployment pipeline</h4>
 
       <p>
-        While it is possible to deploy the site by building it manually and then copying and pasting on the server, I
-        decided to build an automated pipeline for deployment. Although it involved some upfront time investment, I
-        thought it was worth the time.
+        While it is possible to deploy by building the site manually and then copying and pasting on the server, I
+        decided to build an automated pipeline for deployment. Although there was a significant amount of upfront time
+        investment required to automatically deploy dmvboardgames.com, I thought it was worth the time to deploy
+        dmvboardgames.com more quickly in the future. Also, I was able to use what I had learned and quickly create a
+        similar setup for automatically deploying createthirdplaces.com
       </p>
 
       <p>
-        Having to manually build and then copy and paste to the server would have been quicker in the short term. However,
-        it would have been very time-consuming in the long term. I decided to set up a test build on the site using the
-        main branch.
+        Having to manually build and then copy and paste to the server would have been quicker in the short term.
+        However, it would have been very time-consuming in the long term. I decided to set up a test build for
+        dmvboardgames.com using the main branch.
       </p>
 
       <p>
         Then I set up an automated production deployment pipeline on DigitalOcean. Every time an update was made to the
         prod branch, a deployment would happen and the updates would go live. The idea behind having a separate prod
         branch was that the changes would be verified on the main branch, and then the changes would be merged to the
-        prod branch. From past experience, I have learned that merging code to a prod branch that has only been tested
+        prod branch. From past experience, I  learned that merging code to a prod branch that has only been tested
         locally is risky, even with automated tests.  Also, this testing setup was designed as a way for changes to be
         verified by another person without them needing to manually download and run a test version of the website.
       </p>
