@@ -231,17 +231,23 @@ export class LocationMapListingComponent extends BaseDynamicComponent{
     if(screen.width < 400) {
       isMobile = true;
     }
-    if(data.locations){
+    if(data.locations ){
 
       let html = `<div id="location-overlay" style="z-index: 10; top:${data.offsetY}px">`
 
       for(let i =0; i<data.locations.length; i++){
         const location = data.locations[i];
-        let displayTop = location.displayY*0.72;
-        let displayLeft = location.displayX*0.69;
+        let displayTop = location.displayY;
+        let displayLeft = location.displayX;
         if(isMobile){
+          displayTop = displayTop*0.72;
+          displayLeft = displayLeft*0.69;
           displayLeft = displayLeft -30;
           displayTop = displayTop  + 130;
+        }
+        else {
+          displayLeft += 85;
+          displayTop += 5;
         }
         html+= `<div class=location-point style="position: absolute;top:${displayTop}px;left:${displayLeft}px">
             </div>`
