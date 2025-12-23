@@ -20,11 +20,11 @@
     import {DataStoreDoc} from "../../framework/sections/DataStoreDoc.js";
     import {FrameworkHistoryComponent} from "../../framework/sections/FrameworkHistoryComponent.js";
     import {GuidelinesComponent} from "../../framework/sections/GuidelinesComponent.js";
-    import {ImageHoverComponentGuide} from "../../framework/codeGuides/ImageHoverComponentGuide.js";
+    import {ImageHoverComponentGuide} from "../../framework/codeGuides/guidelines/ImageHoverComponentGuide.js";
     import {LoadingIndicatorComponentGuide} from "../../framework/codeGuides/LoadingIndicatorComponentGuide.js";
     import {MainComponent} from "../../framework/sections/MainComponent.js";
     import {GettingStarted} from "../../framework/sections/GettingStarted.js";
-    import {ShowHideComponentGuide} from "../../framework/codeGuides/ShowHideComponentGuide.js";
+    import {ShowHideComponentGuide} from "../../framework/codeGuides/guidelines/ShowHideComponentGuide.js";
 
     customElements.define('api-load-action-doc',ApiLoadActionDoc);
     customElements.define('base-dynamic-component-doc', BaseDynamicComponentDoc);
@@ -102,7 +102,7 @@
         correct behavior not defined by subjective criteria, and they should be covered by automated testing.
       </li>
       <br>
-      <li><b>Ensure that usability is prioritized.</b>: Places.js supports developers to make websites that are as
+      <li><b>Ensure that usability is prioritized.</b> Places.js supports developers to make websites that are as
         straightforward as possible from a user perspective.
       </li>
       <br>
@@ -113,9 +113,7 @@
         use.
       </li>
       <br>
-
-
-      <li><b>When the state of a component changes, the whole component will re-render</b> Re-rendering a component for
+      <li><b>When the state of a component changes, the whole component will re-render.</b> Re-rendering a component for
         every state change does have some performance overhead. However, the performance overhead does come with the benefit
         of making cde easier to reason about.
 
