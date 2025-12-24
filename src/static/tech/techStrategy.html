@@ -32,7 +32,6 @@
     <p>The goal of Create Third Places is to promote accessible offline public spaces called third places. Tech will be
       used as a way to support this goal.</p>
 
-
     <h2>Learning</h2>
 
     <p>When working on Create Third Places, long-term learning is important. While shortcuts
@@ -58,7 +57,6 @@
       to meet new people in third places and then share contact information there if they want to communicate
       online.
     </p>
-
     <p>
       Another example of a feature that will not be included is the ability to rate third places. Ratings
       take up room in the UI and be a distraction for some people. People are also unlikely to
@@ -72,19 +70,16 @@
       DuPont Circle is an area of DC that receives a high amount of foot traffic, which averages
       to far more than 1 person per day.
     </p>
-
     <p>
       While ratings can also be a way for people to communicate preferences for a third place, it can also lead to
       people rating a third place without having been there. Create Third Places encourages people to talk with people
       they met in person to get and share feedback on third places.
     </p>
-
     <p>
       Too many features will make Create Third Places a less effective resource for people. A large number of features
       will make it harder to find core features such as event filtering. Also, additional features that add interactivity
       will increase the tine necessary to maintain and test the codebase.
     </p>
-
     <p>
       One possibility for adding new features is a plugin system for users to customize their experience. These plugins
       would use JavaScript and be loaded when a user logs in. Also, the plugins would be integrated with the site without
@@ -92,13 +87,11 @@
       rendering patterns specific to a dependency such as React. Also, anyone who wants to create a plugin and knows
       JavaScript will be able to do so without needing to know how a specific external dependency works.
     </p>
-
     <p> However, there are some challenges to consider with plugin support. One challenge is that plugins could cause
       security issues through malicious scripts. To address this, all plugins should go through a review process before
       people can use them, or the scripts need to be blocked from making API calls. Also, the complexity of maintaining
       support for custom scripts and plugins needs to be considered.
     </p>
-
     <p>
       A plugin system would also need to be designed in a way that doesn't make decentralization harder. If developers
       are building plugins, there could be too much centralization because the plugins are dependent on
@@ -120,7 +113,7 @@
     <h2>Notes on key technical principles</h2>
 
     <h3>Minimize tech debt</h3>
-    <p>Minimizing tech debt will have the following main benefits</p>
+    <h4>Minimizing tech debt will have the following main benefits</h4>
       <ul>
         <li><b>Lower costs.</b> Tech debt will increase the costs of createthirdplaces.com, and increase
           the need for donations and paid features. This could cause a need to compromise on values to raise the necessary
@@ -135,7 +128,7 @@
           user experience. This includes quickly addressing bugs that users report.
         </li>      </ul>
 
-      <b>Some things that should be done to reduce tech debt.</b>
+      <h4>Some things that should be done to reduce tech debt</h4>
       <ul>
         <li>
           <b>Prioritize readability</b>
@@ -145,8 +138,8 @@
               Readable code will lead to a reduced risk of developers accidentally making a change that adds a bug or
               one that adds complexity. Trying to look at complex the code might give the impression that it does
               one thing when reality is that it does something else.
-            <br>
-            <br>
+            </li>
+            <li>
             Poor readability could also cause developers to become frustrated. As createthirdplaces.com is a website
             that encourages community, it's important to make sure stress levels aren't high. Less stress will help
             people enjoy their personal lives and make it easier to build community.</li>
@@ -215,7 +208,6 @@
           coupling the frontend and the backend, and there could be performance or speed benefits from the coupling,
           it is best to avoid the coupling. A decoupled backend and frontend will help with complexity isolation,
           which will become increasingly important as createthirdplaces.com code becomes more complex.
-          <br>
         </li>
         <li>
           A large amount of createthirdplaces.com is static content that can be displayed with CSS, HTML, and
@@ -287,26 +279,29 @@
 
       <p><b>Challenges with using React</b></p>
       <ul>
-        <li>
-          <b>React guides encourage too many dependencies</b>. Dependencies often
-          have other dependencies that may not be compatible with each other or have breaking changes.
-          Dependencies should also not be added without a clear understanding of the benefits and drawbacks. They can be
-          added later once developers have enough understanding of them. For example, server side rendering in Next.js
-          does provide performance benefits on the initial website load. However, the magnitude of the performance
-          benefit is dependent on the content being presented, and the drawbacks of additional complexity with Next.js
-          should be considered.
-          <br>
-          <br>
-          Due to the large number of dependencies that a React codebase ends up including, upgrading to the
-          latest version of React may not be realistic possibility. Even if blockers with incompatible dependencies
-          can be resolved, there might be challenges with updating dependencies to handle breaking changes that would
-          take a very long time to handle.
-          <br>
-          <br>
-          For example, a codebase could be created using React 19 and a dependency on a custom library to provide
-          reusable React components. When the next version of React is released, upgrading can be a challenge
-          if the custom component library stays with React 19. It might end up being necessary to spend time
-          migrating to a different component library in order to upgrade React
+        <li><b>React guides encourage too many dependencies</b>
+          <ul>
+            <li>Dependencies often
+            have other dependencies that may not be compatible with each other or have breaking changes.
+            Dependencies should also not be added without a clear understanding of the benefits and drawbacks. They can be
+            added later once developers have enough understanding of them. For example, server side rendering in Next.js
+            does provide performance benefits on the initial website load. However, the magnitude of the performance
+            benefit is dependent on the content being presented, and the drawbacks of additional complexity with Next.js
+            should be considered.
+            </li>
+            <li>
+            Due to the large number of dependencies that a React codebase ends up including, upgrading to the
+            latest version of React may not be realistic possibility. Even if blockers with incompatible dependencies
+            can be resolved, there might be challenges with updating dependencies to handle breaking changes that would
+            take a very long time to handle.
+            </li>
+            <li>
+              For example, a codebase could be created using React 19 and a dependency on a custom library to provide
+              reusable React components. When the next version of React is released, upgrading can be a challenge
+              if the custom component library stays with React 19. It might end up being necessary to spend time
+              migrating to a different component library in order to upgrade React.
+            </li>
+          </ul>
         </li>
         <li>
           <b>Documentation is inconsistent due to updates made to React.</b> While the official documentation
@@ -314,8 +309,7 @@
           outdated. They might also come across as misleading because
           they are pushing for solutions that appear to make sense, although they are not compatible with the
           version of React that is being used. that do not make sense with the version of React that is being used.
-          <br>
-          <br>
+
 
           For example, here are 3 possible ways to manage UI state using React.
           <ul>
@@ -382,17 +376,19 @@
           vanilla JavaScript can lead to fewer rendering bugs and a UI that is more responsive.</li>
         <li>
           <b>Fewer challenges with patterns from outside a dependency being used due to a misunderstanding of the
-          dependency.</b> For example, when using React, patterns from other tools will often be applied to React that do
-          not make sense in React. One example is conditionally calling a hook within a React 16 functional component
-          using an if statement, and this method of calling a hook was not supported in React 16.
-          <br>
-          <br>
-          If someone is not aware of how a certain aspect of a framework works, there might be a challenge such as
-          correctly managing state in React without a significant performance overhead.
-          One example is making the mistake of managing complex React state in a React context when the state is changing
-          frequently.  The issue is that every component subscribed to the context will update when one part of the
+          dependency.</b>
+          This misunderstanding can cause bugs that are hard to resolve and tech debt that becomes challenging to
+          address. Here are two examples of incorrectly applying patterns to a React application.
+          <ul>
+            <li>
+              Attempting to conditionally calling a hook within a React 16 functional component
+          using an if statement with a useEffect hook to do some additional data processing after a component has rendered.
+              Conditionally calling hooks is not supported in React 16.</li>
+            <li>Managing complex React state in a React context when the state is changing
+          frequently.The issue is that every component subscribed to the context will update when one part of the
           context is updated, even if the change was not relevant to the UI component. This can cause performance
-          slowdowns that are challenging to understand.
+          slowdowns that are challenging to reason about and address.</li>
+          </ul>
         </li>
         <li>
           <b>Improved rendering speed.</b> UI loading speed is very important for a good user experience. An interface
@@ -575,7 +571,6 @@
         locally is risky, even with automated tests.  Also, this testing setup was designed as a way for changes to be
         verified by another person without them needing to manually download and run a test version of the website.
       </p>
-      <br>
   </div>
   <div id="bot-container"></div>
 

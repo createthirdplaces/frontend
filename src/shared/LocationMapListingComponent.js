@@ -246,7 +246,7 @@ export class LocationMapListingComponent extends BaseDynamicComponent{
           displayTop = displayTop  + 130;
         }
         else {
-          displayLeft += 85;
+          displayLeft += 195;
           displayTop += 5;
         }
         html+= `<div class=location-point style="position: absolute;top:${displayTop}px;left:${displayLeft}px">

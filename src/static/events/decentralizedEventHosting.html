@@ -22,52 +22,59 @@
 <body>
 <div id="container">
   {{>navbar}}
-  <h1>Decentralized meetup alternative</h1>
+  <h1>Decentralized event hosting</h1>
 
   <p>
     Create Third Places is working on open source software
     for people to find in person events as a way of promoting third places.
   </p>
 
-  Here are the guidelines that will be followed for any changes
+  Here are the guidelines that will be followed for any changes.
   See the <a href="/static/vision.html">vision page</a> for more details.
 
   <ul>
     <li>Support in person interaction</li>
     <li>All content is human generated</li>
     <li>No personalized recommendations</li>
-    <li>Non-commercial</li>
-    <li>Decentralization</li>
+    <li>No commercial monetization</li>
+    <li>Promote decentralization</li>
   </ul>
 
   <h2>Details about the decentralized architecture</h2>
 
-  <p>The general idea behind the decentralized architecture will involve having 2 types of sites. Local websites
-  for a specific activities and aggregator websites. Local websites will be independently created and run
-  while sharing data through an API. Aggregator websites will read data from multiple local sites and allow users
-  to search through multiple sites at the same time. Aggregator websites can also be aggregators for other websites.</p>
+  <p>The general idea behind the decentralized architecture will involve having 2 types of websites. The first will be
+    local websites for a specific activities. Local websites will be independently created and run
+  while sharing data through an API. The second type will be aggregator websites that will read data from local
+    websites and allow users to search their data.  Aggregator websites can also share data with other aggregator
+    websites.</p>
 
-  <p>For example, there can be a local websites in DC for chess events and a website for playing resource
-  management games such as Catan. A board game aggregator website could then read information from the chess
-  website and Catan website, and allow users to search for events related to both activities. The board game
-  aggregator website could then have data read by a DC area aggregator website that combines information
-  from other types of websites such as DC sporting event website. </p>
+  <p>For example, there can be a local websites in DC for chess events and a website for resource
+  management board games such as Catan. A board game aggregator website could then read information from the chess
+  website and Catan website, and allow users to search for events related to both games. The board game
+  aggregator website could then have its data read by a DC area aggregator website that combines information
+  from other types of websites such as a DC sporting event website. </p>
 
   <h3>One way of efficiently implementing a decentralized architecture would be to make sure websites fulfill the following
-  guidelines</h3>
+  guidelines:</h3>
   <ul>
     <li>When a group is created on a local website, the information is saved to a database of events for the website
       with a UUID as the primary key. The events would then be accessible through a public API.</li>
     <li>Aggregator websites save the UUIDs of all groups in their aggregation and include references to the API endpoint
-    of the original site location. This information will be available through an API endpoint for other aggregator
+    of the original site location. This information would then be available through an API endpoint for other aggregator
     websites.</li>
     <li>When an aggregator website requests information about a specific group, it will retrieve the UUID and local
-    website URL from its database. This can then be used to perform a query on the original website through multiple
+    website URL from its database. This information can then be used to perform a query on the local website through multiple
     aggregation layers without significant performance degradation.</li>
     <li> All aggregator websites will need to register with the websites they are aggregating from. After registering,
       the aggregator will retrieve all the groups from the website they registered with. When a group is
       created or deleted, it will look at the websites that registered as aggregators, and then call an API endpoint for
       the aggregator to make sure it has information about the group.
+    </li>
+    <li>
+      To prevent loops, each aggregator will have a level specified by an integer ranging from 0 to
+      2,147,483,647. A website will not be able to aggregate data from a higher level. Local
+      event websites should have a level of 0 to have their data to be read by aggregators. Any website that will not
+      support aggregators should have a level of 2,147,483,647.
     </li>
   </ul>
   <h3>Challenges that this architecture will address</h3>
@@ -77,12 +84,15 @@
         circular dependencies will also need to be handled. </li>
       <li>Handling authentication and user permissions. One possible way to address the complexity would be for people to
         have the ability to join group or modify groups they created through aggregator websites. This would help with
-        usability. However, it will add complexity in the short term and could make things too centralized.
+        usability. However, it would add complexity in the short term and could make things too centralized.
       </li>
-      <li>Handling issues with too many requests from a location</li>
+      <li>Handling issues with too many requests from a location.</li>
+      <li>Resiliency against being compromised by a single point of failure. If an aggregator website crashes
+      or is affected by hackers, a new aggregator website can be created with the data stored on local websites. Also,
+      the decentralized architecture means that malicious actors do not have a single target they can focus on. The
+      need for aggregators to have permission from local sites to retrieve data means that local sites can also
+        decide to cancel permissions to block aggregators.</li>
     </ul>
-
-  <br>
   <p>
     As a starting point, a local website for in person board games in the DC area is
     being worked on at <a href="https://dmvboardgames.com/">dmvboardgames.com</a>.
@@ -92,8 +102,6 @@
   </p>
 
   <p>See more information about <a href="/static/tech/techStrategy.html">tech strategy here.</a>
-  <br>
-  <br>
   <details>
     <summary>Reasons why a decentralized network of third websites is a good idea</summary>
     <ul>
@@ -101,7 +109,7 @@
       have a variety of different interests that will be complex to effectively represent on one website. Also, it is
       impossible for the developers of one site to have knowledge about every single community and hobby.</li>
       <li>Smaller websites can have content related to the interests of their audience without affecting how others
-      see content they want to see. As an example, <a href="https://dmvboardgames.com">dmvboardgames.com</a>,
+      see content they are interested in. As an example, <a href="https://dmvboardgames.com">dmvboardgames.com</a>,
       a website promoting in person board games in the DC area has a <a href="https://dmvboardgames.com/html/static/designers.html">
       page for local board game designers.</a></li>
       <li> Local community organizers can submit event information to a large aggregator website without being
@@ -113,26 +121,24 @@
   </details>
 
   <h2>More details about issues with Meetup and other websites for third place events</h2>
-  </br>
 
   <details>
     <summary>Issues with other third place websites</summary>
     <p>
-      In the past, there were a variety of sites that people could use to promote events in third
-      places. Unfortunately many of these sites have declined in quality or prioritize keeping people online.
+      In the past, there were a variety of websites that people could use to promote events in third
+      places. Unfortunately many of them have declined in quality or started to prioritize keeping people online.
       The website Meetup.com was a notable exception as it prioritized in person events. However,
       the quality of Meetup has declined, and it is no longer a good option for hosting events.
       <a href="/static/events/meetupProblems.html">See this page for more details.</a>
     </p>
-    </br>
     <p>
       Other platforms are attempting to compete with Meetup such as Luma and Partiful. However, they follow
       the same VC funded for profit business model used by Meetup, and are on the path to
       <a href="https://pluralistic.net/2023/01/21/potemkin-ai/#hey-guys">enshittification</a>
       This includes one former competitor Eventbrite, which has been
       <a href="https://techcrunch.com/2025/12/02/bending-spoons-agrees-to-buy-eventbrite-for-500m-to-revive-stalled-brand/">
-        purchased by the company Bending Spoons </a>. This is the same company that owns Meetup.com and has been responsible
-      for its latest problems.</a>
+        purchased by the company Bending Spoons</a>. This is the same company that owns Meetup.com and has been responsible
+      for its latest problems.
     </p>
   </details>
 
