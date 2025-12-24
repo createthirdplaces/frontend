@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles/sharedStyles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script defer fetchpriority="low" type="module">
+    import {GetGameAdvice} from "../bots/getGameAdvice.js";
+    GetGameAdvice();
+  </script>
+
+  <title>What makes a good third place</title>
+</head>
+<body>
+<div id="container">
+  {{>navbar}}
+
+  <h1>What makes a third place good</h1>
+
+  <q>Most needed are those 'third places' which lend a public balance to the increased privatization of home life.
+    Third places are nothing more than informal public gathering places. The phrase 'third places' derives from
+    considering our homes to be the 'first' places in our lives, and our work places the 'second.'</q>(Ray Oldenburg)
+
+  <p>There are a variety of third places that exist. In the book
+    <a href="https://en.wikipedia.org/wiki/The_Great_Good_Place_(book)">The Great Good Place</a>, Ray Oldenburg
+    establishes the following 8 characteristics of a great third place. </p>
+  <ul>
+    <li>On neutral ground: <q>In order for the city and its neighborhoods to offer the rich and varied association
+    that is their promise and their potential, there must be <i>neutral ground</i> upon which people may gather. There
+    must be places where individuals may come and go as they please, in which non are required to play host, and in which
+    all feel at home and comfortable.</q>(Ray Oldenburg)</li>
+    <li>The third place is a leveler:<q>A place that is a leveler is, by nature, an inclusive place. It is accessible to
+    the general public and does not set formal criteria of membership and exclusion</q>(Ray Oldenburg)</li>
+    <li>Conversation is the main activity</li>
+    <li>Accessibility and accommodation</li>
+    <li>The regulars</li>
+    <li>A low profile:<q>Third places are unimpressive looking for the most part. They are not,
+    with few exceptions, advertised; they are not elegant</q>(Ray Oldenburg)</li>
+    <li>The mood is playful</li>
+    <li>A home away from home</li>
+  </ul>
+</div>
+<div id="bot-container"></div>
+
+</body>
+</html>
