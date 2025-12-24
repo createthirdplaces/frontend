@@ -22,7 +22,7 @@ export default defineConfig({
         billOne: resolve(__dirname, "src/static/b26-0132.html"),
         boardListing: resolve(__dirname, "src/static/dc/boardListing.html"),
 
-        decentralizedMeetup: resolve(__dirname, "src/static/events/decentralizedMeetup.html"),
+        decentralizedEventHosting: resolve(__dirname, "src/static/events/decentralizedEventHosting.html"),
 
         framework: resolve(__dirname, "src/static/tech/placesjs.html"),
 
@@ -34,11 +34,11 @@ export default defineConfig({
 
         places: resolve(__dirname, "src/static/events/meetupProblems.html"),
 
+        takeAction: resolve(__dirname, "src/static/takeAction.html"),
         techStrategy: resolve(__dirname, "src/static/tech/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/static/toasterTrouble.html"),
 
         vision: resolve(__dirname, "src/static/vision.html")
-
       },
     },
   },
