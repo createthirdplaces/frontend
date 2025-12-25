@@ -36,6 +36,8 @@ export default defineConfig({
 
         places: resolve(__dirname, "src/static/events/meetupProblems.html"),
 
+        recommendedBooks: resolve(__dirname,"src/static/recommendedBooks.html"),
+
         takeAction: resolve(__dirname, "src/static/takeAction.html"),
         techStrategy: resolve(__dirname, "src/static/tech/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/static/toasterTrouble.html"),
