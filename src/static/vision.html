@@ -8,8 +8,10 @@
 
   <link rel="stylesheet" href="/styles/sharedStyles.css" />
 
-
   <script defer fetchpriority="low" type="module">
+    import {FaqComponent} from "./js/FaqComponent.js";
+    customElements.define('faq-component',FaqComponent);
+
     import {GetGameAdvice} from "../bots/getGameAdvice.js";
     GetGameAdvice();
   </script>
@@ -21,7 +23,7 @@
 
       <p>
         <b>
-          The goal of Create Third Places is to promote interest in public spaces. To
+          The goal of Create Third Places is to promote interest in accessible public spaces. To
           promote this goal, these guidelines will be followed for any changes.
         </b>
       </p>
@@ -75,6 +77,8 @@
         can be promoted based on a person's interests and their community.
       </p>
       <br>
+    <faq-component></faq-component>
+
     </div>
     <div id="bot-container"></div>
 
