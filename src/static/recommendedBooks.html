@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles/sharedStyles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script defer fetchpriority="low" type="module">
+    import {GetGameAdvice} from "../bots/getGameAdvice.js";
+    GetGameAdvice();
+  </script>
+
+  <title>Recommended Books</title>
+</head>
+<body>
+  <div id="container">
+    {{>navbar}}
+
+    <h1>Recommended Books</h1>
+    <p>By Bharat Ponnaluri</p>
+
+    <h2>Here are some books related to promoting third places that I recommend</h2>
+
+    <h3>Books I have read</h3>
+    <ul>
+      <li>
+      <b><a href="https://bookshop.org/p/books/strong-towns-a-bottom-up-revolution-to-rebuild-american-prosperity-charles-l-marohn/88111ddf5d7adeb0?ean=9781119564812&next=t">
+        Strong Towns: A Bottom-up Revolution to Rebuild American Prosperity by Charles Marohn</a></b>
+      <div>
+         This book
+        makes a compelling case for how bottom up driven community improvements are beneficial. On the website for his
+        nonprofit <a href="https://www.strongtowns.org/">Strong Towns</a>, there are a variety of useful guides
+        on how people can create third places.
+      </div>
+      <div>
+        Marohn worked as a transportation engineer before starting Strong
+        Towns, and wrote a book called
+        <a href="https://bookshop.org/books/confessions-of-a-recovering-civil-engineer-transportation-for-a-strong-town/9781119699293t">
+          Confessions of a Recovering Engineer</a>. As an engineer who is working on software that prioritizes
+          improving local communities, I personally relate.
+      </div>
+      </li>
+      <li>
+        <b><a href="https://noreena.com/book/the-lonely-century/">The Lonely Century</a> by Noreena Hertz:</b>
+        <div>I found
+       this book to a great resource for explaining how we can improve human connection, which was helpful
+        in my attempts to promote third places through hosting events.
+        </div>
+      </li>
+    </ul>
+
+    <h3>Here are some other books that I've read parts of.</h3>
+    <ul>
+      <li>
+        <b><a href="https://greatgoodplace.org/">The Great Good Place</a> by Ray Oldenburg</b>
+        <div>Ray Oldenburg contained the term "third place" in this book. Karen Christensen has also recently published
+        a revised edition</div>
+      </li>
+      <li><a href="http://bowlingalone.com/">Bowling Alone</a>by Robert Putnam</li>
+      <li><a href="https://en.wikipedia.org/wiki/The_Death_and_Life_of_Great_American_Cities">The Death and Life of Great
+      American Cities</a></li>
+      <li><a href="https://www.priyaparker.com/book-art-of-gathering">The Art of Gathering</a> by Priya Parker</li>
+    </ul>
+
+    <h3>When doing research on third places, I've also found out about these books which are related to third places</h3>
+    <ul>
+      <li>
+        <a href="https://press.princeton.edu/books/ebook/9781400820740/making-democracy-work-pdf">Making Democracy Work:
+        Civic Traditions in Modern Italy</a>
+      </li>
+      <li>
+        <a href="https://www.simonandschuster.com/books/The-Upswing/Robert-D-Putnam/9781797101118">The Upswing:
+          How America Came Together a Century Ago and How We Can Do It Again</a>
+      </li>
+    </ul>
+  </div>
+  <div id="bot-container"></div>
+
+</body>
+</html>

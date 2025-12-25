@@ -95,7 +95,11 @@
         is mainly on the <a href="https://github.com/gatherspiel/backend">backend</a>, which includes comprehensive
         <a href="https://github.com/gatherspiel/backend/tree/main/src/test/java/app">database integration tests.</a></p>
 
-        <p>Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
+        <p>Also, places.js is designed to support open source projects. With open source projects, automated
+        UI testing code is also a publicly available set of instructions that someone could use to help create
+        an unauthorized scraper for a website.</p>
+
+      <p>Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
         content. This increases the complexity of writing automated UI tests. On the other hand, places.js is also has
         support for asynchronous data fetching from a backend API, and automated testing efforts should be focused there.
         API endpoints used by places.js should have clearly defined correct behavior not defined by subjective criteria,

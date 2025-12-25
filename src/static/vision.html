@@ -8,8 +8,10 @@
 
   <link rel="stylesheet" href="/styles/sharedStyles.css" />
 
-
   <script defer fetchpriority="low" type="module">
+    import {FaqComponent} from "./js/FaqComponent.js";
+    customElements.define('faq-component',FaqComponent);
+
     import {GetGameAdvice} from "../bots/getGameAdvice.js";
     GetGameAdvice();
   </script>
@@ -21,26 +23,14 @@
 
       <p>
         <b>
-          The goal of Create Third Places is to promote interest in public spaces. To
+          The goal of Create Third Places is to promote interest in accessible public spaces. To
           promote this goal, these guidelines will be followed for any changes.
         </b>
       </p>
 
-      <h2>Support in person interaction</h2>
 
-      <p>
-        All content will support the goal of encouraging people to
-        interact in person. For example, a feature that makes it easier for
-        people to find in person events would be a good fit for the website.
-        Changes to improve usability or readability of the website also
-        support this goal. Forums, comments, or any other form of online
-        messaging will not be supported by Create Third Places. People should be
-        encouraged to meet and exchange contact information in person before
-        communicating online.
-      </p>
 
       <h2>All content is human generated</h2>
-
       <p>
         Create Third Places will be developed and maintained by humans without
         the use of automated tools such as bots or generative AI. Users will
@@ -49,7 +39,6 @@
       </p>
 
       <h2>No personalized recommendations</h2>
-
       <p>
         Create Third Places  will not provide personalized recommendations. Users
         are encouraged to get recommendations through connecting with others
@@ -58,7 +47,6 @@
       </p>
 
       <h2>No Commercial Monetization</h2>
-
       <p>
         Create Third Places will not be a profit making entity, and website code is
         <a href="https://github.com/orgs/createthirdplaces/repositories">open source. </a>
@@ -67,14 +55,30 @@
       </p>
 
       <h2>Promote Decentralization</h2>
-
       <p>
         People should be empowered to take independent actions to promote third places in their own
         community. Create Third Places  aims to support these people with advice and examples of
         ways that third places can be promoted. There are a variety of ways that third places
         can be promoted based on a person's interests and their community.
       </p>
-      <br>
+
+    <h2>Support in person interaction</h2>
+
+    <p>
+      All content will support the goal of encouraging people to
+      interact in person. For example, a feature that makes it easier for
+      people to find in person events would be a good fit for the website.
+      Changes to improve usability or readability of the website also
+      support this goal. Forums, comments, or any other form of online
+      messaging will not be supported by Create Third Places. People should be
+      encouraged to meet and exchange contact information in person before
+      communicating online.
+    </p>
+
+    <q>Third places are face-to-face phenomena. The idea that electronic communication permits a virtual third place is
+      misleading</q>(Ray Oldenburg)
+    <faq-component></faq-component>
+
     </div>
     <div id="bot-container"></div>
 
