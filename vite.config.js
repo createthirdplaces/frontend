@@ -19,6 +19,8 @@ export default defineConfig({
     outDir: "../dist",
     rollupOptions: {
       input: {
+
+        apiEndpoints: resolve(__dirname, "src/static/tech/apiEndpoints.html"),
         billOne: resolve(__dirname, "src/static/b26-0132.html"),
         boardListing: resolve(__dirname, "src/static/dc/boardListing.html"),
 

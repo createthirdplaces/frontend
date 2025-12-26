@@ -42,7 +42,6 @@
    <glyph unicode="E" horiz-adv-x="1106" d="M 168,0 L 168,1409 1237,1409 1237,1253 359,1253 359,801 1177,801 1177,647 359,647 359,156 1278,156 1278,0 168,0 Z"/>
    <glyph unicode="A" horiz-adv-x="1353" d="M 1167,0 L 1006,412 364,412 202,0 4,0 579,1409 796,1409 1362,0 1167,0 Z M 685,1265 L 676,1237 C 659,1182 635,1111 602,1024 L 422,561 949,561 768,1026 C 749,1072 731,1124 712,1182 L 685,1265 Z"/>
    <glyph unicode="/" horiz-adv-x="568" d="M 0,-20 L 411,1484 569,1484 162,-20 0,-20 Z"/>
-   <glyph unicode="." horiz-adv-x="196" d="M 187,0 L 187,219 382,219 382,0 187,0 Z"/>
    <glyph unicode=" " horiz-adv-x="556"/>
   </font>
  </defs>
@@ -94,94 +93,94 @@
      <g class="Page">
       <g class="com.sun.star.drawing.CustomShape">
        <g id="id3">
-        <rect class="BoundingBox" stroke="none" fill="none" x="6395" y="22270" width="5718" height="3178"/>
-        <path fill="rgb(114,159,207)" stroke="none" d="M 9254,25446 L 6396,25446 6396,22271 12111,22271 12111,25446 9254,25446 Z"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 9254,25446 L 6396,25446 6396,22271 12111,22271 12111,25446 9254,25446 Z"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="7682" y="23723"><tspan font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Aggregator </tspan></tspan><tspan class="TextPosition" x="8177" y="24434"><tspan font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">website</tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="5760" y="22588" width="5718" height="3178"/>
+        <path fill="rgb(114,159,207)" stroke="none" d="M 8619,25764 L 5761,25764 5761,22589 11476,22589 11476,25764 8619,25764 Z"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 8619,25764 L 5761,25764 5761,22589 11476,22589 11476,25764 8619,25764 Z"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="7047" y="24041"><tspan font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Aggregator </tspan></tspan><tspan class="TextPosition" x="7542" y="24752"><tspan font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">website</tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="TextShape">
        <g id="id4">
-        <rect class="BoundingBox" stroke="none" fill="none" x="3222" y="19097" width="3811" height="2224"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="3472" y="19480"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Aggregator requests </tspan></tspan><tspan class="TextPosition" x="3472" y="19798"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">permission to read events </tspan></tspan><tspan class="TextPosition" x="3472" y="20116"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">from local website. </tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="2587" y="18144" width="3811" height="2224"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="2837" y="18527"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Aggregator requests </tspan></tspan><tspan class="TextPosition" x="2837" y="18845"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">permission to read events </tspan></tspan><tspan class="TextPosition" x="2837" y="19163"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">from local website </tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="com.sun.star.drawing.ConnectorShape">
        <g id="id5">
-        <rect class="BoundingBox" stroke="none" fill="none" x="4333" y="17510" width="4922" height="4763"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 9053,22077 L 4534,17705"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 9143,21956 L 9254,22272 8934,22171 9143,21956 Z"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 4444,17826 L 4333,17510 4653,17611 4444,17826 Z"/>
+        <rect class="BoundingBox" stroke="none" fill="none" x="4651" y="14970" width="3969" height="7621"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 8490,22342 L 4780,15218"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 8613,22255 L 8619,22590 8347,22393 8613,22255 Z"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 4657,15305 L 4651,14970 4923,15167 4657,15305 Z"/>
        </g>
       </g>
       <g class="com.sun.star.drawing.CustomShape">
        <g id="id6">
-        <rect class="BoundingBox" stroke="none" fill="none" x="2268" y="16873" width="4130" height="638"/>
-        <path fill="rgb(114,159,207)" stroke="none" d="M 4333,17509 L 2269,17509 2269,16874 6396,16874 6396,17509 4333,17509 Z"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 4333,17509 L 2269,17509 2269,16874 6396,16874 6396,17509 4333,17509 Z"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="2560" y="17339"><tspan font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">POST /aggregator/</tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="1951" y="11793" width="5400" height="3178"/>
+        <path fill="rgb(114,159,207)" stroke="none" d="M 4651,14969 L 1952,14969 1952,11794 7349,11794 7349,14969 4651,14969 Z"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 4651,14969 L 1952,14969 1952,11794 7349,11794 7349,14969 4651,14969 Z"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="2878" y="13529"><tspan font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">POST /aggregator/</tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="com.sun.star.drawing.CustomShape">
        <g id="id7">
-        <rect class="BoundingBox" stroke="none" fill="none" x="11158" y="16873" width="4131" height="638"/>
-        <path fill="rgb(114,159,207)" stroke="none" d="M 13223,17509 L 11159,17509 11159,16874 15287,16874 15287,17509 13223,17509 Z"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 13223,17509 L 11159,17509 11159,16874 15287,16874 15287,17509 13223,17509 Z"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="11992" y="17339"><tspan font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">GET /events/</tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="9253" y="11793" width="5400" height="3178"/>
+        <path fill="rgb(114,159,207)" stroke="none" d="M 11953,14969 L 9254,14969 9254,11794 14651,11794 14651,14969 11953,14969 Z"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 11953,14969 L 9254,14969 9254,11794 14651,11794 14651,14969 11953,14969 Z"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="10722" y="13529"><tspan font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">GET /events/</tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="com.sun.star.drawing.ConnectorShape">
        <g id="id8">
-        <rect class="BoundingBox" stroke="none" fill="none" x="9254" y="17510" width="3970" height="4763"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 9433,22057 L 13044,17725"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 9561,22138 L 9254,22272 9331,21946 9561,22138 Z"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 12916,17644 L 13223,17510 13146,17836 12916,17644 Z"/>
+        <rect class="BoundingBox" stroke="none" fill="none" x="8601" y="14970" width="3371" height="7621"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 8731,22333 L 11841,15227"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 8877,22375 L 8619,22590 8602,22255 8877,22375 Z"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 11695,15185 L 11953,14970 11970,15305 11695,15185 Z"/>
        </g>
       </g>
       <g class="TextShape">
        <g id="id9">
-        <rect class="BoundingBox" stroke="none" fill="none" x="12747" y="18780" width="3811" height="2224"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="12997" y="19163"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Aggregator requests </tspan></tspan><tspan class="TextPosition" x="12997" y="19481"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">permission to read events </tspan></tspan><tspan class="TextPosition" x="12997" y="19799"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">from local website. </tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="10842" y="18145" width="3811" height="2224"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="11092" y="18528"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Aggregator reads all </tspan></tspan><tspan class="TextPosition" x="11092" y="18846"><tspan font-family="Liberation Sans, sans-serif" font-size="282px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">groups from a website</tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="com.sun.star.drawing.CustomShape">
        <g id="id10">
-        <rect class="BoundingBox" stroke="none" fill="none" x="6713" y="8300" width="5718" height="1908"/>
-        <path fill="rgb(114,159,207)" stroke="none" d="M 9572,10206 L 6714,10206 6714,8301 12429,8301 12429,10206 9572,10206 Z"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 9572,10206 L 6714,10206 6714,8301 12429,8301 12429,10206 9572,10206 Z"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="7649" y="9118"><tspan font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Local website </tspan></tspan><tspan class="TextPosition" x="8690" y="9829"><tspan font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">server</tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="5760" y="7030" width="5400" height="3178"/>
+        <path fill="rgb(114,159,207)" stroke="none" d="M 8460,10206 L 5761,10206 5761,7031 11158,7031 11158,10206 8460,10206 Z"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 8460,10206 L 5761,10206 5761,7031 11158,7031 11158,10206 8460,10206 Z"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="6530" y="8766"><tspan font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Local website server</tspan></tspan></tspan></text>
        </g>
       </g>
-      <g class="com.sun.star.drawing.ConnectorShape">
+      <g class="com.sun.star.drawing.CustomShape">
        <g id="id11">
-        <rect class="BoundingBox" stroke="none" fill="none" x="4333" y="10207" width="5240" height="6669"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 4506,16655 L 9399,10427"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 4636,16732 L 4333,16875 4400,16546 4636,16732 Z"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 9269,10350 L 9572,10207 9505,10536 9269,10350 Z"/>
+        <rect class="BoundingBox" stroke="none" fill="none" x="5761" y="2585" width="5400" height="3178"/>
+        <path fill="rgb(114,159,207)" stroke="none" d="M 8461,5761 L 5762,5761 5762,2586 11159,2586 11159,5761 8461,5761 Z"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 8461,5761 L 5762,5761 5762,2586 11159,2586 11159,5761 8461,5761 Z"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="6531" y="4321"><tspan font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Local website server</tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="com.sun.star.drawing.ConnectorShape">
        <g id="id12">
-        <rect class="BoundingBox" stroke="none" fill="none" x="9572" y="10207" width="3652" height="6669"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 13089,16629 L 9706,10453"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 13210,16540 L 13223,16875 12947,16684 13210,16540 Z"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 9585,10542 L 9572,10207 9848,10398 9585,10542 Z"/>
+        <rect class="BoundingBox" stroke="none" fill="none" x="4651" y="10183" width="3810" height="1637"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 4909,11687 L 8202,10315"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 4986,11818 L 4651,11795 4870,11541 4986,11818 Z"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 8125,10184 L 8460,10207 8241,10461 8125,10184 Z"/>
        </g>
       </g>
-      <g class="com.sun.star.drawing.CustomShape">
+      <g class="com.sun.star.drawing.ConnectorShape">
        <g id="id13">
-        <rect class="BoundingBox" stroke="none" fill="none" x="6713" y="2268" width="5718" height="3178"/>
-        <path fill="rgb(114,159,207)" stroke="none" d="M 9572,5444 L 6714,5444 6714,2269 12429,2269 12429,5444 9572,5444 Z"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 9572,5444 L 6714,5444 6714,2269 12429,2269 12429,5444 9572,5444 Z"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="7947" y="3721"><tspan font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Local event </tspan></tspan><tspan class="TextPosition" x="8265" y="4432"><tspan font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">database</tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="8460" y="10194" width="3494" height="1615"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 8715,10323 L 11698,11679"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 8671,10468 L 8460,10207 8795,10195 8671,10468 Z"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 11742,11534 L 11953,11795 11618,11807 11742,11534 Z"/>
        </g>
       </g>
       <g class="com.sun.star.drawing.ConnectorShape">
        <g id="id14">
-        <rect class="BoundingBox" stroke="none" fill="none" x="9422" y="5445" width="301" height="2858"/>
-        <path fill="none" stroke="rgb(52,101,164)" d="M 9572,8022 L 9572,5725"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 9722,8002 L 9572,8302 9422,8002 9722,8002 Z"/>
-        <path fill="rgb(52,101,164)" stroke="none" d="M 9422,5745 L 9572,5445 9722,5745 9422,5745 Z"/>
+        <rect class="BoundingBox" stroke="none" fill="none" x="8310" y="5762" width="302" height="1271"/>
+        <path fill="none" stroke="rgb(52,101,164)" d="M 8460,6752 L 8461,6042"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 8610,6732 L 8460,7032 8310,6732 8610,6732 Z"/>
+        <path fill="rgb(52,101,164)" stroke="none" d="M 8311,6062 L 8461,5762 8611,6062 8311,6062 Z"/>
        </g>
       </g>
      </g>

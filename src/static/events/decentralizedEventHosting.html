@@ -40,7 +40,7 @@
     <li>Promote decentralization</li>
   </ul>
 
-  <h2>Details about the decentralized architecture</h2>
+  <h2>Overview of decentralized architecture</h2>
 
   <p>The general idea behind the decentralized architecture will involve having 2 types of websites. The first will be
     local websites for a specific activities. Local websites will be independently created and run
@@ -61,7 +61,7 @@
     can be used to search for events across multiple parks.</p>
 
   <p>
-    A similar architecture has seen success in settings where centralized control outside of the computer systems is neessary. 
+    A similar architecture has seen success in settings where centralized control outside of the computer systems is necessary.
     For example The Create Third Places decentralized architecture is similar to the 
     <a href="https://en.wikipedia.org/wiki/Bell%E2%80%93LaPadula_model">Bell-LaPadula security
       model</a> with discretionary access control which was used by the US Department of Defense.</p>
@@ -79,8 +79,9 @@
     websites.</li>
     <li>When an aggregator website requests information about a specific group, it will retrieve the UUID and local
     website URL from its database. This information can then be used to perform a query on the local website through multiple
-    aggregation layers without significant performance degradation.</li>
-    <li> All aggregator websites will need to register with the websites they are aggregating from. After registering,
+    aggregation layers without significant performance degradation. An aggregator website will also be able to request a list of
+    events.</li>
+    <li>All aggregator websites will need to register with the websites they are aggregating from. After registering,
       the aggregator will retrieve all the groups from the website they registered with. When a group is
       created or deleted, it will look at the websites that registered as aggregators, and then call an API endpoint for
       the aggregator to make sure it has information about the group.
@@ -93,10 +94,6 @@
     </li>
   </ul>
 
-  <details>
-    <summary>A example of how this architecture would work with an aggregator</summary>
-    <img src="/images/events/architecture/Decentralized_Event_Hosting_Aggregator_Design.svg">
-  </details>
   <h3>Challenges that this architecture will address</h3>
     <ul>
       <li>Efficiently reading updated data from other websites. If an aggregator website has to check other websites to
@@ -121,9 +118,15 @@
     <a href="https://github.com/gatherspiel/DMVBoardGames">here</a>
   </p>
 
-  <p>See more information about <a href="/static/tech/techStrategy.html">tech strategy here.</a>
+  <h2>More details</h2>
+
   <details>
-    <summary>Reasons why a decentralized network of third websites is a good idea</summary>
+    <summary>A example of how this architecture would work with an aggregator.</summary>
+    <img src="/images/events/architecture/Decentralized_Event_Hosting_Aggregator_Design.svg">
+  </details>
+
+  <details>
+    <summary>Reasons why a decentralized network of third websites is a good idea.</summary>
     <ul>
       <li>It is difficult for a general purpose website to meet the interests of specific hobbies or communities. People
       have a variety of different interests that will be complex to effectively represent on one website. Also, it is
@@ -140,27 +143,27 @@
     </ul>
   </details>
 
-  <h2>More details about issues with Meetup and other websites for third place events</h2>
+  <p><a href="/static/tech/apiEndpoints.html">API endpoint details</a></p>
+  <p>See more information about <a href="/static/tech/techStrategy.html">tech strategy here.</a>
 
-  <details>
-    <summary>Issues with other third place websites</summary>
-    <p>
-      In the past, there were a variety of websites that people could use to promote events in third
-      places. Unfortunately many of them have declined in quality or started to prioritize keeping people online.
-      The website Meetup.com was a notable exception as it prioritized in person events. However,
-      the quality of Meetup has declined, and it is no longer a good option for hosting events.
-      <a href="/static/events/meetupProblems.html">See this page for more details.</a>
-    </p>
-    <p>
-      Other platforms are attempting to compete with Meetup such as Luma and Partiful. However, they follow
-      the same VC funded for profit business model used by Meetup, and are on the path to
-      <a href="https://pluralistic.net/2023/01/21/potemkin-ai/#hey-guys">enshittification</a>
-      This includes one former competitor Eventbrite, which has been
-      <a href="https://techcrunch.com/2025/12/02/bending-spoons-agrees-to-buy-eventbrite-for-500m-to-revive-stalled-brand/">
-        purchased by the company Bending Spoons</a>. This is the same company that owns Meetup.com and has been responsible
-      for its latest problems.
-    </p>
-  </details>
+
+  <h2>Issues with other websites used to promote third places</h2>
+  <p>
+    In the past, there were a variety of websites that people could use to promote events in third
+    places. Unfortunately many of them have declined in quality or started to prioritize keeping people online.
+    The website Meetup.com was a notable exception as it prioritized in person events. However,
+    the quality of Meetup has declined, and it is no longer a good option for hosting events.
+    <a href="/static/events/meetupProblems.html">See this page for more details.</a>
+  </p>
+  <p>
+    Other platforms are attempting to compete with Meetup such as Luma and Partiful. However, they follow
+    the same VC funded for profit business model used by Meetup, and are on the path to
+    <a href="https://pluralistic.net/2023/01/21/potemkin-ai/#hey-guys">enshittification</a>.
+    This includes one former competitor Eventbrite, which has been
+    <a href="https://techcrunch.com/2025/12/02/bending-spoons-agrees-to-buy-eventbrite-for-500m-to-revive-stalled-brand/">
+      purchased by the company Bending Spoons</a>. This is the same company that owns Meetup.com and has been responsible
+    for its latest problems.
+  </p>
 
 </div>
 <div id="bot-container"></div>
