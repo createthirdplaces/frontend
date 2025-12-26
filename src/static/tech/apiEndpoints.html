@@ -1,0 +1,106 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles/sharedStyles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script defer fetchpriority="low" type="module">
+      import {BaseTemplateComponent} from "../../shared/lib/places-js-latest.js"
+      import {GetGameAdvice} from "../../bots/getGameAdvice.js";
+      GetGameAdvice();
+      export class ApiEndpointComponent extends BaseTemplateComponent{
+        getTemplateStyle(){
+          return `<style></style>`
+        }
+        render(){
+          return `
+            <h1>API endpoint documentation</h1>
+
+            <p>This page contains work in progress API endpoint information for a decentralized event architecture.
+               Email gulu@createthirdplaces.com, or create an <a href="https://github.com/createthirdplaces/frontend/issues">
+               issue</a> here to recommend a change. Source code for the documentation is
+               <a href="https://github.com/createthirdplaces/frontend/tree/main/src/static/tech">here</a>
+            </p>
+
+            <details>
+              <summary>POST /aggregator/</summary>
+              <p>What endpoint does</p>
+              <p>Request parameters</p>
+              <p>Response parameters</p>
+              <p>Error responses</p>
+            </details>
+
+
+            <details>
+              <summary>GET /events/</summary>
+              <p>What endpoint does</p>
+              <p>Request parameters</p>
+              <p>Response parameters</p>
+              <p>Pagination </p>
+              <p>Error responses</p>
+            </details>
+
+            <details>
+              <summary>GET /groups/{groupId}/events/{eventId}/</summary>
+              <p>What endpoint does</p>
+              <p>Request parameters</p>
+              <p>Response parameters</p>
+              <p>Error responses</p>
+            </details>
+
+            <details>
+              <summary>GET /groups/{groupId}/</summary>
+              <p>What endpoint does</p>
+              <p>Request parameters</p>
+              <p>Response parameters</p>
+              <p>Error responses</p>
+            </details>
+
+            <details>
+              <summary>Structure of an event response object</summary>
+              <p>Add sample JSON
+              </p>
+            </details>
+
+
+            <h2>Notes about possible updates</h2>
+
+            <p>This decentralized architecture could need to specify a way to make sure only authorized clients are able to retrieve
+            data. Here are a couple of ways this could be done. </p>
+            <ul>
+              <li><b>Have the events endpoint check the origin of the request, and block any request that are not
+              whitelisted.</b> While this will be straightforward to implement, there is a risk from attempts to
+              spoof the origin.</li>
+              <li><b>Generate an API key for each aggregator</b>: This would involve more complexity than
+               checking the origin of a request. However, using an API key would be more secure, especially with
+               a requirement to rotate the API key.</li>
+            </ul>
+
+          <p>It might also be a good idea to make sure individual event websites can choose the level of security
+          they want, either by using one of the methods listed above, or some sort of other authentication mechanism.
+           Ease of access might be a higher priority for some event websites over restricting access. Also,
+          unauthorized access may not be a concern for a new event website due to a lack of visibility. The goal of
+          read-only access control is to make sure that API endpoints are not overloaded to </p>
+
+          <p>To prevent overloading, it could also be useful to recommend rate limiting.</p>
+          `
+        }
+      }
+      customElements.define('api-endpoint-component', ApiEndpointComponent)
+
+    </script>
+    <title>API endpoints</title>
+  </head>
+  <body>
+    <div id="container">
+      {{>navbar}}
+      <api-endpoint-component></api-endpoint-component>
+
+    </div>
+    <div id="bot-container"></div>
+
+  </body>
+</html>
