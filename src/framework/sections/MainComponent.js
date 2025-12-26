@@ -8,6 +8,7 @@ export class MainComponent extends BaseDynamicComponent {
   }
 
   attachHandlersToShadowRoot(shadowRoot) {
+
     const currentUrl = window.location.href.split('?')[0]
 
     let shouldChangeUrl = false;
@@ -34,6 +35,7 @@ export class MainComponent extends BaseDynamicComponent {
       })
     })
   }
+
   getTemplateStyle() {
 
     return `

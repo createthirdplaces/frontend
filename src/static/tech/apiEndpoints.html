@@ -8,84 +8,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script defer fetchpriority="low" type="module">
-      import {BaseTemplateComponent} from "../../shared/lib/places-js-latest.js"
+      import {BaseDynamicComponent} from "../../shared/lib/places-js-latest.js"
       import {GetGameAdvice} from "../../bots/getGameAdvice.js";
       GetGameAdvice();
-      export class ApiEndpointComponent extends BaseTemplateComponent{
+      export class ApiEndpointComponent extends BaseDynamicComponent{
+
+
+        attachHandlersToShadowRoot(shadowRoot) {
+
+          const currentUrl = window.location.href.split('?')[0]
+          let shouldChangeUrl = false;
+          shadowRoot.addEventListener("click",()=>{
+            shouldChangeUrl = true;
+          })
+
+          shadowRoot.querySelectorAll("#container > details").forEach((item)=>{
+            item.addEventListener("toggle",(event)=>{
+
+              if(shouldChangeUrl){
+                const url = new URL(location);
+                if(event.newState === "open"){
+                  url.searchParams.set(event.target.id, "show")
+                  window.history.pushState({},'',`${currentUrl}?${event.target.id}=show`)
+                } else {
+                  window.history.pushState({},'', currentUrl)
+                }
+                shouldChangeUrl = false;
+              }
+            })
+          })
+        }
+
         getTemplateStyle(){
           return `<style></style>`
         }
         render(){
+
+          const urlParams = new URLSearchParams(document.location.search);
+
           return `
-            <h1>API endpoint documentation</h1>
+            <div id="container">
+              <h1>API endpoint documentation</h1>
 
-            <p>This page contains work in progress API endpoint information for a decentralized event architecture.
-               Email gulu@createthirdplaces.com, or create an <a href="https://github.com/createthirdplaces/frontend/issues">
-               issue</a> here to recommend a change. Source code for the documentation is
-               <a href="https://github.com/createthirdplaces/frontend/tree/main/src/static/tech">here</a>
-            </p>
-
-            <details>
-              <summary>POST /aggregator/</summary>
-              <p>What endpoint does</p>
-              <p>Request parameters</p>
-              <p>Response parameters</p>
-              <p>Error responses</p>
-            </details>
-
-
-            <details>
-              <summary>GET /events/</summary>
-              <p>What endpoint does</p>
-              <p>Request parameters</p>
-              <p>Response parameters</p>
-              <p>Pagination </p>
-              <p>Error responses</p>
-            </details>
-
-            <details>
-              <summary>GET /groups/{groupId}/events/{eventId}/</summary>
-              <p>What endpoint does</p>
-              <p>Request parameters</p>
-              <p>Response parameters</p>
-              <p>Error responses</p>
-            </details>
-
-            <details>
-              <summary>GET /groups/{groupId}/</summary>
-              <p>What endpoint does</p>
-              <p>Request parameters</p>
-              <p>Response parameters</p>
-              <p>Error responses</p>
-            </details>
-
-            <details>
-              <summary>Structure of an event response object</summary>
-              <p>Add sample JSON
+              <p>This page contains work in progress API endpoint information for a decentralized event architecture.
+                 Email gulu@createthirdplaces.com, or create an <a href="https://github.com/createthirdplaces/frontend/issues">
+                 issue</a> here to recommend a change. Source code for the documentation is
+                 <a href="https://github.com/createthirdplaces/frontend/tree/main/src/static/tech">here</a>
               </p>
-            </details>
+
+              <h2>Endpoints for websites sharing group and event information</h2>
+              <details id="one" ${urlParams.get("one") ? "open" : ''}>
+                <summary>POST /aggregator/</summary>
+
+                <p>This endpoint will be used to register an aggregator</p>
+
+                <h3>Request body parameters</h3>
+                <ul>
+                  <li><b>level:</b>The level of the aggregator.</li>
+                  <li><b>url:</b>The url of the aggregator.</li>
+                </ul>
+
+                <h3>Success response parameters</h3>
+                <ul>
+                  <li><b>url:</b> The url of the event website</li>
+                 </ul>
+
+                <p>Error codes</p>
+                <ul>
+                  <li><b>400</b>: Invalid parameter.</li>
+                  <li><b>401</b>: The aggregator registeration request is unauthorized.</li>
+                  <li><b>500</b>: Other server error.</li>
+                </ul>
+
+              </details>
+
+              <details id="two" ${urlParams.get("two") ? "open" : ''}>
+                <summary>GET /groups/?limit={limit}&offset={offset}</summary>
+                <p>This endpoint will be used to retrieve a list of groups. Pagination will be used to limit
+                 the number of groups that are returned</p>
+
+                <p>Error codes</p>
+                <ul>
+                  <li><b>400</b>: Invalid parameter.</li>
+                  <li><b>401</b>: Unauthorized request.</li>
+                  <li><b>500</b>: Other server error.</li>
+                </ul>
+
+              </details>
+
+              <details id="get-events" ${urlParams.get("get-events") ? "open" : ''}>
+                <summary>GET /events/</summary>
+                <p>This endpoint will be used to retrieve a list of events. Pagination will be used to limit
+                 the number of events that are returned</p>
+
+                 <ul>
+                  <li><b>400</b>: Invalid parameter.</li>
+                  <li><b>401</b>: Unauthorized request.</li>
+                  <li><b>500</b>: Other server error.</li>
+                </ul>
+
+              </details>
+
+              <details id="three" ${urlParams.get("three") ? "open" : ''}>
+                <summary>GET /groups/events/{eventId}/</summary>
+                <p>This endpoint will be used to retrieve an event for a group.</p>
+
+                <h3>Request body parameter</h3>
+                <p><b>groupId</b>: UUID of group </p>
+
+                <p>Error responses</p>
+
+                 <ul>
+                  <li><b>400</b>: Invalid parameter.</li>
+                  <li><b>401</b>: Unauthorized request.</li>
+                  <li><b>404</b>: Request was authorized and event was not found.</li>
+                  <li><b>500</b>: Other server error.</li>
+                </ul>
+
+              </details>
+
+              <details id="four" ${urlParams.get("four") ? "open" : ''}>
+                <summary>GET /groups/{groupId}/</summary>
+                <p>This endpoint will be used to retrieve data about a group</p>
 
 
-            <h2>Notes about possible updates</h2>
+                 <p>Error responses</p>
 
-            <p>This decentralized architecture could need to specify a way to make sure only authorized clients are able to retrieve
-            data. Here are a couple of ways this could be done. </p>
-            <ul>
-              <li><b>Have the events endpoint check the origin of the request, and block any request that are not
-              whitelisted.</b> While this will be straightforward to implement, there is a risk from attempts to
-              spoof the origin.</li>
-              <li><b>Generate an API key for each aggregator</b>: This would involve more complexity than
-               checking the origin of a request. However, using an API key would be more secure, especially with
-               a requirement to rotate the API key.</li>
-            </ul>
+                 <ul>
+                  <li><b>400</b>: Invalid parameter</li>
+                  <li><b>401</b>: Unauthorized request</li>
+                  <li><b>500</b>: Other server error</li>
+                </ul>
+              </details>
 
-          <p>It might also be a good idea to make sure individual event websites can choose the level of security
-          they want, either by using one of the methods listed above, or some sort of other authentication mechanism.
-           Ease of access might be a higher priority for some event websites over restricting access. Also,
-          unauthorized access may not be a concern for a new event website due to a lack of visibility. The goal of
-          read-only access control is to make sure that API endpoints are not overloaded to </p>
+              <details id="five" ${urlParams.get("five") ? "open" : ''}>
+                <summary>Structure of an event response object:</summary>
+                <code>
+                  <pre>
+  {
+   "id":"0935d8a5-4221-4de5-87fd-6bddc358a5f8",
+   "description":"The group will be meeting at the Crystal City Shops outside We The Pizza.",
+   "name":"Bring Your Own Games Night at the Crystal City Shops next to We the Pizza",
+   "url":"https://dmvboardgames.com/",
+   "startDate":"",
+   "endDate":"",
+   "eventLocation":{
+      "city":"Arlington",
+      "state":"VA",
+      "streetAddress":"2911 Crystal Drive",
+      "zipCode":22202
+   },
+   "groupName":"A board game group",
+   "groupId":"465b1e02-4674-4e89-bfd0-9f66f40a6d7c",
+   "permissions":{
+      "userCanEdit":false,
+      "userCanRsvp":false
+   },
+   "isRecurring":true,
+   "startTime":"07:00 PM",
+   "endTime":"10:00 PM",
+   "image":null,
+   "imageFilePath":null,
+   "rsvpCount":0,
+   "userHasRsvp":false,
+   "moderators":[
+     "Bharat"
+   ],
+   "day":"Friday",
+}
+                  </pre>
+                </code>
+              </details>
 
-          <p>To prevent overloading, it could also be useful to recommend rate limiting.</p>
+
+              <h3>Endpoints for aggregator website</h3>
+
+              <details id="six" ${urlParams.get("six") ? "open" : ''}>
+                <summary>POST /group/</summary>
+                <p>This endpoint will be used by aggregator websites to add a new group that. The request body
+                 will include a UUID and group information.</p>
+
+              </details>
+
+              <details id="seven" ${urlParams.get("seven") ? "open" : ''}>
+                <summary>DELETE /group/</summary>
+                <p>This endpoint will be used by aggregator websites to add a new group. It will include a
+                  UUID in the request body for the group.</p>
+
+              </details>
+
+              <h2>Notes about possible updates</h2>
+
+              <p>This decentralized architecture could need to specify a way to make sure only authorized clients are able to retrieve
+              data. Here are a couple of ways this could be done. </p>
+              <ul>
+                <li><b>Have the events endpoint check the origin of the request, and block any request that are not
+                whitelisted.</b> While this will be straightforward to implement, there is a risk from attempts to
+                spoof the origin.</li>
+                <li><b>Generate an API key for each aggregator</b>: This would involve more complexity than
+                 checking the origin of a request. However, using an API key would be more secure, especially with
+                 a requirement to rotate the API key.</li>
+              </ul>
+
+            <p>It might also be a good idea to make sure individual event websites can choose the level of security
+            they want, either by using one of the methods listed above, or some sort of other authentication mechanism.
+             Ease of access might be a higher priority for some event websites over restricting access. Also,
+            unauthorized access may not be a concern for a new event website due to a lack of visibility. The goal of
+            read-only access control is to make sure that API endpoints are not overloaded. </p>
+
+            <p>To prevent overloading, it could also be useful to recommend rate limiting.</p>
+          </div>
           `
         }
       }
