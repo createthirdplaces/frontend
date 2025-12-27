@@ -63,7 +63,6 @@
 
     <h2>Notes about the design goals of places.js</h2>
 
-
       <h3>UI state that easy to reason about</h3>
 
         <p>Code should be understandable by people familiar with CSS, HTML,
@@ -84,14 +83,14 @@
         re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state
         and re-render.</p>
 
-
       <h3>Encourage people to manually test UIs</h3>
 
         <p>Human testing is helpful for subjective criteria
         such as usability that cannot be tested with automation. Places.js is designed around the idea that complexity
         on the frontend is minimized, while the backend has most of the complexity. Minimizing complexity on the frontend
-        will help make sure that UI testing can focus on subjective criteria. Most of the testing for places.js
-        has been done through manual testing of a local dmvboardgames.com instance. Complexity for dmvboardgames.com
+        will help make sure that UI testing can focus on subjective criteria that is relevant for a user. Most of the
+        testing for places.js has been done through manual testing of a local dmvboardgames.com instance. Complexity for
+        dmvboardgames.com
         is mainly on the <a href="https://github.com/gatherspiel/backend">backend</a>, which includes comprehensive
         <a href="https://github.com/gatherspiel/backend/tree/main/src/test/java/app">database integration tests.</a></p>
 
@@ -104,6 +103,11 @@
         support for asynchronous data fetching from a backend API, and automated testing efforts should be focused there.
         API endpoints used by places.js should have clearly defined correct behavior not defined by subjective criteria,
         and they should be covered by automated testing.</p>
+
+      <p>Any automated testing on UI code should be unit tests or integration tests with the backend. These
+      types of tests can be written with clearly defined success criteria that is the same for every user.Automated
+      UI testing is also testing the behavior of a UI, and cannot test subjective such as determining if a button
+      is not too big, or whether a particular shade of blue is helpful for users. </p>
 
       <h3>Ensure that usability is prioritized</h3>
 

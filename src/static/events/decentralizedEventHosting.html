@@ -10,9 +10,12 @@
     <title>Decentralized Meetup</title>
 
     <style>
+
+
       p {
         margin-bottom: 1rem;
       }
+
     </style>
     <script defer fetchpriority="low" type="module">
       import {GetGameAdvice} from "../../bots/getGameAdvice.js";
@@ -26,11 +29,11 @@
 
       <p>
         Create Third Places is working on open source software
-        for people to find in person events as a way of promoting third places.
+        for people to find in person events as a way of promoting third places. It will be designed as a decentralized
+        open source alternative to Meetup.com.
       </p>
 
-      Here are the guidelines that will be followed for any changes.
-      See the <a href="/static/vision.html">vision page</a> for more details.
+      <h2>Guidelines that will be followed for any changes</h2>
 
       <ul>
         <li>Support in person interaction</li>
@@ -40,73 +43,84 @@
         <li>Promote decentralization</li>
       </ul>
 
+      <p>See the <a href="/static/vision.html">vision page</a> for more details.</p>
+
       <h2>Overview of decentralized architecture</h2>
 
-      <p>
-        The general idea behind the decentralized architecture will involve having 2 types of websites. The first will be
-        local websites for a specific activities. Local websites will be independently created and run
-        while sharing data through an API. The second type will be aggregator websites that will read data from local
-        websites and allow users to search their data.  Aggregator websites can also share data with other aggregator
-        websites.
-      </p>
+      <h3>The decentralized architecture includes 2 types of websites.</h3>
+      <ol>
+        <li><b>Event websites</b>:Websites for a specific type or activity or area  They will share event and group data through an API. </li>
+        <li><b>Aggregator websites</b>: They will read data from local
+          websites and allow users to search their data.</li>
+      </ol>
 
-      <p>
-        For example, there can be a local websites in DC for chess events and a website for resource
-      management board games such as Catan. A board game aggregator website could then read information from the chess
-      website and Catan website, and allow users to search for events related to both games. The board game
-      aggregator website could then have its data read by a DC area aggregator website that combines information
-      from other types of websites such as a DC sporting event website.
-      </p>
+      <p>Websites can be both aggregator websites and event websites.</p>
 
-      <p>
-        While this architecture is decentralized, there are cases where it might be desirable for an organization to have
-        an implementation of this under centralized control. One example would be a local parks agency that is looking to
-        use this architecture to manage events for multiple parks. In this case, the decentralization would come from the
-        fact that managers of individual parks can have event sites, while sharing the events with an aggregator that
-        can be used to search for events across multiple parks.
-      </p>
+      <details>
+        <summary>More details about decentralized architecture</summary>
+        <p>
+          One example would a website for chess events in DC and another website for resource management board
+          games such as Catan. An aggregator website could then read information from the chess
+          website and Catan website, and allow users to search for events related to both games. The board game
+          aggregator website could then have its data read by a DC area aggregator website that combines information
+          from other types of websites such as a DC sports event website.
+        </p>
 
-      <p>
-        A similar architecture has seen success in settings where centralized control outside of the computer systems is necessary.
-        For example The Create Third Places decentralized architecture is similar to the
-        <a href="https://en.wikipedia.org/wiki/Bell%E2%80%93LaPadula_model">Bell-LaPadula security
-          model</a> with discretionary access control which was used by the US Department of Defense.</p>
+        <p>
+          While this architecture is decentralized, it might be desirable for an organization to have
+          an implementation of this under centralized control. One example would be a local parks agency managing events
+          for multiple parks. In this case, decentralization would come from the
+          fact that managers of individual parks can have event sites, while sharing the events with an aggregator that
+          can be used to search for events across multiple parks.
+        </p>
 
-      <p>To summarize, the Create Third Places architecture and any other decentralized architecture has an effective decentralization
-      level based on the centralization level of the outside entities controlling the individual parts.</p>
+        <p>
+          A similar architecture has seen success in settings where centralized control outside of the computer systems is necessary.
+          For example The Create Third Places decentralized architecture is similar to the
+          <a href="https://en.wikipedia.org/wiki/Bell%E2%80%93LaPadula_model">Bell-LaPadula security
+            model</a> with discretionary access control which was used by the US Department of Defense.</p>
 
-      <h3>One way of efficiently implementing a decentralized architecture would be to make sure websites fulfill the following
-      guidelines:</h3>
-      <ul>
-        <li>
-          When a group is created on a local website, the information is saved to a database of events for the website
-          with a UUID as the primary key. The events would then be accessible through a public API.
-        </li>
-        <li>
-          Aggregator websites save the UUIDs of all groups in their aggregation and include references to the API endpoint
-          of the original site location. This information would then be available through an API endpoint for other aggregator
-          websites.
-        </li>
-        <li>
-          When an aggregator website requests information about a specific group, it will retrieve the UUID and local
-          website URL from its database. This information can then be used to perform a query on the local website through multiple
-          aggregation layers without significant performance degradation. An aggregator website will also be able to request a list of
-          events.
-        </li>
-        <li>All aggregator websites will need to register with the websites they are aggregating from. After registering,
-          the aggregator will retrieve all the groups from the website they registered with. When a group is
-          created or deleted, it will look at the websites that registered as aggregators, and then call an API endpoint for
-          the aggregator to make sure it has information about the group.
-        </li>
-        <li>
-          To prevent loops, each aggregator will have a level specified by an integer ranging from 0 to
-          2,147,483,647. A website will not be able to aggregate data from a higher level. Local
-          event websites should have a level of 0 to have their data to be read by aggregators. Any website that will not
-          support aggregators should have a level of 2,147,483,647.
-        </li>
-      </ul>
+        <p>To summarize, the Create Third Places architecture and any other decentralized architecture has an effective decentralization
+          level based on the centralization level of the outside entities controlling the individual parts. Create Third Places,
+          blockchain, or any other decentralized architecture is not capable of forcing decentralization on a system
+          that an outside entity wants to centralize.</p>
+      </details>
 
-      <h3>Challenges that this architecture will address</h3>
+
+      <details>
+        <summary>Websites using the decentralized architecture will follow these guidelines</summary>
+        <ul>
+          <li>
+            When a group is created on a local website, the information is saved to a database of events for the website
+            with a UUID as the primary key. The events would then be accessible through a public API.
+          </li>
+          <li>
+            Aggregator websites save the UUIDs of all groups in their aggregation and include references to the API endpoint
+            of the original site location. This information would then be available through an API endpoint for other aggregator
+            websites.
+          </li>
+          <li>
+            When an aggregator website requests information about a specific group, it will retrieve the UUID and local
+            website URL from its database. This information can then be used to perform a query on the local website through multiple
+            aggregation layers without significant performance degradation. An aggregator website will also be able to request a list of
+            events.
+          </li>
+          <li>All aggregator websites will need to register with the websites they are aggregating from. After registering,
+            the aggregator will retrieve all the groups from the website they registered with. When a group is
+            created or deleted, it will look at the websites that registered as aggregators, and then call an API endpoint for
+            the aggregator to make sure it has information about the group.
+          </li>
+          <li>
+            To prevent loops, each aggregator will have a level specified by an integer ranging from 0 to
+            2,147,483,647. A website will not be able to aggregate data from a higher level. Local
+            event websites should have a level of 0 to have their data to be read by aggregators. Any website that will not
+            support aggregators should have a level of 2,147,483,647.
+          </li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Challenges that this architecture will address</summary>
         <ul>
           <li>
             Efficiently reading updated data from other websites. If an aggregator website has to check other websites to
@@ -128,18 +142,10 @@
             decide to cancel permissions to block aggregators.
           </li>
         </ul>
-      <p>
-        As a starting point, a local website for in person board games in the DC area is
-        being worked on at <a href="https://dmvboardgames.com/">dmvboardgames.com</a>.
-        Other third place websites will be able to read data from the dmvboardgames.com
-        backend through an API. Source code for dmvboardgames.com is
-        <a href="https://github.com/gatherspiel/DMVBoardGames">here</a>.
-      </p>
-
-      <h2>More details</h2>
+      </details>
 
       <details>
-        <summary>A example of how this architecture would work with an aggregator.</summary>
+        <summary>An example of how this architecture would work with an aggregator.</summary>
         <img src="/images/events/architecture/Decentralized_Event_Hosting_Aggregator_Design.svg">
       </details>
 
@@ -148,8 +154,8 @@
         <ul>
           <li>
             It is difficult for a general purpose website to meet the interests of specific hobbies or communities. People
-          have a variety of different interests that will be complex to effectively represent on one website. Also, it is
-          impossible for the developers of one site to have knowledge about every single community and hobby.
+            have a variety of different interests that will be complex to effectively represent on one website. Also, it is
+            impossible for the developers of one site to have knowledge about every single community and hobby.
           </li>
           <li>
             Smaller websites can have content related to the interests of their audience without affecting how others
@@ -169,8 +175,25 @@
         </ul>
       </details>
 
-      <p><a href="/static/tech/apiEndpoints.html">API endpoint details</a></p>
-      <p>See more information about <a href="/static/tech/techStrategy.html">tech strategy here.</a>
+      <p>
+        A local website for in person board games in the DC area is
+        being worked on at <a href="https://dmvboardgames.com/">dmvboardgames.com</a>.
+        Other third place websites will be able to read data from the dmvboardgames.com
+        backend through an API. Source code for dmvboardgames.com is
+        <a href="https://github.com/gatherspiel/DMVBoardGames">here</a>.
+      </p>
+
+      <h3>Other links</h3>
+
+      <ul>
+        <li>
+          <a href="/static/tech/apiEndpoints.html">API endpoint details</a></li>
+        <li>
+          <a href="/static/tech/techStrategy.html">Details about tech strategy</a>
+        </li>
+      </ul>
+
+
 
 
       <h2>Issues with other websites used to promote third places</h2>
