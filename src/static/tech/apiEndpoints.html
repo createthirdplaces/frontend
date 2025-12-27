@@ -22,7 +22,7 @@
             shouldChangeUrl = true;
           })
 
-          shadowRoot.querySelectorAll("#container > details").forEach((item)=>{
+          shadowRoot.querySelectorAll("details").forEach((item)=>{
             item.addEventListener("toggle",(event)=>{
 
               if(shouldChangeUrl){
@@ -40,14 +40,19 @@
         }
 
         getTemplateStyle(){
-          return `<style></style>`
+          return `
+          <link rel="stylesheet" href="/styles/sharedStyles.css" />
+
+          <style>
+
+          </style>
+        `
         }
         render(){
 
           const urlParams = new URLSearchParams(document.location.search);
 
           return `
-            <div id="container">
               <h1>API endpoints</h1>
 
               <p>
@@ -64,11 +69,94 @@
                  <a href="https://github.com/createthirdplaces/frontend/tree/main/src/static/tech">here</a>.
               </p>
 
-              <h2>Endpoints for websites sharing group and event information</h2>
+              <h2>Endpoints for websites sharing event information</h2>
+
+
+           <details id="remove-aggregator" ${urlParams.get("remove-aggregator") ? "open" : ''}>
+                <summary>DELETE /aggregator/</summary>
+
+                <p>This endpoint will be used to remove an aggregator from an event website.</p>
+
+                <h3>Request body parameters</h3>
+                <ul>
+                  <li><b>url:</b>The url of the aggregator.</li>
+                </ul>
+
+
+                <h3>Error codes</h3>
+                <ul>
+                  <li><b>400</b>: Invalid parameter.</li>
+                  <li><b>401</b>: Aggregator is not registered.</li>
+                  <li><b>500</b>: Other server error.</li>
+                </ul>
+
+              </details>
+
+              <details id="two" ${urlParams.get("two") ? "open" : ''}>
+                <summary>GET /groups?limit={limit}&offset={offset}</summary>
+                <p>This endpoint will be used to retrieve a list of groups. Pagination will be used to limit
+                 the number of groups that are returned. The order of events should also be deterministic and not
+                 change outside of relevant data updates.
+                </p>
+
+                <h3>Query string parameters </h3>
+                <ul>
+                  <li><b>limit</b>: Maximum number of groups to return. </li>
+                  <li><b>offset</b>: Number of records that should be skipped before detemrining which results shoudl be returned. </li>
+                </ul>
+
+                <h3>Error codes</h3>
+                <ul>
+                  <li><b>400</b>: Invalid parameter.</li>
+                  <li><b>401</b>: Unauthorized request.</li>
+                  <li><b>500</b>: Other server error.</li>
+                </ul>
+
+              </details>
+
+
+              <details id="four" ${urlParams.get("four") ? "open" : ''}>
+                <summary>POST /groups/</summary>
+                <p>This endpoint will be used to retrieve data about a group</p>
+
+                <h3>Request body parameter</h3>
+                <p><b>groupId</b>: UUID of group </p>
+
+                 <p>Error responses</p>
+
+                 <ul>
+                  <li><b>400</b>: Invalid parameter.</li>
+                  <li><b>401</b>: Unauthorized request.</li>
+                  <li><b>404</b>: Group with UUID does not exist.</li>
+                  <li><b>500</b>: Other server error.</li>
+                </ul>
+              </details>
+
+              <details id="get-events" ${urlParams.get("get-events") ? "open" : ''}>
+                <summary>GET /events?limit={limit}&offset={offset}</summary>
+                <p>This endpoint will be used to retrieve a list of events. Pagination will be used to limit
+                 the number of events that are returned</p>
+
+                <h3>Query string parameters</h3>
+                <ul>
+                  <li><b>limit</b>: Maximum number of groups to return. </li>
+                  <li><b>offset</b>: Number of records that should be skipped before detemrining which results shoudl be returned. </li>
+                </ul>
+
+                <h3>Error codes</h3>
+                 <ul>
+                  <li><b>400</b>: Invalid parameter.</li>
+                  <li><b>401</b>: Unauthorized request.</li>
+                  <li><b>500</b>: Other server error.</li>
+                </ul>
+
+              </details>
+
               <details id="one" ${urlParams.get("one") ? "open" : ''}>
                 <summary>POST /aggregator/</summary>
 
-                <p>This endpoint will be used to register an aggregator</p>
+                <p>This endpoint will be used to register an aggregator. Request should be authorized by default
+                unless an access contorl restriction is specified.</p>
 
                 <h3>Request body parameters</h3>
                 <ul>
@@ -81,7 +169,7 @@
                   <li><b>url:</b> The url of the event website</li>
                  </ul>
 
-                <p>Error codes</p>
+                <h3>Error codes</h3>
                 <ul>
                   <li><b>400</b>: Invalid parameter.</li>
                   <li><b>401</b>: The aggregator registeration request is unauthorized.</li>
@@ -89,68 +177,48 @@
                 </ul>
 
               </details>
+              <h2>Endpoints for aggregator website</h2>
 
-              <details id="two" ${urlParams.get("two") ? "open" : ''}>
-                <summary>GET /groups/?limit={limit}&offset={offset}</summary>
-                <p>This endpoint will be used to retrieve a list of groups. Pagination will be used to limit
-                 the number of groups that are returned</p>
+              <details id="seven" ${urlParams.get("seven") ? "open" : ''}>
+                <summary>DELETE /group/</summary>
+                <p>This endpoint will be used by aggregator websites to add a new group. It will include a
+                  UUID in the request body for the group.</p>
 
-                <p>Error codes</p>
+                <h3>Request body parameters</h3>
+                <ul>
+                  <li><b>uuid:</b>The UUID of the group.</li>
+                </ul>
+
+                <h3>Error codes</h3>
                 <ul>
                   <li><b>400</b>: Invalid parameter.</li>
-                  <li><b>401</b>: Unauthorized request.</li>
                   <li><b>500</b>: Other server error.</li>
                 </ul>
 
               </details>
 
-              <details id="get-events" ${urlParams.get("get-events") ? "open" : ''}>
-                <summary>GET /events/</summary>
-                <p>This endpoint will be used to retrieve a list of events. Pagination will be used to limit
-                 the number of events that are returned</p>
+              <details id="six" ${urlParams.get("six") ? "open" : ''}>
+                <summary>POST /group/</summary>
+                <p>This endpoint will be used by aggregator websites to add a new group that. The request body
+                 will include a UUID.</p>
+              </details>
 
-                 <ul>
+              <h3>Request body parameter</h3>
+                <ul>
+                  <li><b>uuid:</b>The UUID of the group.</li>
+                </ul>
+
+                <h3>Error codes</h3>
+                <ul>
                   <li><b>400</b>: Invalid parameter.</li>
-                  <li><b>401</b>: Unauthorized request.</li>
                   <li><b>500</b>: Other server error.</li>
                 </ul>
 
-              </details>
-
-              <details id="three" ${urlParams.get("three") ? "open" : ''}>
-                <summary>GET /groups/events/{eventId}/</summary>
-                <p>This endpoint will be used to retrieve an event for a group.</p>
-
-                <h3>Request body parameter</h3>
-                <p><b>groupId</b>: UUID of group </p>
-
-                <p>Error responses</p>
-
-                 <ul>
-                  <li><b>400</b>: Invalid parameter.</li>
-                  <li><b>401</b>: Unauthorized request.</li>
-                  <li><b>404</b>: Request was authorized and event was not found.</li>
-                  <li><b>500</b>: Other server error.</li>
-                </ul>
-
-              </details>
-
-              <details id="four" ${urlParams.get("four") ? "open" : ''}>
-                <summary>GET /groups/{groupId}/</summary>
-                <p>This endpoint will be used to retrieve data about a group</p>
 
 
-                 <p>Error responses</p>
-
-                 <ul>
-                  <li><b>400</b>: Invalid parameter</li>
-                  <li><b>401</b>: Unauthorized request</li>
-                  <li><b>500</b>: Other server error</li>
-                </ul>
-              </details>
-
+              <h2>Other notes</h2>
               <details id="five" ${urlParams.get("five") ? "open" : ''}>
-                <summary>Structure of an event response object:</summary>
+                <summary>Structure of an event response object</summary>
                 <code>
                   <pre>
   {
@@ -188,25 +256,10 @@
                 </code>
               </details>
 
-
-              <h3>Endpoints for aggregator website</h3>
-
-              <details id="six" ${urlParams.get("six") ? "open" : ''}>
-                <summary>POST /group/</summary>
-                <p>This endpoint will be used by aggregator websites to add a new group that. The request body
-                 will include a UUID and group information.</p>
-
-              </details>
-
-              <details id="seven" ${urlParams.get("seven") ? "open" : ''}>
-                <summary>DELETE /group/</summary>
-                <p>This endpoint will be used by aggregator websites to add a new group. It will include a
-                  UUID in the request body for the group.</p>
-
-              </details>
-
               <h2>Notes about possible updates</h2>
 
+             <details>
+              <summary>Preventing unauthorized requests from aggregators</summary>
               <p>This decentralized architecture could need to specify a way to make sure only authorized clients are able to retrieve
               data. Here are a couple of ways this could be done. </p>
               <ul>
@@ -225,7 +278,9 @@
             read-only access control is to make sure that API endpoints are not overloaded. </p>
 
             <p>To prevent overloading, it could also be useful to recommend rate limiting.</p>
-          </div>
+             </details>
+
+
           `
         }
       }
