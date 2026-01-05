@@ -30,7 +30,7 @@ export class FaqComponent extends BaseTemplateComponent {
          <p>
          If you notice any issues using createthirdplaces.com with assistive
           technology, email gulu@createthirdplaces.com or create a bug report 
-          <a href="https://github.com/createthirdplaces/frontend">here.</a> Code contributions to improve accessibility
+          <a href="https://codeberg.org/createthirdplaces/frontend">here.</a> Code contributions to improve accessibility
            in the form of a pull request are also welcome.</p>
          
         <h3>Why does Create Third Places not have a social media presence?</h3>
