@@ -47,14 +47,14 @@
 
       <h2>Overview of decentralized architecture</h2>
 
-      <h3>The decentralized architecture includes 2 types of websites:</h3>
+      <h3>Websites using this architecture can have one or both of the following types:</h3>
       <ol>
-        <li><b>Event websites</b>:Websites for a specific type or activity or area  They will share event and group data through an API. </li>
+        <li><b>Local websites</b>:Websites for a specific type or activity or area  They will share event and group data through an API. </li>
         <li><b>Aggregator websites</b>: They will read data from local
           websites and allow users to search their data.</li>
       </ol>
 
-      <p>Websites can be both aggregator websites and event websites.</p>
+      <p>Websites can be both aggregator websites and local websites.</p>
 
       <details>
         <summary>More details about decentralized architecture</summary>
@@ -111,10 +111,8 @@
             the aggregator to make sure it has information about the group.
           </li>
           <li>
-            To prevent loops, each aggregator will have a level specified by an integer ranging from 0 to
-            2,147,483,647. A website will not be able to aggregate data from a higher level. Local
-            event websites should have a level of 0 to have their data to be read by aggregators. Any website that will not
-            support aggregators should have a level of 2,147,483,647.
+            Aggregator websites will store a list of all local websites being used to prevent circular dependencies being
+            caused by a registration attempt.
           </li>
         </ul>
       </details>

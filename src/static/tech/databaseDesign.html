@@ -60,38 +60,39 @@
              example as interaction between different websites is defined by API endpoints.</p>
 
              <details id="database-tables-aggregator" ${urlParams.get("database-tables-aggregator") ? "open" : ''}>
-              <summary>Database table for aggregator websites </summary>
+              <summary>Database tables for aggregator websites. </summary>
 
-              <h2>Group aggregation table</h2>
+              <h2>group_aggregation</h2>
               <ul>
-                <li><b>group_uuid</b>: UUID of group</li>
-                <li><b>local_website_url</b>: API url for local website group is from</li>
+                <li><b>group_uuid</b>: UUID of group.</li>
+                <li><b>local_website_url</b>: API url for local website group is from.
+                    This value must be present in the local_websites label.</li>
               </ul>
+      
+              <h2>local_websites</h2>
+              <ul>
+                <li><b>local_website_url</b>API url for local website.</li>
             </details>
 
 
             <details id="database-tables-local" ${urlParams.get("database-tables-local") ? "open" : ''}>
               <summary>Database tables for local websites </summary>
 
-              <h2>Aggregators table</h2>
+              <h2>aggregators</h2>
               <ul>
-                <li><b>aggregator_url(Primary key)</b>: URL of aggregator website</li>
+                <li><b>aggregator_url(Primary key)</b>: URL of aggregator website.</li>
               </ul>
 
-              <h2>Events table</h2>
+              <h2>events</h2>
               <ul>
                 <li><b>group_id(Foreign key)</b>: Represents the id of the group the event is for.</li>
               </ul>
 
-              <h2>Groups table</h2>
+              <h2>groups</h2>
               <ul>
                 <li><b>uuid(Primary key)</b>: A randomly generated id that is a unique identifier for a group.</li>
               </ul>
 
-              <h2>Events table</h2>
-              <ul>
-                <li><b>group_id(Foreign key)</b>: Represents the id of the group the event is for.</li>
-              </ul>
 
             </details>
 
