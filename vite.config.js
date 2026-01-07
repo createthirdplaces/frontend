@@ -31,6 +31,8 @@ export default defineConfig({
 
         goodThirdPlace: resolve(__dirname, "src/static/goodThirdPlace.html"),
 
+        hostingAdvice: resolve(__dirname, "src/static/events/hostingAdvice.html"),
+
         locationListingTutorial: resolve(__dirname, "src/static/locationListingTutorial.html"),
         locationMapListing: resolve(__dirname, "src/static/locationMapListing.html"),
 
