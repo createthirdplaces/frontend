@@ -44,11 +44,14 @@ export default defineConfig({
         recommendedBooks: resolve(__dirname,"src/static/recommendedBooks.html"),
         rejectedIdeas: resolve(__dirname,"src/static/ideas/rejectedIdeas.html"),
 
+        software: resolve(__dirname, "src/static/tech/software.html"),
+
+
         takeAction: resolve(__dirname, "src/static/takeAction.html"),
         techStrategy: resolve(__dirname, "src/static/tech/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/static/toasterTrouble.html"),
 
-        vision: resolve(__dirname, "src/static/vision.html")
+        vision: resolve(__dirname + 'src/static', "vision.html")
       },
     },
   },
