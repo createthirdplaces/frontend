@@ -8,7 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   plugins: [
     handlebars({
-      partialDirectory: resolve(__dirname, "src/static/partials"),
+      partialDirectory: resolve(__dirname, "src/partials"),
     }),
   ],
   root: "src/",
@@ -20,38 +20,38 @@ export default defineConfig({
     rollupOptions: {
       input: {
 
-        apiEndpoints: resolve(__dirname, "src/static/tech/apiEndpoints.html"),
-        billOne: resolve(__dirname, "src/static/b26-0132.html"),
-        boardListing: resolve(__dirname, "src/static/dc/boardListing.html"),
+        apiEndpoints: resolve(__dirname, "src/tech/apiEndpoints.html"),
+        billOne: resolve(__dirname, "src/dc/b26-0132.html"),
+        boardListing: resolve(__dirname, "src/dc/boardListing.html"),
 
-        databaseDesign: resolve(__dirname, "src/static/tech/databaseDesign.html"),
-        decentralizedEventHosting: resolve(__dirname, "src/static/events/decentralizedEventHosting.html"),
+        databaseDesign: resolve(__dirname, "src/tech/databaseDesign.html"),
+        decentralizedEventHosting: resolve(__dirname, "src/events/decentralizedEventHosting.html"),
 
-        framework: resolve(__dirname, "src/static/tech/placesjs.html"),
+        framework: resolve(__dirname, "src/tech/placesjs.html"),
 
-        goodThirdPlace: resolve(__dirname, "src/static/goodThirdPlace.html"),
+        goodThirdPlace: resolve(__dirname, "src/goodThirdPlace.html"),
 
-        hostingAdvice: resolve(__dirname, "src/static/events/hostingAdvice.html"),
+        hostingAdvice: resolve(__dirname, "src/events/hostingAdvice.html"),
 
-        locationListingTutorial: resolve(__dirname, "src/static/locationListingTutorial.html"),
-        locationMapListing: resolve(__dirname, "src/static/locationMapListing.html"),
+        locationListingTutorial: resolve(__dirname, "src/locationListingTutorial.html"),
+        locationMapListing: resolve(__dirname, "src/locationMapListing.html"),
 
         main: resolve(__dirname, "src/index.html"),
-        meetupProblems: resolve(__dirname, "src/static/places.html"),
+        meetupProblems: resolve(__dirname, "src/places.html"),
 
-        places: resolve(__dirname, "src/static/events/meetupProblems.html"),
+        places: resolve(__dirname, "src/events/meetupProblems.html"),
 
-        recommendedBooks: resolve(__dirname,"src/static/recommendedBooks.html"),
-        rejectedIdeas: resolve(__dirname,"src/static/ideas/rejectedIdeas.html"),
+        recommendedBooks: resolve(__dirname,"src/recommendedBooks.html"),
+        rejectedIdeas: resolve(__dirname,"src/ideas/rejectedIdeas.html"),
 
-        software: resolve(__dirname, "src/static/tech/software.html"),
+        software: resolve(__dirname, "src/tech/software.html"),
 
 
-        takeAction: resolve(__dirname, "src/static/takeAction.html"),
-        techStrategy: resolve(__dirname, "src/static/tech/techStrategy.html"),
-        toasterTrouble: resolve(__dirname, "src/static/toasterTrouble.html"),
+        takeAction: resolve(__dirname, "src/takeAction.html"),
+        techStrategy: resolve(__dirname, "src/tech/techStrategy.html"),
+        toasterTrouble: resolve(__dirname, "src/toasterTrouble.html"),
 
-        vision: resolve( 'src/static', "vision.html")
+        vision: resolve(__dirname, "src/vision.html")
       },
     },
   },
