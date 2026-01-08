@@ -51,7 +51,7 @@ export default defineConfig({
         techStrategy: resolve(__dirname, "src/static/tech/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/static/toasterTrouble.html"),
 
-        vision: resolve(__dirname + 'src/static', "vision.html")
+        vision: resolve( 'src/static', "vision.html")
       },
     },
   },
