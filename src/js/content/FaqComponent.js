@@ -20,6 +20,7 @@ export class FaqComponent extends BaseTemplateComponent {
     
         <p>Email gulu@createthirdplaces.com, or create an issue 
         <a href=https://codeberg.org/createthirdplaces/frontend/issues>here</a></p>
+    
         <h3>Why is JavaScript being used to render static content?</h3>
         <p>The main reason is to place content inside shadow DOM to make it more difficult for bots to parse. Automated
          traffic is not authorized to access createthirdplaces.com, and the shadow DOM is a backup measure if bots 

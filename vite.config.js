@@ -27,6 +27,8 @@ export default defineConfig({
         databaseDesign: resolve(__dirname, "src/tech/databaseDesign.html"),
         decentralizedEventHosting: resolve(__dirname, "src/events/decentralizedEventHosting.html"),
 
+        eventTechOverview: resolve(__dirname, "src/events/techOverview.html"),
+        
         framework: resolve(__dirname, "src/tech/placesjs.html"),
 
         goodThirdPlace: resolve(__dirname, "src/goodThirdPlace.html"),
