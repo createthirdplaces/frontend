@@ -45,16 +45,11 @@
 
       <p>See the <a href="/vision.html">vision page</a> for more details.</p>
 
+      <p><a href="/events/techOverview.html">This page</a> has a detailed
+        technical overview of the decentralized architecture. </p>
       <h2>Overview of decentralized architecture</h2>
 
-      <h3>Websites using this architecture can have one or both of the following types:</h3>
-      <ol>
-        <li><b>Local websites</b>:Websites for a specific type or activity or area  They will share event and group data through an API. </li>
-        <li><b>Aggregator websites</b>: They will read data from local
-          websites and allow users to search their data.</li>
-      </ol>
 
-      <p>Websites can be both aggregator websites and local websites.</p>
 
       <details>
         <summary>More details about decentralized architecture</summary>
@@ -84,67 +79,6 @@
           level based on the centralization level of the outside entities controlling the individual parts. Create Third Places,
           blockchain, or any other decentralized architecture is not capable of forcing decentralization on a system
           that an outside entity wants to centralize.</p>
-      </details>
-
-
-      <details>
-        <summary>Websites using the decentralized architecture will follow these guidelines</summary>
-        <ul>
-          <li>
-            When a group is created on a local website, the information is saved to a database of groups for the website
-            with a UUID as the primary key. Events and groups would then be accessible through a public API.
-          </li>
-          <li>
-            Aggregator websites save the UUIDs of all groups in their aggregation and include references to the API endpoint
-            of the original site location. This information would then be available through an API endpoint for other aggregator
-            websites.
-          </li>
-          <li>
-            When an aggregator website requests information about a specific group, it will retrieve the UUID and local
-            website URL from its database. This information can then be used to perform a query on the local website through multiple
-            aggregation layers without significant performance degradation. An aggregator website will also be able to request a list of
-            events.
-          </li>
-          <li>All aggregator websites will need to register with the websites they are aggregating from. After registering,
-            the aggregator will retrieve all the groups from the website they registered with. When a group is
-            created or deleted, it will look at the websites that registered as aggregators, and then call an API endpoint for
-            the aggregator to make sure it has information about the group.
-          </li>
-          <li>
-            Aggregator websites will store a list of all local websites being used to prevent circular dependencies being
-            caused by a registration attempt.
-          </li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>Challenges that this architecture will address</summary>
-        <ul>
-          <li>
-            Efficiently reading updated data from other websites. If an aggregator website has to check other websites to
-            get information and those websites are also aggregators, then it will be important to optimize performance.
-          </li>
-          <li>
-            Handling authentication and user permissions. One possible way to address the complexity would be for people to
-            have the ability to join group or modify groups they created through aggregator websites. This would help with
-            usability. However, it would add complexity in the short term and could make things too centralized.
-          </li>
-          <li>
-            Handling issues with too many requests from a location.
-          </li>
-          <li>
-            Resiliency against being compromised by a single point of failure. If an aggregator website crashes
-            or is affected by hackers, a new aggregator website can be created with the data stored on local websites. Also,
-            the decentralized architecture means that malicious actors do not have a single target they can focus on. The
-            need for aggregators to have permission from local sites to retrieve data means that local sites can also
-            decide to cancel permissions to block aggregators.
-          </li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>An example of how this architecture would work with an aggregator</summary>
-        <img src="/images/events/architecture/Decentralized_Event_Hosting_Aggregator_Design.svg">
       </details>
 
       <details>
@@ -188,27 +122,9 @@
         </ul>
       </details>
 
-      <p>
-        A local website for in person board games in the DC area is
-        being worked on at <a href="https://dmvboardgames.com/">dmvboardgames.com</a>.
-        Other third place websites will be able to read data from the dmvboardgames.com
-        backend through an API. Source code for dmvboardgames.com is
-        <a href="https://github.com/gatherspiel/DMVBoardGames">here</a>.
-      </p>
 
-      <h3>Other links</h3>
 
-      <ul>
-        <li>
-          <a href="/tech/apiEndpoints.html">API endpoint details</a>
-        </li>
-        <li>
-          <a href="/tech/databaseDesign.html">Database design</a>
-        </li>
-        <li>
-          <a href="/tech/techStrategy.html">Details about tech strategy</a>
-        </li>
-      </ul>
+
 
 
 

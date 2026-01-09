@@ -11,20 +11,16 @@
       import {ImageUploadComponent} from "/js/shared/ImageUploadComponent.js";
       import {LocationMapListingComponent} from "/js/shared/LocationMapListingComponent.js";
 
-      customElements.define('image-upload-component',ImageUploadComponent);
-      customElements.define('location-map-listing-component',LocationMapListingComponent)
+      customElements.define('image-upload-component', ImageUploadComponent);
+      customElements.define('location-map-listing-component', LocationMapListingComponent);
     </script>
   </head>
 
   <body>
-
     <div id="container">
       {{>navbar}}
-
       <h1>Location map listing</h1>
-
       <location-map-listing-component></location-map-listing-component>
-
     </div>
   </body>
 </html>
