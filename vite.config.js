@@ -33,7 +33,7 @@ export default defineConfig({
 
         hostingAdvice: resolve(__dirname, "src/events/hostingAdvice.html"),
 
-        locationListingTutorial: resolve(__dirname, "src/locationListingTutorial.html"),
+        locationListingTutorial: resolve(__dirname, "src/tech/locationListingTutorial.html"),
         locationMapListing: resolve(__dirname, "src/locationMapListing.html"),
 
         main: resolve(__dirname, "src/index.html"),
