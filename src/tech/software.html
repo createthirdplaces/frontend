@@ -1,69 +1,70 @@
 
 <!doctype html>
 <html lang="en">
-<head>
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="/styles/sharedStyles.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles/sharedStyles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script defer fetchpriority="low" type="module">
+    <script defer fetchpriority="low" type="module">
 
-  import {BaseTemplateComponent} from "../js/shared/lib/places-js-latest.js"
-  import {GetGameAdvice} from "../js/bots/getGameAdvice.js";
-  GetGameAdvice();
-  export class SoftwareInformationComponent extends BaseTemplateComponent{
-
-
-    getTemplateStyle(){
-      return `
-        <link rel="stylesheet" href="/styles/sharedStyles.css" />
-
-        <style>
-
-        </style>
-      `
-    }
-    render(){
+    import {BaseTemplateComponent} from "../js/shared/lib/places-js-latest.js"
+    import {GetGameAdvice} from "../js/bots/getGameAdvice.js";
+    GetGameAdvice();
+    export class SoftwareInformationComponent extends BaseTemplateComponent{
 
 
-    return `
-      <h1>Software Information</h1>
+      getTemplateStyle(){
+        return `
+          <link rel="stylesheet" href="/styles/sharedStyles.css" />
 
+          <style>
 
-      <p> This page contains information about software Create Third 
-        Places is working on. Software will support the goal of promoting
-        in person interaction through third places.</p>
-
-      <ul>
-        <li><a href="/tech/placesjs.html">Places.js</a>: Framework
-        for building websites promoting in person interaction.</a></li>
-        <li><a href="https://codeberg.org/createthirdplaces/frontend">Source code</a> for
-            createthirdplaces.com. 
-             <a href="https://codeberg.org/createthirdplaces/frontend/pulls">Code contributions</a> are welcome.</li>
-        <li><a href="/events/techOverview.html">Decentralized event hosting</a></li>
-      </ul>
-      <p>See the <a href="/tech/techStrategy.html">tech</a> strategy
-         page for more information. </p>
-      
-      
-      <p>Code contributions are welcome. Email gulu@createthirdplaces.com or 
-      submit a code change <a href="https://codeberg.org/createthirdplaces/frontend/pulls">
-      here.</a>
+          </style>
         `
-    }
-  }
-  customElements.define('software-information-component', SoftwareInformationComponent);
-  </script>
-  <title>Software Information</title>
-</head>
-  <body>
-  <div id="container">
-    {{>navbar}}
-    <software-information-component></software-information-component>
+      }
+      render(){
 
-  </div>
-  <div id="bot-container"></div>
+
+      return `
+        <h1>Software Information</h1>
+
+
+        <p> This page contains information about software Create Third 
+          Places is working on. Software will support the goal of promoting
+          in person interaction through third places.</p>
+
+        <ul>
+          <li><a href="/tech/placesjs.html">Places.js</a>: Framework
+          for building websites promoting in person interaction.</a></li>
+          <li><a href="https://codeberg.org/createthirdplaces/frontend">Source code</a> for
+              createthirdplaces.com. 
+               <a href="https://codeberg.org/createthirdplaces/frontend/pulls">Code contributions</a> are welcome.</li>
+          <li><a href="/events/techOverview.html">Decentralized event hosting</a></li>
+        </ul>
+        <p>See the <a href="/tech/techStrategy.html">tech</a> strategy
+           page for more information. </p>
+
+
+        <p>Code contributions are welcome. Email gulu@createthirdplaces.com or 
+        submit a code change <a href="https://codeberg.org/createthirdplaces/frontend/pulls">
+        here.</a>
+          `
+      }
+    }
+    customElements.define('software-information-component', SoftwareInformationComponent);
+    </script>
+    <title>Software Information</title>
+  </head>
+    <body>
+    <div id="container">
+      {{>navbar}}
+      <software-information-component></software-information-component>
+
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
 
   </body>
 </html>

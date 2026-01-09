@@ -22,6 +22,11 @@ body {
   height: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 details > summary {
   font-weight: 600;
 }
@@ -36,10 +41,21 @@ li > div {
 #container {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  padding-top: 1rem;
   flex: 1 0 auto;
   max-width: 65rem;
   margin-inline: auto;
+}
+
+#footer-container {
+  display: flex;
+}
+#footer-push {
+  margin-left: auto;
+}
+#footer-text {
+  font-size: 0.8rem;
+  margin-right: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 
