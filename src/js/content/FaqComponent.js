@@ -18,12 +18,12 @@ export class FaqComponent extends BaseTemplateComponent {
     
         <h3>How can I report a bug or request a new feature </h3>
     
-        <p>Email gulu@createthirdplaces.com, or create an issue 
+        <p>Email gulu@createthirdplaces.org, or create an issue 
         <a href=https://codeberg.org/createthirdplaces/frontend/issues>here</a></p>
     
         <h3>Why is JavaScript being used to render static content?</h3>
         <p>The main reason is to place content inside shadow DOM to make it more difficult for bots to parse. Automated
-         traffic is not authorized to access createthirdplaces.com, and the shadow DOM is a backup measure if bots 
+         traffic is not authorized to access createthirdplaces.org, and the shadow DOM is a backup measure if bots 
          bypass other measures for blocking automated traffic. The shadow DOM also gives the ability to encapsulate
           styles.</p>
           
@@ -34,8 +34,8 @@ export class FaqComponent extends BaseTemplateComponent {
          make sure information about events in these spaces is also accessible. </p>
          
          <p>
-         If you notice any issues using createthirdplaces.com with assistive
-          technology, email gulu@createthirdplaces.com or create a bug report 
+         If you notice any issues using createthirdplaces.org with assistive
+          technology, email gulu@createthirdplaces.org or create a bug report 
           <a href="https://codeberg.org/createthirdplaces/frontend/issues">here.</a> Code contributions to improve accessibility
            in the form of a <a href="https://codeberg.org/createthirdplaces/frontend/pulls">pull request</a> are also welcome.</p>
          
