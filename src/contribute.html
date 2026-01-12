@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles/sharedStyles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script defer fetchpriority="low" type="module">
+      import {GetGameAdvice} from "/js/bots/getGameAdvice.js";
+      GetGameAdvice();
+    </script>
+
+    <title>Contributing to Create Third Places</title>
+  </head>
+  <body>
+    <div id="container">
+      {{>navbar}}
+
+      <h1>Contributing to Create Third Places</h1>
+      
+      <p>Create Third Places is looking for help in the following areas </p>
+ 
+      <details>
+        <summary>Programming</summary>
+        
+        <ul>
+          <li>Javascript, HTML, and vanilla CSS on the frontend.</li>
+          <li>Java and PostgreSQL to build a proof of concept for a
+            <a href="http://localhost:5173/events/decentralizedEventHosting.html">
+              decentralized event hosting
+            </a> platform </li>  
+        </ul>
+        <p>Source code for Create Third Places is located 
+            <a href="https://codeberg.org/createthirdplaces">here</a>. 
+        </p>
+      </details>
+      
+            <details>
+        <summary>Website content and design </summary>
+        <ul>
+          <li>Pictures and descriptions of great public spaces that can be
+            added to createthirdplaces.org.</li>
+          <li>Information about books related to third places. </li>
+          <li>Web design help to make the website UI look better.</li>
+          
+        </ul>
+      </details>
+      
+      <p>If you are interested in contributing to one of the areas listed above
+      or have other suggestions, email gulu@createthirdplaces.org or post
+      <a href="https://codeberg.org/createthirdplaces/frontend/issues">here</a></p>
+      
+      <p>All Create Third Places content is human created without assistance from
+        generative AI. </p>
+
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+  </body>
+</html>

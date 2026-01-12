@@ -24,6 +24,8 @@ export default defineConfig({
         billOne: resolve(__dirname, "src/dc/b26-0132.html"),
         boardListing: resolve(__dirname, "src/dc/boardListing.html"),
 
+        contribute: resolve(__dirname, "src/contribute.html"),
+
         databaseDesign: resolve(__dirname, "src/tech/databaseDesign.html"),
         decentralizedEventHosting: resolve(__dirname, "src/events/decentralizedEventHosting.html"),
 
