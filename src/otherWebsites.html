@@ -9,36 +9,13 @@
     <script defer fetchpriority="low" type="module">
       import {GetGameAdvice} from "/js/bots/getGameAdvice.js";
       GetGameAdvice();
+      window.location.assign("https://wiki.createthirdplaces.org/wiki/Websites");
+
     </script>
   </head>
   <body>
     <div id="container">
-      {{>navbar}}
-      <h1>Other Third Place websites</h1>
 
-      <p><a href="https://greatgoodplace.org/">Greatgoodplace.org</a> is a website created by Karen Christenen to
-      demonstrate the importance of third places. Karen worked with Ray Oldenberg to publish the book
-      "The Great Good Place". It is known for coining the term "Third place". </p>
-
-      <p>Project for Public Spaces is a non-profit that creates public spaces by collaborating with community members.
-        They showcase examples of great third places in the following categories.
-      </p>
-      <ul>
-        <li><a href="https://www.pps.org/article/lighter-quicker-cheaper">Small quickly created third places
-        designed to develop norms of community driven placemaking</a></li>
-        <li><a href="https://www.pps.org/gps/downtowns-districts">Urban districts with great public spaces</a></li>
-        <li><a href="https://www.pps.org/gps/public-buildings">Public buildings</a></li>
-        <li><a href="https://www.pps.org/gps/squares">Public squares</a></li>
-        <li><a href="https://www.pps.org/gps/parks">Parks</a></li>
-      </ul>
-
-      <h2>More links to websites that discuss third places</h2>
-      <ul>
-        <li><a href="https://esl.uchicago.edu/2023/11/01/third-places-what-are-they-and-why-are-they-important-to-american-culture/">
-          University of Chicago article about third places
-        </a></li>
-        <li><a href="https://courier.unesco.org/en/articles/third-places-true-citizen-spaces">UNESCO page about third places</a></li>
-      </ul>
     </div>
     <div id="bot-container"></div>
     {{>footer}}
