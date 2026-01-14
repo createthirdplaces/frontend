@@ -69,7 +69,7 @@
                  <a href="https://codeberg.org/createthirdplaces/frontend/tree/main/srctech">here</a>.
               </p>
 
-              <h2>Endpoints for local websites</h2>
+              <h2>Endpoints for group websites</h2>
 
 
            <details id="remove-aggregator" ${urlParams.get("remove-aggregator") ? "open" : ''}>
@@ -224,14 +224,14 @@
                 <summary>Preventing circular dependencies</summary>
                 <p>Since it is possible for aggregators to also have their own groups and events, it is
                    necessary to have logic to prevent circular dependencies. This will be done by checking
-                   the local_websites table. If the website making an aggregation request is already
-                   in the local websites table, then the aggregation request will be rejected.</p>
+                   the group_websites table. If the website making an aggregation request is already
+                   in the group_websites table, then the aggregation request will be rejected.</p>
               </details>
               
               <details id="aggregator-multiple-levels" ${urlParams.get("aggregator-multiple-levels") ? "open" : ''}>
                 <summary>Multiple aggregator levels</summary>
       
-                <p>If a top level aggregator is trying to retrieve data from a local website that is a lower level aggregator,
+                <p>If a top level aggregator is trying to retrieve data from a group website that is a lower level aggregator,
                   then the lower level website aggregator should store event data.</p>
               </details>
               <details id="five" ${urlParams.get("five") ? "open" : ''}>

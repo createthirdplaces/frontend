@@ -35,6 +35,16 @@
             <a href="http://localhost:5173/events/decentralizedEventHosting.html">
               decentralized event hosting
             </a> platform. </li>  
+          <li>Moving Java backend away from <a href="https://javalin.io/"> Javalin</a>.
+            It is currently using an old version of Javalin, and 
+            <a href="https://javalin.io/blog/releasing-javalin-7">using the latest</a>
+            Javalin version would go against the Create Third Places no generative AI policy.</li>
+          <li>Migrating <a href="https://dmvboardgames.com/database">DMV Board Games</a>
+              database away from Supabase to a self hosted Postgres instance. Recent additions 
+              of generative AI features conflict with the Create Third Places AI policy. Also,
+              the self hosted instance can be an example that people can follow to create
+              their own event hosting website.
+          </li>
         </ul>
         <p>Source code for Create Third Places is located 
             <a href="https://codeberg.org/createthirdplaces">here</a>. 
