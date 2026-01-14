@@ -8,38 +8,16 @@
 
   <link rel="stylesheet" type="text/css" href="/styles/sharedStyles.css">
   <script type="module">
-    import {LocationMapListingComponent} from "../js/shared/LocationMapListingComponent.js";
-    customElements.define('location-map-listing-component',LocationMapListingComponent)
+    import {GetGameAdvice} from "/js/bots/getGameAdvice.js";
+    GetGameAdvice();
+    window.location.assign("https://wiki.createthirdplaces.org/wiki/DC_community_boards");
 
-    class BoardListingComponent extends LocationMapListingComponent {
-      connectedCallback() {
-        this.updateData(
-          {"showInput":true,
-            "canEdit":false,
-            "mapClickX":386,"mapClickY":503,"offsetY":198.86666870117188,
-            "locations":[
-              {"displayX":346,"displayY":433,"locationName":"City State Brewery"},
-              {"displayX":179,"displayY":460,"locationName":"Georgetown Library"},
-              {"displayX":281,"displayY":459,"locationName":"Shaw Library"},
-              {"displayX":215,"displayY":488,"locationName":"West End Neighborhood Library"},
-              {"displayX":194,"displayY":404,"locationName":"Cleveland Park Library"},
-              {"displayX":137,"displayY":346,"locationName":"Tenley-Friendship Neighborhood Library"},
-              {"displayX":273,"displayY":503,"locationName":"Martin Luther King Jr. Memorial Library"},
-              {"displayX":247,"displayY":387,"locationName":"Mt. Pleasant Neighborhood Library"},
-              {"displayX":303,"displayY":560,"locationName":"Southwest Library"},
-              {"displayX":230,"displayY":436,"locationName":"Adams Morgan community bulletin board"},
-              {"displayX":311,"displayY":488,"locationName":"Truxton Circle bulletin board"}],
-            "statusMessage":"","editingLocation":null})
-      }
-    }
-    customElements.define('board-listing-component',BoardListingComponent)
   </script>
 </head>
 <body>
   <div id="container">
-    {{>navbar}}
-    <h1>A list of community boards in DC</h1>
-    <board-listing-component></board-listing-component>
+        <div id="bot-container"></div>
+
   </div>
 </body>
 </html>
