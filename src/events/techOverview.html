@@ -29,12 +29,17 @@
       
       <h3>Websites using this architecture can have one or both of the following types</h3>
       <ol>
-        <li><b>Local websites</b>:Websites for a specific type or activity or area  They will share event and group data through an API. </li>
+        <li><b>Group websites</b>: Websites that share group data through an API. </li>
         <li><b>Aggregator websites</b>: They will read data from local
           websites and allow users to search their data.</li>
       </ol>
                 
-      <p>Websites can be both aggregator websites and local websites.</p>
+      <p>Websites can be both aggregator websites and events websites. Also, if an aggregator
+      website is also an event website, the website APIs could return a subset of events. For example,
+      an aggregator website for weekend events in a city, 
+      could read data from a group website to get a list of groups in a city, and 
+      filter for events that are on Friday evening, Saturday, or Sunday, and then
+      return weekend events through their API.</p>
 
       <details>
         
@@ -43,7 +48,7 @@
         <summary>Websites using the decentralized architecture will follow these guidelines</summary>
         <ul>
           <li>
-            When a group is created on a local website, the information is saved to a database of groups for the website
+            When a group is created on a group website, the information is saved to a database of groups for the website
             with a UUID as the primary key. Events and groups would then be accessible through a public API.
           </li>
           <li>
@@ -53,7 +58,7 @@
           </li>
           <li>
             When an aggregator website requests information about a specific group, it will retrieve the UUID and local
-            website URL from its database. This information can then be used to perform a query on the local website through multiple
+            website URL from its database. This information can then be used to perform a query on the group website through multiple
             aggregation layers without significant performance degradation. An aggregator website will also be able to request a list of
             events.
           </li>
@@ -63,7 +68,7 @@
             the aggregator to make sure it has information about the group.
           </li>
           <li>
-            Aggregator websites will store a list of all local websites being used to prevent circular dependencies being
+            Aggregator websites will store a list of all group websites being used to prevent circular dependencies being
             caused by a registration attempt.
           </li>
         </ul>
@@ -88,7 +93,7 @@
           </li>
           <li>
             Resiliency against being compromised by a single point of failure. If an aggregator website crashes
-            or is affected by hackers, a new aggregator website can be created with the data stored on local websites. Also,
+            or is affected by hackers, a new aggregator website can be created with the data stored on group websites. Also,
             the decentralized architecture means that malicious actors do not have a single target they can focus on. The
             need for aggregators to have permission from local sites to retrieve data means that local sites can also
             decide to cancel permissions to block aggregators.
@@ -111,7 +116,7 @@
           </li>
         </ul>
       <p>
-        A local website for in person board games in the DC area is
+        A group website for in person board games in the DC area is
         being worked on at <a href="https://dmvboardgames.com/">dmvboardgames.com</a>.
         Other third place websites will be able to read data from the dmvboardgames.com
         backend through an API. Source code for dmvboardgames.com is
