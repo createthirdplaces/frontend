@@ -1,0 +1,138 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:,">
+
+    <link rel="stylesheet" href="/styles/sharedStyles.css" />
+
+    <script defer fetchpriority="low" type="module">
+      import {FaqComponent} from "/js/content/FaqComponent.js";
+      customElements.define('faq-component',FaqComponent);
+
+      import {GetGameAdvice} from "/js/bots/getGameAdvice.js";
+      GetGameAdvice();
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      {{>navbar}}
+      <h1>About Create Third Places</h1>
+
+      <p>Create Third Places was started by Bharat Ponnaluri to promote accessible in person public spaces. It is
+          inspired by the organization <a href="https://www.strongtowns.org/">Strong Towns</a>, which empowers
+          people to improve communities through bottom up change. It is also based on the
+          ideas of sociologist Ray Oldenberg who coined the term "Third Place". Create Third Places is a non-commercial
+          open source entity. </p>
+
+      <details>
+        <summary class="summary-large">Current activities</summary>
+
+        <p>Bharat hosts public board game events on weekend afternoons in DC and regularly 
+          attends other public events in third places. He is also a member of Strong Towns DMV, a Strong Towns local
+          conversation group.</p> 
+
+        <p>Here are some of the projects being worked on</p>
+        <ul>
+          <li> Want to play board games and make new friends in the DC area.
+            Find dates, times and locations at
+            <a href="https://dmvboardgames.com/">dmvboardgames.com</a></li>
+          <li><a href="/locationMapListing.html">Map listing</a>: A work in progress page with
+          the ability to create and edit a list of locations and have them displayed as points on a map.</li>
+          <li><a href="/toasterTrouble.html">Toaster Trouble board game</a></li>
+        </ul>
+
+        <p>Create Third Places is also working on a decentralized event hosting platform
+        and other software to support interaction in third places.
+        The <a href="/tech/software.html">software </a> page has more information.
+        </p>
+
+      </details>
+      </br>
+      <details>
+        <summary class="summary-large">Guidelines that will be followed for any changes</summary>
+
+
+        <b>All content is human generated</b>
+        <p>
+          Create Third Places will be developed and maintained by humans without
+          any assistance from generative AI.
+        </p>
+
+      
+        <b>No personalized recommendations</b>
+        <p>
+          Create Third Places  will not provide personalized recommendations. Users
+          are encouraged to get recommendations through connecting with others
+          in person. When users see events or other content, it should
+          be because they made a decision to view that content.
+        </p>
+
+        <b>No commercial monetization</b>
+        <p>
+          Create Third Places will not be a profit making entity, and website code is
+          <a href="https://codeberg.org/createthirdplaces">open source. </a>
+          Create Third Places will prioritize necessary fundraising to pay for expenses through
+          donations and selling products that can be used to promote third places activities such as board games.
+        </p>
+
+        <b>Promote decentralization</b>
+        <p>
+          People should be empowered to take independent actions to promote third places in their own
+          community. Create Third Places aims to support these people with advice and examples of
+          ways that third places can be promoted. There are a variety of ways that third places
+          can be promoted based on a person's interests and their community.
+        </p>
+
+        <b>Support in person interaction</b>
+        <p>
+          All content will support the goal of encouraging people to
+          interact in person. For example, a feature that makes it easier for
+          people to find in person events would be a good fit for the website.
+          Changes to improve usability or readability of the website also
+          support this goal. Forums, comments, or any other form of online
+          messaging will not be supported by Create Third Places. People should be
+          encouraged to meet and exchange contact information in person before
+          communicating online.
+        </p>
+      </details>
+
+      </br
+      <q>Third places are face-to-face phenomena. The idea that electronic communication permits a virtual third place is
+        misleading</q>(Ray Oldenburg)
+
+      <br>
+      <br>
+
+      <faq-component></faq-component>
+      <br>
+      <details>
+        <summary class="summary-large">Additional content</summary>
+        <ul>
+          <li><a href="/events/hostingAdvice.html">Advice on hosting events in a third place</a></li>
+          <li><a href="https://wiki.createthirdplaces.org/wiki/Websites">Other third place websites</a></li>
+          <li><a href="https://wiki.createthirdplaces.org/wiki/Books">Recommended books</a></li>
+          <li><a href="/goodThirdPlace.html">What makes a third place good</a></li>
+          <li>Pages related to Washington DC
+              <ul>
+                <li><a href="/dc/boardListing.html">Listing of community boards in DC</a></li>
+                <li><a href="/dc/b26-0132.html">Proposed legislation in DC that would
+                  expand community access to schools on evening and weekend hours </a></li>
+              </ul>
+          </li>
+          <li><a href="ideas/rejectedIdeas.html">Rejected ideas </a></li>
+        </ul>
+      </details>
+      
+       <p>If you are interested in helping Create Third Places, see
+      <a href="/contribute.html"> this page </a> for more details, or email
+      gulu@createthirdplaces.org.</p>
+       
+    </div>
+    <div id="bot-container"></div>
+  {{>footer}}
+
+  </body>
+</html>

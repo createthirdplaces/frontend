@@ -19,8 +19,10 @@ export default defineConfig({
     outDir: "../dist",
     rollupOptions: {
       input: {
-
+          
+        about: resolve(__dirname, "src/about.html"),
         apiEndpoints: resolve(__dirname, "src/tech/apiEndpoints.html"),
+        
         billOne: resolve(__dirname, "src/dc/b26-0132.html"),
         boardListing: resolve(__dirname, "src/dc/boardListing.html"),
 
@@ -55,7 +57,6 @@ export default defineConfig({
         techStrategy: resolve(__dirname, "src/tech/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/toasterTrouble.html"),
 
-        vision: resolve(__dirname, "src/vision.html")
       },
     },
   },

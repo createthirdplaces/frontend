@@ -30,9 +30,14 @@ body {
 details > summary {
   font-weight: 600;
 }
+
+.summary-large {
+  font-size:1.5rem;
+}
 li {
   margin-top:0.5rem;
 }
+
 li > div {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -131,6 +136,9 @@ li > div {
 }
 
 @media not screen and (width < 32em) {
+  img {
+    max-width:65rem;
+  }
   #logo-section {
     float:left;
     font-size: 2.5rem;
@@ -149,6 +157,9 @@ li > div {
 @media screen and (width < 32em) {
   a {
     margin-bottom: 0.5rem;
+  }
+  img {
+    max-width:100%
   }
   #top-nav {
     display: grid;
