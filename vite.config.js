@@ -46,7 +46,7 @@ export default defineConfig({
         otherWebsites: resolve(__dirname, "src/otherWebsites.html"),
 
         places: resolve(__dirname, "src/events/meetupProblems.html"),
-
+	publicHealth: resolve(__dirname,"src/publicHealth.html"),
         recommendedBooks: resolve(__dirname,"src/recommendedBooks.html"),
         rejectedIdeas: resolve(__dirname,"src/ideas/rejectedIdeas.html"),
 
