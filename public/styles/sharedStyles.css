@@ -28,6 +28,13 @@ body {
   flex-direction: column;
 }
 
+h1,h2 {
+  font-family: 'Zapfino, sans-serif';
+}
+
+p {
+  font-family: 'Skia, sans-serif';
+}
 details > summary {
   font-weight: 600;
 }
