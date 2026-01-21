@@ -52,9 +52,8 @@ export default defineConfig({
         rejectedIdeas: resolve(__dirname,"src/ideas/rejectedIdeas.html"),
 
         software: resolve(__dirname, "src/tech/software.html"),
+        support: resolve(__dirname, "src/support.html"),
 
-
-        takeAction: resolve(__dirname, "src/takeAction.html"),
         techStrategy: resolve(__dirname, "src/tech/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/toasterTrouble.html"),
 
