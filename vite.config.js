@@ -30,7 +30,8 @@ export default defineConfig({
 
         databaseDesign: resolve(__dirname, "src/tech/databaseDesign.html"),
         decentralizedEventHosting: resolve(__dirname, "src/events/decentralizedEventHosting.html"),
-
+        designHelp: resolve(__dirname,"src/design/contribute.html"),
+        designSystem: resolve(__dirname,"src/design/designSystem.html"),
         eventTechOverview: resolve(__dirname, "src/events/techOverview.html"),
         
         framework: resolve(__dirname, "src/tech/placesjs.html"),

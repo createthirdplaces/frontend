@@ -22,6 +22,10 @@ body {
   height: 100%;
 }
 
+a {
+	color: white;
+	text-decoration:none;
+}
 body {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles/sharedStyles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script defer fetchpriority="low" type="module">
+      import {GetGameAdvice} from "/js/bots/getGameAdvice.js";
+      GetGameAdvice();
+    </script>
+    <style>
+      .main-color{
+				width:5rem;
+				height:2rem;
+			}
+			.dark-blue {
+				background-color:var(--clr-dark-blue);
+      }
+			.darker-blue {
+				background-color: var(--clr-darker-blue);
+			}
+			.light-blue {
+				background-color:var(--clr-light-blue);
+			}
+			.lighter-blue {
+				background-color:var(--clr-lighter-blue);
+			} 
+      .very-light-blue {
+				background-color:var(--clr-very-light-blue);
+			} 
+		</style>
+    <title>Create Third Places design system</title>
+  </head>
+  <body>
+    <div id="container">
+      {{>navbar}}
+
+      <h1>Create Third Places design system</h1>
+      
+      <p>This is a work in progress design system for Create Third Places. To suggest changes, email gulu@createthirdplaces.org </p>
+      <h2>Main colors</h2> 
+       
+			 <ul>
+        <li>Dark blue<div class="main-color dark-blue"> </div> 
+			  <li>Darker blue<div class="main-color darker-blue"> </div>
+        <li>Light blue<div class="main-color light-blue"> </div>
+        <li>Lighter blue<div class="main-color lighter-blue"> </div>
+        <li>Very light blue<div class="main-color very-light-blue"> </div> 
+			</ul>
+     <b>Clickable area with one or more links</b>	
+     <br> 
+     <br>	  
+			<div class="main-div raised">
+        <span class="shadow"></span>
+        <span class="edge"></span>
+        <span class="front" >
+          <a href="/design/designSystem.html">Design system</a>
+        </span>
+     </div>
+     <br> 
+	   <b>Fonts</b>
+
+      <p>font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;</p>
+
+     <h2>Upcoming changes </h2>
+		 <ul>
+       <li>Use different fonts for headers.</li>
+	     <li>Use text boxes.</li>	 
+		 </ul>
+		 <p>Create
+			 Third Places has a strict no generative AI policy and createthirdplaces.com
+			 blocks automated scraping.</p> 
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+  </body>
+</html>

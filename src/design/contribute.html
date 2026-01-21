@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles/sharedStyles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script defer fetchpriority="low" type="module">
+      import {GetGameAdvice} from "/js/bots/getGameAdvice.js";
+      GetGameAdvice();
+    </script>
+
+    <title>Contribute to Create Third Places design</title>
+  </head>
+  <body>
+    <div id="container">
+      {{>navbar}}
+
+      <h1>Contributing to Create Third Places design</h1>
+      
+      <p>If you 
+       are interested in contributing to one of these areas listed below, or have 
+       other design suggestions, email gulu@createthirdplaces.org. </p>
+ 
+       <ul>
+			   <li>Updating the <a href="/design/designSystem.html">design system</a> for Create Third Places.</li>
+         <li>Improving look and feel of links.</li> 
+				 <li>Make sure website is acessible.</li>				
+				 <li>Web design help to make the website UI look better.</li>
+ 			   <li>Recommending a color scheme for UI elements.</li> 
+         <li>Recommending a set of fonts for text.</li>  
+      </ul>
+		 <p>Create
+			 Third Places has a strict no generative AI policy and createthirdplaces.com
+			 blocks automated scraping.</p> 
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+  </body>
+</html>
