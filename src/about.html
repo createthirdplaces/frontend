@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="/styles/sharedStyles.css" />
 		<style>
-			#biography-div {
+    @media not screen and (width < 32em) {
+ 			#biography-div {
 				display:inline-block;
 				width:35rem;
 			}
@@ -16,8 +17,11 @@
 				display:inline-block;
 			  margin-top:1rem;
 				vertical-align: -2rem;
-		 }
-		</style>
+ 		 }
+   } 
+
+
+  </style>
     <script defer fetchpriority="low" type="module">
       import {FaqComponent} from "/js/content/FaqComponent.js";
       customElements.define('faq-component',FaqComponent);
