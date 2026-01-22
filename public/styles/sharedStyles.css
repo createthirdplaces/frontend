@@ -32,7 +32,7 @@ h1,h2 {
   font-family: 'Zapfino, sans-serif';
 }
 
-p {
+li,p {
   font-family: 'Skia, sans-serif';
 }
 details > summary {
