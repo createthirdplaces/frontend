@@ -71,7 +71,6 @@ li > div {
   padding-bottom: 0.5rem;
 }
 
-
 #navbar {
   font-size:1.5rem;
   margin-bottom: 1rem;
@@ -82,6 +81,9 @@ li > div {
   text-decoration: none;
 }
 
+#navbar-logo {
+  width:75%
+}
 #top-nav {
   display:flex;
   flex-wrap: wrap;
