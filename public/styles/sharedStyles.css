@@ -29,7 +29,10 @@ body {
 }
 
 h1,h2 {
+  background-color: #D9E4EF;
+  border-radius: 2px;  
   font-family: 'Zapfino, sans-serif';
+  padding-left: 0.5rem;
 }
 
 li,p {
