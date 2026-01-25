@@ -61,9 +61,8 @@
 				<li>Changes to events not being saved correctly.</li>
 				<li>Difficulty finding groups and events. I had multiple people directly tell me that
 				they had a hard time finding my events. </li>
-				<li>Excessive monetization. In December 2025, the yearly cost of an organizer subscription to create a
-				Meetup group was $300 with a 1 year subscription. One organizer mentioned they were
-				billed $178.99 for a 6 month subscription.</li>
+				<li>Excessive monetization combined with variable costs
+				and a lack of pricing transparency.</li>
 			</ul>
 
 			<p>These issues weren't getting resolved. At the same time, Meetup started increasing fees and
@@ -73,7 +72,7 @@
 
 			<h2>Examples of issues I found in December 2025</h2>
 			<details>
-				<summary>Page for one of my Sunday board game events</summary>
+				<summary>Slow loading and UI clutter on event page</summary>
 				<ul>
 					<li>The load time was 2.80 seconds, 2.08MB of Javascript was transferred, which translated to 8.08 MB of
 						uncompressed JavaScript. Meetup.com uses the Next.js framework, which is designed to optimize page
@@ -105,7 +104,7 @@
 			</details>
 
 			<details>
-				<summary>Searching for board game events near DC </summary>
+				<summary>UI issues with event search</summary>
 
 				<ul>
 					<li>The same issues with slow loading speed and excessive JavaScript seen on my event page are also present. The
@@ -127,7 +126,7 @@
 			</details>
 
 			<details>
-				<summary>Viewing Meetup homepage</summary>
+				<summary>UI issues with Meetup homepage</summary>
 				<ul>
 					<li>The same issues with a slow loading time, excessive JavaScript loading, and unwanted recap banner were visible.</li>
 					<li>Meetup showed one group that I was an organizer for. Meetup also showed the text "Become an organizer". </li>
@@ -148,9 +147,11 @@
 			</details>
 
 			<details>
-				<summary>Subscription costs</summary>
+				<summary>Excessive subscription costs</summary>
 				<ul>
-					<li>The cost for an organizer subscription to create a group as $25.00/month or $300.00 per year.</li>
+					<li>The typical cost for an organizer subscription to create a group as $25.00/month or $300.00 per year. However, costs
+					can vary and Meetup does not clearly explain the
+					reasoning behind variable prices.</li>
 					<li>A subscription to Meetup+ costs $129.99/year. Without Meetup+, attendees to an event who aren't
 					organizers will not be able to see the names and pictures of people who are attending. $129.99/year is
 					excessive to charge for a feature many people find to be useful. Users can also use an avatar and pseudonym
@@ -166,7 +167,7 @@
 
 			<details>
 				<summary>Generative AI use</summary>
-				Generative AI is a fundamentally flawed technology, and it is not useful on Meetup.com
+				<p>Generative AI is a fundamentally flawed technology, thatshould not be used on Meetup.com. </p>
 				<ul>
 					<li>When editing information for an event I'm hosting, Meetup shows a button that allows users to generate
 						an event description using AI. AI doesn't have the context to understand the games me and the people attending
@@ -184,7 +185,7 @@
 				<image src="/images/events/meetup/Meetup_Organizer_Invoice.png">	
 			</details>
 			<details>
-				<summary>1-5-2026: Group searches not returning relevant results </summary>
+				<summary>1-5-2026: Irrelevant group search results</summary>
 
 				I tried to search for groups in different cities to see what kinds of results would be returned, and I saw
 				multiple irrelevant results.
@@ -197,14 +198,36 @@
 				</div>
 
 				Afterwards, I searched for soccer groups near Dallas, Texas. While the first 4 groups shown had a focus on soccer,
-				8 out of the 11 next results had a titles indicating a focus on a specific sport that was not soccer.
-				<div class="image-container">
-				<img src="/images/events/meetup/Dallas_Soccer_Search.png">
+				8 out of the 11 next results had a titles indicating a focus on a specific sport that was not soccer.  <div class="image-container"> <img src="/images/events/meetup/Dallas_Soccer_Search.png">
 				</div>
 			</details>
+      <details>
+		   <summary>Variable subscription costs and a lack of pricing transparency</summary>
+			 <p>In December 2025 and January 2026, Bharat saw that the cost of an organizer subscription was $300.00 per year on his account.
+			 In January 2026, paying with a monthly subscription would
+			 make the price increase to $539.88 per year. Paying
+			 with a 6 month subscription would make the cost $357.96 per year.
+Meetup also showed the 6 month subscription as the top pick.</p>
+
+      <p>
+        If I was not logged in, information about subscriber prices was on a FAQ page, and it mentioned that a 1 year organizer subscription started at $174.99/year.
+			</p>     
+		  <p>On one page, Meetup said in January 2026: "Subscription rates for Meetup organisers can vary due to several factors. We calculate prices based on your location, currency, and the platform you use to start your subscription (such as the Meetup app on iOS or Android). Taxes may also apply depending on your region. As a result, different organisers may see different rates for the same membership."</p>	 
+		<div class="image-container">     
+			  <img src="/images/events/meetup/OrganizerSubscription.png">	
+      </div> 
+      <div class="image-container">			
+			  <img src="/images/events/meetup/OrganizerSubscription6Month.png">	
+      </div>
+			<div class="image-container"> 
+			  <img src="/images/events/meetup/OrganizerSubscription1Month.png">	
+      </div>    
+			<div class="image-container"> 
+			  <img src="/images/events/meetup/Starting_Organizer_Prices.png">	
+      </div> 
+	<div class="image-container"> 
+			  <img src="/images/events/meetup/Rate_Differences.png">	
+      </div> 
 		</div>
-	 
-	  <div id="bot-container"></div>
-    {{>footer}}
-  </body>
-</html>
+	  </details>	
+	 </div> <div id="bot-container"></div> {{>footer}} </body>
