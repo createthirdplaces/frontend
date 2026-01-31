@@ -92,29 +92,6 @@
 
               </details>
 
-              <details id="two" ${urlParams.get("two") ? "open" : ''}>
-                <summary>GET /groups?limit={limit}&offset={offset}</summary>
-                <p>This endpoint will be used to retrieve a list of groups. Pagination will be used to limit
-                 the number of groups that are returned. The order of events should also be deterministic and not
-                 change outside of relevant data updates.
-                </p>
-
-                <h3>Query string parameters </h3>
-                <ul>
-                  <li><b>limit</b>: Maximum number of groups to return. </li>
-                  <li><b>offset</b>: Number of records that should be skipped before detemrining which results should be returned. </li>
-                </ul>
-
-                <h3>Error codes</h3>
-                <ul>
-                  <li><b>400</b>: Invalid parameter.</li>
-                  <li><b>401</b>: Unauthorized request.</li>
-                  <li><b>500</b>: Other server error.</li>
-                </ul>
-
-              </details>
-
-
               <details id="four" ${urlParams.get("four") ? "open" : ''}>
                 <summary>POST /groups/</summary>
                 <p>This endpoint will be used to retrieve data about a group.</p>
@@ -130,26 +107,6 @@
                   <li><b>404</b>: Group with UUID does not exist.</li>
                   <li><b>500</b>: Other server error.</li>
                 </ul>
-              </details>
-
-              <details id="get-events" ${urlParams.get("get-events") ? "open" : ''}>
-                <summary>GET /events?limit={limit}&offset={offset}</summary>
-                <p>This endpoint will be used to retrieve a list of events. Pagination will be used to limit
-                 the number of events that are returned</p>
-
-                <h3>Query string parameters</h3>
-                <ul>
-                  <li><b>limit</b>: Maximum number of groups to return. </li>
-                  <li><b>offset</b>: Number of records that should be skipped before detemrining which results should be returned. </li>
-                </ul>
-
-                <h3>Error codes</h3>
-                 <ul>
-                  <li><b>400</b>: Invalid parameter.</li>
-                  <li><b>401</b>: Unauthorized request.</li>
-                  <li><b>500</b>: Other server error.</li>
-                </ul>
-
               </details>
 
               <details id="one" ${urlParams.get("one") ? "open" : ''}>
@@ -181,34 +138,18 @@
               </details>
               <h2>Endpoints for aggregator website</h2>
 
-              <details id="seven" ${urlParams.get("seven") ? "open" : ''}>
-                <summary>DELETE /group/</summary>
-                <p>This endpoint will be used by aggregator websites to add a new group. It will include a
-                  UUID in the request body for the group.</p>
-
-                <h3>Request body parameters</h3>
-                <ul>
-                  <li><b>uuid:</b>The UUID of the group.</li>
-                </ul>
-
-                <h3>Error codes</h3>
-                <ul>
-                  <li><b>400</b>: Invalid parameter.</li>
-                  <li><b>500</b>: Other server error.</li>
-                </ul>
-
-              </details>
-
               <details id="six" ${urlParams.get("six") ? "open" : ''}>
-                <summary>POST /group/</summary>
-                <p>This endpoint will be used by aggregator websites to add a new group. The request body
-                 will include a UUID.</p>
+                <summary>POST /updates/</summary>
+                <p>This endpoint will be used by aggregator websites to submit updates</p>
               </details>
 
               <h3>Request body parameter</h3>
                 <ul>
-                  <li><b>uuid:</b>The UUID of the group.</li>
-                </ul>
+                  <li><b>eventUpdates</b>: A map of event updates with the key being the UUID and the value being the updated event data.</li> 
+								  <li><b>groupUpdates</b>: A map of group updates with the key being the UUID and the value being the updated event data.</li>
+								  <li><b>deletedEvents</b>: UUIDs of events that have been deleted.</li>
+								  <li><b>deletedGroups</b>: UUIDs of groups that have been deleted.</li> 
+							  </ul>
 
                 <h3>Error codes</h3>
                 <ul>

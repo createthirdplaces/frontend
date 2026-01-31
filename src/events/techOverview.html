@@ -63,10 +63,8 @@
             events.
           </li>
           <li>All aggregator websites will need to register with the websites they are aggregating from. After registering,
-            the aggregator will retrieve all the groups from the website they registered with. When a group is
-            created or deleted, it will look at the websites that registered as aggregators, and then call an API endpoint for
-            the aggregator to make sure it has information about the group.
-          </li>
+            the aggregator will retrieve all the groups from the website they registered with. Group websites should periodically submit updates to the aggregator websites. The updates should probably be done on some sort of interval such as once every 15 minutes to prevent overloading aggregator sites. For optimization purposes, the reguarly scheduled update should not be done if there are no changes. Also, if there are a large number of changes, they should be split up.
+              </li>
           <li>
             Aggregator websites will store a list of all group websites being used to prevent circular dependencies being
             caused by a registration attempt.
