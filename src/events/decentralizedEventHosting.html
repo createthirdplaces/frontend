@@ -34,17 +34,82 @@
       {{>navbar}}
       <h1>Decentralized event hosting</h1>
 
-      <p>Create Third Places is developing a platform to help people find and host events. It will
+      <p>Create Third Places is developing a platform to find and host in person events. It will
       be similar to Meetup.com with a more focused set of features and
       these goals. </p>
       <ul>
-	      <li><b>Support in person interaction</b></li>
 	      <li><b>All content is human generated</b></li>
       	<li><b>No personalized recommendations</b></li>
       	<li><b>No commercial monetization</b></li>
 	      <li><b>Open source</b></li>
       </ul>
-      <h2>Overview of decentralized architecture</h2>
+            <h2>Issues with existing websites</h2>
+      <table>
+				<caption>
+					<h3>Comparision to alternatives</h3> </caption>
+					<thead>
+						<tr>
+							<th scope="col">Name </th>
+							<th scope="col">Cost to organize a group</th>
+							<th scope="col">Cost of a premium subscription</th>
+							<th scope="col">Ads </th>						
+						</tr>
+					</thead>
+				  <tbody>
+            <tr>          
+					    <th scope="row">Create Third Places</th>
+					    <th>$0</th>
+					    <th>$0</th>
+					    <th>no</th>
+            </tr>					
+				    <tr>          
+					    <th scope="row">Meetup</th>
+					    <th>Typically $300/year, although some users pay different prices.</th>
+					    <th>$129.99/year</th>
+					    <th>yes</th>
+            </tr>	
+				    <tr>          
+					    <th scope="row">Facebook</th>
+					    <th>$0</th>
+					    <th>$0</th>
+					    <th>yes</th>
+            </tr>	
+            <tr>          
+					    <th scope="row">Instagram</th>
+					    <th>$0</th>
+					    <th>$0</th>
+					    <th>yes</th>
+            </tr>	
+            <tr>          
+					    <th scope="row">TikTok</th>
+					    <th>$0</th>
+					    <th>$0</th>
+					    <th>yes</th>
+            </tr>	
+         <tfoot>
+						<tr>
+							<td colspan="4">Prices are accurate as of January 2026.</td>
+						</tr>
+					</tfoot>			
+				</tbody>	 
+      </table>
+		 <p>
+         Many websites for promoting events in third places now poriritize keeing 
+	 people online. Meetup.com was a notable exception unttil quality dropped and
+	 prices increased.
+        <a href="/events/meetupProblems.html">See this page for more details.</a>
+      </p>
+      <p>
+        Other new new competitors to Meetup such as Luma and Partiful follow
+        the same venture capitalist funding model initially used by Meetup,
+        and they are on the path to
+        <a href="https://pluralistic.net/2023/01/21/potemkin-ai/#hey-guys">enshittification</a>.
+        This includes one former competitor Eventbrite, which has been
+        <a href="https://techcrunch.com/2025/12/02/bending-spoons-agrees-to-buy-eventbrite-for-500m-to-revive-stalled-brand/">
+          purchased by the company Bending Spoons</a>. Bending Spoons owns Meetup.com and is responsible
+        for its latest problems.
+      </p>
+     <h2>Technical information</h2>
       <details>
         <summary>More details</summary>
         <p><a href="/events/techOverview.html">A detailed
@@ -132,75 +197,10 @@
           the (cash) flow of distant owners.</q> (Ray Oldenburg)
       </details>
 
-      <h2>Issues with other websites used to promote third places</h2>
-      <table>
-				<caption>
-					<h3>Comparision of Create Third Places platform to alternatives</h3> </caption>
-					<thead>
-						<tr>
-							<th scope="col">Name </th>
-							<th scope="col">Cost to organize a group</th>
-							<th scope="col">Cost of a premium subscription</th>
-							<th scope="col">Ads </th>						
-						</tr>
-					</thead>
-				  <tbody>
-            <tr>          
-					    <th scope="row">Create Third Places</th>
-					    <th>$0</th>
-					    <th>$0</th>
-					    <th>no</th>
-            </tr>					
-				    <tr>          
-					    <th scope="row">Meetup</th>
-					    <th>Typically $300/year, although some users pay different prices.</th>
-					    <th>$129.99/year</th>
-					    <th>yes</th>
-            </tr>	
-				    <tr>          
-					    <th scope="row">Facebook</th>
-					    <th>$0</th>
-					    <th>$0</th>
-					    <th>yes</th>
-            </tr>	
-            <tr>          
-					    <th scope="row">Instagram</th>
-					    <th>$0</th>
-					    <th>$0</th>
-					    <th>yes</th>
-            </tr>	
-            <tr>          
-					    <th scope="row">TikTok</th>
-					    <th>$0</th>
-					    <th>$0</th>
-					    <th>yes</th>
-            </tr>	
-         <tfoot>
-						<tr>
-							<td colspan="4">Prices are accurate as of January 2026.</td>
-						</tr>
-					</tfoot>			
-				</tbody>	 
-      </table>
-		 <p>
-         Many websites for promoting events in third places now poriritize keeing 
-	 people online. Meetup.com was a notable exception unttil quality dropped and
-	 prices increased.
-        <a href="/events/meetupProblems.html">See this page for more details.</a>
-      </p>
-      <p>
-        Other new platforms are competing with Meetup such as Luma and Partiful. However, they follow
-        the same venture capitalist funding model initially used by Meetup,
-        and they are on the path to
-        <a href="https://pluralistic.net/2023/01/21/potemkin-ai/#hey-guys">enshittification</a>.
-        This includes one former competitor Eventbrite, which has been
-        <a href="https://techcrunch.com/2025/12/02/bending-spoons-agrees-to-buy-eventbrite-for-500m-to-revive-stalled-brand/">
-          purchased by the company Bending Spoons</a>. Bending Spoons owns Meetup.com and is responsible
-        for its latest problems.
-      </p>
 
     </div>
-    <div id="bot-container"></div>
+    
+		<div id="bot-container"></div>
   {{>footer}}
 
   </body>
