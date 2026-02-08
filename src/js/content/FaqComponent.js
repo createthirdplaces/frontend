@@ -8,7 +8,12 @@ export class FaqComponent extends BaseTemplateComponent {
         font-size: 1.5rem;
         font-weight: 600;
       }
-    </style>`
+      details {
+        background-color: white;
+				box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+	      padding-left:0.5rem;	
+		 }
+</style>`
   }
 
   render() {
