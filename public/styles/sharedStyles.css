@@ -22,11 +22,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-padding: 1.5rem;
   height: 100%;
+	
 }
 
 
 body {
-  display: flex;
+  background-image: url("/images/Background.jpg");
+  background-size: 100% 100%; 
+	display: flex;
   flex-direction: column;
 }
 
@@ -109,11 +112,14 @@ nav a:before {
   margin-left: auto;
 }
 #footer-text {
-  font-size: 0.8rem;
+  color:white; 
+	font-size: 0.8rem;
   margin-right: 1rem;
   padding-bottom: 0.5rem;
 }
-
+#footer-text a {
+  color:white;
+}
 #logo-section {
   height:6.25rem;
 }
@@ -250,8 +256,8 @@ nav a:before {
 @media not screen and (width < 32em) {
   img {
     max-width:65rem;
-  }
-  #logo-section {
+  } 
+	#logo-section {
     float:left;
     font-size: 2.5rem;
     width:12rem;
@@ -273,16 +279,21 @@ nav a:before {
  img {
     max-width:100%
   }
-  #top-nav {
-    display: grid;
-		margin-bottom: 0; 
-    text-align: center; 
- }
-  
-	#logo-section {
+
+  #footer-container {
+   margin-top:-1rem;
+	}
+
+  #logo-section {
     display:flex;
     font-size: 2rem;
     font-weight: bold;
     justify-content: center;
   }
+  #top-nav {
+    display: grid;
+		margin-bottom: 0; 
+    text-align: center; 
+ }
+
 }
