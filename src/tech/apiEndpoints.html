@@ -138,9 +138,35 @@
               </details>
               <h2>Endpoints for aggregator website</h2>
 
+<<<<<<< Updated upstream
               <details id="six" ${urlParams.get("six") ? "open" : ''}>
                 <summary>POST /updates/</summary>
                 <p>This endpoint will be used by aggregator websites to submit updates</p>
+=======
+              <details id="seven" ${urlParams.get("seven") ? "open" : ''}>
+                <summary>DELETE /group/</summary>
+                <p>This endpoint will be used by aggregator websites to add a new group.
+								And it will be called by a local website.  It will include a
+                  UUID in the request body for the group.</p>
+
+                <h3>Request body parameters</h3>
+                <ul>
+                  <li><b>uuid:</b>The UUID of the group.</li>
+                </ul>
+
+                <h3>Error codes</h3>
+                <ul>
+                  <li><b>400</b>: Invalid parameter.</li>
+                  <li><b>500</b>: Other server error.</li>
+                </ul>
+
+              </details>
+
+              <details id="six" ${urlParams.get("six") ? "open" : ''}>
+                <summary>POST /group/</summary>
+                <p>This endpoint will be used by aggregator websites to add a new group and be called by a local website. The request body
+                 will include a UUID.</p>
+>>>>>>> Stashed changes
               </details>
 
               <h3>Request body parameter</h3>
