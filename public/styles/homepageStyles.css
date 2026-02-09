@@ -1,0 +1,20 @@
+#homepage-link-one{
+	display: inline-block;
+  float:left;
+}
+
+#homepage-link-two {
+  display: inline-block;
+  float: right;
+}
+
+#homepage-link-three a {
+  margin-left:auto;
+	margin-right:auto;
+  margin-top: 15rem;
+}
+
+#homepage-image {
+  margin-left:auto;
+	margin-right:auto;
+}
