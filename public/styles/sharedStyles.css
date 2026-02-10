@@ -191,7 +191,7 @@ nav a:before {
   border: var(--clr-light-blue) 0.125em solid;
   border-radius: 50%; 
   box-shadow: inset 0 0 0.5em 0 var(--clr-light-blue), 0 0 0.5em 0 var(--clr-light-blue);
-	color: black;
+	color: white;
   cursor: pointer;
  
   font-size: 2.5rem;
@@ -274,9 +274,7 @@ nav a:before {
 }
 
 @media not screen and (width < 32em) {
-  img {
-    max-width:65rem;
-  } 
+
 	#logo-section {
     float:left;
     font-size: 2.5rem;
