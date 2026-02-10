@@ -58,15 +58,16 @@
 } 
 
 @media screen and (width < 32em){
-  #homepage-link-three a {
-  	margin-top: 6rem;
+  #homepage-link-two {
+    
+	}
+#homepage-link-three a {
+  	margin-top:6rem;
   }
+
   #homepage-image-div {
-		position:absolute;
-    top: 16.5rem;
+		position:relative;
+    top: -13.5rem;
     z-index: -8; 	
   }
-  #homepage-image {
-		max-width:22.5rem;
-	}
 }
