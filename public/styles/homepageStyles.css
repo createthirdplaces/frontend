@@ -42,8 +42,18 @@
 	  z-index:-1;
     box-shadow: 10px 10px 5px rgba(28,98,125,0.5);	
   }
-  #homepage-link-three a {
-  	margin-top: 18rem;
+  #homepage-link-one {	
+    margin-left:1rem;	
+	  margin-top:1rem;
+	}
+
+  #homepage-link-two {
+	  margin-right:1rem;	
+		margin-top: 1rem;
+	}
+	
+	#homepage-link-three a {
+  	margin-top: 22rem;
   }
 } 
 
