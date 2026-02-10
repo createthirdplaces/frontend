@@ -6,7 +6,8 @@
     <link rel="icon" href="data:,">
 
     <title>Create Third Places</title>
-
+    <link rel="stylesheet" type="text/css" href="/styles/homepageStyles.css" />
+ 
     <link rel="stylesheet" type="text/css" href="/styles/sharedStyles.css" />
     <style>
       .main-div {
@@ -35,21 +36,26 @@
     <div id="container">
 
     {{>navbar}}
-
-      
-    <a class="neon-button" href="/events/decentralizedEventHosting.html">Make friends</a>
-    
-    
-    
-    <a class="neon-button" href="/support.html">Improve your neighborhoods</a>
-    
-    
+ 
+    <div id="homepage-main">	
+			<div id="homepage-link-one"> 
+				<a class="neon-button"  href="/events/decentralizedEventHosting.html">Make friends</a>
+			</div>
+			
+			<div id ="homepage-link-two"> 
+				<a class="neon-button" href="/support.html">Build community</a>
+			</div> 
+		
+			<div id="homepage-link-three">
+				<a id="homepage-link-three-button" class="neon-button" href="/publicHealth.html">Improve health</a>
+			</div> 
+      <div id="homepage-image-div">
+        <img id="homepage-image" src="/images/places/crystal_city_landing_2016.jpg"></img>
+      </div> 
+		</div>	
+	</div>
   
-    <img src="/images/places/crystal_city_landing_2016.jpg"></img>
-
-    <a class="neon-button" href="/publicHealth.html">Improve public health</a>
-  </div>
-  {{>footer}}
+	{{>footer}}
 
   </body>
 </html>
