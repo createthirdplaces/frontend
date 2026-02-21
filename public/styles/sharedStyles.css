@@ -238,7 +238,6 @@ nav a:before {
   opacity: 1;
 }
 
-
 .raised {
   background: transparent;
   border: none;
@@ -254,6 +253,12 @@ nav a:before {
   color:white;
   text-decoration:none;
  }
+
+.section-div {
+	background-color: white;
+  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+  padding-left: 0.5rem;
+}
 .shadow {
   position: absolute;
   top: 0;

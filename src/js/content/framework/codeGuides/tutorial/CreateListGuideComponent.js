@@ -7,7 +7,7 @@ export class CreateListGuideComponent extends HTMLElement {
     this.innerHTML = `
 
       <details open>
-        <summary>Add button with event handler</summary>
+        <summary>Add button with event handler.</summary>
           <base-code-display-component>
           
 attachHandlersToShadowRoot(shadowRoot){
