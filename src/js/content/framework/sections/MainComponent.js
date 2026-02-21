@@ -263,6 +263,10 @@ export class MainComponent extends BaseDynamicComponent {
 
         <p>Places.js supports developers to make websites that are as
           straightforward as possible from a user perspective.</p>
+      </details>
+
+
+      <details id="no-gen-ai" ${urlParams.get("no-gen-ai") ? "open" : ''}>
 
         <h3>Promote creating websites without the use of generative AI tools such as ChatGPT, GitHub Copilot, or
           Claude Code</h3>
@@ -275,7 +279,7 @@ export class MainComponent extends BaseDynamicComponent {
 
       <details id="render-entire-component" ${urlParams.get("render-entire-component") ? "open" : ''}>
 
-        <summary>Re entire component when the state of a component changes</summary>
+        <summary>Re-render entire component when the state of a component changes</summary>
 
         <p>Re-rendering a component for every state change does have some performance overhead.
           However, the performance overhead does come with the benefit of making cde easier to reason about.
