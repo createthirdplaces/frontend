@@ -268,8 +268,8 @@ export class MainComponent extends BaseDynamicComponent {
 
       <details id="no-gen-ai" ${urlParams.get("no-gen-ai") ? "open" : ''}>
 
-        <h3>Promote creating websites without the use of generative AI tools such as ChatGPT, GitHub Copilot, or
-          Claude Code</h3>
+        <summary>Promote creating websites without the use of generative AI tools such as ChatGPT, GitHub Copilot, or
+          Claude Code</summary>
 
         <p>The documentation uses a places.js shadow DOM component and a couple of other measures to
           make sure bots are less likely to be able to scrape the documentation. Places.js is also new, and
