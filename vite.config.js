@@ -27,7 +27,7 @@ export default defineConfig({
         boardListing: resolve(__dirname, "src/dc/boardListing.html"),
 
         contribute: resolve(__dirname, "src/contribute.html"),
-
+        crystalCityDevelopment: resolve(__dirname,"src/articles/crystalCityDevelopment.html"),
         databaseDesign: resolve(__dirname, "src/tech/databaseDesign.html"),
         decentralizedEventHosting: resolve(__dirname, "src/events/decentralizedEventHosting.html"),
         designHelp: resolve(__dirname,"src/design/contribute.html"),
