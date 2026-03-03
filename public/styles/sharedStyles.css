@@ -32,12 +32,6 @@ body {
   flex-direction: column;
 }
 
-body p {
- background-color:white;
- box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
- padding-left: 0.5rem;
-}
-
 details {
   background-color:white;
   box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
@@ -148,6 +142,15 @@ nav a:before {
   padding-left:0.5rem;
 }
 
+.display-section {
+  background-color:white;
+  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+  padding-bottom: 0.1rem;
+}
+
+.display-section p {
+	padding-left: 0.5rem;
+}
 .front > div {
   display:inline-block;
 }
@@ -184,7 +187,6 @@ nav a:before {
   background-color:white;
   box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38); 
 }
-
 
 .neon-button { 
   border-radius: 50%; 
@@ -259,6 +261,7 @@ nav a:before {
   box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
   padding-left: 0.5rem;
 }
+
 .shadow {
   position: absolute;
   top: 0;
