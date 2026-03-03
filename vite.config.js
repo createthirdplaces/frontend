@@ -19,11 +19,10 @@ const buildConfig = {
     outDir: "../dist",
     rollupOptions: {
       input: {
-          
+        
         about: resolve(__dirname, "src/about.html"),
         apiEndpoints: resolve(__dirname, "src/tech/apiEndpoints.html"),
        
-        billOne: resolve(__dirname, "src/dc/b26-0132.html"),
         boardListing: resolve(__dirname, "src/dc/boardListing.html"),
 
         contribute: resolve(__dirname, "src/contribute.html"),
@@ -34,10 +33,6 @@ const buildConfig = {
         eventTechOverview: resolve(__dirname, "src/events/techOverview.html"),
         
         framework: resolve(__dirname, "src/tech/placesjs.html"),
-
-        goodThirdPlace: resolve(__dirname, "src/goodThirdPlace.html"),
-
-        hostingAdvice: resolve(__dirname, "src/events/hostingAdvice.html"),
 
         locationListingTutorial: resolve(__dirname, "src/tech/locationListingTutorial.html"),
         locationMapListing: resolve(__dirname, "src/locationMapListing.html"),
