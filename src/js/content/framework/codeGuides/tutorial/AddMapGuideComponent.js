@@ -1,7 +1,7 @@
 export class AddMapGuideComponent extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
-      <p>Make sure input only shows up when clicking on map</p>
+      <p>Make sure input only shows up when clicking on map.</p>
       
       <details open>
         <summary>Event handler updates</summary>

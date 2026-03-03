@@ -18,6 +18,7 @@ This repo contains a .vimrc file with some useful settings for Vim editing.
 - bd: Close search and return to file that was last open
 - tabnew: Open new tab
 - tabnext and :tabprevious: Update tab
+- t + character: Move to next occurrence of character
 - u: undo
 - vsp: vertical window split
 

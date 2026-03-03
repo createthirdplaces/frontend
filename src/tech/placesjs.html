@@ -5,7 +5,10 @@
     <link rel="stylesheet" type="text/css" href="/styles/sharedStyles.css" />
     <meta charset="UTF-8" />
     <style>
-        h2 {
+        body {
+					background-image:none;
+				}
+				h2 {
             margin-top:1rem;
         }
     </style>
@@ -42,7 +45,7 @@
     </script>
   </head>
   <body>
-    <div id="container">
+    <div id="container" class="section-div">
       {{>navbar}}
 
       <h1>Documentation for places.js framework</h1>
@@ -53,13 +56,15 @@
         Source code is <a href="https://github.com/createthirdplaces/places-js">here </a></p>
 
       <br>
-      <b>Places.js supports the following features and has no external JS dependencies.</b>
-      <ul>
-        <li>State management that integrates with components and data fetching logic.</li>
-        <li>Asynchronous data fetching.</li>
-        <li>Components with Shadow DOM to encapsulate styles and deter bot scraping.</li>
-      </ul>
-      <main-component></main-component>
+      <div> 
+				<b>Places.js supports the following features and has no external JS dependencies.</b>
+				<ul>
+					<li>State management that integrates with components and data fetching logic.</li>
+					<li>Asynchronous data fetching.</li>
+					<li>Components with Shadow DOM to encapsulate styles and deter bot scraping.</li>
+				</ul>
+      </div> 
+			<main-component></main-component>
 
 
     </div>
