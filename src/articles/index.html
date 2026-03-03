@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles/sharedStyles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script defer fetchpriority="low" type="module">
+    import {GetGameAdvice} from "/js/bots/getGameAdvice.js";
+    GetGameAdvice();
+  </script>
+  <style>
+    body {
+      background-image:none;
+		}
+	</style>
+  <title>Third Place articles</title>
+</head>
+  <body>
+  <div id="container">
+		{{>navbar}}
+    <h2>Advice</h2> 
+		  <ul>	
+				<li><a href="/articles/hostingAdvice.html">Advice on hosting events in a third place</a></li>
+				<li><a href="/articles/goodThirdPlace.html">What makes a third place good</a></li>
+      </ul> 
+		<h2>Editorials</h2> 
+		  <ul>	
+				<li><a href="/articles/b26-0132.html">Proposed legislation in DC that would
+							expand community access to schools on evening and weekend hours </a></li>
+      
+      	<li><a href="/articles/crystalCityDevelopment.html">How the history of Crystal City,
+				Virginia demonstrates the importance of bottom up action for supporting public spaces</a></li>
+
+			</ul>	
+    </div>
+  <div id="bot-container"></div>
+  {{>footer}}
+
+  </body>
+</html>
