@@ -2,10 +2,10 @@ import { defineConfig } from "vite";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import handlebars from "vite-plugin-handlebars";
+import fs from 'node:fs';
+import {globSync} from 'glob';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-export default defineConfig({
+const buildConfig = {
   plugins: [
     handlebars({
       partialDirectory: resolve(__dirname, "src/partials"),
@@ -22,12 +22,11 @@ export default defineConfig({
           
         about: resolve(__dirname, "src/about.html"),
         apiEndpoints: resolve(__dirname, "src/tech/apiEndpoints.html"),
-        
+       
         billOne: resolve(__dirname, "src/dc/b26-0132.html"),
         boardListing: resolve(__dirname, "src/dc/boardListing.html"),
 
         contribute: resolve(__dirname, "src/contribute.html"),
-        crystalCityDevelopment: resolve(__dirname,"src/articles/crystalCityDevelopment.html"),
         databaseDesign: resolve(__dirname, "src/tech/databaseDesign.html"),
         decentralizedEventHosting: resolve(__dirname, "src/events/decentralizedEventHosting.html"),
         designHelp: resolve(__dirname,"src/design/contribute.html"),
@@ -47,7 +46,7 @@ export default defineConfig({
         otherWebsites: resolve(__dirname, "src/otherWebsites.html"),
 
         places: resolve(__dirname, "src/events/meetupProblems.html"),
-	publicHealth: resolve(__dirname,"src/publicHealth.html"),
+      	publicHealth: resolve(__dirname,"src/publicHealth.html"),
         recommendedBooks: resolve(__dirname,"src/recommendedBooks.html"),
         rejectedIdeas: resolve(__dirname,"src/ideas/rejectedIdeas.html"),
 
@@ -60,4 +59,8 @@ export default defineConfig({
       },
     },
   },
-});
+}
+
+Object.assign(buildConfig['build']['rollupOptions']['input'],globSync('src/articles/*.html'));
+export default defineConfig(buildConfig);
+

@@ -11,5 +11,8 @@
   "devDependencies": {
     "vite": "^7.2.4",
     "vite-plugin-handlebars": "2.0.0"
+  },
+  "dependencies": {
+    "glob": "^13.0.6"
   }
 }
