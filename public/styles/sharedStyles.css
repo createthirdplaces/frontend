@@ -15,6 +15,7 @@ span {
   padding: 0;
   border: 0;
 }
+
 html,
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -90,6 +91,34 @@ nav a:before {
 #author-section h4 {
   padding-left: 0.5rem;
 	padding-right: 0.5rem;
+}
+
+#author-heading-inner {
+  display:flex;
+}
+
+#author-heading-user-image-container {
+  display:inline-block;
+}
+
+#author-heading-username-container {
+  display:inline-block;
+  margin-right:0.5rem; 
+	margin-top:0.5rem;
+}
+
+#author-heading img {
+  border-radius: 1rem;
+	height:2rem;
+	width:2rem;
+	object-fit:cover;
+}
+
+#author-section img {
+  border-radius: 5rem; 
+	height:10rem; 
+  width:10rem;
+  object-fit:cover;	
 }
 
 #author-section p {
@@ -172,6 +201,11 @@ nav a:before {
 	max-width:100%
 }
 
+.display-section .img-secondary {
+	max-width:50%;
+  padding-left:0.5rem;
+}
+
 .front > div {
   display:inline-block;
 }
@@ -202,6 +236,12 @@ nav a:before {
   background: var(--clr-light-blue);
   will-change: transform;
   transform: translateY(-4px);
+}
+
+.image-caption {
+  display:block;
+  font-style:italic;
+  padding-left: 0.5rem;
 }
 
 .main-section{
