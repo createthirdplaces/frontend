@@ -33,9 +33,7 @@ body {
 }
 
 details {
-  background-color:white;
-  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
-  padding-left: 0.5rem;
+	padding-left: 0.5rem;
 }
 
 details > summary { 
@@ -80,6 +78,10 @@ nav a:before {
   top:15px;
   width: 0%;
   transition: all ease-in-out 250ms;
+}
+
+footer {
+	padding-left:0.5rem;
 }
 
 #author-section {
