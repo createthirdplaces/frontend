@@ -4,16 +4,14 @@ export class FaqComponent extends BaseTemplateComponent {
   getTemplateStyle(){
     return `
     <style>
-      summary {
+      details {
+				padding-left:0.5rem;
+			}
+			summary {
         font-size: 1.5rem;
         font-weight: 600;
       }
-      details {
-        background-color: white;
-				box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
-	      padding-left:0.5rem;	
-		 }
-</style>`
+    </style>`
   }
 
   render() {
