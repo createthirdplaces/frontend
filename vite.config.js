@@ -1,9 +1,10 @@
-import { defineConfig } from "vite";
-import { dirname, resolve } from "node:path";
+import { defineConfig,loadEnv } from "vite";
+import { dirname, resolve} from "node:path";
 import { fileURLToPath } from "node:url";
 import handlebars from "vite-plugin-handlebars";
 import fs from 'node:fs';
 import {globSync} from 'glob';
+
 
 const buildConfig = {
   plugins: [
@@ -54,6 +55,18 @@ const buildConfig = {
       },
     },
   },
+}
+
+console.log(process.env);
+if(process.env.NODE_ENV === 'development'){
+  const update=
+  	{	
+	    alias:{	
+			  '/js/globalProd.js': resolve(__dirname, '/js/spellCheck.js')
+      }	
+	  }
+
+  buildConfig['resolve'] =  update;
 }
 
 Object.assign(buildConfig['build']['rollupOptions']['input'],globSync('src/articles/*.html'));
