@@ -59,6 +59,7 @@ export const otherWords = new Set([
 	'llms',
 	'CCCA',
 
+  'wasn\'t',
   'landlord\'s',
 	'didn\'t',
   'doesn\'t', 
