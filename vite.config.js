@@ -5,7 +5,6 @@ import handlebars from "vite-plugin-handlebars";
 import fs from 'node:fs';
 import {globSync} from 'glob';
 
-
 const buildConfig = {
   plugins: [
     handlebars({
@@ -63,9 +62,8 @@ if(process.env.NODE_ENV === 'development'){
   	{	
 	    alias:{	
 			  '/js/globalProd.js': resolve(__dirname, '/js/spellCheck.js')
-      }	
-	  }
-
+				}	
+    }
   buildConfig['resolve'] =  update;
 }
 

@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <script defer fetchpriority="low" type="module">
-    import {GetGameAdvice} from "../js/bots/getGameAdvice.js";
-    GetGameAdvice();
-  </script>
+    import {runGlobal} from "/js/globalProd.js";
+		runGlobal(); 
+	</script>
 
   <title>Hosting advice</title>
 </head>
@@ -17,10 +17,9 @@
   <div id="container">
     {{>navbar}}
 
-    <div class="display-section">
+    <div class="display-section" id="article-text">
       <h1>Advice on Hosting Events in Third Places</h1>
 			<p>By Bharat Ponnaluri</p>
-
 			<p>This page contains advice on hosting public events in third places. While this advice
 				is based on my experience running board game events, much of it can be applied
 				to other activities. </p>
