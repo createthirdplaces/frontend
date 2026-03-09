@@ -10,10 +10,10 @@
     <script defer fetchpriority="low" type="module">
 
     import {BaseTemplateComponent} from "../js/shared/lib/places-js-latest.js"
-    import {GetGameAdvice} from "../js/bots/getGameAdvice.js";
-    GetGameAdvice();
-    export class SoftwareInformationComponent extends BaseTemplateComponent{
+    import {runGlobal} from "/js/globalProd.js";
+	  runGlobal(); 
 
+    export class SoftwareInformationComponent extends BaseTemplateComponent{
 
       getTemplateStyle(){
         return `

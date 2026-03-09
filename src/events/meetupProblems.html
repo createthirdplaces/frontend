@@ -27,10 +27,11 @@
 		<title>Meetup.com challenges</title>
 
 		<script type="module">
-			import {GetGameAdvice} from "../js/bots/getGameAdvice.js";
-			GetGameAdvice();
 
-			window.addEventListener('load', ()=>{
+      import {runGlobal} from "/js/globalProd.js";
+	    runGlobal(); 
+     
+		   window.addEventListener('load', ()=>{
 				for (const item of document.getElementsByClassName('image-container')){
 					item.addEventListener("click",()=>{
 						if(item.className !== 'image-container-clicked'){

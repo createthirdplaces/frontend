@@ -9,10 +9,10 @@
 
   <script defer fetchpriority="low" type="module">
     import {BaseDynamicComponent} from "../js/shared/lib/places-js-latest.js"
-    import {GetGameAdvice} from "../js/bots/getGameAdvice.js";
-    GetGameAdvice();
-    export class DatabaseDesignComponent extends BaseDynamicComponent{
+    import {runGlobal} from "/js/globalProd.js";
+	  runGlobal(); 
 
+    export class DatabaseDesignComponent extends BaseDynamicComponent{
 
       attachHandlersToShadowRoot(shadowRoot) {
 

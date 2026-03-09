@@ -9,7 +9,7 @@ function blockObjectMethods() {
 	Object.getOwnPropertyNames = blockFunction; 
 }
 
-function blockJavaScriptFunctions(){
+export function blockJavaScriptFunctions(){
 
     blockObjectMethods();
     setTimeout( ()=>{   
