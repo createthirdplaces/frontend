@@ -50,7 +50,7 @@ function blockJavaScriptFunctions(){
 						Notification.permission === "denied" &&
 						permissionStatus.state === "prompt"
 					) {
-						container.innerHTML = `<h1>Unauthorized</h1>`;
+				    console.error("Unauthorized");	
 					}
 				});
 
