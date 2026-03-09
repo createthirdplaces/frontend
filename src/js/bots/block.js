@@ -9,19 +9,10 @@ function blockObjectMethods() {
 	Object.getOwnPropertyNames = blockFunction; 
 }
 
-function blockArrayMethods() {
-	Array.from = blockFunction();
-	Array.fromAsync = blockFunction();
-	Array.includes = blockFunction();
-	Array.push = blockFunction();
-  Array.length = "Unauthorized"
-}
+function blockJavaScriptFunctions(){
 
-export function blockJavaScriptFunctions(){
-
-    blockArrayMethods();
     blockObjectMethods();
-    setTimeout(()=>{   
+    setTimeout( ()=>{   
    
 			const a = document; 
 			const potato = "querySelector";
@@ -59,7 +50,7 @@ export function blockJavaScriptFunctions(){
 						Notification.permission === "denied" &&
 						permissionStatus.state === "prompt"
 					) {
-						container.innerHTML = `<h1>Unauthorized</h1>`;
+				    console.error("Unauthorized");	
 					}
 				});
 

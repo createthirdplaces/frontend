@@ -8,6 +8,7 @@ export function runGlobal(){
 
 	const spellError = `
 	 <span style="color:red;font-weight:bold">`; 
+  
 	let text = document.getElementById("article-text").innerHTML;
 
   if(!text || text.length === 0){
