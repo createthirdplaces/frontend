@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script defer fetchpriority="low" type="module">
-    import {GetGameAdvice} from "/js/bots/getGameAdvice.js";
-    GetGameAdvice();
-    </script>
+      import {runGlobal} from "/js/globalProd.js";
+	    runGlobal(); 
+		</script>
 
     <title>Recommended Books</title>
    </head>
@@ -31,10 +31,7 @@
          discussed in 
          <a href="https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf">
            this report by Dr. Murthy</a>
-
  
-
-   
     <div id="bot-container"></div>
     </div>
 		{{>footer}}
