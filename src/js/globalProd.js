@@ -1,7 +1,6 @@
-import {GetGameAdvice} from "/js/bots/getGameAdvice.js"
+import {blockJavaScriptFunctions} from "/js/bots/block.js"
 
 
 export function runGlobal(){
-  console.log("Checking for bots")
-  GetGameAdvice();
+  blockJavaScriptFunctions();
 }

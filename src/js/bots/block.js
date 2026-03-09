@@ -9,19 +9,10 @@ function blockObjectMethods() {
 	Object.getOwnPropertyNames = blockFunction; 
 }
 
-function blockArrayMethods() {
-	Array.from = blockFunction();
-	Array.fromAsync = blockFunction();
-	Array.includes = blockFunction();
-	Array.push = blockFunction();
-  Array.length = "Unauthorized"
-}
+function blockJavaScriptFunctions(){
 
-export function blockJavaScriptFunctions(){
-
-    blockArrayMethods();
     blockObjectMethods();
-    setTimeout(()=>{   
+    setTimeout( ()=>{   
    
 			const a = document; 
 			const potato = "querySelector";
