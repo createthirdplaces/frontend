@@ -24,8 +24,14 @@ export const otherWords = new Set([
 	'useeffect',
 	'incentivizes',
   'upfront',
+  'https',
+  'fundraiser',
 
-
+	'postgres',
+  'wikipedia',
+	'javalin',
+	'supabase',
+	'postgresql',
 	'digitalocean',  
   'svelte',
   'kubernetes',
