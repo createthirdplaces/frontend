@@ -16,9 +16,6 @@ export class FaqComponent extends BaseTemplateComponent {
 
   render() {
     return `
-      <details>
-        <summary>FAQ</summary>
-    
         <h3>How can I report a bug or request a new feature </h3>
     
         <p>Email gulu@createthirdplaces.org, or create an issue 
@@ -46,7 +43,6 @@ export class FaqComponent extends BaseTemplateComponent {
         
         <p>Create Third Places believes that social media websites are designed to keep people online. Create Third Places
         advocates for websites that help people find in person events without spending a large amount of time online.</p>
-      </details>
     `
   }
 }
