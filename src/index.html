@@ -6,54 +6,39 @@
     <link rel="icon" href="data:,">
 
     <title>Create Third Places</title>
-    <link rel="stylesheet" type="text/css" href="/styles/homepageStyles.css" />
- 
+    <link rel="stylesheet" type="text/css" href="/styles/homepageStyles.css" /> 
     <link rel="stylesheet" type="text/css" href="/styles/sharedStyles.css" />
-    <style>
-      .main-div {
-        font-family: Helvetica; 
-        margin-bottom: 0.5rem;
-      }
-      
-      .main-div a {
-        color: white;
-        font-size:2rem;
-        text-decoration:none;
-      }
-      
-      .main-div summary {
-        color: white;
-      }
-      
-      .summary-large {
-        font-size: 2rem;
-        font-weight: 400;
-
-      }
-    </style>
   </head>
   <body>
     <div id="container">
 
-    {{>navbar}}
- 
-    <div id="homepage-main">	
-			<div id="homepage-link-one"> 
-				<a class="neon-button"  href="/events/decentralizedEventHosting.html">Make friends</a>
-			</div>
+			{{>navbar}}
+
+			<h1>Imagine public spaces that are:</h1> 
+			<div id="homepage-main">	
+				<div id="homepage-link-one"> 
+					<a class="neon-button"
+					href="/articles/goodThirdPlace.html">Free to use</a>
+				</div>
+				
+				<div id ="homepage-link-two"> 
+					<a class="neon-button" href="/articles/goodThirdPlace.html">Open 24/7</a>
+				</div> 
 			
-			<div id ="homepage-link-two"> 
-				<a class="neon-button" href="/support.html">Build community</a>
-			</div> 
-		
-			<div id="homepage-link-three">
-				<a id="homepage-link-three-button" class="neon-button" href="/publicHealth.html">Improve health</a>
-			</div> 
-      <div id="homepage-image-div">
-        <img id="homepage-image" src="/images/places/crystal_city_landing_2016.jpg"></img>
-      </div> 
-		</div>	
-	</div>
+				<div id="homepage-link-three">
+					<a id="homepage-link-three-button" class="neon-button"
+					href="/articles/goodThirdPlace.html">Large enough for 100 people</a>
+				</div> 
+				<div id="homepage-image-div">
+					<img id="homepage-image" src="/images/places/crystal_city_landing_2016.jpg"></img>
+				</div> 
+			</div>	
+	    
+			<h1 id = "support-header">Such a space used to exist. You can help it be created again.</h1>	
+      <div class="display-section" id="support-section"> 
+			  {{>actions}}
+	    </div>	
+		</div>
   
 	{{>footer}}
 

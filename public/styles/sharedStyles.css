@@ -87,6 +87,10 @@ footer {
 	padding-left:0.5rem;
 }
 
+footer .section-div {
+	padding-right:0.5rem;
+}
+
 #author-section {
   background-color:white;
   box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
@@ -149,7 +153,7 @@ footer {
 
 #footer-text {
 	font-size: 0.8rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
