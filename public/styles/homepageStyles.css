@@ -29,6 +29,14 @@
 	align-items: center;
 }
 
+#main-header {
+  box-shadow: 10px 10px 5px rgba(28,98,125,0.5);	
+}
+
+#support-header {
+  box-shadow: 10px 10px 5px rgba(28,98,125,0.5);	
+}
+
 #support-section {
   padding-top: 1rem;
 	padding-bottom: 1rem;
@@ -56,7 +64,7 @@
 @media not screen and (width < 32em){
   #homepage-image-div {
 		position:absolute;
-    top: 12rem;
+    top: 11rem;
     z-index: -8; 	
   }
   
@@ -67,7 +75,8 @@
 	  z-index:-1;
     box-shadow: 10px 10px 5px rgba(28,98,125,0.5);	
   }
-  #homepage-link-one {	
+  
+	#homepage-link-one {	
     margin-left:1rem;	
 	  margin-top:1rem;
 	}
@@ -78,7 +87,7 @@
 	}
 	
 	#homepage-link-three a {
-  	margin-top: 22rem;
+  	margin-top: 21rem;
   }
 	
   #navbar {
@@ -86,7 +95,8 @@
 	}
 
   #support-section {
-		margin-top: -1.3rem;
+	  box-shadow: 10px 10px 5px rgba(28,98,125,0.5);	
+		margin-top: -1.5rem;
 	}
 } 
 
