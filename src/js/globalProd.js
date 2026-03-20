@@ -2,5 +2,6 @@ import {blockJavaScriptFunctions} from "/js/bots/block.js"
 
 
 export function runGlobal(){
-  blockJavaScriptFunctions();
+  console.log("Hi");
+blockJavaScriptFunctions();
 }

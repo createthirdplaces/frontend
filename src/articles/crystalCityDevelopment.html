@@ -6,8 +6,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script defer fetchpriority="low" type="module">
+  <script type="module">
     import {runGlobal} from "/js/globalProd.js";
+	  console.log("Hi");	
 		runGlobal();  
 	</script>
   <style>
@@ -21,60 +22,60 @@
   <div id="container">
     {{>navbar}}
 
-    <div class="display-section">
+    <div class="display-section" id="article-text">
 			<h1>How the history of Crystal City, Virginia demonstrates the importance of bottom up action for supporting public spaces</h1>
       {{>authors/bharatPonnaluriHeading}}
 
       <img class="img-main" src="https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/locations/virginia/arlington/underground/landing/Landing_2016.jpg"></img>
      
-			<div id = "article-text">     
-
-			 <p>Crystal City is a neighborhood located close to Washington DC in
+			    
+	
+	     <p>Crystal City is a neighborhood located close to Washington DC in
 			 Arlington County. The neighborhood
 			 demonstrates why bottom up action is important for creating and
 			 maintaining local public spaces.</p>
 
 				<p>Large scale development started in Crystal City in the 1960s by the Charles E. Smith company. Eventually, that landlord would end up owning most of the non-residential property in Crystal City. They were quoted as saying "How many men get to start with a blank sheet of paper and create a city?". It took years for the landlord to realize they had built a community and attempt to make community amenities.</p>
-			 <p>In the 1970s, the landlord built a large underground mall known as the Crystal City Underground or the Underground with over a hundred retailers and a variety of restaurants. While the mall did encourage some bottom up action by supporting small business tenants, their existence was based on a shaky foundation of traffic from office workers. Poor visibility from the outside, and limited outdoor walkability due to large blocks also had an effect. A large stroad known as Route 1 also made walking more difficult, and a part of Route 1 was eventually converted into an elevated highway.</p>
+			 
+
+			 <p>In the 1970s, the landlord built a large underground mall known as the
+			 Crystal City Underground or the Underground with over a hundred retailers
+			 and a variety of restaurants. While the mall did encourage some bottom up
+			 action by supporting small business tenants, their existence was based on
+			 a shaky foundation of traffic from office workers. Poor visibility from
+			 the outside, and limited outdoor walkability due to large blocks also
+			 effects. A large stroad known as Route 1 also made walking more
+			 difficult, especially after part of the stroad was converted into a
+			 highway.</p>
 
 			 <p>In the early 2000s, Crystal City started to lose many large office
-			 tenants. This started with a federal government proccess called BRAC that
-			 resulted in Crystal City losing almost a third of its workforce and 3
-			 million square feet of office space. The  2008 recession increased the losses. Stores in the
-			 Underground started to close as they did not have enough sustainable
-			 foot traffic from remaining office workers and residents.</p>   
+			 tenants that employed more than a third of its workforce. Stores in the
+			 Underground started to close as they did not have enough foot traffic from remaining office workers and residents.</p>   
 
-			 <p>The owner of the Underground continued prioritizing top down
-			 development to make Crystal City a shopping and eating destination. More
-			 high rise apartment buildings and office towers were constructed.</p>
-
-			 <p>At the same time, input from locals was ignored, and empty space
-			 remained undeveloped.</p>
 
        <p>Arlington County hired an urban planning firm to create an updated
-			 plan for Crystal City and the plan took much of it's input from office
-			 tenants and the one dominant property owner. The plan was adopted in 2010
-			 as the Crystal City Sector plan and became a 40 year blueprint for how
-			 Crystal City would change. </p>
-
+			 plan for Crystal City. The plan was adopted in 2010
+			 as the Crystal City Sector plan. It was seen as a 40 year blueprint for how
+			 Crystal City would be developed. </p>
 
 			 <p>This sector plan emphasized a focus on large developments with
 			 buildings up to 300 feet tall, 20,000 jobs, and 14,000 new residents in
-			 an area that is approximiately 0.4 square miles. Recent changes have
-			 demonstrated that the plan is being followed. 
+			 an area that is approximately 0.4 square miles. Recent high rise developments have
+			 demonstrated that the plan is being followed. At the same time, input
+			 from locals has been ignored, and empty space
+			 remains undeveloped.</p> 
 			 
-       Due to the density required to meet the goals of the sector plan, smaller
-			 developers can't afford construction in Crystal City. Also, there
+       <p>The requirements of the sector plan incentivize promote high
+			 density developments that cost millions of dollars. Also, there
 			 isn't a process to modify the 40 year sector plan. These two factors have
-			 made bottom up incremental change challenging. </p>
+	     caused significant challenges for bottom up incremental change. </p>
 			 
-
-			 <iframe src="https://www.google.com/maps/embed?pb=!4v1773361772129!6m8!1m7!1sV0Ldxwx8FWbcyJ-onAHMLA!2m2!1d38.86020678594141!2d-77.05225855154077!3f282.83!4f-12.969999999999999!5f0.4000000000000002" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-			 <span class="image-caption">Empty plot of land in Crystal City next to
+       			 <iframe src="https://www.google.com/maps/embed?pb=!4v1773361772129!6m8!1m7!1sV0Ldxwx8FWbcyJ-onAHMLA!2m2!1d38.86020678594141!2d-77.05225855154077!3f282.83!4f-12.969999999999999!5f0.4000000000000002" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			 <span class="image-caption">Empty land in Crystal City next to
 			 high rise buildings.</span> 
 			 <h2>Community spaces in Crystal City created by bottom up action</h2>
 
-			 <p>While the landlord focused on large developments, bottom up action
+			 <p>While large developments were prioritized, bottom up action
 			 successfully created public spaces in the Crystal City Underground.
 			 Unfortunately, actions by the landlord interfered with the success of
 			 these spaces.</p>
@@ -86,39 +87,44 @@
 			Landing on Friday nights between the board game nights I hosted and other
 			groups. People would also often meet there on evenings and weekends.</p>
 			 
-			<p>Unfortunately, when the landlord removed the tables and chairs, we didn't have any recourse. The landlord did not communicate clear plans for the Underground and was unwilling to work with community members to support alternative public spaces in Crystal City. Small businesses in the Underground were also forced to close around the same time.</p>
-		
-			<img class="img-secondary" src="https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/locations/virginia/arlington/underground/Empty_Hallway_2.jpg"></img>
-			<span class="image-caption">Empty hallway in the Underground.</span>
-			<p>Even before tables and chairs were all removed from the Landing, the
-			quality of the space was affected by the landlord's focus on large
-			development projects. For example, some of the tables and chairs became
-			damaged and unusable. The landlord
-			said they had no plans to pay for replacements and ignored my offer to
-			contribute to the costs with a fundraiser.</p>
-		 
-		 <img class="img-secondary" src="https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/locations/virginia/arlington/underground/landing/Landing_no_tables_and_chairs.jpeg"></img>
+			<p>Unfortunately, when the landlord removed the tables and chairs in 2024, we didn't have any recourse. The landlord did not communicate clear plans for the Underground and was unwilling to work with community members to support alternative public spaces in Crystal City. Small businesses in the Underground were also forced to close around the same time.</p>
+							 
+		 <img class="img-secondary"
+		 src="https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/locations/virginia/arlington/underground/landing/Landing_Empty.jpg"></img>
 		 <span class="image-caption">The Landing after tables and chairs were removed.</span>
 
-		 <p>When I lived in Crystal City, The Landing was a great place to meet people. I become friends with two people who lived in my apartment building because we met at The Landing. I also enjoyed being able to easily walk there. The Landing also encouraged a culture of self organizing and community ownership, which was reflected in how events were run. When the host wasn't able to be there for game nights, other regulars including myself would make sure things ran smoothly. This helped me when I become the official host.</p>
-			 <p>A popup library in the Underground called the Connection was another
-			 example of successful bottom up action. In 2016, Arlington County opened
-			 the popup library after getting input from neighborhood residents.</p>
+		 <p>When I lived in Crystal City, I enjoyed being able to walk to The
+		 Landing and meet people there. The Landing also encouraged a culture of
+		 self organizing and community ownership, which was reflected in the board
+		 game events I attended there. When an official host wasn't able to be
+		 there, other regulars including myself would make sure things ran smoothly.
+		 This helped me when I become an official host.</p>
+			 
+			 <p> In 2016, Arlington County opened
+			 a pop-up library in the Underground after getting input from local
+			 residents. Local advocacy contributed to the library staying open until 2019, although
+	the original plan was to keep it open for 9 months. This included the Crystal
+	City Civic Association making a formal request to the county, and individuals
+	reaching out to the Arlington County Board.</p>
 
-	<p>It was originally proposed to be open for 9 months. However, it stayed open until 2019, and local advocacy was a key factor. This included the Crystal City Civic Association(CCCA) making a formal request to the county, and individual requests to the Arlington County Board. CCCA president Carol Fuller said "The Library has become a focal point for Crystal City". I lived in Crystal City when the Connection was opened, and it was convenient to have a library very close to where I lived.</p>
-
-			<p>Unfortunately, the Connection closed in December 2019. Actions by the
-			landlord caused library attendance to decrease, and Arlington County
-			decided that paying for library staffing was not a priority. A restaurant
-			and makerspace nearby closed, which decreased foot traffic. The landlord
-			did not work with Arlington to draw additional foot traffice or move the
-			library to another available space for rent. Due to the landlord's
-			dominance of Crystal City real estate, Arlington did not have room to
-			negotiate.</p>    <img class="img-secondary"
+	 <img class="img-secondary"
 			src="https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/locations/virginia/arlington/underground/1920px-Arlington_Connection_Crystal_City_Library_2017.jpeg">
 			<span class="image-caption">Picture of the Connection library By <a href="//commons.wikimedia.org/wiki/User:Antony-22" title="User:Antony-22">Antony-22</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=65363003">Link</a></span>
-			<p>In 2022, the landlord agreed to build a new library as part of another development. However, the landlord was able to cancel the library plans by paying Arlington $5.8 million.</p>
+		
 
+	<p>Unfortunately, the Connection closed in December 2019, because
+			decreased attendance caused Arlington Coutny to decide paying for library
+			staffing was not a priority. A restaurant and
+			makerspace nearby closed, which caused foot traffic to decrease. The landlord
+			did not work with Connection staff to draw additional foot traffic or move the
+			library to another available space for rent.</p> 
+
+		<img class="img-secondary"
+			src="https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/locations/virginia/arlington/underground/Hallway_With_Vacant_Space.jpg"></img>
+				<span class="image-caption">Hallway with vacant space. The glass doors
+				on the right were entrances to the Connection library.</span>
+
+  	<p>In 2022, the landlord agreed to build a new library as part of another development. However, the landlord was able to cancel the library plans by paying Arlington $5.8 million.</p>
 			<h2>The Crystal City Water Park: An Example Of The Limitations of Top Down Development</h2>
 		<p>Crystal City has an outdoor plaza called the Water Park, and it is owned by the same landlord that owns the Underground. In 2023, the landlord completed a renovation of the Water Park to convert it into an outdoor food court.</p>
 
@@ -129,60 +135,113 @@
 			<span class="image-caption">Crystal City Water Park food court. The tall building in the background is luxury apartment building constructed by the same landlord. As of 3-4-2026, the lowest monthly rent for a 1 bedroom was $3,070.</span>
 
 		 <h2>Reasons it is important to prioritize local community spaces</h2>
-			<p>Community spaces make people more invested in the quality of the neighborhoods, which helps promote bottom up action. Also, community spaces help bring people together and form partnerships to make small neighborhood improvements. Bottom up action doesn't happen in a vacuum by isolated individuals.</p>
 
-			<p>Community spaces also help people work together to form small businesses, which create jobs and increase local wealth. This localized investment is more stable than depending on a single landlord that doesn't live nearby.</p>
+<p>Community spaces make people more invested in the quality of the
+neighborhoods, which helps promote bottom up action. Also, the spaces help bring people together and form partnerships to make small neighborhood improvements.</p>
 
-     <p>Crystal City has a long history of issues with top down development, and
-		 the existing state of top down development isn't helping with revenue. The $1.69 billion fiscal year(FY) 2027 spending plan proposed in
-		 Feburary 2026 is a fraction of a percent less than the previous year.
-		 
-		 In fiscal year (FY) 2025 and 2026, 56% of Arlington County's tax
+			<p>The same partnerships help people work together to form small
+			businesses, which create jobs and increase local wealth. The localized
+			investment will be more stable than income from a single landlord that doesn't
+			live nearby. The success of smaller localized investments can be seen from
+			23rd Street in Crystal City.</p>
+
+<iframe src="https://www.google.com/maps/embed?pb=!4v1773793516815!6m8!1m7!1shsa7KjGLQyxBv-pNfMKKmw!2m2!1d38.85333160790206!2d-77.05521648933637!3f95.00610761906069!4f-6.2810236890059485!5f0.4000000000000002" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+  <span class="image-caption">23rd Street restaurants in Crystal City.</span>	
+
+     <p>The focus on large developments in Crystal City is contributing to
+		 Arlington County's current revenue challenges. However, the county is still
+		 dependent on revenue from large developments.</p>
+
+		<p> In fiscal year(FY) 2025 and FY 2026, 56% of Arlington County's tax
 		 revenue came from property taxes, and that number is forecast to go up to
-		 57% in FY 2026.  Official county assements in January 2026 found that there was a 1.1% increase in property
-		 values, and yearly CPI inflation was 2%. Local residents will have
+		 57%. The county's $1.69 billion FY 2027 spending plan proposed in
+		 February 2026 is a fraction of a percent less than the previous year. This
+		 reflects concerns that include increasing costs combined with slow revenue growth.</p>
+		
+		<p> 
+		Official Arlington County assessments in January 2026 found that there was a 1.1% increase in property
+		 values. This represented the 3rd consecutive year of declining growth.
+		 Inflation was 2.7%, and costs for many services has risen
+		 faster than this rate. Local residents will have
 		 challenges adjusting to new taxes. Arlington County's FY 2027 budget plan
 		 will mean homeowners will pay an average of $9,253 in taxes and fees, which
-		 is up 55% from FY 2017. Total inflation between January 2016 and January
-		 2026 was approximately 37%.
+		 is up 55% from FY 2017. This means an increased dependence on large
+		 developments in Crystal City and other parts of the county for property tax
+		 revenue.
 		 </p>
-  
-	   <p>Crystal City should move away from this unsustainable focus on top down
-		 development and more towards sustainable bottom up development. </p> 
-	 <p>On the other hand, Crystal City has an example of successful incremental development with restaurants on 23rd Street.</p> 
-<iframe src="https://www.google.com/maps/embed?pb=!4v1773793516815!6m8!1m7!1shsa7KjGLQyxBv-pNfMKKmw!2m2!1d38.85333160790206!2d-77.05521648933637!3f95.00610761906069!4f-6.2810236890059485!5f0.4000000000000002" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-  <span class="image-section">23rd Street restaurants</span>	
-	<h2>Recommendations for local officials and residents. </h2>
 
-		<p>
-      Actions by local residents can help ensure local community spaces are prioritized. First, people should usepublic spaces more often. Seeing activity in a public space will show elected officials and private businesses hat there is demand for public space. </p>
-   <p>Also, one should advocate more for community space in conversation. I learned about The Landing in Crystal City as a community space because a friend told me about a board game group that met there. I had walked by the Landing earlier in the year, and did not realize it was a community space because it was almost empty. This advocacy can compensate for a public space being in a location that is hard to notice. </p>
+    	<p>Crystal City should move away from this unsustainable focus on top down
+		 development and more towards sustainable bottom up development. However
+		 changes should consider the fact that Arlington County is currently getting
+		 most of its revenue from property taxes.</p> 
+
+
+  <h2>Recommendations for local officials and residents</h2>
+
+   
+    <h3>Reconsider how taxes are determined to incentivize development of unused
+		space</h3>
+		
+    	<img class="img-secondary"
+				src="https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/locations/virginia/arlington/Empty_Parking_Lot_Crystal_City.jpg">
+    <span class="image-caption">Empty parking lot on a Thursday evening in
+		Crystal City.</span>
+	<p>Crystal City has indoor spaces that have been vacant for years, empty
+		plots of land, and underutilized parking lots. </p>
+		
+		<p>Property taxes in Arlington County are determined by an official assessment
+		of the fair market value. This incentivizes property owners to leave
+		spaces empty because property taxes represent an additional cost for
+		improvements. Also, potential rental earnings are a part of the market
+		value of a property. This causes property owners to charge higher rents to
+		make their properties more valuable, even if it means leaving spaces empty
+		and paying more in property tax. </p>
+
+ 
+		<p>Arlington County should move to increase tax rates on land and decrease
+		tax rates on property. This would incentivize property owners to put spaces
+		to productive use or sell the property. As a result, there would be more opportunities
+		for local small businesses and residents to make small improvements.
+		Arlington County already assesses land value and building value separately
+		due to Virginia state code rules.</p>
+	
+	 
+    <p>This will have the added benefit of decreasing rents, and
+		reduce the amount of money Arlington County has to spend on housing
+		affordability. The proposed FY 2027 budget includes $98.1 million to
+		invest in housing affordability.</p>
+	 <h3>Use public spaces more often</h3>
+
+   <p>Seeing activity in a public space will show elected officials and private
+	 businesses that there is demand for public space. </p>
+	 
+	 <h3>Advocate for local community spaces in conversations</h3>	
+   
+	 <p>Advocacy helps people realize that spaces they walk by are community
+	 spaces. I learned The Landing in the Crystal City Underground
+	 was a community space through a conversation with a friend. I had walked by the Landing earlier in the year, and did not
+	 realize it was a community space because it was almost empty. 
+	 </p>
+ 
+  <h3>Support community pop-ups and parks in empty space</h3> 
+
+  <p>Building a park or a popup space can be a great low cost way to convert
+	empty space into community space. </p>	
   
-  <p>23rd Street in Crystal City is an example of how incremental development
-	can be successful. It is less dependent on external factors such as the price
-	of office real estate, and it gives more opportunities for smaller locally
-	owned businesses.</p>
-	
-  <p>Second Arlington County should focus on spread out medium density
-	development and work with nearby counties to promote medium density
-	development. There are challenges with trying to do this that should be
-	overcome.</p>
-	
-  <p>Near Crystal City, there is a big box shopping center with a parking lot
-	that is close to half a mile long. The southern end is around a 5 minute walk
-	from a Metro station, and it is around 1.5 miles away from the Crystal City
-	Metro station. This would be a great location for some development that is
-	currently concentrated in Crystal City. However, the shopping center is
-	currently owned by a single develooper, which is blocking opportunities for
-	bottom up development. A similar pattern is repeated in many other nearby
-	areas. As a result, if medium density development is promoted in Crystal City
-	over more high rises, increasing density in other suitable locations would be
-	a challenge.</p>
-	
-<iframe src="https://www.google.com/maps/embed?pb=!4v1773870175371!6m8!1m7!1sOx5u2GHs7R_rlMat2E164Q!2m2!1d38.83294224150104!2d-77.05031188076374!3f353.2452010686445!4f-3.718965124982944!5f0.4000000000000002" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-   <span class="img-caption">Big box shopping center and large parking lot
-	 </span>
-	</div>  
+
+	<img class="img-secondary"
+				src="https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/locations/virginia/arlington/Parking_Lot_Seating_Crystal_City.jpg">
+ 
+  <span class = "image-caption">Parking lot in Crystal that has been converted into outdoor
+	bar seating.</span>
+
+	<img class="img-secondary"
+				src="https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/locations/virginia/arlington/Arlington_Junction_Park.jpg">
+ 
+
+<span class ="image-caption">New park being constructed in Crystal City.</span>
+  
+ 
 
 	</div>
    {{>authors/bharatPonnaluri}}	

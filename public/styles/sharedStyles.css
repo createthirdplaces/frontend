@@ -51,6 +51,10 @@ h1,h2 {
   padding-left: 0.5rem;
 }
 
+iframe {
+	padding-left:0.5rem;
+}
+
 li,p {
   font-family: 'Skia, sans-serif';
 }

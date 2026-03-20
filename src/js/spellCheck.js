@@ -2,7 +2,8 @@ import {dictionary} from './dictionary.js'
 import {otherWords} from './otherWords.js'
 
 export function runGlobal(){
- 
+
+  console.log("Hi"); 
   let words = new Set(Object.keys(dictionary));
   words = new Set([...words, ...otherWords]);	
 
@@ -19,25 +20,25 @@ export function runGlobal(){
     console.log("Page is not an article");
 		return;
 	}
-  
+ 
 	let htmlTag = false; 
   let word = ''; 
 
   let lastErrorPos = text.length;
 	
 	for(let i=text.length-1;i>0;i--){
-    
+   
 		const item = text.charAt(i);  
     if(item === '>'){
       htmlTag = true;
 		}
-    
-		if(!htmlTag){ 
+   
+		if(!htmlTag){
 			let code = item.charCodeAt(0);
 		 
       //Check for space at end of sentence and capital letter for next word.
 			if(code === 46){
-        if(i < text.length - 2){
+				if(i < text.length - 2){
           if(text.charCodeAt(i+1) !== 32 || text.charCodeAt(i+2)<65 ||
 						text.charCodeAt(i+2) > 90) {
  
@@ -52,11 +53,9 @@ export function runGlobal(){
 				}
 			}
 			
-			else if (false && !(code === 39) && !(code >= 65 && code <= 90) && !(code >= 97 && code <= 122)) {
-			
+			else if ( !(code === 39) && !(code >= 65 && code <= 90) && !(code >= 97 && code <= 122)) {
 		      if(word.length > 0){	
 					  let skipSpellCheck = false;	
-				
 				    //Word represents a title and should not be part of spell check	
 						if(word.toUpperCase() === word){
               skipSpellCheck = true;
