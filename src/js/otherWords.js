@@ -65,6 +65,13 @@ export const otherWords = new Set([
 	'llms',
 	'CCCA',
 
+  'incentivize',
+  'underutilized',
+
+  'arlington\'s',
+  'county\'s',
+  'isn\'t',
+  'can\'t',
   'wasn\'t',
   'landlord\'s',
 	'didn\'t',
