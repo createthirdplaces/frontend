@@ -51,6 +51,10 @@ h1,h2 {
   padding-left: 0.5rem;
 }
 
+h3 {
+	padding-left:0.5rem;
+}
+
 iframe {
 	padding-left:0.5rem;
 }
