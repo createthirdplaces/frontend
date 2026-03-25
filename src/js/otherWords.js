@@ -26,7 +26,7 @@ export const otherWords = new Set([
   'upfront',
   'https',
   'fundraiser',
-
+  'affordability', 
 	'postgres',
   'wikipedia',
 	'javalin',
