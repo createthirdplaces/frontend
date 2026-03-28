@@ -26,7 +26,7 @@ export const otherWords = new Set([
   'upfront',
   'https',
   'fundraiser',
-
+  'affordability', 
 	'postgres',
   'wikipedia',
 	'javalin',
@@ -67,7 +67,7 @@ export const otherWords = new Set([
 
   'incentivize',
   'underutilized',
-
+  'smith\'s',
   'arlington\'s',
   'county\'s',
   'isn\'t',
