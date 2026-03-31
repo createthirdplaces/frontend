@@ -48,7 +48,7 @@ def main():
 	for i,row in filter3.iterrows():
 		if not math.isnan(row['StoryHeightCnt']) and row['GrossFloorAreaSquareFeetQty']>0:
 			data[int(row['StoryHeightCnt'])].items +=1
-			data[int(row['StoryHeightCnt'])].total += (row['ImprovementValueAmt']+row['LandValueAmt'])/row['GrossFloorAreaSquareFeetQty']
+			data[int(row['StoryHeightCnt'])].total += (row['ImprovementValueAmt'])/row['GrossFloorAreaSquareFeetQty']
 
 	for i in range(35):
 		if data[i].items > 0:	
@@ -57,7 +57,7 @@ def main():
 			print('0')	
 
 
-  
+
 	filter3.to_csv('data/output.csv')
 
 
