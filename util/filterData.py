@@ -1,3 +1,4 @@
+import math
 import pandas as pd
 
 cols = ['LotSizeQty','GrossFloorAreaSquareFeetQty','StoryHeightCnt','AssessmentDate','RealEstatePropertyCode','ImprovementValueAmt','LandValueAmt']
@@ -13,9 +14,13 @@ def filterRowValues(filterColName,filterRowValue,data):
 
 
 class StoryData:
-  items = 0
+	items = 0
 	total = 0
 	height = 0
+	def __init__(self,items,total,height):
+		self.items = items
+		self.total = total
+		self.height = height
 
 def main():
 	
@@ -35,19 +40,21 @@ def main():
 
 	print(filter3.head(11))
 	
-  data = []
+	data = []
 
 	for i in range(35):
 		data.append(StoryData(i,0,0))
 
 	for i,row in filter3.iterrows():
-		if !math.isnan(row['StoryHeightCnt']):
-			data[row['StoryHeightCnt'].items +=1
-			data[row['StoryHeightCnt'].total += (data['ImprovementVavlueAmt']+data['LandValueAmt'])/data['GrossFloorAreaSquartFtQty'])
+		if not math.isnan(row['StoryHeightCnt']) and row['GrossFloorAreaSquareFeetQty']>0:
+			data[int(row['StoryHeightCnt'])].items +=1
+			data[int(row['StoryHeightCnt'])].total += (row['ImprovementValueAmt']+row['LandValueAmt'])/row['GrossFloorAreaSquareFeetQty']
 
-  for i in range(35):
-		print(data[i])	
-	
+	for i in range(35):
+		if data[i].items > 0:	
+			print(data[i].total/data[i].items)	
+		else:
+			print('0')	
 
 
   
