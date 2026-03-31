@@ -1,20 +1,18 @@
 import pandas as pd
 
-cols = ['TaxYearDate','AssessedTaxAmt','TotalAmt']
+cols = ['AssessmentDate','RealEstatePropertyCode','ImprovementValueAmt','LandValueAmt']
 
-filterColName = 'TaxYearDate'
-filterRowValue = 2025
+filterColName = 'AssessmentDate'
+filterRowValue = '2025-12-31'
 
 def filterCols(names,data):
   return data[names]
 
 def filterRowValues(filterColName,filterRowValue,data):
-  return data[data[filterColName] == filterRowValue]
-
-
+	return data[data[filterColName] > filterRowValue]
 
 def main():
-	data = pd.read_table('data/Arlington_VA_Property_Tax_Data.txt',delimiter='|')
+	data = pd.read_table('data/ArlingtonVARealEstateAssessment.txt',delimiter='|')
 	
 	filter1 = filterRowValues(filterColName, filterRowValue,data)
 	print(filter1.head(11))
