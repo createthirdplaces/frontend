@@ -11,6 +11,12 @@ def filterCols(names,data):
 def filterRowValues(filterColName,filterRowValue,data):
 	return data[data[filterColName] > filterRowValue]
 
+
+class StoryData:
+  items = 0
+	total = 0
+	height = 0
+
 def main():
 	
 	propertyData = pd.read_table('data/PropertyRedacted.txt',delimiter='|')
@@ -28,6 +34,23 @@ def main():
 	filter3 = filter2[filter2['GrossFloorAreaSquareFeetQty'].notnull()]
 
 	print(filter3.head(11))
+	
+  data = []
+
+	for i in range(35):
+		data.append(StoryData(i,0,0))
+
+	for i,row in filter3.iterrows():
+		if !math.isnan(row['StoryHeightCnt']):
+			data[row['StoryHeightCnt'].items +=1
+			data[row['StoryHeightCnt'].total += (data['ImprovementVavlueAmt']+data['LandValueAmt'])/data['GrossFloorAreaSquartFtQty'])
+
+  for i in range(35):
+		print(data[i])	
+	
+
+
+  
 	filter3.to_csv('data/output.csv')
 
 
