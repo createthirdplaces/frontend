@@ -1,6 +1,6 @@
 import pandas as pd
 
-cols = ['AssessmentDate','RealEstatePropertyCode','ImprovementValueAmt','LandValueAmt']
+cols = ['LotSizeQty','GrossFloorAreaSquareFeetQty','StoryHeightCnt','AssessmentDate','RealEstatePropertyCode','ImprovementValueAmt','LandValueAmt']
 
 filterColName = 'AssessmentDate'
 filterRowValue = '2025-12-31'
@@ -12,15 +12,23 @@ def filterRowValues(filterColName,filterRowValue,data):
 	return data[data[filterColName] > filterRowValue]
 
 def main():
-	data = pd.read_table('data/ArlingtonVARealEstateAssessment.txt',delimiter='|')
 	
+	propertyData = pd.read_table('data/PropertyRedacted.txt',delimiter='|')
+	
+	data = pd.read_table('data/ArlingtonVARealEstateAssessment.txt',delimiter='|')
+
+	data = pd.merge(propertyData, data,on='RealEstatePropertyCode')
+
 	filter1 = filterRowValues(filterColName, filterRowValue,data)
 	print(filter1.head(11))
   
 	filter2 = filterCols(cols, filter1)
 	print(filter2.head(11))	
 
-	filter2.to_csv('data/output.csv')
+	filter3 = filter2[filter2['GrossFloorAreaSquareFeetQty'].notnull()]
+
+	print(filter3.head(11))
+	filter3.to_csv('data/output.csv')
 
 
 
