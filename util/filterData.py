@@ -7,13 +7,70 @@ cols = ['LotSizeQty','GrossFloorAreaSquareFeetQty','StoryHeightCnt','AssessmentD
 filterColName = 'AssessmentDate'
 filterRowValue = '2025-12-31'
 
+class PropertyHistory:
+
+	squareFeet = 0
+	def __init__(self,squareFeet):
+		self.squareFeet = squareFeet
+		self.data = dict()
+
+	def addDataForYear(self,year,value):
+	  self.data[year] = value
+
 def filterCols(names,data):
   return data[names]
 
 def filterRowValues(filterColName,filterRowValue,data):
 	return data[data[filterColName] > filterRowValue]
 
+def checkVolatility(data):
+  
+	export = dict()	
+	
+	for i,row in data.iterrows():
+		year = row['AssessmentDate']
+		
+		code = row['RealEstatePropertyCode']
+		
+		if row['GrossFloorAreaSquareFeetQty'] > 0:
+			if not code in export:
+				export[code] = PropertyHistory(row['GrossFloorAreaSquareFeetQty']) 
+			
+			export[code].addDataForYear(year[:4],row['ImprovementValueAmt'])
 
+	squareFeet = []
+	volatility = []	
+	
+	for key,value in export.items():
+		squareFeet.append(export[key].squareFeet)
+ 
+		print(export[key].squareFeet) 
+		 
+		changes = []
+		
+		prevYear = -1
+		prevValue = -1		
+
+	  	
+		for year in value.data.keys():
+			amount = value.data[year]	
+			if prevYear != -1 and prevValue != 0:
+				changes.append((amount - prevValue)/prevValue)
+			
+			prevYear = year
+			prevValue = amount
+	
+		if len(changes) < 2:
+			volatility.append(0)
+		else:	
+			print("Hi")	
+			volatility.append(stat.stdev(changes))
+		
+	df2 = pd.DataFrame()
+	df2['size'] = squareFeet
+	df2['volatility'] = volatility
+	df2.to_csv('data/volatility.csv')
+	
 class StoryData:
 	items = []
 
@@ -33,6 +90,7 @@ def main():
 	data = pd.read_table('data/ArlingtonVARealEstateAssessment.txt',delimiter='|')
 
 	data = pd.merge(propertyData, data,on='RealEstatePropertyCode')
+	checkVolatility(data)  
 
 	filter1 = filterRowValues(filterColName, filterRowValue,data)
   
