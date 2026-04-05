@@ -1,6 +1,7 @@
 export const otherWords = new Set([
   'homepage',
   'walkability',
+  'starbucks',	
 	'popup',
   'stroad',
 	'makerspace',
@@ -64,8 +65,13 @@ export const otherWords = new Set([
   'llm',
 	'llms',
 	'CCCA',
-  'Rosslyn',
+  'rosslyn',
+	'wikimedia',
+  'incentivized',
+  'penplace',
+	'rentcafe',
 
+	'resident\'s',
   'hasn\'t', 
 	'incentivize',
   'underutilized',
