@@ -32,6 +32,11 @@ body {
   flex-direction: column;
 }
 
+cite {
+	display:block;
+	margin-top: 0.5rem;
+}
+
 details {
 	padding-left: 0.5rem;
 }
