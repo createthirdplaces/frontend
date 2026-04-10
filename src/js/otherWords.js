@@ -71,6 +71,8 @@ export const otherWords = new Set([
   'penplace',
 	'rentcafe',
 
+	'it\'s',
+  'don\'t',
 	'resident\'s',
   'hasn\'t', 
 	'incentivize',
