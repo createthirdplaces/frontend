@@ -70,7 +70,11 @@ export const otherWords = new Set([
   'incentivized',
   'penplace',
 	'rentcafe',
+  'welburn',
+  'ballston',
 
+	'residents\'',
+	'ballston\'s',
 	'it\'s',
   'don\'t',
 	'resident\'s',
