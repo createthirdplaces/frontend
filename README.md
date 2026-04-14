@@ -12,6 +12,7 @@ This repo contains a .vimrc file with some useful settings for Vim editing.
 - select -> >: Indent
 - o: Append a new line below the current one and enter insert mode.
 - O: Append a new line above the current one and center insert mode.
+
 ### Vim commands
 - vimgrep: Search: Example to search in current directory: vim /word/ **/*
 - cnext: Move to next match in search

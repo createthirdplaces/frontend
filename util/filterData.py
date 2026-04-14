@@ -13,7 +13,9 @@ class PropertyHistory:
 	def __init__(self,squareFeet):
 		self.squareFeet = squareFeet
 		self.data = dict()
-
+		self.up = 0
+		self.down = 0
+	
 	def addDataForYear(self,year,value):
 	  self.data[year] = value
 
@@ -40,35 +42,44 @@ def checkVolatility(data):
 
 	squareFeet = []
 	volatility = []	
+	up = []
+	down = []	
 	
 	for key,value in export.items():
 		squareFeet.append(export[key].squareFeet)
- 
-		print(export[key].squareFeet) 
-		 
+  
 		changes = []
 		
 		prevYear = -1
-		prevValue = -1		
+		prevValue = -1	
 
-	  	
 		for year in value.data.keys():
 			amount = value.data[year]	
 			if prevYear != -1 and prevValue != 0:
-				changes.append((amount - prevValue)/prevValue)
-			
+				diff = int(year)-int(prevYear)
+				if diff == 1:
+					change = (amount - prevValue)/prevValue
+					changes.append(change)
+					if change > 0:
+						value.up += 1
+					else:
+						value.down += 1
+		
 			prevYear = year
 			prevValue = amount
-	
+
+		up.append(value.up)
+		down.append(value.down)	
 		if len(changes) < 2:
 			volatility.append(0)
 		else:	
-			print("Hi")	
 			volatility.append(stat.stdev(changes))
 		
 	df2 = pd.DataFrame()
 	df2['size'] = squareFeet
 	df2['volatility'] = volatility
+	df2['up'] = up
+	df2['down'] = down	
 	df2.to_csv('data/volatility.csv')
 	
 class StoryData:

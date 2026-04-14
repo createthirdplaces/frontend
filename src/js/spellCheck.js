@@ -3,7 +3,6 @@ import {otherWords} from './otherWords.js'
 
 export function runGlobal(){
 
-  console.log("Hi"); 
   let words = new Set(Object.keys(dictionary));
   words = new Set([...words, ...otherWords]);	
 
