@@ -72,11 +72,14 @@ export const otherWords = new Set([
   'incentivized',
   'penplace',
 	'rentcafe',
-  'welburn',
+  'panera',
+	'welburn',
   'ballston',
-
+	'takoma',
+	'frumin',
 	'residents\'',
 	'ballston\'s',
+	'dc\'s',	
 	'it\'s',
   'don\'t',
 	'resident\'s',
@@ -96,5 +99,7 @@ export const otherWords = new Set([
   'doesn\'t', 
 	'one\'s',
 	'could\'ve',
-	'would\'ve'
+	'would\'ve',
+	'aren\'t',
+	'i\'ve'
 ]);
