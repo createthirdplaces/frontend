@@ -11,49 +11,14 @@
       import {BaseDynamicComponent} from "../js/shared/lib/places-js-latest.js"
       import {runGlobal} from "/js/globalProd.js";
 	    runGlobal(); 
-     
-		  export class ApiEndpointComponent extends BaseDynamicComponent{
-
-        attachHandlersToShadowRoot(shadowRoot) {
-
-          const currentUrl = window.location.href.split('?')[0]
-          let shouldChangeUrl = false;
-          shadowRoot.addEventListener("click",()=>{
-            shouldChangeUrl = true;
-          })
-
-          shadowRoot.querySelectorAll("details").forEach((item)=>{
-            item.addEventListener("toggle",(event)=>{
-
-              if(shouldChangeUrl){
-                const url = new URL(location);
-                if(event.newState === "open"){
-                  url.searchParams.set(event.target.id, "show")
-                  window.history.pushState({},'',`${currentUrl}?${event.target.id}=show`)
-                } else {
-                  window.history.pushState({},'', currentUrl)
-                }
-                shouldChangeUrl = false;
-              }
-            })
-          })
-        }
-
-        getTemplateStyle(){
-          return `
-          <link rel="stylesheet" href="/styles/sharedStyles.css" />
-
-          <style>
-
-          </style>
-        `
-        }
-        render(){
-
-          const urlParams = new URLSearchParams(document.location.search);
-
-          return `
-              <h1>API endpoints</h1>
+    </script>
+    <title>API endpoints</title>
+  </head>
+  <body>
+    <div class="container-xl" id="container">
+      {{>navbar}}
+			
+				<h1>API endpoints</h1>
 
               <p>
                 This page contains API endpoint information for the Create Third Places decentralized events architecture.
@@ -72,7 +37,7 @@
               <h2>Endpoints for group websites</h2>
 
 
-           <details id="remove-aggregator" ${urlParams.get("remove-aggregator") ? "open" : ''}>
+           <details id="remove-aggregator">
                 <summary>DELETE /aggregator/</summary>
 
                 <p>This endpoint will be used to remove an aggregator from an event website.</p>
@@ -92,7 +57,7 @@
 
               </details>
 
-              <details id="four" ${urlParams.get("four") ? "open" : ''}>
+              <details id="four" >
                 <summary>POST /groups/</summary>
                 <p>This endpoint will be used to retrieve data about a group.</p>
 
@@ -109,7 +74,7 @@
                 </ul>
               </details>
 
-              <details id="one" ${urlParams.get("one") ? "open" : ''}>
+              <details id="one">
                 <summary>POST /aggregator/</summary>
 
                 <p>This endpoint will be used to register an aggregator. If this 
@@ -138,12 +103,10 @@
               </details>
               <h2>Endpoints for aggregator website</h2>
 
-<<<<<<< Updated upstream
-              <details id="six" ${urlParams.get("six") ? "open" : ''}>
+              <details id="six">
                 <summary>POST /updates/</summary>
                 <p>This endpoint will be used by aggregator websites to submit updates</p>
-=======
-              <details id="seven" ${urlParams.get("seven") ? "open" : ''}>
+              <details id="seven">
                 <summary>DELETE /group/</summary>
                 <p>This endpoint will be used by aggregator websites to add a new group.
 								And it will be called by a local website.  It will include a
@@ -162,11 +125,10 @@
 
               </details>
 
-              <details id="six" ${urlParams.get("six") ? "open" : ''}>
+              <details id="six">
                 <summary>POST /group/</summary>
                 <p>This endpoint will be used by aggregator websites to add a new group and be called by a local website. The request body
                  will include a UUID.</p>
->>>>>>> Stashed changes
               </details>
 
               <h3>Request body parameter</h3>
@@ -187,7 +149,7 @@
 
               <h2>Other notes</h2>
 
-              <details id="prevent-circular-dependency" ${urlParams.get("prevent-circular-dependency") ? "open" : ''}>
+              <details id="prevent-circular-dependency">
                 <summary>Preventing circular dependencies</summary>
                 <p>Since it is possible for aggregators to also have their own groups and events, it is
                    necessary to have logic to prevent circular dependencies. This will be done by checking
@@ -195,13 +157,13 @@
                    in the group_websites table, then the aggregation request will be rejected.</p>
               </details>
               
-              <details id="aggregator-multiple-levels" ${urlParams.get("aggregator-multiple-levels") ? "open" : ''}>
+              <details id="aggregator-multiple-levels" >
                 <summary>Multiple aggregator levels</summary>
       
                 <p>If a top level aggregator is trying to retrieve data from a group website that is a lower level aggregator,
                   then the lower level website aggregator should store event data.</p>
               </details>
-              <details id="five" ${urlParams.get("five") ? "open" : ''}>
+              <details id="five" >
                 <summary>Structure of an event response object</summary>
                 <code>
                   <pre>
@@ -265,18 +227,6 @@
              </details>
 
 
-          `
-        }
-      }
-      customElements.define('api-endpoint-component', ApiEndpointComponent)
-
-    </script>
-    <title>API endpoints</title>
-  </head>
-  <body>
-    <div id="container">
-      {{>navbar}}
-      <api-endpoint-component></api-endpoint-component>
 
     </div>
     <div id="bot-container"></div>

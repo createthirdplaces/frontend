@@ -3,7 +3,6 @@
 <html lang="en">
   <head>
     <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="/styles/sharedStyles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -25,78 +24,78 @@
       render(){
 
 				return `
-					<h1>Software Information</h1>
-					<p> Create Third 
-						Places is working on software will support the goal of promoting
-						in person interaction through third places. Below is some of the software
-						that has been worked on. </p>
-
-					<ul>
-						<li>
-							<a href="https://codeberg.org/createthirdplaces/frontend">createthirdplaces.org</a> 
-								website. 
-								<a href="https://codeberg.org/createthirdplaces/frontend/pulls">Code contributions</a> are welcome.
-						</li>
-						<li><a href="/events/techOverview.html">Decentralized event hosting</a>: Create Third Places is currently
-							working on designing the architecture and creating a proof of concept that will use the DMV Board Games website
-							as a starting point.
-						</li>
-						<li>
-							<a href="https://gatherspiel.com/">Gatherspiel</a>: A work in progress
-							website for in person board game events. It will be an aggregator
-							for the DMV Board Games website.
-						</li>
-						<li>
-							<a href="/tech/placesjs.html">Places.js</a>: Framework
-							for building websites promoting in person interaction. It is 
-							currently used for the website <a href="https://dmvboardgames.com/">
-							DMV Board Games</a>, a website for board game events in the DC
-							area. 
-						</li>
-					</ul>
-				
-					<p>Create Third Places also relies on third party open source software. Here are
-					the key open source software tools used by
-						Create Third Places. </p>
-					<ul>
-						<li><a href="https://github.com/docker">Docker</a></li>
-						<li><a href="https://openjdk.org/">OpenJDK</a></li>
-						<li><a href="https://www.postgresql.org/about/">PostgreSQL</a></li>
-						<li>
-							Hosting software
-							<ul>
-
-								<li>
-									<a href="https://miraheze.org/">Miraheze</a>: Wiki hosting
-									with <a href="https://www.mediawiki.org/wiki/MediaWiki">Media Wiki</a>
-									</li>
-								<li>
-									<a href="https://codeberg.org/Codeberg">Source code hosting</a>
-									that uses <a href="https://codeberg.org/forgejo/forgejo">Forgejo</a>  
-								</li>
-								</li>
-							</ul>
-						</li>
-
-
-					</ul>
-					<p>See the <a href="/tech/techStrategy.html">tech strategy</a> 
-						 page for more information. </p>
-
-
-					<p>Create Third Places is looking for programming help. See the <a href="/contribute.html">contribute page</a> for more information.</p>
-						`
+					`
 				}
 			}
 			customElements.define('software-information-component', SoftwareInformationComponent);
 			</script>
 			<title>Software Information</title>
 		</head>
-			<body>
-			<div class="section-div" id="container">
+			<body>	
 				{{>navbar}}
+				<div class="container-xl" id="container">
 				<software-information-component></software-information-component>
+				<h1>Software Information</h1>
+						<p> Create Third 
+							Places is working on software will support the goal of promoting
+							in person interaction through third places. Below is some of the software
+							that has been worked on. </p>
 
+						<ul>
+							<li>
+								<a href="https://codeberg.org/createthirdplaces/frontend">createthirdplaces.org</a> 
+									website. 
+									<a href="https://codeberg.org/createthirdplaces/frontend/pulls">Code contributions</a> are welcome.
+							</li>
+							<li><a href="/events/techOverview.html">Decentralized event hosting</a>: Create Third Places is currently
+								working on designing the architecture and creating a proof of concept that will use the DMV Board Games website
+								as a starting point.
+							</li>
+							<li>
+								<a href="https://gatherspiel.com/">Gatherspiel</a>: A work in progress
+								website for in person board game events. It will be an aggregator
+								for the DMV Board Games website.
+							</li>
+							<li>
+								<a href="/tech/placesjs.html">Places.js</a>: Framework
+								for building websites promoting in person interaction. It is 
+								currently used for the website <a href="https://dmvboardgames.com/">
+								DMV Board Games</a>, a website for board game events in the DC
+								area. 
+							</li>
+						</ul>
+					
+						<p>Create Third Places also relies on third party open source software. Here are
+						the key open source software tools used by
+							Create Third Places. </p>
+						<ul>
+							<li><a href="https://github.com/docker">Docker</a></li>
+							<li><a href="https://openjdk.org/">OpenJDK</a></li>
+							<li><a href="https://www.postgresql.org/about/">PostgreSQL</a></li>
+							<li>
+								Hosting software
+								<ul>
+
+									<li>
+										<a href="https://miraheze.org/">Miraheze</a>: Wiki hosting
+										with <a href="https://www.mediawiki.org/wiki/MediaWiki">Media Wiki</a>
+										</li>
+									<li>
+										<a href="https://codeberg.org/Codeberg">Source code hosting</a>
+										that uses <a href="https://codeberg.org/forgejo/forgejo">Forgejo</a>  
+									</li>
+									</li>
+								</ul>
+							</li>
+
+
+						</ul>
+						<p>See the <a href="/tech/techStrategy.html">tech strategy</a> 
+							 page for more information. </p>
+
+
+						<p>Create Third Places is looking for programming help. See the <a href="/contribute.html">contribute page</a> for more information.</p>
+				
 			</div>
     <div id="bot-container"></div>
     {{>footer}}
