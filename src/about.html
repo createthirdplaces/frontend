@@ -6,22 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="data:,">
 
-    <link rel="stylesheet" href="/styles/sharedStyles.css" />
-		<style>
-    @media not screen and (width < 32em) {
- 			#biography-div {
-				display:inline-block;
-				width:35rem;
-			}
-			#image-div {	
-				display:inline-block;
-			  margin-top:1rem;
-				vertical-align: 1rem;
- 		 }
-   } 
-
-  </style>
-    <script defer fetchpriority="low" type="module">
+		    <script defer fetchpriority="low" type="module">
       import {FaqComponent} from "/js/content/FaqComponent.js";
       customElements.define('faq-component',FaqComponent);
 			import {runGlobal} from "/js/globalProd.js"
@@ -29,15 +14,18 @@
 		</script>
   </head>
   <body>
-    <div id="container">
-      {{>navbar}}
+    
+    {{>navbar}}
+		
+		<div class="container-xl" id="container">
       <h1>About Create Third Places</h1>
       
 			<div class="display-section" id="article-text">
+				<div class="callout primary">	
 				<p>The goal of Create Places is to promote accessible public spaces
-				where people can interact in person.</p>
+				where people can interact in person.</p></div>
 				<details>
-					<summary class="summary-large">About the creator</summary>
+					<summary><strong>About the creator</strong></summary>
 					<div id="biography-div">
 
 					 <p>Growing up, Bharat enjoyed a variety of classic board games including Chess, Monopoly,
@@ -60,9 +48,8 @@
 					<img src="/images/Bharat_Picture.jpg"></img>
 				</div>
 			</details>		
-			</br>	
 			<details>
-				<summary class="summary-large">Inspirations</summary>
+				<summary class="summary-large"><strong>Inspirations</strong></summary>
 	      <div>				
 					<p>I heard many people say they were having a hard
 						time meeting people and making friends, and I noticed the same issue. Often, they also found
@@ -112,11 +99,9 @@
 						<q>Third places are face-to-face phenomena. The idea that electronic communication permits a virtual third place is
 						misleading</q>(Ray Oldenburg)
 			    </div> 
-				</details>
-				
-				</br>
+				</details>	
 				<details>
-					<summary class="summary-large">Current activities</summary>
+					<summary><strong>Current activities</strong></summary>
           <div>
 						<p>Bharat hosts board game meetups in DC and regularly 
 							attends other public events in third places. He is also a member of Strong Towns DMV, a Strong Towns local
@@ -138,9 +123,8 @@
 						</p>
           </div>
 				</details>
-				</br>
 				<details>
-					<summary class="summary-large">Values</summary>
+					<summary><strong>Values</strong></summary>
 		      <div>			
 						<br>
 
@@ -207,35 +191,35 @@
 						of ideas that will not be pursued. </p>
 			    </div>	
 				</details>
-				<br>
         <details>
-					<summary class="summary-large">FAQ</summary>	
+					<summary><strong>FAQ</strong></summary>	
 				  <div> 
 						<faq-component></faq-component>
 			    </div>	
 				</details>				
-				<br>
 				<details>
-					<summary class="summary-large">Additional content</summary>
+					<summary><strong>Additional content</strong></summary>
 					<ul>
-						<li><p>Wiki content</p>
+						<li>Wiki content
 							<ul>
 								<li><a href="https://wiki.createthirdplaces.org/wiki/DC_community_boards">Community boards in DC</a></li>
 								<li><a href="https://wiki.createthirdplaces.org/wiki/Books">Recommended books</a></li>
 								<li><a href="https://wiki.createthirdplaces.org/wiki/Websites">Other third place websites</a></li>
 							</ul>
-							<p>Additional wiki content related to third places can be seen 
-							<a href="https://wiki.createthirdplaces.org"> here</a></p>  
+							Additional wiki content related to third places can be seen 
+							<a href="https://wiki.createthirdplaces.org"> here</a>.
 						
 						</li> 
 						<li><a href="/articles/index.html">Other articles</a> 
 					</ul>
 				</details>
-				
-				 <p>If you are interested in helping Create Third Places, see
-				<a href="/contribute.html"> this page</a> for more details, or email
-				gulu@createthirdplaces.org.</p>
-      </div>				 
+			
+				<div class="callout primary">
+					<p>If you are interested in helping Create Third Places, see
+					<a href="/contribute.html"> this page</a> for more details, or email
+					gulu@createthirdplaces.org.</p>
+				</div> 
+			</div>				 
     </div>
     <div id="bot-container"></div>
   {{>footer}}
