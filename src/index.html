@@ -3,37 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="data:,">
+		<link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles/sharedStyles.css" />
 
-    <title>Create Third Places</title>
-    <link rel="stylesheet" type="text/css" href="/styles/homepageStyles.css" /> 
-    <link rel="stylesheet" type="text/css" href="/styles/sharedStyles.css" />
-  </head>
+
+		<title>Create Third Places</title>	
+	</head>
   <body>
-    <div id="container">
 
-			{{>navbar}}
-
-			<h1 id="main-header">Imagine a public space that is:</h1> 
-			<div id="homepage-main">	
-				<div id="homepage-link-one"> 
-					<a class="neon-button"
-					href="/articles/goodThirdPlace.html">Free to use</a>
-				</div>
-				
-				<div id ="homepage-link-two"> 
-					<a class="neon-button" href="/articles/goodThirdPlace.html">Open 24/7</a>
-				</div> 
+		{{>navbar}}	
+		<div id="container" class="container-xl">
 			
-				<div id="homepage-link-three">
-					<a id="homepage-link-three-button" class="neon-button"
-					href="/articles/goodThirdPlace.html">Large enough for 100 people</a>
-				</div> 
-				<div id="homepage-image-div">
+			<h1 id="main-header">Imagine a public space that is:</h1> 
+			<div class="callout secondary"> 
+				<a href="/articles/goodThirdPlace.html">Free to use</a>
+			</div>					
+			<div class="callout secondary"> 
+				<a class="neon-button" href="/articles/goodThirdPlace.html">Open 24/7</a>
+			</div> 	
+			<div class="callout secondary">
+				<a id="homepage-link-three-button" class="neon-button"
+				href="/articles/goodThirdPlace.html">Large enough for 100 people</a>
+			</div> 
+				<div>
 					<img id="homepage-image" src="/images/places/crystal_city_landing_2016.jpg"></img>
 	      </div> 
-				<h1 id = "support-header">You can help make that space a reality</h1>	
-				<div class="display-section" id="support-section"> 
+				<h1 class="callout primary" id = "support-header">You can help make that space a reality</h1>	
+				<div class="display-section callout secondary" id="support-section"> 
 					{{>actions}}
 				</div>	
 			</div>
