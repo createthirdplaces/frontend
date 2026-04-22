@@ -2,6 +2,13 @@ iframe {
 	margin-bottom: 0;
 }
 
+body {
+	background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),url("/images/Background.jpg");
+	background-size: 100% 100%; 
+	display: flex;
+	flex-direction: column;
+}
+
 #author-heading img {
 	border-radius: 1em;
   height: 2em;
@@ -28,6 +35,13 @@ iframe {
   height: 10rem;
   width: 10rem;
   object-fit: cover;
+}
+
+#top-section {
+	background-image:url("/images/meeples.png");
+	height:12px;
+	background-repeat:repeat;
+	background-position:center;
 }
 
 .image-caption {
