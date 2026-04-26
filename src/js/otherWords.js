@@ -77,7 +77,11 @@ export const otherWords = new Set([
   'ballston',
 	'takoma',
 	'frumin',
+	'reits',
+	'nestle',
+	'incentivizing',
 	'residents\'',
+	'incentivized',
 	'ballston\'s',
 	'dc\'s',	
 	'it\'s',
@@ -101,5 +105,9 @@ export const otherWords = new Set([
 	'could\'ve',
 	'would\'ve',
 	'aren\'t',
-	'i\'ve'
+	'i\'ve',
+	'metro\'s',
+	'shouldn\'t',
+	'developer\'s',
+	'rosslyn\'s'
 ]);
