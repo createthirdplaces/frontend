@@ -1,4 +1,5 @@
 export const otherWords = new Set([
+	'prioritizes',	
 	'upzoning',	
 	'upzone',
 	'homepage',
