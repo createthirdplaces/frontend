@@ -14,7 +14,7 @@ This repo contains a .vimrc file with some useful settings for Vim editing.
 - O: Append a new line above the current one and center insert mode.
 
 ### Vim commands
-- vimgrep: Search: Example to search in current directory: vim /word/ **/*
+- vimgrep: Search: Example to search in current directory: vim /word/ \*\*/\*
 - cnext: Move to next match in search
 - bd: Close search and return to file that was last open
 - tabnew: Open new tab
