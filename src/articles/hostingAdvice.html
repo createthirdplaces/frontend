@@ -1,7 +1,6 @@
 	<!doctype html>
 <html lang="en">
 <head>
-  <link rel="icon" href="data:,">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -18,7 +17,12 @@
 
     <div class="display-section" id="article-text">
       <h1>Advice on Hosting Events in Third Places</h1>
-			<p>By Bharat Ponnaluri</p>
+			
+			{{>authors/articleHeading
+			   name='Bharat Ponnaluri'
+				 date='May 15, 2026'
+		     imageLink='https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/people/Bharat_Picture.jpg'	
+			}}
 			<p>This page contains advice on hosting public events in third places. While this advice
 				is based on my experience running board game events, much of it can be applied
 				to other activities. </p>
@@ -26,12 +30,12 @@
    
 	  
 		<div class="display-section"> 
-		  <h2>Have recurring events at the same time of week and place</h2>
+		  <h2>1. Have recurring events at the same time of week and place</h2>
     
-			<p>Having regular events will make it easier for people to remember your events and 
-				make the events a regular part of their schedule. As an organizer, regularity will also
-				reduce the amount of time needed to spend on advertising an event because people
-				are more likely to know it is happening. Depending on availability, having events once a week, every
+			<p>Regular events are easier to remember, and people are morely likely to
+			make them a part of their schedule. As host, regularity will also
+				reduce the need to advertise events because people are more likely to
+				know when they are happening. Depending on availability, having events once a week, every
 				other week, or some other predictable interval is good.</p>
 			
 			<p>Recurring events will also make it easier for regulars to help you advertise events. </p>
@@ -41,21 +45,23 @@
 	  <div class="display-section"> 
       <h2>Make sure attendees know what to expect and don't make the event too open ended</h2>
    
-			<p>When hosting public board game events, I used to advertise the events as generic gaming
-				events with a focus on a variety of 1-3 hour modern strategy games and shorter games. I was interested
-				in playing a variety of games, and I wanted to accommodate a wide variety of preferences.
+			<p>I used to advertise events as generic gaming
+				events with a focus on a variety of 1-3 hour modern strategy games. I
+				wanted to play a variety of games, and I accommodate a wide variety of preferences.
 				However, events did not go the way I had hoped.</p>
 						
-			<p>Due to the wide variety of games being played, there were challenges related to teaching
-				and learning games. People become tired of constantly learning new games instead of playing
-				games they were familiar with, and stopped showing up. I also noticed other regulars
+			<p>The variety of games being played caused challenges with teaching
+				and learning games. People become tired of constantly learning new games
+				instead of playing familiar games, and then stopped showing up to
+				events. I also noticed other regulars
 				become increasingly hesitant to teach games. The overwhelming majority of games I played
 				that were longer than 1 hour involved someone teaching the rules.</p>
 					
-			<p>I also found teaching games to be challenging. Since I was often teaching games that other people were unfamiliar with, I didn't have
-				other people helping me. This became a significant challenge when teaching 2 or more new players
-				because I had a hard time concentrating on my moves and answering questions. The variety of preferences also added
-				challenges to teaching. Often, a game wasn't played more than once because someone was not interested in playing 
+			<p>I also had a difficult time teaching games. I often couldn't get help
+			from other people at the table since they were all unfamiliar with the
+			game. During games, I had a hard time trying to take my turns and
+			answering questions when trying to teach 2 or more new players.  The variety of preferences also added
+				challenges to teaching. Game were often played once because someone was not interested in playing 
 				it again. </p>
 			
 			<p>The variety of preferences also made it difficult to select games that everyone wanted to play. During my weekend afternoon
@@ -77,7 +83,8 @@
 					show up because of uncertainty about what types of games will be played. </p>
 				
 					<details>
-						<summary>Example of an open ended event description for an event I hosted</summary>
+						<summary>Example of an open ended event description for an event I
+							hosted.</summary>
 
 						<q>
 						<p>Let's play board games @ The Artemis in Washington DC(3605 14th St NW, 
@@ -105,18 +112,19 @@
 						<p>This description gives off the impression that I am hosting a
 							generic gaming event. The board games have a wide range of complexity
 							and average play time, from less than 15 minutes to more than 2 hours.
-							Also, many people are not familiar with the games listed, which
-							furthers the impression that I was hosting a generic gaming event.
-						</p>
+							Also, many people were not familiar with all of the games
+							listed.						</p>
 						
-						<b>A better description would be something similar to the following</b>
+						<b>A better description would be something similar to the
+							following.</b>
 						
 						<q>
 						<p>We have a wide variety of games with a focus on resource
-							management games that take between 1 and 3 hours to play. We
+							management games that take between 1 and 3 hours to play. Also, we
+							will play some social games. We
 							are happy to teach games.</p>
 							
-						<b>Here are some examples of the games we like to play</b>
+						<b>Here are some examples of the games we like to play.</b>
 							 <ul>
 							<li>Concordia</li>
 							<li>Castles of Burgundy</li>
@@ -128,14 +136,30 @@
 							
 							
 						<p>Most of the regulars of the group I was hosting the event with
-							 preferred playing medium complexity resource management games, and
-							 focusing on their preferences would be good. If you end up trying
+							 preferred medium length resource management games with some
+							 shorter games afterwards. I think the revised description would
+							 have been more aligned with the games the regulars wanted to
+							 play. If you end up trying
 							 to cater to a wide variety of preferences, often nobody will
-							 end up happy because disagreements over games means people don't
+							 be happy. Disagreements over games will mean people don't
 							 get to play what they enjoy.
 						</p>
 					</details>
-			</div>
+			
+				<p>Also, one should be careful about accomodating requests from other
+				people about events, when those people have never attended an event. For
+				example, shortly after I became a regular event host in 2021, a reporter from a local news channel asked to come and film an event. After a brief
+				conversation, they told me they wanted to film people playing shorter
+				more social games, while my event was focused on longer games. </p>
+
+				<p>I ended up turning down the request to film an event because I
+				thought it would be disruptive to the people there to play board games.
+				Also, I didn't see a reason to have the events get attention on a news
+				broacast, since many viewers would not be interested in an event to play
+				resource management games. My events already had challenges with people
+				not being able to agree on games, and I didn't want to add further
+				difficulties.</p>
+	</div>
 
 		  <div class="display-section"> 
   			<h2>Get other people involved</h2>
@@ -143,10 +167,12 @@
 				<p>Consistently successful events require involvement from others, not just the host. As a host, you
 					are only 1 person, which limits what you can do, especially if you are busy at times outside the
 					event. Other people can also help identity issues that you may have missed, which is very helpful
-					when your event is larger than a group of people that can sit at 1 table. </p>
+					when your event is larger than a group of people that can sit at 1
+					table. Involvement from regulars also helps them advocate for their
+					preferences. </p>
 				
-				<p>I noticed this firsthand when I initially started showing up to Friday board game nights
-					at the Landing in Crystal City. There was a collective sense of ownership over the event,
+				<p>I noticed this firsthand when I started showing up to Friday board game nights
+					at the Landing in Crystal City in 2014. There was a collective sense of ownership over the event,
 					with many of the regulars involved in teaching games and welcoming people who were there
 					for the first time. As a result, event ran smoothly for years, even when an official host
 					was not able to show up.</p>
@@ -159,28 +185,26 @@
 					 also helped me with hosting events when I was not able to show up.</p>
 			</div>	
         
-
-				 
 		  <div class="display-section"> 
         <h2>Encourage good behavior and minimize personality conflicts</h2>
      
-				<p>In my experience, problems with other peoples' behavior can be a significant
+				<p>In my experience, behavioral problems can be a significant
 					challenge for events. I consider good behavior to be anything that is not
 					disruptive or inappropriate.</p>
 				
-				<p>First of all, I will avoid calling out someone unless they are doing
+				<p>First of all, I prefer to avoid calling out someone unless they are doing
 					something that is disruptive or inappropriate. I think it's important to be
 					accepting of personality and communication differences, and saying these
 					are wrong would be a matter of option. I don't want people calling out
 					behavior based on their opinion or encourage norms of people criticizing 
 					others for minor things.</p>
 				
-				<p>If someone is doing something that is very disruptive or inappropriate, it is
-					important to deal with that behavior quickly, especially if it is part of
+				<p>If someone is doing something very disruptive or inappropriate, it's
+					important to deal with that behavior quickly, especially if it's part of
 					a pattern. I'll directly tell the person that their behavior is not acceptable
 					and take further action if necessary. Banning someone should also
 					be on the table as on option, however, a ban should only be done in
-					extreme cases were there is a serious instance of bad behavior or ongoing
+					extreme cases were there is a serious instance of negative behavior or ongoing
 					problems that aren't being resolved.</p>
 					
 					
@@ -188,14 +212,12 @@
 					 I find that people are far less likely to be disruptive and inappropriate when
 					 others are showing that behavior is not acceptable. In case of minor instances
 					 of someone being inappropriate or disruptive, I find that trying to start a 
-					 conversation about an unrelated topic is helpful.</p>
-				
-				<p>Sometimes, I may try to quietly start a conversation with a person
-					who is not behaving appropriately. This helps defuse any conflict
+					 conversation about an unrelated topic is helpful. This helps defuse any conflict
 					situations that may be arising and moves the person away from the
 					negative behavior. Usually, I do not directly call out the behavior.
-					Depending on the situation, I may suggest another alternative action
-					as well.</p>
+					Sometimes, the behavior is a minor one-off thing that can be ignored.
+				A lack of responses can show the person that their behavior should not
+				be repeated.</p>
 				
 				<p>
 					For example, there was one instance during an event where someone
@@ -206,16 +228,15 @@
 				
 				<p>
 					There was another instance where someone was insistent on playing
-					this particular action selection game. I showed them some other
+					this particular resource management game called Dune: Imperium
+					although others were not interested. I showed them some other
 					board game groups where they could play that game.</p>
 				
 				<p>I also start my weekend afternoon events with a quick social game.
 					 I find that this is a good opportunity for people to get to know
 					 each other, which helps minimize personality conflicts. Also, I find
 					 that the social nature of these games is helpful for showing people
-					 that disruptive or inappropriate behavior will not be tolerated. Usually,
-					 they find this out, when myself and the others ignore the behavior. Otherwise,
-					 a quick comment is usually enough.</p>
+					 that disruptive or inappropriate behavior will not be tolerated.</p>
 				<p>Encouraging other people to get involved in helping to run is also very helpful here.</p>
       </div>
      {{>authors/bharatPonnaluri}}
