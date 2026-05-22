@@ -44,6 +44,10 @@ body {
 	background-position:center;
 }
 
+.headline-summary {
+	font-size: 1.5rem;
+}
+
 .image-caption {
 	color: var(--color-gray-50);
 	display: block;
