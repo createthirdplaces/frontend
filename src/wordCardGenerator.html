@@ -4,9 +4,52 @@
   <meta charset="UTF-8">
   <link rel="icon" href="data:,">
   <title>Toaster Trouble Board Game</title>
-  <script type="module">
-   import {runGlobal} from "/js/globalProd.js";
-   runGlobal(); 
+	
+	<script type="module">
+
+		import {blockJavaScriptFunctions} from "/js/bots/block.js"
+		
+		const wordList = [
+			'one',
+			'two',
+			'three',
+			'four',
+			'five',
+			'six',
+			'seven'
+		];
+		
+		function createCardHtml(wordList){
+			let html = `<div class="card"><ol>
+				`;
+			for(let i=0;i<wordList.length;i++){
+				html+=`<li>${wordList[i]}</li>`;
+			}
+			html+=`</ol></div>`;
+			return html;
+		}
+	
+		window.addEventListener("load",()=>{
+		
+			const wordsPerCard=1;	
+			
+			let html=""	
+			
+			for(let i=0;i<wordList.length;i+=wordsPerCard){
+			
+				const cardWords = wordList.slice(i,Math.min(i+wordsPerCard, wordList.length));
+				html+= createCardHtml(cardWords);
+			}
+			
+			document.getElementById("print-container")
+				.innerHTML = html;
+			
+			console.log(html);
+			
+			blockJavaScriptFunctions();	
+		});
+
+
 	</script>
 	<style>
 		body {
@@ -17,6 +60,7 @@
 			height: 336px;	
 			width: 200px;	
 			border: 10px solid black;
+			vertical-align:top;	
 		}
 
 		.print-container {
@@ -36,7 +80,7 @@
 <body>
 		{{>navbar}}	
 		
-		<div class="container-xl" id="article-text"> 
+		<div class="container-xl" > 
 			<div class="web-only">	
 			<h1>Word card generator</h1>
 
@@ -47,39 +91,9 @@
 																																										Game</a> 
 			</div>	
 			<div id="print-container">
-				<div class="card">
-					<h2>Potato</h2>
-				</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-					</div><div class="card">
-					<h2>Test</h2>
-				
 			</div>
 
-			<div id="bot-container"></div>
-  
+			<div id="bot-container"></div>  
 	</div>
   {{>footer}}
 
