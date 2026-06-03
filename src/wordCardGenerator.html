@@ -9,15 +9,118 @@
 
 		import {blockJavaScriptFunctions} from "/js/bots/block.js"
 		
-		const wordList = [
-			'one',
-			'two',
-			'three',
-			'four',
-			'five',
-			'six',
-			'seven'
+		const veryEasyWords = [
+			'Virginia',
+			'Arlington',
+			'Dog',
+			'Cat',
+			'Capital',
+			'Washington'
+			//Add more words	
+		]	
+	
+		const easyWords = [
+			'Dragon',
+			'Monument',
+			'Museum',
+			'Metro',
+			'Coffee',
+			'Water',
+			'Mall',
+			'Commanders',
+			'Monopoly',
+			'Bridge',
+			'Tunnel',
+			'Pikachu',
+			'Train',
+			'Space',
+			'Pasta',
+			'Picture',
+			'Bed',
+			'Door',
+			'Table',
+			'Hotel',
+			'Pie',
+			'Beach',
+			'Baby',
+			'Egg',
 		];
+		
+		const mediumWords = [
+			'England',
+			'Bowser',
+			'Mickey',
+			'Uno',
+			'Jenga',
+			'Manhattan',
+			'Batman',
+			'Western',
+			'Labyrinth',
+			'Circle',
+			'Sword',
+			'Codenames',
+			'Pluto',
+			'Supreme',
+			'Cabinet',
+			'Concordia',
+			'Mexico',
+			'Minecraft',
+			'Cartman',
+			'Avalon',
+			'Crystal',
+			'Nationals',
+			'Dulles',
+			'Tysons',
+			'Sapphire',
+			'Legendary',
+			'Platform',
+			'Brick',
+			'London',
+			'Mission',
+			'Catan',
+			'Mongomery',
+			'Fairfax',
+			'Orioles',
+			'Krabls',
+			'Patrick',
+			'Sandy',
+			'Utah',
+			'Battle',
+			'RPG',
+			'Item',
+			'Istanbul',
+			'Alexandria',
+			'Parade',
+			'City',
+			'Escape',
+			'Rope'
+		];
+		
+		const hardWords = [
+			'Imaginary',
+			'Queens',
+			'Lannister',
+			'Mali',
+			'Persian',
+			'Sodosopa',
+			'Gorbachev',
+			'Omaha',
+			'Stalingrad',
+			'Broflowski',
+			'Trubbish',
+			'Imaginationland',
+			'Oberon',
+			'Imp',
+			'Compaq',
+			'Bronx',
+			'Emerald',
+			'Direwolf',
+			'Watermark',
+			'Scrooge',
+			'Delfino',
+			'Theon',
+			'Waterfront',
+			'Mewtwo' ]
 		
 		function createCardHtml(wordList){
 			let html = `<div class="card"><ol>
@@ -31,20 +134,46 @@
 	
 		window.addEventListener("load",()=>{
 		
-			const wordsPerCard=1;	
 			
 			let html=""	
+		
+			let i = 0;	
+			while(true){	
 			
-			for(let i=0;i<wordList.length;i+=wordsPerCard){
-			
-				const cardWords = wordList.slice(i,Math.min(i+wordsPerCard, wordList.length));
+				let cardWords = [];
+				if(i < veryEasyWords.length){
+					cardWords.push(veryEasyWords[i]);
+				}
+				
+				if(i<easyWords.length){
+					cardWords.push(easyWords[i])
+				}
+				
+
+				if(i*2<mediumWords.length){
+					cardWords.push(mediumWords[i*2])
+				}
+				
+				if(i*2+1<mediumWords.length){
+					cardWords.push(mediumWords[i*2+1])
+				}
+
+				cardWords = cardWords.concat(hardWords.slice(i,Math.min(i+1, hardWords.length)));	
+
+				if(cardWords.length === 0){
+					break;
+				}
+				i++;
 				html+= createCardHtml(cardWords);
 			}
 			
 			document.getElementById("print-container")
 				.innerHTML = html;
 			
-			console.log(html);
+			console.log(veryEasyWords.length);
+			console.log(easyWords.length);
+			console.log(mediumWords.length/2);
+			console.log(hardWords.length);
 			
 			blockJavaScriptFunctions();	
 		});
@@ -55,14 +184,21 @@
 		body {
 			margin:0px;
 		}
+		
+		li {
+			margin-bottom:1rem;
+		}
+		
+
 		.card {
 			display:inline-block;
+			font-size:1rem;
 			height: 336px;	
-			width: 200px;	
+			width: 240px;	
 			border: 10px solid black;
 			vertical-align:top;	
 		}
-
+	
 		.print-container {
 			position:relative
 		}	
@@ -84,7 +220,7 @@
 			<div class="web-only">	
 			<h1>Word card generator</h1>
 
-				<p>This page generates printable cards with words on them. It is designed games such
+				<p>This page generates printable cards with words on them. It is designed for games such
 				as<a
 																																										href="https://boardgamegeek.com/boardgame/254640/just-one">Just
 																																										One
