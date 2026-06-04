@@ -50,6 +50,8 @@ const buildConfig = {
 
         techStrategy: resolve(__dirname, "src/tech/techStrategy.html"),
         toasterTrouble: resolve(__dirname, "src/toasterTrouble.html"),
+        wordCardGenerator: resolve(__dirname, "src/wordCardGenerator.html"),
+
 
       },
     },
