@@ -15,8 +15,25 @@
 			'Dog',
 			'Cat',
 			'Capital',
-			'Washington'
-			//Add more words	
+			'Washington',
+			'Car',
+			'Game',
+			'Food',
+			'House',
+			'Building',
+			'Place',
+			'Shop',
+			'Tree',
+			'State',
+			'School',
+			'Sport',
+			'Road',
+			'Person',
+			'Toy',
+			'Child',
+			'Drink',
+			'Fruit',
+			'Desert'
 		]	
 	
 		const easyWords = [
@@ -81,7 +98,7 @@
 			'Mongomery',
 			'Fairfax',
 			'Orioles',
-			'Krabls',
+			'Krabs',
 			'Patrick',
 			'Sandy',
 			'Utah',
@@ -93,7 +110,8 @@
 			'Parade',
 			'City',
 			'Escape',
-			'Rope'
+			'Rope',
+			'Subway'
 		];
 		
 		const hardWords = [
@@ -108,7 +126,7 @@
 			'Stalingrad',
 			'Broflowski',
 			'Trubbish',
-			'Imaginationland',
+			'Kanto',
 			'Oberon',
 			'Imp',
 			'Compaq',
@@ -126,7 +144,11 @@
 			let html = `<div class="card"><ol>
 				`;
 			for(let i=0;i<wordList.length;i++){
-				html+=`<li>${wordList[i]}</li>`;
+				html+=`<li class="item-${i}">
+					<div class="word">	
+						${wordList[i]}
+					</div>
+				</li>`;
 			}
 			html+=`</ol></div>`;
 			return html;
@@ -184,32 +206,121 @@
 		body {
 			margin:0px;
 		}
-		
+	
 		li {
-			margin-bottom:1rem;
+			font-weight:600;	
+			margin-bottom:0.25rem;
+		}
+				
+		ol {
+			list-style:none;	
+			text-align: center;
 		}
 		
-
-		.card {
+		#print-container li::before {
+			float:left;
+			font-size:2rem;
+			font-weight:600;
+			list-style-position:inside;	
+			margin-left:-1.5rem;
+			margin-top:0rem;
+			-webkit-text-stroke:1px black;	
+			text-shadow: black 0 0 5px;
+		}
+	
+		.card {	
+			border: 2px solid black;
 			display:inline-block;
 			font-size:1rem;
-			height: 336px;	
-			width: 240px;	
-			border: 10px solid black;
-			vertical-align:top;	
+			height: 300px;	
+			padding-top:1rem;	
+			vertical-align:top;		
+			width: 240px;		
+		}
+	
+		.item-0::before {
+			content: "1";
+			color: #e50000;
+		}
+
+		.item-1::before {
+			content: "2";
+			color: #73d7ee;
+		}
+	
+		.item-2::before {
+			content: "3";
+			color: #ffee00;
+		}
+
+		.item-3::before {
+			content: "4";
+			color: #028121;
+		}
+
+		.item-4::before {
+			content: "5";
+			color: #ff8d00;
+		}
+		
+		.item-0 .word {
+			box-shadow:
+				inset 0 0 0 2px #e50000,
+				inset 0 0 0 2px white,
+				inset -1px -1px 0 4px #606060;
+		}
+	
+		.item-1 .word {
+			box-shadow:
+				inset 0 0 0 2px #73d7ee,
+				inset 0 0 0 2px white,
+				inset -1px -1px 0 4px #606060;
+		}
+	
+		.item-2 .word {
+			box-shadow:
+				inset 0 0 0 2px #ffee00,
+				inset 0 0 0 2px white,
+				inset -1px -1px 0 4px #606060;
+		}
+	
+		.item-3 .word {
+			box-shadow:
+				inset 0 0 0 2px #028121,
+				inset 0 0 0 2px white,
+				inset -1px -1px 0 4px #606060;
+		}
+
+		.item-4 .word {
+			box-shadow:
+				inset 0 0 0 2px #ff8d00,
+				inset 0 0 0 2px white,
+				inset -1px -1px 0 4px #606060;
 		}
 	
 		.print-container {
 			position:relative
 		}	
+		
+		.word {	
+			font-size:1.5rem;
+			margin-right:0.5rem;	
+			padding-top:0.25rem;
+			padding-bottom:0.25rem;
+		}
+		
 		@media print {
+			body {
+				margin:0px;
+			}
 			footer,nav,.web-only {	
 				display:none;
 			}	
 		}
+		
 		@page {
 			size: portrait;	
-			margin: 2mm 2mm 2mm 2mm;
+			margin: 0;
 		}
 	</style>
 </head>
@@ -221,10 +332,10 @@
 			<h1>Word card generator</h1>
 
 				<p>This page generates printable cards with words on them. It is designed for games such
-				as<a
+				as <a
 																																										href="https://boardgamegeek.com/boardgame/254640/just-one">Just
 																																										One
-																																										Game</a> 
+																																										</a> 
 			</div>	
 			<div id="print-container">
 			</div>
