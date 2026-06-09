@@ -39,8 +39,10 @@
 			'Ground',
 			'Money',
 			'Seat',
-			'Fish'
-		]	
+			'Fish',
+      'Zoo',
+      'Mall'
+    ]	
 	
 		const easyWords = [
 			'Dragon',
@@ -50,7 +52,6 @@
 			'Coffee',
 			'Water',
 			'Mall',
-			'Commanders',
 			'Monopoly',
 			'Bridge',
 			'Tunnel',
@@ -72,7 +73,10 @@
 			'Stadium',
 			'Branch',
 			'Code',
-			'Bill'
+			'Bill',
+      'Berry',
+      'Station',
+      'Traffic'
 		];
 		
 		const mediumWords = [
@@ -111,7 +115,7 @@
 			'London',
 			'Mission',
 			'Catan',
-			'Mongomery',
+			'Montgomery',
 			'Fairfax',
 			'Orioles',
 			'Krabs',
@@ -134,12 +138,17 @@
 			'Fairy',
 			'Baltimore',
 			'Vienna',
-			'Roosevelt',
-			'Berry'	
-		];
+			'Roosevelt',	
+			'Emerald',
+      'Saffron',
+      'Ward',
+      'Council',
+      'Classified'
+    ];
 		
-		const hardWords = [
-			'Langley',
+		const hardWords = [	
+			'Commanders',
+      'Langley',
 			'Bethesda',
 			'Fireside',	
 			'Imaginary',
@@ -161,13 +170,14 @@
 			'Imp',
 			'Compaq',
 			'Bronx',
-			'Emerald',
 			'Direwolf',
 			'Watermark',
 			'Scrooge',
 			'Delfino',
 			'Theon',
 			'Waterfront',
+      'Greninja',
+      'Langley',
 			'Mewtwo' ]
 		
 		function createCardHtml(wordList){
@@ -185,10 +195,8 @@
 		}
 	
 		window.addEventListener("load",()=>{
-		
 			
-			let html=""	
-		
+      let html=""	
 			let i = 0;	
 			while(true){	
 			
@@ -259,13 +267,13 @@
 		}
 	
 		.card {	
-			border: 2px solid black;
+			border: 1px solid black;
 			display:inline-block;
 			font-size:1rem;
 			height: 300px;	
 			padding-top:1rem;	
 			vertical-align:top;		
-			width: 240px;		
+			width: 230px;		
 		}
 	
 		.item-0::before {
