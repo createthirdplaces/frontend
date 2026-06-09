@@ -3,7 +3,7 @@ set laststatus=2
 "Indentation settings"
 set autoindent
 set smarttab
-set tabstop=2 softtabstop=2 shiftwidth=2 retab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 set number
 
