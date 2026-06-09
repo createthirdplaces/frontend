@@ -8,47 +8,40 @@
 		<meta name="description" content="Create Third Places homepage"/>
 		<meta name="keywords" content="community, public, spaces"/>	
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<style>
-	
-			#btn-2 {
-				margin-left:auto;
-			}
-
+		<style>	
+		  #btn-1 {
+				margin-left:1em;
+			}		
+      #btn-2 {
+				margin-left:auto;	
+				margin-right:1em;
+      }
 			#btn-3 {
 				margin-left:auto;
 				margin-right:auto;
-			}
-		
-			#btn-1 {
-				margin-left:1em;
-			}	
-		
-			#btn-2 {
-				margin-right:1em;
-			}
-		
+			}		
 			#main-buttons-1,#main-buttons-2 {
 				display:flex;
 			}		
-
-
 			@media not screen and (width < 32em) {
 				#btn-2 {
 					margin-right:1em;
-				}
-				#btn-1,#btn-2 {
-					position:relative;
-					top:calc(43vW*-1);
-				}
-				#btn-3 {
-					position: relative;
-					top:-5em;
-				}
+				}	
 				#btn-1,#btn-2,#btn-3 {
 					font-size: var(--size-6xl);
-				}	
-				#support-header {
-					margin-top: -7.5em;
+				}
+        #main-buttons-1 { 
+          height:6em;
+          position: absolute;
+          top: 12em;
+        }
+			  #main-buttons-2 {
+          height:6em;
+          position: relative;
+          top:-7em;
+        }
+        #support-header {
+					margin-top: -3em;
 				}
 			}
 			
@@ -75,13 +68,13 @@
 
 		{{>navbar}}	
 		<div id="container" class="container-xl">
-			
-			<h1 id="main-header">Imagine a public space that is:</h1> 
-				<div id="image-div">
+			<h1 id="main-header">Imagine a public space that is:</h1>
+        <div id="image-div">
 					<img alt="Crystal City Landing in 2016" id="homepage-image" src="/images/places/crystal_city_landing_2016.jpg"></img>
 					<div class="container-xl" id="main-buttons-1"> 
 						<a id="btn-1" class="btn" href="/articles/goodThirdPlace.html">Free to use</a>
-						<a id="btn-2" class="btn" href="/articles/goodThirdPlace.html">Open 24/7</a>	
+						<a id="btn-2" class="btn"
+              href="/articles/goodThirdPlace.html">Always open</a>	
 					</div>	
 					<div class="container-xl" id="main-buttons-2">
 						<a id="btn-3" class="btn" href="/articles/goodThirdPlace.html">Large enough for 100 people</a>
