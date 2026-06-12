@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" href="data:,">
-  <title>Toaster Trouble Board Game</title>
+  <title>Word Card Generator</title>
 	
 	<script type="module">
 
@@ -228,7 +228,7 @@
 			}
 			
 			document.getElementById("print-container")
-				.innerHTML = html;
+				.innerHTML += html;
 			
 			console.log(veryEasyWords.length);
 			console.log(easyWords.length);
@@ -369,14 +369,29 @@
 			<div class="web-only">	
 			<h1>Word card generator</h1>
 
-				<p>This page generates printable cards with words on them. It is designed for games such
-				as <a
-																																										href="https://boardgamegeek.com/boardgame/254640/just-one">Just
-																																										One
-																																										</a> 
+				<p>This is a fanmade expansion for the <a "href="https://boardgamegeek.com/boardgame/254640/just-one">Just One
+                                                   game</a>. Click the print
+                                                   option in your web browser,
+                                                   and a printable version will
+        automatically be generated. </p>
 			</div>	
 			<div id="print-container">
-			</div>
+		    <h2>Expansion overview</h2> 
+        <p>The expansion is split up into multiple modules which can be played
+        individually or combined.</p>
+        <h2>Module 1: Traitor </h2>
+        <p>One person will be designated as the traitor and is trying to get rid
+        of clues. They will take two Just One easels and write one word on each
+        one in a round. If any of the cluegivers write a word that is identical
+        to the traitor, their clue is hidden. After comparing easels, the
+        traitor's words will be hidden.</p>
+
+        <p>A traitor will score 1 point for each word that is not correctly
+        guessed.</p>
+        <h2>Module 2: Extra cards</h2>	
+        <p>These are extra word cards where more difficult words have
+        higher numbers. </p>
+      </div>
 
 			<div id="bot-container"></div>  
 	</div>
