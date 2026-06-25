@@ -98,6 +98,18 @@ export function runGlobal(){
     if(word.charAt(word.length - 2) === "'" && word.charAt(word.length-1) === "s"){
       return words.has(word.substring(0,word.length-2).toLowerCase());
     }
-		return words.has(word.toLowerCase()); 
+
+    /**
+     * Handle case where word is inside single quotations.
+     * TODO: Update logic to check for opening and closing quotation.
+     **/
+    if(word.charAt(word.length -1) === "'"){
+      return words.has(word.substring(0,word.length-1).toLowerCase());
+    }
+    if(word.charAt(0) === "'"){
+      return words.has(word.substring(1,word.length).toLowerCase());
+    }
+
+    return words.has(word.toLowerCase()); 
 	}
 
