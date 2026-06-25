@@ -154,5 +154,17 @@ export const otherWords = new Set([
   'illini',
   'rico',
   'gameplay',
-  'gamers'
+  'gamers',
+  'taxes',
+  'forbes',
+  'o\'clock',
+  'detroit\'s',
+  'bozman',
+  'weihe',
+  'richards',
+  'garrett',
+  'shaylyn',
+  'rockville\'s',
+  'rockville',
+  'fisette'
 ]);
