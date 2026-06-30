@@ -202,64 +202,40 @@ export class MainComponent extends BaseDynamicComponent {
         <framework-history-component></framework-history-component>
       </details>
 
+      <h2>Goals of places.js</h2>
 
-       <h2>Notes about the design goals of places.js</h2>
+        <details id="user-testing-and-feedback" ${urlParams.get("user-testing-and-feedback") ? "open" : ''}>
 
-      <details id="ui-state-reason" ${urlParams.get("ui-state-reason") ? "open" : ''}>
+          <summary>Encourage human user testing and feedback</summary>
 
-        <summary>UI state that easy to reason about</summary>
+          <p>Human user testing is helpful for subjective criteria
+          such as usability that cannot be tested with automation. Places.js is designed around the idea that complexity
+          on the frontend is minimized, while the backend has most of the complexity. Minimizing complexity on the frontend
+          will help make sure that UI testing can focus on subjective criteria that is relevant for a user. Most of the
+          testing for places.js has been done through manual testing of a local dmvboardgames.com instance. Complexity for
+          dmvboardgames.com
+          is mainly on the <a href="https://github.com/gatherspiel/backend">backend</a>, which includes comprehensive
+          <a href="https://github.com/gatherspiel/backend/tree/main/src/test/java/app">database integration tests.</a></p>
 
-        <p>Code should be understandable by people familiar with CSS, HTML,
-        and JavaScript without having to spend a long time learning about framework specific abstractions. This means
-        developers can spend more time learning about what users are looking for and improving quality.
-        </p>
+          <p>Also, places.js is designed to support open source projects. With open source projects, automated
+          UI testing code is also a publicly available set of instructions that someone could use to help create
+          an unauthorized scraper for a website.</p>
 
-        <p>Places.js uses synchronous  publish subscribe code to make sure components have correct UI state. While there is
-        some complexity from the fact that the components are coupled with state management logic, it reduces complexity
-        by making the code easier to reason about. When there is a logic error in a places.js component, understanding
-        how and when the component is updated helps address bugs. The synchronous updates also help when generating stack
-        traces to give information about the cause of an error.</p>
+          <p>Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
+            content. This increases the complexity of writing automated UI tests. On the other hand, places.js is also has
+            support for asynchronous data fetching from a backend API, and automated testing efforts should be focused there.
+            API endpoints used by places.js should have clearly defined correct behavior not defined by subjective criteria,
+            and they should be covered by automated testing.</p>
 
-        <p>If multiple components are subscribed to the state, the components will be updated in the order that
-        they were added to the DOM. As a result, parent components will always be updated before child components.
-        If a parent component and a child component are subscribed to the same state, the child component will be
-        temporarily unsubscribed from the state when the parent component re-renders. When the child component
-        re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state
-        and re-render.</p>
-      </details>
-
-      <details id="user-testing-and-feedback" ${urlParams.get("user-testing-and-feedback") ? "open" : ''}>
-
-        <summary>Encourage human user testing and feedback</summary>
-
-        <p>Human user testing is helpful for subjective criteria
-        such as usability that cannot be tested with automation. Places.js is designed around the idea that complexity
-        on the frontend is minimized, while the backend has most of the complexity. Minimizing complexity on the frontend
-        will help make sure that UI testing can focus on subjective criteria that is relevant for a user. Most of the
-        testing for places.js has been done through manual testing of a local dmvboardgames.com instance. Complexity for
-        dmvboardgames.com
-        is mainly on the <a href="https://github.com/gatherspiel/backend">backend</a>, which includes comprehensive
-        <a href="https://github.com/gatherspiel/backend/tree/main/src/test/java/app">database integration tests.</a></p>
-
-        <p>Also, places.js is designed to support open source projects. With open source projects, automated
-        UI testing code is also a publicly available set of instructions that someone could use to help create
-        an unauthorized scraper for a website.</p>
-
-        <p>Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
-          content. This increases the complexity of writing automated UI tests. On the other hand, places.js is also has
-          support for asynchronous data fetching from a backend API, and automated testing efforts should be focused there.
-          API endpoints used by places.js should have clearly defined correct behavior not defined by subjective criteria,
-          and they should be covered by automated testing.</p>
-
-        <p>Any automated testing on UI code should be unit tests or integration tests with the backend. These
-        types of tests can be written with clearly defined success criteria that is the same for every user.Automated
-        UI testing is also testing the behavior of a UI, and cannot test subjective such as determining if a button
-        is not too big, or whether a particular shade of blue is helpful for users. </p>
+          <p>Any automated testing on UI code should be unit tests or integration tests with the backend. These
+          types of tests can be written with clearly defined success criteria that is the same for every user.Automated
+          UI testing is also testing the behavior of a UI, and cannot test subjective such as determining if a button
+          is not too big, or whether a particular shade of blue is helpful for users. </p>
       </details>
 
       <details id="prioritize-usability" ${urlParams.get("prioritize-usability") ? "open" : ''}>
 
-        <summary>Ensure that usability is prioritized</summary>
+        <summary>Prioritize usability</summary>
 
         <p>Places.js supports developers to make websites that are as
           straightforward as possible from a user perspective.</p>
@@ -277,9 +253,21 @@ export class MainComponent extends BaseDynamicComponent {
           use.</p>
       </details>
 
+      <details>
+        <summary>UI state that is easy to reason about</summary>
+
+        <p>Code should be understandable by people familiar with CSS, HTML, and JavaScript without having to spend a long time learning about framework specific abstractions. This means developers can spend more time learning about what users are looking for and improving quality.</p>
+
+        <p>Places.js uses synchronous publish subscribe code to make sure components have correct UI state. While there is some complexity from the fact that the components are coupled with state management logic, it reduces complexity by making the code easier to reason about. When there is a logic error in a places.js component, understanding how and when the component is updated helps address bugs. The synchronous updates also help when generating stack traces to give information about the cause of an error.</p>
+
+        <p>If multiple components are subscribed to the state, the components will be updated in the order that they were added to the DOM. As a result, parent components will always be updated before child components. If a parent component and a child component are subscribed to the same state, the child component will be temporarily unsubscribed from the state when the parent component re-renders. When the child component re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state and re-render.</p>
+      </details> 
+    
+      <h2>Notes about design decisions</h2>
+
       <details id="render-entire-component" ${urlParams.get("render-entire-component") ? "open" : ''}>
 
-        <summary>Re-render entire component when the state of a component changes</summary>
+        <summary>Entire component will be re-rendered when its state changes</summary>
 
         <p>Re-rendering a component for every state change does have some performance overhead.
           However, the performance overhead does come with the benefit of making cde easier to reason about.
@@ -288,14 +276,12 @@ export class MainComponent extends BaseDynamicComponent {
           places.js is complex enough to the point where it is slow, then optimizing with virtual DOM isn’t going to fix
           underlying issues with UI complexity or an architecture that should be updated.
         </p>
-
         <p>
           Virtual dom diffing would add complexity to places.js, which would make the framework significantly harder
           to test and increase the risk of bugs. Also, virtual dom diffing introduces a layer of complexity that makes
           it harder to reason about updates that are being made. When a places.js component is updated, all
           the DOM within the component is re-rendered.
         </p>
-
         <p>
           <a href="https://krausest.github.io/js-framework-benchmark/">Performance benchmarks</a> comparing the React and
           Solid JS libraries indicate the React is significantly slower. React uses virtual DOM, and Solid does not.
@@ -306,8 +292,18 @@ export class MainComponent extends BaseDynamicComponent {
           be to split up the component and have each one of smaller components subscribed ot the state.
         </p>
       </details>
-  <br>
-    </div>
+      
+      <details>
+        <summary>HTML for a component is included inside the component's render method</summary>
+
+        <p>This helps keep the HTML organized while making it easier to find HTML for a component. Also, it ensures that child components are always instantiated after parent components. This ordering of instantiation makes rendering more predictable and reduces the change of bugs. Having all the HTML in one file with the component instances having logic will add complexity and contribute to bugs.</p>
+       
+        <p>Templating will also be necessary. This is likely to increase complexity from a user perspective to address certain use cases and debug issues. With the existing way of adding HTML with the framework, one can rely on knowledge of JS and HTML without needing to learn templating syntax and troubleshooting will be more straightforward. 
+        </p>
+        <p>Places.js components are Web Components, which are <a href="https://gomakethings.com/articles/what-order-do-web-components-instantiate-in/">instantiated in the order that their customElements.define() methods are called. Having to remember to put customElement.define() methods in a specific order is additional overhead. Also, there could be a case where an instance of component A is a parent component for component B, and the reverse is true on the same page.</p>
+    
+
+    </div>   
   `
   }
 }
