@@ -16,7 +16,7 @@ export default class MainComponent extends BaseDynamicComponent {
       event.preventDefault(); 
       
       SIMULATION_STORE.fetchData({
-        simulationRuns:1000
+        simulationRuns:10000,
       });
 
       if(!self.isLoading){

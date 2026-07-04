@@ -3,14 +3,11 @@ import {CustomLoadAction, DataStore} from "../shared/lib/places-js-latest.js";
 async function retrieveData(params) {
  
   const maxTime = params.maxTime || 3600;
-  const infoConsumeTime = 60;
-  const switchTime = params.switchTime || 1;
- 
-  const infoUnits = params.totalItems || 60;
-
-  console.log("Simulation parameters:"+params);
-  const simulationRuns = params.simulationRuns || 1;
-
+  const infoConsumeTime = params.infoConsumeTime || 60;
+  const infoUnits = params.totalItems || 120;
+  const simulationRuns =  params.simulationRuns || 1;
+  const switchTime = params.switchTime || 30; 
+  
   let totalFinished = 0;
   let totalUnfinished = 0;
 
@@ -27,12 +24,14 @@ async function retrieveData(params) {
     let time = 0;
 
     let currentItem = null;
-    while (time < maxTime && infoTimes.length > 0 ) {
    
+    let prevFinish = 0;
+    while (time < maxTime && infoTimes.length > 0 ) {
+  
       let remainingItemTime = 0;
       
       //Is there information that is waiting to be proccessed?
-      if (currentItem === null){
+      if (currentItem === null){j
         if (unfinished === 0){ 
           time = infoTimes.pop();
           currentItem = {
@@ -47,14 +46,14 @@ async function retrieveData(params) {
         } 
       } else {
        
-
         let nextTime = infoTimes[infoTimes.length - 1];
 
         //Information has been fully processed.   
         if (nextTime - currentItem.startTime > infoConsumeTime) {
           finished ++;
           currentItem = null;
-          time = nextTime;
+          time += infoConsumeTime;
+          prevFinish = time;
         } else {
 
           //Add time for context switching.
@@ -63,8 +62,9 @@ async function retrieveData(params) {
           infoTimes.pop();
 
           while(infoTimes.length > 0 && infoTimes[infoTimes.length - 1] < time){
-            time =  switchTime*2;
+            time  = time + switchTime*2;
             unfinished ++;
+            infoTimes.pop();
           }
         }
       }
