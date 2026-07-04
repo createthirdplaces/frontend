@@ -17,7 +17,7 @@ async function retrieveData(params) {
   for(let j = 0; j < simulationRuns; j++){
     const infoTimes = [];
     for(let i = 0; i < infoUnits; i++){
-      infoTimes.push(Math.floor((Math.random())*3600));
+      infoTimes.push(Math.floor((Math.random())*maxTime));
     }
 
     infoTimes.sort(function(a,b){return b-a})
