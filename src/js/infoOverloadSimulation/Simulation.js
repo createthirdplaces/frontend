@@ -1,73 +1,82 @@
 import {CustomLoadAction, DataStore} from "../shared/lib/places-js-latest.js";
 
-/**
- * TOOD for first iteration
- *
- * Use 1 hour as default parameter for time, and assume you
- * can fully proccess 60 units of information.
- * :
- **/
 async function retrieveData(params) {
  
-  const maxTime = 3600;
+  const maxTime = params.maxTime || 3600;
   const infoConsumeTime = 60;
-  const switchTime = 1;
+  const switchTime = params.switchTime || 1;
  
-  const infoUnits = 60;
+  const infoUnits = params.totalItems || 60;
 
-  const infoTimes = [];
-  for(let i = 0; i < infoUnits; i++){
-    infoTimes.push(Math.floor((Math.random())*3600));
-  }
+  console.log("Simulation parameters:"+params);
+  const simulationRuns = params.simulationRuns || 1;
 
-  infoTimes.sort(function(a,b){return b-a})
+  let totalFinished = 0;
+  let totalUnfinished = 0;
 
-  let finished = 0;
-  let unfinished = 0;
-  let time = 0;
+  for(let j = 0; j < simulationRuns; j++){
+    const infoTimes = [];
+    for(let i = 0; i < infoUnits; i++){
+      infoTimes.push(Math.floor((Math.random())*3600));
+    }
 
-  let isThinking = false;
-  while (time < maxTime) {
-  
-    let remainingItemTime = 0;
-    
-    //Is there information that is waiting to be proccessed?
-    if (isThinking === false){
-      if (unfinished === 0){
-        time = infoTimes.pop();
-        isThinking = true;
-      }
-      else {
-        unfinished --;
-        isThinking = true;
-      } 
-    } else {
+    infoTimes.sort(function(a,b){return b-a})
+
+    let finished = 0;
+    let unfinished = 0;
+    let time = 0;
+
+    let currentItem = null;
+    while (time < maxTime && infoTimes.length > 0 ) {
+   
+      let remainingItemTime = 0;
       
-      let nextTime = infoTimes.pop();
-
-      //Information has been fully processed. 
-      if (nextTime - time > infoConsumeTime) {
-        time = nextTime;
-        finished ++;
-        isThinking = false;
+      //Is there information that is waiting to be proccessed?
+      if (currentItem === null){
+        if (unfinished === 0){ 
+          time = infoTimes.pop();
+          currentItem = {
+            startTime: time
+          }
+        }
+        else {
+          unfinished --;
+          currentItem = {
+            startTime: time
+          }
+        } 
       } else {
-        unfinished ++;
+       
 
-        //Add time for context switching.
-        time = time + switchTime * 2;
+        let nextTime = infoTimes[infoTimes.length - 1];
 
-        while(infoTimes.length > 0 && infoTimes[infoTimes.length - 1] < time){
-          infoTimes.pop();
+        //Information has been fully processed.   
+        if (nextTime - currentItem.startTime > infoConsumeTime) {
+          finished ++;
+          currentItem = null;
+          time = nextTime;
+        } else {
+
+          //Add time for context switching.
+          time = time + switchTime * 2;
           unfinished ++;
-          time = time + switchTime*2;
+          infoTimes.pop();
+
+          while(infoTimes.length > 0 && infoTimes[infoTimes.length - 1] < time){
+            time =  switchTime*2;
+            unfinished ++;
+          }
         }
       }
     }
-  }
 
+    totalFinished += finished;
+    totalUnfinished += unfinished;
+  }
+  
   return {
-    finished: finished,
-    unfinished: unfinished
+    finished: totalFinished / simulationRuns,
+    unfinished: totalUnfinished / simulationRuns
   }
 } 
 

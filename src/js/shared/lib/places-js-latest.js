@@ -1,1 +1,574 @@
-function clearSessionStorage(){for(let t=0;t<sessionStorage.length;t++){const e=sessionStorage.key(t);sessionStorage.setItem(e,JSON.stringify({}))}}function getItemFromSessionStorage(t,e){const o=sessionStorage.getItem(t);if(!o)return null;const s=JSON.parse(o);return 0!==Object.keys(s).length&&e in s?s[e]:null}function updateSessionStorage(t,e,o){const s=sessionStorage.getItem(t);if(!s)throw new Error(`No cache defined for ${t}`);const n=JSON.parse(s);n[e]=o,sessionStorage.setItem(t,JSON.stringify(n))}function freezeState(t){if(!t||"{}"===JSON.stringify(t))return{};for(let[e,o]of Object.entries(t))t.hasOwnProperty(e)&&"object"==typeof o&&freezeState(o);return Object.freeze(t)}class DataStoreLoadAction{fetch(t,e){throw new Error(`fetch(params, cacheKey) method must be defined for ${this.constructor.name}`)}}class DataStore{static#t=0;#e=!1;#o=null;#s=[];#n;#i;constructor(t){this.#n=t,this.#s=[],this.#i=`data-store-${DataStore.#t}`,sessionStorage.setItem(this.#i,JSON.stringify({})),DataStore.#t++}getStoreData(){return this.#o}isWaitingForData(){return null!==this.#o&&void 0!==this.#o&&!this.#e}updateStoreData(t){this.#o={...this.#o,...freezeState(t)};for(let t=0;t<this.#s.length;t++)this.#s[t].updateFromSubscribedStores()}getSubscribedComponents(){return this.#s}async fetchData(t={},e){const o=this;if(!this.#e){this.#e=!0;const s=this.#n.getRequestConfig?this.#n.getRequestConfig(t):{};let n=null,i=null;if((o.#i||o.#i.length>0)&&(i=`${s.method??""}_${s.url}_${JSON.stringify(s.body)??""}`,console.log(i),n=getItemFromSessionStorage(this.#i,i)),null===n){for(let t=0;t<o.#s.length;t++)o.#s[t].lockComponent(o);if(e){const t=e.getSubscribedComponents();for(let o=0;o<t.length;o++)t[o].lockComponent(e)}n=await this.#n.fetch(t,o.#i,i),o.#o=n,o.#e=!1}else o.#o=n,o.#e=!1;for(let t=0;t<o.#s.length;t++)o.#s[t].unlockComponent(o),o.#s[t].updateFromSubscribedStores();if(e){const t=e.getSubscribedComponents();for(let o=0;o<t.length;o++)t[o].unlockComponent(e);e.updateStoreData(n)}return n}}unsubscribeComponent(t){const e=this.#s.indexOf(t);-1!==e?this.#s.splice(e,1):console.warn(`Attempt to unsubscribe ${t.constructor.name} from store it is not subscribed to`)}subscribeComponent(t){let e=0;for(;e<this.#s.length;){if(this.#s[e]===t){this.#s=this.#s.splice(e,1);break}e++}this.#s.push(t),this.isWaitingForData()||this.fetchData()}}class BaseDynamicComponent extends HTMLElement{#a=!1;#r=!1;#c=new Set;#d=0;componentStore={};#h;#l=[];constructor(t=[],e){super(),e&&(this.#h=e),this.#l=t;let o=!0;for(let t=0;t<this.#l.length;t++)o=o&&this.#l[t].dataStore.isWaitingForData(),this.#l[t].dataStore.subscribeComponent(this);o&&this.updateFromSubscribedStores(o)}lockComponent(t){if(this.#c.has(t)?console.warn(`Attempting to lock component ${this.constructor.name} multiple times`):this.#c.add(t),0===this.#d&&(this.#d=Date.now()),this.#h){if(null===this.shadowRoot){this.attachShadow({mode:"open"});const t=document.createElement("template");this.shadowRoot.appendChild(t.content.cloneNode(!0))}this.shadowRoot.innerHTML=this.getTemplateStyle()+this.#h.generateLoadingIndicatorHtml()}}unlockComponent(t){this.#c.delete(t)}disconnectedCallback(){for(let t=0;t<this.#l.length;t++)this.#l[t].dataStore.unsubscribeComponent(this)}updateData(t){this.#r&&console.warn(`Attempting to trigger multiple renders at the same time on component ${this.constructor.name}`),this.#r=!0,t&&(this.componentStore={...this.componentStore,...freezeState(t)},this.#u(this.componentStore),this.shadowRoot&&this.attachHandlersToShadowRoot&&!this.#a&&(this.attachHandlersToShadowRoot(this.shadowRoot),this.#a=!0),this.#r=!1)}updateFromSubscribedStores(){let t=!0;for(let e=0;e<this.#l.length;e++)t=t&&this.#l[e].dataStore.isWaitingForData();if(t){let t={};for(let e=0;e<this.#l.length;e++){const o=this.#l[e];let s=o.dataStore.getStoreData();if(o.componentReducer&&(s=o.componentReducer(s)),o.fieldName)t[o.fieldName]=s;else if(t=s,this.#l?.length>1)throw new Error(`Component ${this.constructor.name} is subscribed to multiple data stores. \n              Each one must be associated with a specified field name`)}this.updateData(t)}}#u(t){if(null===this.shadowRoot){this.attachShadow({mode:"open"});const t=document.createElement("template");this.shadowRoot.appendChild(t.content.cloneNode(!0))}if(this.#d>0){const e=Date.now()-this.#d;if(console.log(`Loaded data for ${this.constructor.name} in ${e} milliseconds`),this.#d=0,this.#h?.minTimeMs){const o=this.#h.minTimeMs-e,s=this;o>0?setTimeout((()=>{s.shadowRoot.innerHTML=this.getTemplateStyle()+this.render(t)}),o):this.shadowRoot.innerHTML=this.getTemplateStyle()+this.render(t)}else this.shadowRoot.innerHTML=this.getTemplateStyle()+this.render(t)}else this.shadowRoot.innerHTML=this.getTemplateStyle()+this.render(t)}render(t){throw new Error(`render(data) function for ${this.constructor.name} must be defined`)}getTemplateStyle(){throw new Error(`getTemplateStyle function for ${this.constructor.name} must be defined`)}}class BaseTemplateComponent extends HTMLElement{connectedCallback(){this.attachShadow({mode:"open"});if(!this.shadowRoot)throw new Error("shadowRoot is not defined");const t=this.getTemplateStyle(),e=document.createElement("template");e.innerHTML=t+"<div></div>",this.shadowRoot.appendChild(e.content.cloneNode(!0));const o=this.shadowRoot?.querySelector("div");if(!o)throw new Error("Failed to create template with a <div></div> section");o.innerHTML=this.render(),this.attachEventHandlersToDom&&this.attachEventHandlersToDom(this.shadowRoot)}}const ApiActionType=Object.freeze({GET:"GET",POST:"POST",PUT:"PUT",DELETE:"DELETE"});function getLocalStorageDataIfPresent(t){const e=window.localStorage.getItem(t);return e?JSON.parse(e):null}function addLocalStorageData(t,e){window.localStorage.setItem(t,e)}function deleteLocalStoreData(t){window.localStorage.getItem(t)&&window.localStorage.removeItem(t)}class ApiLoadAction extends DataStoreLoadAction{#S;constructor(t){super(),this.#S=t}getRequestConfig(t){return this.#S(t)}async fetch(t,e,o){const s=this.#S(t);s.headers||(s.headers={});const n=await ApiLoadAction.getResponseData(s);return e&&o&&(s.method&&s.method!==ApiActionType.GET&&clearSessionStorage(),updateSessionStorage(e,o,n)),n}static async#p(t,e){let o;const s=t.headers.get("content-type");return o=s&&s.includes("application/json")?await t.json():404===t.status?`Endpoint ${e} not found`:await t.text(),{status:t.status,errorMessage:o,endpoint:e}}static async getResponseData(t){const e=getLocalStorageDataIfPresent("authToken")?.access_token;e&&(t.headers?t.headers.authToken=e:t.headers={authToken:e});try{const e=await fetch(t.url.replace(/"/g,""),{method:t.method??ApiActionType.GET,headers:t.headers,body:t.body});if(200!==e.status)return await this.#p(e,t.url);return"application/json"===e.headers.get("content-type")?await e.json():(t.method!==ApiActionType.GET&&(console.log("Clearing response cache and other data in session storage"),clearSessionStorage()),{status:200})}catch(t){return{errorMessage:t.message}}}}class CustomLoadAction extends DataStoreLoadAction{#m;constructor(t){super(),this.#m=t}async fetch(t){return await this.#m(t)}}export{ApiActionType,ApiLoadAction,BaseDynamicComponent,BaseTemplateComponent,CustomLoadAction,DataStore,DataStoreLoadAction,addLocalStorageData,clearSessionStorage,deleteLocalStoreData,getLocalStorageDataIfPresent};
+function clearSessionStorage(){
+  for(let i = 0; i< sessionStorage.length; i++){
+    const key = sessionStorage.key(i);
+    sessionStorage.setItem(key, JSON.stringify({}));
+  }
+}
+
+function getItemFromSessionStorage(requestStoreName, requestData){
+
+  const dataStr = sessionStorage.getItem(requestStoreName);
+  if(!dataStr){
+    return null;
+  }
+
+  const data = JSON.parse(dataStr);
+
+  if(!(Object.keys(data).length === 0) && requestData in data){
+    return data[requestData];
+  }
+  return null;
+}
+
+function updateSessionStorage(requestStoreName, requestData, response){
+
+  const dataStr = sessionStorage.getItem(requestStoreName);
+  if(!dataStr){
+    throw new Error(`No cache defined for ${requestStoreName}`)
+  }
+
+  const data = JSON.parse(dataStr);
+  data[requestData] = response;
+
+  sessionStorage.setItem(requestStoreName, JSON.stringify(data));
+}
+
+/** Freeze state to prevent direct modification.
+ * @param state State that should be frozen.
+ * @private
+ */
+function freezeState(state){
+  if(!state || JSON.stringify(state)==='{}'){
+    return {};
+  }
+  for (let [key, value] of Object.entries(state)) {
+    if (state.hasOwnProperty(key) && typeof value == "object") {
+      freezeState(value);
+    }
+  }
+  return Object.freeze(state);
+}
+
+class DataStoreLoadAction {
+  fetch(params, cacheKey){
+    throw new Error(`fetch(params, cacheKey) method must be defined for ${this.constructor.name}`)
+  }
+}
+
+class DataStore {
+
+  static #storeCount = 0;
+
+  #isLoading = false;
+  #storeData = null;
+  #componentSubscriptions = [];
+
+  #loadAction;
+  #requestStoreId;
+
+  constructor(loadAction) {
+    this.#loadAction = loadAction;
+    this.#componentSubscriptions = [];
+
+    this.#requestStoreId = `data-store-${DataStore.#storeCount}`;
+    sessionStorage.setItem(this.#requestStoreId, JSON.stringify({}));
+
+    DataStore.#storeCount++;
+  }
+
+  /**
+   * Returns data from the store.
+   * @returns A JSON object representing an immutable copy of store data.
+   */
+  getStoreData() {
+    return this.#storeData;
+  }
+
+  /**
+   * @returns {boolean} false if the data in the store is null or undefined and is not in a loading state true otherwise.
+   */
+  isWaitingForData() {
+    return this.#storeData !== null && this.#storeData !== undefined  && !this.#isLoading;
+  }
+
+  /**
+   * Update data in the store and trigger a render of components subscribed to the store.
+   * @param storeUpdates Updated store data. Fields not specified in storeData will not be updated.
+   */
+  updateStoreData(storeUpdates){
+    this.#storeData = {...this.#storeData,...freezeState(storeUpdates)};
+    for(let i=0; i< this.#componentSubscriptions.length; i++){
+      this.#componentSubscriptions[i].updateFromSubscribedStores();
+    }
+  }
+
+  getSubscribedComponents(){
+    return this.#componentSubscriptions;
+  }
+
+  /**
+   * Retrieves data from an external source.
+   * @param params Parameters for the request.
+   * @param dataStore Optional data store that will be subscribed to updates from this store.
+   */
+  async fetchData(params = {}, dataStore){
+
+    const self = this;
+
+    // Do not make a data request if there is an active one in progress. It will push data to subscribed components.
+    if(!this.#isLoading) {
+      this.#isLoading = true;
+
+      const requestConfig = this.#loadAction.getRequestConfig ? this.#loadAction.getRequestConfig(params) : {};
+
+      //Retrieve cached response if one exists.
+
+      let response = null;
+      let requestKey = null;
+      if(self.#requestStoreId || self.#requestStoreId.length > 0){
+        requestKey = `${requestConfig.method ?? ''}_${requestConfig.url}_${JSON.stringify(requestConfig.body) ?? ''}`;
+        response = getItemFromSessionStorage(this.#requestStoreId, requestKey);
+      }
+
+      //A cached response does not exist.
+      if(response === null) {
+        //Disable rendering of component while data is being retrieved
+        for (let i = 0; i < self.#componentSubscriptions.length; i++) {
+          self.#componentSubscriptions[i].lockComponent(self);
+        }
+
+        if (dataStore) {
+          const dataStoreSubscribedComponents = dataStore.getSubscribedComponents();
+          for (let i = 0; i < dataStoreSubscribedComponents.length; i++) {
+            dataStoreSubscribedComponents[i].lockComponent(dataStore);
+          }
+        }
+
+        response = await this.#loadAction.fetch(params, self.#requestStoreId,requestKey);
+        self.#storeData = response;
+
+        self.#isLoading = false;
+
+      } else {
+        self.#storeData = response;
+        self.#isLoading = false;
+
+      }
+
+      for(let i=0; i< self.#componentSubscriptions.length;i++){
+        self.#componentSubscriptions[i].unlockComponent(self);
+        self.#componentSubscriptions[i].updateFromSubscribedStores();
+      }
+
+      if(dataStore){
+        const dataStoreSubscribedComponents = dataStore.getSubscribedComponents();
+        for(let i =0;i < dataStoreSubscribedComponents.length; i++){
+          dataStoreSubscribedComponents[i].unlockComponent(dataStore);
+        }
+        dataStore.updateStoreData(response);
+      }
+
+      return response;
+    }
+  }
+
+  unsubscribeComponent(component){
+    const idx = this.#componentSubscriptions.indexOf(component);
+    if(idx === -1){
+      console.warn(`Attempt to unsubscribe ${component.constructor.name} from store it is not subscribed to`);
+      return;
+    }
+    this.#componentSubscriptions.splice(idx, 1);
+  }
+
+  subscribeComponent(component){
+
+    let i = 0;
+    while(i<this.#componentSubscriptions.length){
+      if(this.#componentSubscriptions[i] === component){
+        this.#componentSubscriptions = this.#componentSubscriptions.splice(i, 1);
+        break;
+      }
+      i++;
+    }
+    this.#componentSubscriptions.push(component);
+
+    if(!this.isWaitingForData()){
+      this.fetchData();
+    }
+  }
+}
+
+class BaseDynamicComponent extends HTMLElement {
+
+  #attachedEventsToShadowRoot = false;
+
+  #componentIsRendering = false;
+  #loadingFromStores = new Set();
+  #loadingStarted = 0;
+
+  componentStore = {};
+
+  #loadingIndicatorConfig;
+  #subscribedStores = [];
+
+  constructor(dataStoreSubscriptions = [], loadingIndicatorConfig) {
+    super();
+
+    if(loadingIndicatorConfig){
+      this.#loadingIndicatorConfig = loadingIndicatorConfig;
+    }
+
+    this.#subscribedStores = dataStoreSubscriptions;
+    for(let i=0;i <this.#subscribedStores.length;i++){
+      this.#subscribedStores[i].dataStore.subscribeComponent(this);
+    }
+
+    this.updateFromSubscribedStores();
+  }
+
+  lockComponent(dataStore){
+
+    if(!this.#loadingFromStores.has(dataStore)){
+      this.#loadingFromStores.add(dataStore);
+    } else {
+      console.warn(`Attempting to lock component ${this.constructor.name} multiple times`);
+    }
+
+    if(this.#loadingStarted === 0){
+      this.#loadingStarted = Date.now();
+    }
+
+    if(this.#loadingIndicatorConfig){
+
+      if (this.shadowRoot === null) {
+        this.attachShadow({ mode: "open" });
+        const template = document.createElement("template");
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+      }
+      // @ts-ignore
+      this.shadowRoot.innerHTML =
+        this.getTemplateStyle() + this.#loadingIndicatorConfig.generateLoadingIndicatorHtml();
+    }
+
+  }
+
+  unlockComponent(dataStore) {
+    this.#loadingFromStores.delete(dataStore);
+  }
+
+  disconnectedCallback(){
+    for(let i=0;i<this.#subscribedStores.length;i++){
+      this.#subscribedStores[i].dataStore.unsubscribeComponent(this);
+    }
+
+  }
+
+  updateData(storeUpdates) {
+
+    if(this.#componentIsRendering){
+      console.warn(`Attempting to trigger multiple renders at the same time on component ${this.constructor.name}`);
+    }
+
+    if (!storeUpdates) {
+      return;
+    }
+
+    this.#componentIsRendering = true;
+    this.componentStore = {...this.componentStore,...freezeState(storeUpdates)};
+    this.#generateAndSaveHTML(this.componentStore);
+
+    if(this.shadowRoot){
+      if(this.attachHandlersToShadowRoot && !this.#attachedEventsToShadowRoot){
+        this.attachHandlersToShadowRoot(this.shadowRoot);
+        this.#attachedEventsToShadowRoot = true;
+      }
+    }
+
+    this.#componentIsRendering = false;
+  }
+
+  updateFromSubscribedStores() {
+
+    let allSubscribedStoresHaveData = true;
+    for(let i=0; i<this.#subscribedStores.length; i++){
+      allSubscribedStoresHaveData = allSubscribedStoresHaveData &&
+        (this.#subscribedStores[i].dataStore.isWaitingForData());
+    }
+
+    if(allSubscribedStoresHaveData){
+
+      let dataToUpdate = {};
+      for(let i =0;i<this.#subscribedStores.length;i++){
+
+        const item = this.#subscribedStores[i];
+        let storeData = item.dataStore.getStoreData();
+        if(item.componentReducer){
+          storeData = item.componentReducer(storeData);
+        }
+
+        if(item.fieldName) {
+          dataToUpdate[item.fieldName] = storeData;
+        } else {
+          dataToUpdate = storeData;
+          if(this.#subscribedStores?.length > 1){
+            throw new Error(`Component ${this.constructor.name} is subscribed to multiple data stores. 
+              Each one must be associated with a specified field name`)
+          }
+        }
+      }
+
+      this.updateData(
+        dataToUpdate,
+      );
+    }
+  }
+
+  #generateAndSaveHTML(data) {
+    if (this.shadowRoot === null) {
+      this.attachShadow({ mode: "open" });
+      const template = document.createElement("template");
+      this.shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+
+    if(this.#loadingStarted > 0){
+      const current = Date.now();
+      const loadTime = current - this.#loadingStarted;
+
+      console.log(`Loaded data for ${this.constructor.name} in ${loadTime} milliseconds`);
+      this.#loadingStarted = 0;
+      if(this.#loadingIndicatorConfig?.minTimeMs){
+        const remainingTime = this.#loadingIndicatorConfig.minTimeMs - loadTime;
+
+
+        const self = this;
+        if(remainingTime > 0){
+          setTimeout(()=>{
+            // @ts-ignore
+            self.shadowRoot.innerHTML = this.getTemplateStyle() + this.render(data);
+          },remainingTime);
+        } else {
+
+          // @ts-ignore
+          this.shadowRoot.innerHTML = this.getTemplateStyle() + this.render(data);
+        }
+      } else {
+        // @ts-ignore
+        this.shadowRoot.innerHTML = this.getTemplateStyle() + this.render(data);
+      }
+
+    }
+    else {
+      // @ts-ignore
+      this.shadowRoot.innerHTML = this.getTemplateStyle() + this.render(data);
+    }
+  }
+
+
+  render(data){
+    throw new Error(`render(data) function for ${this.constructor.name} must be defined` )
+  }
+
+  /*
+  - Returns CSS styles specific to the component. The string should be in the format <style> ${CSS styles} </style>
+  */
+  getTemplateStyle(){
+    throw new Error(`getTemplateStyle function for ${this.constructor.name} must be defined` )
+  }
+}
+
+class BaseTemplateComponent extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({ mode: "open" });
+
+    const shadowRoot = this.shadowRoot;
+    if (!shadowRoot) {
+      throw new Error("shadowRoot is not defined");
+    }
+
+    const templateStyle = this.getTemplateStyle();
+    const template = document.createElement("template");
+    template.innerHTML = templateStyle + `<div></div>`;
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+    const div = this.shadowRoot?.querySelector("div");
+    if (!div) {
+      throw new Error("Failed to create template with a <div></div> section");
+    }
+
+    div.innerHTML = this.render();
+
+    if(this.attachEventHandlersToDom){
+      this.attachEventHandlersToDom(this.shadowRoot);
+    }
+  }
+
+}
+
+const ApiActionType = Object.freeze({
+  GET: "GET",
+  POST: "POST",
+  PUT: "PUT",
+  DELETE: "DELETE",
+});
+
+function getLocalStorageDataIfPresent(key) {
+  const data = window.localStorage.getItem(key);
+  return data ? JSON.parse(data): null;
+}
+
+function addLocalStorageData(key, data){
+  window.localStorage.setItem(key, data);
+}
+
+function deleteLocalStoreData(key){
+  if(window.localStorage.getItem(key)){
+    window.localStorage.removeItem(key);
+  }
+}
+
+/**
+ * Class to define a data store load action through an API call.
+ */
+class ApiLoadAction extends DataStoreLoadAction {
+
+  #getRequestConfig;
+  constructor(
+    getRequestConfig
+  ) {
+    super();
+    this.#getRequestConfig = getRequestConfig;
+  }
+
+  getRequestConfig(params){
+    return this.#getRequestConfig(params);
+  }
+  /**
+   * @param params API request parameters
+   * @param cacheKey
+   * @param requestKey
+   */
+  async fetch(params, cacheKey, requestKey){
+
+    const queryConfig = this.#getRequestConfig(params);
+
+
+    if(!queryConfig.headers){
+      queryConfig.headers = {};
+    }
+
+    const response = await ApiLoadAction.getResponseData(
+      queryConfig,
+    );
+
+    if(cacheKey && requestKey){
+      if(queryConfig.method && queryConfig.method !== ApiActionType.GET){
+        clearSessionStorage();
+      }
+      updateSessionStorage(cacheKey, requestKey, response);
+    }
+    return response;
+  }
+
+  static async #getErrorData(response, url) {
+
+    let message;
+
+    const contentType = response.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+      message = await response.json();
+    } else {
+      if (response.status === 404) {
+        message = `Endpoint ${url} not found`;
+      } else {
+        message = await response.text();
+      }
+    }
+
+    return {
+      status: response.status,
+      errorMessage: message,
+      endpoint: url,
+    };
+  }
+
+  /**
+   * Directly make an API request and return the data. Use this method if the API request needs
+   * to be run as part of an event handler and no other components subscribe to the request.
+   * Cache data will not be used or updated.
+   *
+   * @param {ApiRequestConfig} queryConfig Configuration of the API request.
+   */
+  static async getResponseData(queryConfig){
+
+    const authData = getLocalStorageDataIfPresent("authToken")?.access_token;
+
+    if (authData) {
+      if(queryConfig.headers){
+        queryConfig.headers["authToken"] = authData;
+      } else {
+        queryConfig.headers = {
+          "authToken": authData
+        };
+      }
+    }
+
+    try {
+
+      //The replace call is a workaround for an issue with url strings containing double quotes"
+      const response = await fetch(queryConfig.url.replace(/"/g, ""), {
+        method: queryConfig.method ?? ApiActionType.GET,
+        headers: queryConfig.headers,
+        body: queryConfig.body,
+      });
+
+      if (response.status !== 200) {
+        return await this.#getErrorData(response,queryConfig.url)
+      }
+
+      const contentType = response.headers.get("content-type");
+      if (contentType === "application/json") {
+        return await response.json();
+      }
+
+      //Clear cache because there was a likely data update.
+      if(queryConfig.method !== ApiActionType.GET){
+        console.log("Clearing response cache and other data in session storage");
+        clearSessionStorage();
+      }
+      return { status: 200 };
+
+    } catch (e) {
+      return {errorMessage:e.message};
+    }
+  }
+
+}
+
+/**
+ * Class to define a custom data store load action with direct control over any async calls that are made.
+ * It is intended for use when additional processing needs to be done after an async call, or if a store needs
+ * to combine data from multiple sources.
+ */
+class CustomLoadAction extends DataStoreLoadAction {
+
+  #loadFunction;
+
+  constructor(
+    loadFunction
+  ) {
+    super();
+    this.#loadFunction = loadFunction;
+  }
+
+  async fetch(params) {
+
+    return await this.#loadFunction(
+      params,
+    );
+  }
+
+}
+
+export { ApiLoadAction, BaseDynamicComponent, BaseTemplateComponent, CustomLoadAction, DataStore, DataStoreLoadAction, addLocalStorageData, clearSessionStorage, deleteLocalStoreData, getLocalStorageDataIfPresent };
+

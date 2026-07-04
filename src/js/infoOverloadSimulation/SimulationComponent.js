@@ -37,13 +37,14 @@ export default class SimulationComponent extends BaseDynamicComponent {
     shadowRoot.addEventListener("click", (event)=> {
       event.preventDefault(); 
       if (event.target.id === "start-button") {
-        SIMULATION_STORE.fetchData({});
+        SIMULATION_STORE.fetchData({
+          simulationRuns: 10
+        });
       }
     });
   }
    
   render(data) {  
-    console.log("Simulation data:"+data);
     return `
       <p>Successful: ${data.simulationData.finished}</p> 
       <p>Unfinished: ${data.simulationData.unfinished}</p>

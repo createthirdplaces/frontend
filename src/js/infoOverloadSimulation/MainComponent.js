@@ -1,5 +1,4 @@
 import {BaseDynamicComponent} from "../shared/lib/places-js-latest.js";
-
 import {SIMULATION_STORE} from "./Simulation.js";
 
 export default class MainComponent extends BaseDynamicComponent {
@@ -15,9 +14,13 @@ export default class MainComponent extends BaseDynamicComponent {
     const self = this;
     shadowRoot.addEventListener("click", (event)=> {
       event.preventDefault(); 
-      self.updateData({isLoading:true}); 
-      if (event.target.id === "start-button") {
-        SIMULATION_STORE.fetchData({});
+      
+      SIMULATION_STORE.fetchData({
+        simulationRuns:1000
+      });
+
+      if(!self.isLoading){
+        self.updateData({isLoading:true}); 
       }
     });
   }
