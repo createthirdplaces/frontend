@@ -3,8 +3,7 @@ export class LoadingIndicatorComponentGuide extends HTMLElement {
     this.innerHTML = `
   
       <p>Loading indicator component </p>
-      <base-code-display-component>
-export class LoadingIndicatorComponent extends HTMLElement {
+      <base-code-display-component>export class LoadingIndicatorComponent extends HTMLElement {
   constructor() {
     super();
     this.imagePath = this.getAttribute("image-path");

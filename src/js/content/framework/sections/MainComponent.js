@@ -67,9 +67,8 @@ export class MainComponent extends BaseDynamicComponent {
 
   render() {
 
-  const urlParams = new URLSearchParams(document.location.search);
-
-  return `
+    const urlParams = new URLSearchParams(document.location.search);
+    return `
     <div id="container">
 
       <details id="setup-instructions-component-details" ${urlParams.get("setup-instructions-component-details") ? "open" : ''}>
@@ -260,6 +259,7 @@ export class MainComponent extends BaseDynamicComponent {
 
         <p>Places.js uses synchronous publish subscribe code to make sure components have correct UI state. While there is some complexity from the fact that the components are coupled with state management logic, it reduces complexity by making the code easier to reason about. When there is a logic error in a places.js component, understanding how and when the component is updated helps address bugs. The synchronous updates also help when generating stack traces to give information about the cause of an error.</p>
 
+        <p>There are instances where adding an abstraction can make the framework less complex and easier to work with. However, people have a variety of work habits and web development experiences, which means people are going to see different levels of benefits from an abstraction. Also, some people may find that an abstraction will make the framework more complex. I think it is better for people to add their own abstractions that meet their needs. </p>
         <p>If multiple components are subscribed to the state, the components will be updated in the order that they were added to the DOM. As a result, parent components will always be updated before child components. If a parent component and a child component are subscribed to the same state, the child component will be temporarily unsubscribed from the state when the parent component re-renders. When the child component re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state and re-render.</p>
       </details> 
     

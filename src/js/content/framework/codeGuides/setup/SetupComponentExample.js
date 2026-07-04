@@ -13,7 +13,6 @@ import {
   generateSuccessMessage,
 } from "../shared/html/StatusIndicators.js";
 
-
 const API_ROOT = "http://localhost:7070"
 const ENTER_NAME_INPUT_ID = "enter-name-input-id";
 const ENTER_EMAIL_INPUT_ID = "enter-email-input-id";

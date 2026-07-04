@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Software Information</title>
+    <script defer fetchpriority="low" type="module">
+
+      import MainComponent from "/js/infoOverloadSimulation/MainComponent.js" 
+      import SimulationComponent from
+      "/js/infoOverloadSimulation/SimulationComponent.js";
+      customElements.define('main-component', MainComponent);
+      customElements.define('simulation-component', SimulationComponent);
+    </script>
+  </head>
+  <body>	
+      {{>navbar}}
+      <div class="container-xl">
+        <p>This is a simulation to show how information overload
+        can cause challenges with proccesing information. </p><main-component></main-component> 
+        
+        <br>
+        <p>Results are
+        likely to be an underestimate as factors including time needed to get into a flow
+        state is not considered.</p> 
+      </div>
+  <div id="bot-container"></div>
+  {{>footer}}
+
+  </body>
+</html>
