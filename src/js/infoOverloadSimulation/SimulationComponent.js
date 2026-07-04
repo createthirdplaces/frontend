@@ -43,9 +43,10 @@ export default class SimulationComponent extends BaseDynamicComponent {
   }
    
   render(data) {  
-    console.log(data);
+    console.log("Simulation data:"+data);
     return `
-      <p>Successful: ${data.simulationData}</p> 
+      <p>Successful: ${data.simulationData.finished}</p> 
+      <p>Unfinished: ${data.simulationData.unfinished}</p>
     `;
   }
 }
