@@ -11,16 +11,10 @@
     import {runGlobal} from "/js/globalProd.js";
 	  runGlobal(); 
 
-    export class DatabaseDesignComponent extends BaseDynamicComponent{
-
-      
+    export class DatabaseDesignComponent extends BaseDynamicComponent{      
       render(){
-
         const urlParams = new URLSearchParams(document.location.search);
-
-        return `
-     
-          `
+        return ``;
       }
     }
     customElements.define('database-design-component', DatabaseDesignComponent)

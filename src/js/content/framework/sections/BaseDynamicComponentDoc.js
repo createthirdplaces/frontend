@@ -56,8 +56,7 @@ export const LOADING_INDICATOR_CONFIG = {
     return \`<p>Loading</p>\`;
   },
   minTimeMs: 500,
-};
-              </base-code-display-component>
+};</base-code-display-component>
             </details>
             <details open="true">
               <summary>The loading component indicator can also be a web component with a custom image and 
@@ -80,15 +79,13 @@ attachHandlersToShadowRoot(shadowRoot) {
       LOGOUT_STORE.fetchData({}, LOGIN_STORE);
     }
   });
-}
-                </base-code-display-component>
+} </base-code-display-component>
               </details>
             </li>
             
             <li>
               <b>connectedCallback</b>: Standard web component lifecycle method. Use for initializing component state if it
-              does not rely on an external store. A component must be state before it is rendered.
-              <details open="true">
+              does not rely on an external store.               <details open="true">
                 <summary>Example</summary>
                   <base-code-display-component>
 connectedCallback() {
@@ -97,8 +94,7 @@ connectedCallback() {
     name: "",
     groupName: new URLSearchParams(document.location.search).get("name") ?? ""
   });
-}
-                  </base-code-display-component>
+}</base-code-display-component>
               </details>
             </li>
             

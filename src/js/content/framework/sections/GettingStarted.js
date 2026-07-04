@@ -24,8 +24,7 @@ export class GettingStarted extends HTMLElement {
     constructor(){
       super();
     }
-  
-  
+    
     getTemplateStyle() {
       //Template style goes here.
     }
@@ -34,7 +33,7 @@ export class GettingStarted extends HTMLElement {
       //HTML for the component goes here.
     }
   }
-  </script> </base-code-display-component> 
+</script> </base-code-display-component> 
             </li>
           </ul>
           <ul>
