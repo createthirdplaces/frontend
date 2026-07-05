@@ -7,172 +7,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script defer fetchpriority="low" type="module">
-
-    import {BaseTemplateComponent} from "../js/shared/lib/places-js-latest.js"
-    import {runGlobal} from "/js/globalProd.js";
-	  runGlobal(); 
-
-    export class SoftwareInformationComponent extends BaseTemplateComponent{
-
-      getTemplateStyle(){
-        return `
-          <link rel="stylesheet" href="/styles/sharedStyles.css" />
-          <style>
-          </style>
-        `
-      }
-      render(){
-
-				return `
-					`
-				}
-			}
-			customElements.define('software-information-component', SoftwareInformationComponent);
-			</script>
+      import {BaseTemplateComponent} from "../js/shared/lib/places-js-latest.js"
+      import {runGlobal} from "/js/globalProd.js";
+      runGlobal(); 
+		</script>
 			<title>Software Information</title>
-		</head>
-			<body>	
-				{{>navbar}}
-				<div class="container-xl" id="container">
-				<software-information-component></software-information-component>
-				<h1>Software Information</h1>
-						<p> Create Third 
-							Places is working on software will support the goal of promoting
-							in person interaction through third places.</p>
-			
-				<h2>Guidelines for new software</h2>
-				
-					<details>
-						<summary>Incremental change</summary>
-						
-						<p>Changes to software should be done as small incremental
-						changes instead of a few large updates. These changes allow for
-						feedback to be recieved more quickly. After each change, feedback
-						from users can be applied for future work. 
+	</head>
+    <body>	
+      {{>navbar}}
+      <div class="container-xl" id="article-text">
+      <h1>Software Information</h1>
+      <p> Create Third  Places is working on software will support the goal of promoting
+            in person interaction through third places.</p>
+    
+      <h2>Guidelines for new software</h2>
+     
+        <details>
+          <summary>Incremental change</summary>       
+          <p>Changes to software should be done as small incremental
+          changes instead of a few large updates. These changes allow for
+          feedback to be received more quickly. After each change, feedback
+          from users can be applied for future work. 
+        </details>
 
-					</details>
+        <details>
+          <summary>Minimize number of new features</summary>
+          <p>
+           While
+          text or email communication features can be useful, they will not be supported by Create Third Places. People should be encouraged
+          to meet new people in third places and then share contact information in person if they want to communicate
+          online.
+        </p>
+        <p>
+          Another example of a feature that will not be included is the ability to rate third places. Ratings
+          would take up space in the UI and be a distraction for some people. People are also unlikely to
+          take time to rate every third place they visit, and there are already existing sites where people rate third
+          places.
+          For example, on December 23rd, 2025 there were <a href="https://www.yelp.com/biz/dupont-circle-washington">
+            130 Yelp ratings for Dupont Circle in Washington DC</a>, which is far less than the
+          <a href="https://maps.app.goo.gl/3BG5VUad82ZXsLi28">1022 ratings on Google Maps.</a> Google Maps reviews for
+          DuPont Circle started being added more than 5 years ago, which would translate to 0 or 1 review posted
+          on an average day and most people do not submit Google Maps ratings.
+          DuPont Circle is an area of DC that receives a high amount of foot traffic, which averages
+          to far more than 1 person per day.
+        </p>
+        <p>
+          While ratings can also be a way for people to communicate preferences for a third place, it can also lead to
+          people rating a third place without having been there. Create Third Places encourages people to talk with people
+          they met in person to get and share feedback on third places. Also, adding a ratings feature will increase
+          complexity and increase the time necessary to test and maintain code.
+        </p>
+      </details>
+    
 
-					<details>
-						<summary>Minimize number of new features</summary>
-						<p>
-						 While
-						text or email communication features can be useful, they will not be supported by Create Third Places. People should be encouraged
-						to meet new people in third places and then share contact information in person if they want to communicate
-						online.
-					</p>
-					<p>
-						Another example of a feature that will not be included is the ability to rate third places. Ratings
-						would take up space in the UI and be a distraction for some people. People are also unlikely to
-						take time to rate every third place they visit, and there are already existing sites where people rate third
-						places.
-						For example, on December 23rd, 2025 there were <a href="https://www.yelp.com/biz/dupont-circle-washington">
-							130 Yelp ratings for Dupont Circle in Washington DC</a>, which is far less than the
-						<a href="https://maps.app.goo.gl/3BG5VUad82ZXsLi28">1022 ratings on Google Maps.</a> Google Maps reviews for
-						DuPont Circle started being added more than 5 years ago, which would translate to 0 or 1 review posted
-						on an average day and most people do not submit Google Maps ratings.
-						DuPont Circle is an area of DC that receives a high amount of foot traffic, which averages
-						to far more than 1 person per day.
-					</p>
-					<p>
-						While ratings can also be a way for people to communicate preferences for a third place, it can also lead to
-						people rating a third place without having been there. Create Third Places encourages people to talk with people
-						they met in person to get and share feedback on third places. Also, adding a ratings feature will increase
-						complexity and increase the time necessary to test and maintain code.
-					</p>
-				</details>
-			
+        <details>
+          <summary>No use of LLMs</summary>
+          
+          <p>Generative AI doesn't have defined bounds on functionality, and
+          can be used as a way to replace human interaction. Supporting human
+          interaction is a core value of Create Third Places, and this means
+          that human interaction should not be replaced.</p>
 
-					<details>
-						<summary>No use of generative AI, including chatbots</summary>
-						
-						<p>Generative AI doesn't have defined bounds on functionality, and
-						can be used as a way to replace human interaction. Supporting human
-						interaction is a core value of Create Third Places, and this means
-						that human interaciton should not be replaced.</p>
+          <p>Also, generative AI is typically used through large language
+          models(LLMs) which are very inefficient. LLMs make up for the
+          inefficiency by exploiting peoples' labor and causing environmental
+          problems.</p>
+        </details>
+    
+      <details>
+          <summary>Software has clearly defined bounds on
+            functionality</summary>
+          <p>Clearly defined bounds on functionality make it easier for users
+          to understand how to use the software. They also prevent software
+          from being misused.</p>
+        </details>
+  
 
-						<p>Also, generative AI is typically used through large language
-						models(LLMs) which are very inefficient. LLMs make up for the
-						ineffiicency by exploiting peoples' labor and causing enviornmental
-						problems.</p>
-					</details>
-			
-				<details>
-						<summary>Software has clearly defined bounds on
-							functionality</summary>
-						<p>Clearly defined bounds on functionality make it easier for users
-						to understand how to use the software. They also prevent software
-						from being misused.</p>
-					</details>
-		
+        <details>
+          <summary>Support making development accessible to more people</summary>
+          <p>Create Third Places encourages support for third places through
+          bottom-up action. To be consistent with this mission, software
+          will be open source and minimize complexity so that more people can
+          understand it. People will also be encouraged to modify the software
+          for their own public space advocacy initiatives.</p>
+        </details>
 
-					<details>
-						<summary>Support making development accessible to more people</summary>
-						<p>Create Third Places encourages support for third places through
-						bottom-up action. To be consitent with this mission, software
-						will be open source and minimize complexity so that more people can
-						understand it. People will also be encouraged to modify the software
-						for their own public space advocacy initiatives.</p>
-					</details>
-
-							<p>See the <a href="/tech/techStrategy.html">tech strategy</a> 
-							 page for more information on how software should be developed. </p>
+            <p>See the <a href="/tech/techStrategy.html">tech strategy</a> 
+             page for more information on how software should be developed. </p>
 
 
-			<h2>Software made by Create Third Places</h2>
+    <h2>Software made by Create Third Places</h2>
 
-						<ul>
-							<li>
-								<a href="https://codeberg.org/createthirdplaces/frontend">createthirdplaces.org</a> 
-									website. 
-									<a href="https://codeberg.org/createthirdplaces/frontend/pulls">Code contributions</a> are welcome.
-							</li>
-							<li><a href="/events/techOverview.html">Decentralized event hosting</a>: Create Third Places is currently
-								working on designing the architecture and creating a proof of concept that will use the DMV Board Games website
-								as a starting point.
-							</li>
-							<li><a href="/locationMapListing.html">Map listing</a>: A work in progress page with
-							the ability to create and edit a list of locations and have them displayed as points on a map.</li>
+          <ul>
+            <li>
+              <a href="https://codeberg.org/createthirdplaces/frontend">createthirdplaces.org</a> 
+                website. 
+                <a href="https://codeberg.org/createthirdplaces/frontend/pulls">Code contributions</a> are welcome.
+            </li>
+            <li><a href="/events/techOverview.html">Decentralized event hosting</a>: Create Third Places is currently
+              working on designing the architecture and creating a proof of concept that will use the DMV Board Games website
+              as a starting point.
+            </li>
+            <li><a href="/locationMapListing.html">Map listing</a>: A work in progress page with
+            the ability to create and edit a list of locations and have them displayed as points on a map.</li>
 
-							<li>
-								<a href="/tech/placesjs.html">Places.js</a>: Framework
-								for building websites promoting in person interaction. It is 
-								currently used for the website <a href="https://dmvboardgames.com/">
-								DMV Board Games</a>, a website for board game events in the DC
-								area. 
-							</li>
-						</ul>
-					
-						<p>Create Third Places also relies on third party open source software. Here are
-						the key open source software tools used by
-							Create Third Places. </p>
-						<ul>
-							<li><a href="https://github.com/docker">Docker</a></li>
-							<li><a href="https://openjdk.org/">OpenJDK</a></li>
-							<li><a href="https://www.postgresql.org/about/">PostgreSQL</a></li>
-							<li>
-								Hosting software
-								<ul>
+            <li>
+              <a href="/tech/placesjs.html">Places.js</a>: Framework
+              for building websites promoting in person interaction. It is 
+              currently used for the website <a href="https://dmvboardgames.com/">
+              DMV Board Games</a>, a website for board game events in the DC
+              area. 
+            </li>
+          </ul>
+        
+          <p>Create Third Places also relies on third party open source software. Here are
+          the key open source software tools used by
+            Create Third Places. </p>
+          <ul>
+            <li><a href="https://github.com/docker">Docker</a></li>
+            <li><a href="https://openjdk.org/">OpenJDK</a></li>
+            <li><a href="https://www.postgresql.org/about/">PostgreSQL</a></li>
+            <li>
+              Hosting software
+              <ul>
 
-									<li>
-										<a href="https://miraheze.org/">Miraheze</a>: Wiki hosting
-										with <a href="https://www.mediawiki.org/wiki/MediaWiki">Media Wiki</a>
-										</li>
-									<li>
-										<a href="https://codeberg.org/Codeberg">Source code hosting</a>
-										that uses <a href="https://codeberg.org/forgejo/forgejo">Forgejo</a>  
-									</li>
-									</li>
-								</ul>
-							</li>
+                <li>
+                  <a href="https://miraheze.org/">Miraheze</a>: Wiki hosting
+                  with <a href="https://www.mediawiki.org/wiki/MediaWiki">Media Wiki</a>
+                  </li>
+                <li>
+                  <a href="https://codeberg.org/Codeberg">Source code hosting</a>
+                  that uses <a href="https://codeberg.org/forgejo/forgejo">Forgejo</a>  
+                </li>
+                </li>
+              </ul>
+            </li>
 
 
-						</ul>
-						
-						<p>Create Third Places is looking for programming help. See the <a href="/contribute.html">contribute page</a> for more information.</p>
-				
-			</div>
-    <div id="bot-container"></div>
-    {{>footer}}
+          </ul>
+          
+          <p>Create Third Places is looking for programming help. See the <a href="/contribute.html">contribute page</a> for more information.</p>
+      
+    </div>
+  <div id="bot-container"></div>
+  {{>footer}}
 
   </body>
 </html>

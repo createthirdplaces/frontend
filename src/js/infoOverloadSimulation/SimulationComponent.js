@@ -6,23 +6,24 @@ const LOADING_INDICATOR_CONFIG = {
   generateLoadingIndicatorHtml: () => {
     return `<p>Loading</p>`;
   },
-  minTimeMs: 500,
+  minTimeMs: 1000,
 };
 
 export default class SimulationComponent extends BaseDynamicComponent {
 
   constructor() {
-    super([
-      {
-        componentReducer: (data)=>{
-          console.log("Simulation data:"+data);
-          return data;
-        },
-        dataStore: SIMULATION_STORE,
-        fieldName: "simulationData",
-        loadingIndicatorConfig:LOADING_INDICATOR_CONFIG
-      } 
-    ])
+    super(
+      [
+        {
+          componentReducer: (data)=>{
+            return data;
+          },
+          dataStore: SIMULATION_STORE,
+          fieldName: "simulationData",
+        } 
+      ],
+      LOADING_INDICATOR_CONFIG
+    );
   }
   
   getTemplateStyle(){

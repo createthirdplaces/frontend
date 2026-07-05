@@ -19,13 +19,15 @@ export default class MainComponent extends BaseDynamicComponent {
         simulationRuns:10000,
       });
 
-      if(!self.isLoading){
+      if(!self.componentStore.isLoading){
+        console.log("Updating");
         self.updateData({isLoading:true}); 
       }
     });
   }
    
   render(data) {  
+    console.log("Rendering main component");
     return `
       <button id="start-button">Start simulation</button>
       ${data.isLoading ? `<simulation-component>` : ``}

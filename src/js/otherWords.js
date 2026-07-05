@@ -180,5 +180,16 @@ export const otherWords = new Set([
   'wordpress',
   'webpages',
   'blog',
-  'nestl'
+  'nestl',
+  'forgejo',
+  'miraheze',
+  'openjdk',
+  'placesjs',
+  'denojs',
+  'nodejs',
+  'svelete',
+  'vuejs',
+  'mobx',
+  'nextjs',
+  'plugins'
 ]);
