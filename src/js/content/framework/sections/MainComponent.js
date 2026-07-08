@@ -39,19 +39,19 @@ export class MainComponent extends BaseDynamicComponent {
   getTemplateStyle() {
 
     return `
-      <style>
-        #container > details > summary {
-          font-weight: 600;
-        }
-        
+      <style>  
         #container > details[open] {
           border-bottom: 1px solid black;
-        }
-        
-        #guidelines-list li {
+        } 
+				#functions-details summary {
+					font-weight:600;
+				}
+				#guidelines-section summary {
+					font-weight:600;
+				}	
+				#guidelines-list li {
           margin-top:1rem;
-        }
-    
+        } 
         .summary-level-one {
           font-size:1.5rem;
           margin-top:1rem;
@@ -70,11 +70,7 @@ export class MainComponent extends BaseDynamicComponent {
     const urlParams = new URLSearchParams(document.location.search);
     return `
     <div id="container">
-
-      <details id="setup-instructions-component-details" ${urlParams.get("setup-instructions-component-details") ? "open" : ''}>
-        <summary class="summary-level-one">
-          Getting started
-        </summary>
+			<h2>Getting started</h2>
         <setup-instructions-component></setup-instructions-component>
       </details>
 
@@ -178,30 +174,13 @@ export class MainComponent extends BaseDynamicComponent {
          to be run as part of an event handler and no other components subscribe to the request.
          Cache data will not be used or updated. See DataStoreLoadConfig for more information about the parameters.</p>
       </details>
+		
+			<details id="guidelines-section">
+				<summary class="summary-level-one">Guidelines for using places.js</summary>
+			<guidelines-component></guidelines-component>
+			</details>
 
-      <h2>Examples</h2>
-
-      <a href="locationListingTutorial.html">Creating a location listing page with places.js</a>
-      <br>
-      <br>
-
-      <details id="example-details" ${urlParams.get("example-details") ? "open" : ''}>
-         <summary>Show/hide component</summary>
-        <show-hide-component-guide></show-hide-component-guide>
-      </details>
-
-
-      <details id="guidelines-details" ${urlParams.get("guidelines-details") ? "open" : ''}>
-          <summary class="summary-level-one">Guidelines for using places.js</summary>
-        <guidelines-component></guidelines-component>
-      </details>
-
-      <details id="framework-history-details" ${urlParams.get("framework-history-details") ? "open" : ''}>
-          <summary class="summary-level-one">Early history of places.js - Bharat Ponnaluri</summary>
-        <framework-history-component></framework-history-component>
-      </details>
-
-      <h2>Goals of places.js</h2>
+           <h2>Goals of places.js</h2>
 
         <details id="user-testing-and-feedback" ${urlParams.get("user-testing-and-feedback") ? "open" : ''}>
 
@@ -216,8 +195,7 @@ export class MainComponent extends BaseDynamicComponent {
           is mainly on the <a href="https://github.com/gatherspiel/backend">backend</a>, which includes comprehensive
           <a href="https://github.com/gatherspiel/backend/tree/main/src/test/java/app">database integration tests.</a></p>
 
-          <p>Also, places.js is designed to support open source projects. With open source projects, automated
-          UI testing code is also a publicly available set of instructions that someone could use to help create
+          <p>Also, places.js is designed to support open source projects. With open source projects, automated UI testing code is also a publicly available set of instructions that someone could use to help create
           an unauthorized scraper for a website.</p>
 
           <p>Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
@@ -291,7 +269,7 @@ export class MainComponent extends BaseDynamicComponent {
           be to split up the component and have each one of smaller components subscribed ot the state.
         </p>
       </details>
-      
+
       <details>
         <summary>HTML for a component is included inside the component's render method</summary>
 

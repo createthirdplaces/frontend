@@ -8,7 +8,7 @@ customElements.define('setup-html-example',SetupHtmlExample);
 export class GettingStarted extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
-      <details open>
+      <details>
         <summary>Installing framework</summary>
         
           <ul>
@@ -42,20 +42,22 @@ export class GettingStarted extends HTMLElement {
             </li>
           </ul>
       </details>
-      
-      Example of how to create a user feedback component
-
-      <details open>
-        <summary>HTML</summary>
+			<details>
+				<summary>Creating a show hide component</summary>
+        <show-hide-component-guide></show-hide-component-guide>
+			</details> 
+			<details>
+        <summary>Example of how to create a user feedback component</summary>
         <setup-html-example></setup-html-example>
-      </details>
-      
-      <details open>
         <summary>Places.js component</summary>
         <setup-component-example></setup-component-example>
+			 <a href="locationListingTutorial.html">Creating a location listing page with places.js</a>
       </details>
 
-    </details>
+
+
+			</details>
+
       
     `
   }
