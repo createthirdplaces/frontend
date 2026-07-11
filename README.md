@@ -1,7 +1,7 @@
 # Development notes for createthirdplaces.org
 
 This repo contains a .vimrc file with some useful settings for Vim editing.
-## Useful Vim notes for development
+## Useful notes for development
 
 ### Keyboard shortcuts
 - hjkl: Move cursor
