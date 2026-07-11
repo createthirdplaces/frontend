@@ -192,5 +192,7 @@ export const otherWords = new Set([
   'mobx',
   'nextjs',
   'plugins',
-  'hitpoint'
+  'hitpoint',
+  'laptops',
+  'snowcrete',
 ]);
