@@ -28,8 +28,8 @@ export class DataStoreDoc extends HTMLElement {
             <b>getStoreData</b>: Returns a read only reference to store data.
           </li>
           <li>
-            <b>isWaitingForData</b>: Returns false if the data in the store is null or undefined and is
-            not in a loading state. Otherwise, it returns false.
+            <b>hasLatestData</b>: Returns false if the data in the store is null or undefined and is
+            not in a loading state. Otherwise, it returns true.
           </li>
           <li>
             <b>updateStoreData(storeUpdates)</b>: Updates data in the store and trigger a render of components
