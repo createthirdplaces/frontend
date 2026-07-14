@@ -191,5 +191,8 @@ export const otherWords = new Set([
   'vuejs',
   'mobx',
   'nextjs',
-  'plugins'
+  'plugins',
+  'hitpoint',
+  'laptops',
+  'snowcrete',
 ]);
