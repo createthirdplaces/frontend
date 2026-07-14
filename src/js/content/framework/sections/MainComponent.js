@@ -76,6 +76,13 @@ export class MainComponent extends BaseDynamicComponent {
 
       <h2>Classes</h2>
 
+      <details id="api-load-action-details" ${urlParams.get("api-load-action-details") ? "open" : ''}>
+        <summary>
+          ApiLoadAction
+        </summary>
+        <api-load-action-doc></api-load-action-doc>
+      </details>
+
       <details id="base-dynamic-component-details" ${urlParams.get("base-dynamic-component-details") ? "open" : ''}>
         <summary>
           BaseDynamicComponent
@@ -90,25 +97,18 @@ export class MainComponent extends BaseDynamicComponent {
         <base-template-component-doc></base-template-component-doc>
       </details>
 
-      <details id="data-store-details" ${urlParams.get("data-store-details") ? "open" : ''}>
-        <summary>
-          DataStore
-        </summary>
-        <data-store-doc></data-store-doc>
-      </details>
-
-      <details id="api-load-action-details" ${urlParams.get("api-load-action-details") ? "open" : ''}>
-        <summary>
-          ApiLoadAction
-        </summary>
-        <api-load-action-doc></api-load-action-doc>
-      </details>
-
       <details id="custom-load-action-details" ${urlParams.get("custom-load-action-details") ? "open" : ''}>
         <summary>
           CustomLoadAction
         </summary>
         <custom-load-action-doc></custom-load-action-doc>
+      </details>
+
+      <details id="data-store-details" ${urlParams.get("data-store-details") ? "open" : ''}>
+        <summary>
+          DataStore
+        </summary>
+        <data-store-doc></data-store-doc>
       </details>
 
       <details id="data-store-load-action-details" ${urlParams.get("data-store-load-action-details") ? "open" : ''} >
@@ -218,15 +218,9 @@ export class MainComponent extends BaseDynamicComponent {
           straightforward as possible from a user perspective.</p>
       </details>
 
-
       <details id="no-gen-ai" ${urlParams.get("no-gen-ai") ? "open" : ''}>
-
-        <summary>Promote creating websites without the use of LLMs</summary>
-
-        <p>The documentation uses a places.js shadow DOM component and a couple of other measures to
-          make sure bots are less likely to be able to scrape the documentation. Places.js is also new, and
-          LLMs aren't likely to have a large amount of training data for the framework that they can
-          use.</p>
+        <summary>Promote websites from unauthorized bot scraping</summary>
+        <p>Places.js components use shadow DOM, which is harder for bots to scrape.</p>
       </details>
 
       <details>
