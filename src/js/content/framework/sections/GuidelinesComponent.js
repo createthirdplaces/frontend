@@ -103,21 +103,8 @@ export class GuidelinesComponent extends HTMLElement{
           </details>
           <p>The code display component is a places.js component to make sure styling is done in shadow DOM. This
           ensures that outside styles and the code syntax highlighting styles are applied to the correct areas.</p>
-       
-          <h3>Create your website a multi page application(MPA) instead of a single page application(SPA)</h3> 
-          <p>Places.js is
-          designed around support for an MPA. It has not been fully tested with a SPA. 
-          Second, it is very important for software projects to limit complexity in order to maximize long term 
-          maintainability, speed up development, and minimize the risk of bugs.
-          An MPA isolates complexity to a specific part of a website, which makes it easier to test and reason about
-          the effects of a change, while helping to reduce the complexity of change.</p>
-       
-          <h3>Maintain a simple component hierarchy and minimize nested components</h3> 
-          <p>As a general guideline, avoid having more
-          than 3 layers of nested places.js components. This will make it easier to understand and maintain code while
-          making sure the UI isn't complex. A simple UI will help users quickly accomplish a task.</p>
-      
-          <h3>Consider using standard web component when interactivity needs aren't complex</h3> 
+    
+<h3>Consider using standard web component when interactivity needs aren't complex</h3> 
 
           <p>
           For example, this documentation page is mostly HTML with standard web components. The main use of
@@ -160,11 +147,41 @@ export class GuidelinesComponent extends HTMLElement{
             RSVP status, show the status of the RSVP API call, and show an updated RSVP count is a good candidate
             for a places.js component.
           </li>
-          <h3>Make sure related HTML elements are contained within the same places.js component</h3>
+
+          <h3>Create your website a multi page application(MPA) instead of a single page application(SPA)</h3> 
+          <p>Places.js is
+          designed around support for an MPA. It has not been fully tested with a SPA. 
+          Second, it is very important for software projects to limit complexity in order to maximize long term 
+          maintainability, speed up development, and minimize the risk of bugs.
+          An MPA isolates complexity to a specific part of a website, which makes it easier to test and reason about
+          the effects of a change, while helping to reduce the complexity of change.</p>
+     
+<h3>Don’t use Places.js components for data that should be visible to search engines</h3>
           
-          <p>A large number of places.js components will likely cause unnecessary complexity and could
-              cause rendering speed to be noticeable slower. If there is a reason for to related HTML elements to be
-              in separate components, they can be in separate standard web components inside a places.js component.
+          <p>Search engine crawlers that look at webpages for search rankings have difficulty processing JavaScript.
+           Also, Places.js components have been intentionally designed to not be easily understood by automated traffic.
+         </p>
+         
+        <p>Places.js supports rendering pages with a combination of static HTML and islands of interactivity. Content that should be visible to search engines should be rendered as static HTML.</p>
+         
+         <p>Places.js is also designed content that support in person interaction, and this means being designed for
+          human users. One part of this is encouraging people to share site information by word of mouth.</p>
+          
+          <p>A site that is easily discovered through an online search will attract more traffic from bots and people 
+          who are online. Traffic from bots and people not looking to interact in person will incentivize site owners to 
+          prioritize bots and people browsing, and disincentivize features that promote in person interaction.</p>
+
+
+
+          <h3>Maintain a simple component hierarchy and minimize nested components</h3> 
+          <p>As a general guideline, avoid having more
+          than 3 layers of nested places.js components. This will make it easier to understand and maintain code while
+          making sure the UI isn't complex. A simple UI will help users quickly accomplish a task.</p>
+      
+                    <h3>Make sure related HTML elements are contained within the same places.js component</h3>
+          
+          <p>A large number of places.js components will cause unnecessary complexity. If there is a reason for to related HTML elements to be
+              in separate components, they can be in separate standard web components inside a Places.js component.
                        Also, separating HTML elements that should be related such as label for an input will cause accessibility 
               challenges. See these links for more information.
           </p>    
@@ -175,22 +192,8 @@ export class GuidelinesComponent extends HTMLElement{
             <li><a href="https://alice.pages.igalia.com/blog/how-shadow-dom-and-accessibility-are-in-conflict/">
               How Shadow DOM and accessibility are in conflict</a></li>
         </ul>
-          
-     
-        <h3>Don’t use places.js components if search engine optimization(SEO) is important</h3>
-          
-          <p>Search engine crawlers that look at webpages for search rankings have difficulty processing JavaScript.
-           Also, places.js components have been intentionally designed to not be easily understood by automated traffic.
-         </p>
-         <p>Places.js is also designed for sites that support in person interaction, and this means being designed for
-          human user. One part of this is encouraging people to share site information by word of mouth. Having poor SEO
-          will incentivize website creators to focus on word of mouth to promote their website.</p>
-          
-          <p>A site that is easily discovered through an online search will attract more traffic from bots and people 
-          who are online. Traffic from bots and people not looking to interact in person will incentivize site owners to 
-          prioritize bots and people browsing, and disincentivize features that promote in person interaction.</p>
-
-
+           
+        
         </ol>
     `
   }
