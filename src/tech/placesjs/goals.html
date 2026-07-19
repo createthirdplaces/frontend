@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <style>
+        body {
+					background-image:none;
+				}
+				h2 {
+            margin-top:1rem;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Places.js framework goals</title>
+  </head>
+  <body>
+
+    {{>navbar}}
+		{{>places-js-navbar}}
+    <div id="container" class="container-xl section-div">
+      <h2>Design notes</h2>
+
+
+<h2>Goals of places.js</h2>
+
+        <details open>
+
+          <summary>Encourage human user testing and feedback</summary>
+
+          <p>Human user testing is helpful for subjective criteria
+          such as usability that cannot be tested with automation. Places.js is designed around the idea that complexity
+          on the frontend is minimized, while the backend has most of the complexity. Minimizing complexity on the frontend
+          will help make sure that UI testing can focus on subjective criteria that is relevant for a user. Most of the
+          testing for places.js has been done through manual testing of a local dmvboardgames.com instance. Complexity for
+          dmvboardgames.com
+          is mainly on the <a href="https://github.com/gatherspiel/backend">backend</a>, which includes comprehensive
+          <a href="https://github.com/gatherspiel/backend/tree/main/src/test/java/app">database integration tests.</a></p>
+
+          <p>Also, places.js is designed to support open source projects. With open source projects, automated UI testing code is also a publicly available set of instructions that someone could use to help create
+          an unauthorized scraper for a website.</p>
+
+          <p>Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
+            content. This increases the complexity of writing automated UI tests. On the other hand, places.js is also has
+            support for asynchronous data fetching from a backend API, and automated testing efforts should be focused there.
+            API endpoints used by places.js should have clearly defined correct behavior not defined by subjective criteria,
+            and they should be covered by automated testing.</p>
+
+          <p>Any automated testing on UI code should be unit tests or integration tests with the backend. These
+          types of tests can be written with clearly defined success criteria that is the same for every user.Automated
+          UI testing is also testing the behavior of a UI, and cannot test subjective such as determining if a button
+          is not too big, or whether a particular shade of blue is helpful for users. </p>
+      </details>
+
+      <details open>
+        <summary>Prioritize usability</summary>
+        <p>Places.js supports developers to make websites that are as
+          straightforward as possible from a user perspective.</p>
+      </details>
+
+      <details open>
+        <summary>Promote websites from unauthorized bot scraping</summary>
+        <p>Places.js components use shadow DOM, which is harder for bots to scrape.</p>
+      </details>
+
+      <details>
+        <summary>UI state that is easy to reason about</summary>
+
+        <p>Code should be understandable by people familiar with CSS, HTML, and JavaScript without having to spend a long time learning about framework specific abstractions. This means developers can spend more time learning about what users are looking for and improving quality.</p>
+
+        <p>Places.js uses synchronous publish subscribe code to make sure components have correct UI state. While there is some complexity from the fact that the components are coupled with state management logic, it reduces complexity by making the code easier to reason about. When there is a logic error in a places.js component, understanding how and when the component is updated helps address bugs. The synchronous updates also help when generating stack traces to give information about the cause of an error.</p>
+
+        <p>There are instances where adding an abstraction can make the framework less complex and easier to work with. However, people have a variety of work habits and web development experiences, which means people are going to see different levels of benefits from an abstraction. Also, some people may find that an abstraction will make the framework more complex. I think it is better for people to add their own abstractions that meet their needs. </p>
+        <p>If multiple components are subscribed to the state, the components will be updated in the order that they were added to the DOM. As a result, parent components will always be updated before child components. If a parent component and a child component are subscribed to the same state, the child component will be temporarily unsubscribed from the state when the parent component re-renders. When the child component re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state and re-render.</p>
+      </details> 
+    
+
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+
+  </body>
+</html>

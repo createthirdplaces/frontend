@@ -1,4 +1,4 @@
-import {HtmlCodeDisplayComponent} from "../shared/HtmlCodeDisplayComponent.js";
+import {HtmlCodeDisplayComponent} from "/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js";
 
 export class VanillaJsClickResizeExample extends HtmlCodeDisplayComponent {
   getCode(){

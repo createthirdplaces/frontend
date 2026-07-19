@@ -1,4 +1,4 @@
-import {AddItemsGuide} from "./codeComponents/AddItemsGuide.js";
+import {AddItemsGuide} from "/tech/placesjs/guides/tutorial/AddItemsGuide.js";
 
 customElements.define('add-items-guide',AddItemsGuide);
 

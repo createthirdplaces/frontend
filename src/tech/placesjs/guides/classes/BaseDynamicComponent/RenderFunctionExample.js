@@ -1,5 +1,4 @@
-
-import {HtmlCodeDisplayComponent} from "../shared/HtmlCodeDisplayComponent.js";
+import {HtmlCodeDisplayComponent} from "/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js";
 export class RenderFunctionExample extends HtmlCodeDisplayComponent {
   getCode(){
     return `render(userData) {

@@ -1,5 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <style>
+        body {
+					background-image:none;
+				}
+				h2 {
+            margin-top:1rem;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>places.js framework documentation</title>
+    <script type="module">
+      import {BaseCodeDisplayComponent} from
+      '/js/content/framework/codeGuides/shared/BaseCodeDisplayComponent.js'
+      import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+      import {ShowHideComponentGuide} from "/tech/placesjs/guides/ShowHideComponentGuide.js";      
+      
+      class ExampleOne extends HTMLElement {
+        connectedCallback(){
+          this.innerHTML = `
+        <base-code-display-component>
+  import {BaseDynamicComponent} from "./places-js-latest.js";
+                         
+  class MainComponent extends BaseDynamicComponent {
+  
+    constructor(){
+      super();
+    }
+    
+    getTemplateStyle() {
+      //Template style goes here.
+    }
+  
+    render(componentState) {
+      //HTML for the component goes here.
+    }
+  }`
+        }
+      }
 
-import {HtmlCodeDisplayComponent} from "../shared/HtmlCodeDisplayComponent.js";
 export class SetupComponentExample extends HtmlCodeDisplayComponent {
   getCode(){
     return `import {
@@ -217,3 +259,52 @@ export class FeedbackComponent extends BaseDynamicComponent {
 }  `
   }
 }
+
+      customElements.define("example-one",ExampleOne);
+      customElements.define("base-code-display-component",BaseCodeDisplayComponent);
+customElements.define("show-hide-component-guide",ShowHideComponentGuide);
+customElements.define("setup-component-example",SetupComponentExample);
+    </script>
+  </head>
+  <body>
+
+    {{>navbar}}
+		{{>places-js-navbar}}
+    <div id="container" class="container-xl section-div">
+      <h2>Design notes</h2>
+
+      <details open>
+        <summary>Installing framework</summary>
+        
+          
+        <ul>
+            <li>Download the latest build <a href="https://github.com/gatherspiel/places-js/blob/main/places-js-latest-min.js">here.</a></li>
+            <li>Create a module type script in your page HTML.
+              <details open>
+                <summary>Example</summary>
+                <example-one></example-one> 
+            </li>
+          </ul>
+          <ul>
+            <li>
+              places-js can also be installed using npm with: <pre>npm install @bponnaluri/places-js</pre>
+            </li>
+          </ul>
+      </details>
+			<details open>
+				<summary>Creating a show hide component</summary>
+        <show-hide-component-guide></show-hide-component-guide>
+			</details> 
+			<details>
+        <summary>Example of how to create a user feedback component</summary>
+        <setup-html-example></setup-html-example>
+        <summary>Places.js component</summary>
+        <setup-component-example></setup-component-example>
+			</details>
+      <a href="locationListingTutorial">Creating a location listing page with places.js</a>
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+
+  </body>
+</html>
