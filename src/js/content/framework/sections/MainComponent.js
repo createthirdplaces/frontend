@@ -234,46 +234,7 @@ export class MainComponent extends BaseDynamicComponent {
         <p>If multiple components are subscribed to the state, the components will be updated in the order that they were added to the DOM. As a result, parent components will always be updated before child components. If a parent component and a child component are subscribed to the same state, the child component will be temporarily unsubscribed from the state when the parent component re-renders. When the child component re-renders, it will then subscribe again to the shared state. Then, it will synchronously read the shared state and re-render.</p>
       </details> 
     
-      <h2>Notes about design decisions</h2>
-
-      <details id="render-entire-component" ${urlParams.get("render-entire-component") ? "open" : ''}>
-
-        <summary>Entire component will be re-rendered when its state changes</summary>
-
-        <p>Re-rendering a component for every state change does have some performance overhead.
-          However, the performance overhead does come with the benefit of making cde easier to reason about.
-          One possible way of optimising rendering is by using virtual DOM diffing. While virtual
-          DOM diffing is likely to make re-rendering of places.js components faster, it does have costs. If a site made with
-          places.js is complex enough to the point where it is slow, then optimizing with virtual DOM isn’t going to fix
-          underlying issues with UI complexity or an architecture that should be updated.
-        </p>
-        <p>
-          Virtual dom diffing would add complexity to places.js, which would make the framework significantly harder
-          to test and increase the risk of bugs. Also, virtual dom diffing introduces a layer of complexity that makes
-          it harder to reason about updates that are being made. When a places.js component is updated, all
-          the DOM within the component is re-rendered.
-        </p>
-        <p>
-          <a href="https://krausest.github.io/js-framework-benchmark/">Performance benchmarks</a> comparing the React and
-          Solid JS libraries indicate the React is significantly slower. React uses virtual DOM, and Solid does not.
-          Both libraries are also designed for interactive component based UIs.
-        </p>
-        <p>
-          If an entire UI component should not re-render every time there is a state change, one alternative could
-          be to split up the component and have each one of smaller components subscribed ot the state.
-        </p>
-      </details>
-
-      <details>
-        <summary>HTML for a component is included inside the component's render method</summary>
-
-        <p>This helps keep the HTML organized while making it easier to find HTML for a component. Also, it ensures that child components are always instantiated after parent components. This ordering of instantiation makes rendering more predictable and reduces the change of bugs. Having all the HTML in one file with the component instances having logic will add complexity and contribute to bugs.</p>
-       
-        <p>Templating will also be necessary. This is likely to increase complexity from a user perspective to address certain use cases and debug issues. With the existing way of adding HTML with the framework, one can rely on knowledge of JS and HTML without needing to learn templating syntax and troubleshooting will be more straightforward. 
-        </p>
-        <p>Places.js components are Web Components, which are <a href="https://gomakethings.com/articles/what-order-do-web-components-instantiate-in/">instantiated in the order that their customElements.define() methods are called. Having to remember to put customElement.define() methods in a specific order is additional overhead. Also, there could be a case where an instance of component A is a parent component for component B, and the reverse is true on the same page.</p>
-    
-
+      
     </div>   
   `
   }
