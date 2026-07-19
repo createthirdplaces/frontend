@@ -1,5 +1,5 @@
-import {GetTemplateStyleExampleComponent} from "../codeGuides/baseDynamicComponent/GetTemplateStyleExampleComponent.js";
-import {RenderFunctionExample} from "../codeGuides/baseDynamicComponent/RenderFunctionExample.js";
+import {GetTemplateStyleExampleComponent} from "/tech/placesjs/guides/classes/BaseDynamicComponent/GetTemplateStyleExampleComponent.js";
+import {RenderFunctionExample} from "/tech/placesjs/guides/classes/BaseDynamicComponent/RenderFunctionExample.js";
 
 customElements.define('get-template-style-example-component',GetTemplateStyleExampleComponent);
 customElements.define('render-function-example',RenderFunctionExample);

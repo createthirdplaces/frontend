@@ -4,7 +4,6 @@ import {BaseDynamicComponent} from "../../../shared/lib/places-js-latest.js";
 
 customElements.define('setup-component-example',SetupComponentExample);
 customElements.define('setup-html-example',SetupHtmlExample);
-
 export class GettingStarted extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
