@@ -56,7 +56,10 @@
        
         <p>Templating will also be necessary. This is likely to increase complexity from a user perspective to address certain use cases and debug issues. With the existing way of adding HTML with the framework, one can rely on knowledge of JS and HTML without needing to learn templating syntax and troubleshooting will be more straightforward. 
         </p>
-        <p>Places.js components are Web Components, which are <a href="https://gomakethings.com/articles/what-order-do-web-components-instantiate-in/">instantiated in the order that their customElements.define() methods are called. Having to remember to put customElement.define() methods in a specific order is additional overhead. Also, there could be a case where an instance of component A is a parent component for component B, and the reverse is true on the same page.</p>
+        <p>Places.js components are Web Components, which are <a
+          href="https://gomakethings.com/articles/what-order-do-web-components-instantiate-in/">instantiated
+          in the order that their customElements.define() methods are
+          called.</a> Having to remember to put customElement.define() methods in a specific order is additional overhead. Also, there could be a case where an instance of component A is a parent component for component B, and the reverse is true on the same page.</p>
     
 
 

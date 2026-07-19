@@ -50,7 +50,11 @@ const buildConfig = {
         toasterTrouble: resolve(__dirname, "src/toasterTrouble.html"),
         wordCardGenerator: resolve(__dirname, "src/wordCardGenerator.html"),
 
-
+        gettingStarted: resolve(__dirname, "src/tech/placesjs/gettingStarted.html"),
+        designNotes: resolve(__dirname, "src/tech/placesjs/designNotes.html"),
+        goals: resolve(__dirname, "src/tech/placesjs/goals.html"),
+        reference: resolve(__dirname, "src/tech/placesjs/reference.html"),
+        tips: resolve(__dirname, "src/tech/placesjs/tips.html"),
       },
     },
   },
