@@ -1,4 +1,4 @@
-import {HtmlCodeDisplayComponent} from "../shared/HtmlCodeDisplayComponent.js";
+import {HtmlCodeDisplayComponent} from "/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent";
 
 export class AttributePassingExample extends HtmlCodeDisplayComponent {
   getCode(){
