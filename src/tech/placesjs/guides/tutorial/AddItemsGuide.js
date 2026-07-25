@@ -2,9 +2,10 @@ import {HtmlCodeDisplayComponent} from "/js/content/framework/codeGuides/shared/
 
 export class AddItemsGuide extends HtmlCodeDisplayComponent{
   getCode(){
-    return ` attachHandlersToShadowRoot(shadowRoot){
-  const self = this;
-  shadowRoot.addEventListener("click",(event)=>{
+    return `connectedCallback(){
+  this.updateData({})
+  const self = this; 
+  this.addEventListener("click",(event)=>{
     if(event.target.id === 'add-board-location'){
       let locationData = [];
       if(self.componentStore.locations){
