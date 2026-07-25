@@ -45,7 +45,7 @@
     <div id="container" class="container-xl section-div">
       <h2>Reference</h2>
 
-      <h2>Classes</h2>
+      <h3>Classes</h3>
 
       <details id="api-load-action-details">
         <summary>
@@ -82,22 +82,7 @@
         <data-store-doc></data-store-doc>
       </details>
 
-      <details id="data-store-load-action-details" >
-        <summary>
-          DataStoreLoadAction
-        </summary>
-        <p>Defines an action used to load data into a store. Places.js includes two classes used for 
-        load actions, ApiLoadAction, and CustomLoadAction.</p>
-      </details>
-
-      <h2>Objects</h2>
-
-      <details id="api-action-type-details" >
-        <summary>
-          ApiActionType
-        </summary>
-        <p>Stores string representations for DELETE, GET, POST, and PUT API actions. </p>
-      </details>
+      <h3>Objects</h3>
 
       <details id="data-store-load-config-details">
         <summary>
@@ -123,28 +108,6 @@
           </ul>
         </div>
       </details>
-
-      <details id="functions-details" >
-        <summary class="summary-level-one">Functions</summary>
-        <h3>clearSessionStorage()</h3>
-
-        <p>Clears GET API request cache and other data in session storage.</p>
-
-        <h3>addLocalStorageData()</h3>
-        <p>Adds data to session storage for use. The access token
-          data stored with the field "accessToken will be used in API requests.</p>
-
-        <h3>deleteLocalStorageData(key)</h3>
-        <p>Deletes data from local storage.</p>
-
-        <h3>getLocalStorageDataIfPresent(key)</h3>
-        <p>Retrieves data from local storage if present.</p>
-
-        <h3>getResponseData(dataStoreLoadConfigInfo)</h3>
-        <p>Static asynchronous method to fetch data from an API. Use this method if the API request needs
-         to be run as part of an event handler and no other components subscribe to the request.
-         Cache data will not be used or updated. See DataStoreLoadConfig for more information about the parameters.</p>
-      </details>    
 
     </div>
     <div id="bot-container"></div>

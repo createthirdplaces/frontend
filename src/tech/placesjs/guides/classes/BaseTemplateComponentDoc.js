@@ -1,9 +1,7 @@
 export class BaseTemplateComponentDoc extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
-      <p>Base class for rendering a component using the shadow DOM without places.js state management. It
-      extends the HTMLElement class used by 
-        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">web components.</a><a href="https://codeberg.org/createthirdplaces/frontend/src/branch/main/src/js/content/framework/codeGuides/shared/BaseCodeDisplayComponent.js">Here is example</a> of a BaseTemplateComponent object used to display code with syntax highlighting.</a>
+      <p>Base class for rendering a component using the shadow DOM. Custom BaseDyanamicComponent instances can be nested inside a BaseTemplateComponent. <a href="https://codeberg.org/createthirdplaces/frontend/src/branch/main/src/js/content/framework/codeGuides/shared/BaseCodeDisplayComponent.js"> Here is an example</a> of a BaseTemplateComponent object used to display code with syntax highlighting.</a>
       <h4>Functions </h4>
       <ul>
         <li>

@@ -28,11 +28,11 @@
       class GuidelinesComponent extends HTMLElement {
         connectedCallback(){
           this.innerHTML = `
-        <h3>Before using places.js, think carefully about your use case and how the framework will help</h3>        
+        <h3>Before using Places.js, think carefully about your use case and how the framework will help</h3>        
           <p>
-          Using places.js 
+          Using Places.js 
           over vanilla JavaScript will add complexity in instances such as creating a basic show hide component or an 
-          image hover component. If you are unsure about using places.js, try experimenting it on a new project or a 
+          image hover component. If you are unsure about using Places.js, try experimenting it on a new project or a 
           small part of an existing project.
           </p>
           <p>
@@ -45,11 +45,11 @@
           <p>
           As a general rule, one should make sure to minimize the amount of complexity
           and dependencies. Sometimes, this means using HTML on certain pages or going with a solution that does not 
-          involve tech. For example, places.js could theoretically be used for a coin flipping application 
+          involve tech. For example, Places.js could theoretically be used for a coin flipping application 
           to randomly pick the start player for a 2 player board game. However, if one of the players has a physical coin, that
           could be used instead.
           </p>
-          Web components including places.js components can also have attributes passed to them. 
+          Web components including Places.js components can also have attributes passed to them. 
                     
           <details>
             <summary><b>Example of passing data using attributes</b></summary>
@@ -103,33 +103,13 @@
 }</base-code-display-component>
           </details>
          
-          <details>
-            <summary><b>Example of passing data to web component through DOM</b>
-            </summary>
-             base-code-display-component is a static places.js
-            component used to display code and use the highlight.js library for syntax highlighting.
-<base-code-display-component>
-<base-code-display-component>
-  function getCitiesQueryConfig() {
-    return {
-      url: API_ROOT + "/listCities?area=dmv",
-    };
-  }
-  
-  export const CITY_LIST_STORE = new DataStore(
-   new ApiLoadAction(getCitiesQueryConfig),
-  );
-</base-code-display-component>
-</base-code-display-component>
-          </details>
-          <p>The code display component is a places.js component to make sure styling is done in shadow DOM. This
-          ensures that outside styles and the code syntax highlighting styles are applied to the correct areas.</p>
-    
+                  
 <h3>Consider using standard web component when interactivity needs aren't complex</h3> 
 
           <p>
           For example, this documentation page is mostly HTML with standard web components. The main use of
-          places.js on this documentation page is to create components to show code examples. Places.js
+          Places.js on this documentation page is to create components to show
+          code examples. Places.js
           components are used to make sure the code examples are inside shadow DOM. This ensures a separation
           between syntax highlighting styles and the styles for the rest of the page, and it makes sure that
           CSS inside example code style tags doesn't affect outside styling.Also, standard web
@@ -167,7 +147,7 @@
             RSVP status, show the status of the RSVP API call, and show an updated RSVP count is a good candidate
             for a places.js component.
           </li>
-
+          </br>
           <h3>Create your website a multi page application(MPA) instead of a single page application(SPA)</h3> 
           <p>Places.js is
           designed around support for an MPA. It has not been fully tested with a SPA. 
@@ -176,39 +156,20 @@
           An MPA isolates complexity to a specific part of a website, which makes it easier to test and reason about
           the effects of a change, while helping to reduce the complexity of change.</p>
      
-<h3>Don’t use Places.js components for data that should be visible to search engines</h3>
-          
-          <p>Search engine crawlers that look at webpages for search rankings have difficulty processing JavaScript.
-           Also, Places.js components have been intentionally designed to not be easily understood by automated traffic.
-         </p>
-         
-        <p>Places.js supports rendering pages with a combination of static HTML and islands of interactivity. Content that should be visible to search engines should be rendered as static HTML.</p>
-         
-         <p>Places.js is also designed content that support in person interaction, and this means being designed for
-          human users. One part of this is encouraging people to share site information by word of mouth.</p>
-          
-          <p>A site that is easily discovered through an online search will attract more traffic from bots and people 
-          who are online. Traffic from bots and people not looking to interact in person will incentivize site owners to 
-          prioritize bots and people browsing, and disincentivize features that promote in person interaction.</p>
-
-
 
           <h3>Maintain a simple component hierarchy and minimize nested components</h3> 
           <p>As a general guideline, avoid having more
           than 3 layers of nested places.js components. This will make it easier to understand and maintain code while
           making sure the UI isn't complex. A simple UI will help users quickly accomplish a task.</p>
       
-                    <h3>Make sure related HTML elements are contained within the same places.js component</h3>
+          <h3>If shadow DOM is used, make sure related elements are inside the
+          same shadow root </h3>
           
-          <p>A large number of places.js components will cause unnecessary complexity. If there is a reason for to related HTML elements to be
-              in separate components, they can be in separate standard web components inside a Places.js component.
-                       Also, separating HTML elements that should be related such as label for an input will cause accessibility 
-              challenges. See these links for more information.
+          <p>Separating HTML elements that should be related such as label for an input will cause accessibility 
+              challenges. See this link for more information.
           </p>    
    
           <ul>
-            <li><a href="https://nolanlawson.com/2022/11/28/shadow-dom-and-accessibility-the-trouble-with-aria/">
-              Shadow DOM and accessibility, the trouble with ARIA</a></li>
             <li><a href="https://alice.pages.igalia.com/blog/how-shadow-dom-and-accessibility-are-in-conflict/">
               How Shadow DOM and accessibility are in conflict</a></li>
         </ul>
@@ -231,7 +192,7 @@
     {{>navbar}}
 		{{>places-js-navbar}}
     <div id="container" class="container-xl section-div">
-      <h2>Tips</h2>
+      <h2>Tips for using Places.js</h2>
       <guidelines-component></guidelines-component>
 
     </div>
