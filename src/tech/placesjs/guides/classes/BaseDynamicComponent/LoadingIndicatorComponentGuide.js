@@ -1,6 +1,11 @@
-export class LoadingIndicatorComponentGuide extends HTMLElement {
+import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+import {BaseCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/BaseCodeDisplayComponent.js'
+
+//customElements.define('base-code-display-component',BaseCodeDisplayComponent);
+
+export class LoadingIndicatorComponentGuide extends HtmlCodeDisplayComponent {
   connectedCallback(){
-    this.innerHTML = `
+    this.innerHTML =  `
   
       <p>Loading indicator component </p>
       <base-code-display-component>export class LoadingIndicatorComponent extends HTMLElement {
@@ -109,25 +114,25 @@ export class LoadingIndicatorComponentGuide extends HTMLElement {
       templateStyle + \`
         <div class="loader">
           <div class="meeple" id="meeple-one">
-            <img src="${this.imagePath}">
+            <img src="\${this.imagePath}">
           </div>
           <div class="meeple"  id="meeple-two">
-            <img src="${this.imagePath}">
+            <img src="\${this.imagePath}">
           </div>
           <div class="meeple"  id="meeple-three">
-            <img src="${this.imagePath}">
+            <img src="\${this.imagePath}">
           </div>
           <div class="meeple"  id="meeple-four" >
-            <img src="${this.imagePath}">
+            <img src="\${this.imagePath}">
           </div>
           <div class="meeple"  id="meeple-five" >
-            <img src="${this.imagePath}">
+            <img src="\${this.imagePath}">
           </div>
           <div class="meeple"  id="meeple-six" >
-            <img src="${this.imagePath}">
+            <img src="\${this.imagePath}">
           </div>
           <div class="meeple"  id="meeple-seven" >
-            <img src="${this.imagePath}">
+            <img src="\${this.imagePath}">
           </div>
         </div>
     \`;
@@ -154,7 +159,7 @@ export const LOADING_INDICATOR_CONFIG = {
   minTimeMs: 500,
 }; </base-code-display-component>    
 <p>
-  <a href="https://github.com/gatherspiel/DMVBoardGames/blob/2fa2454ed688a942cb880268de606dfa7a6ad7d5/src/ui/list/EventListComponent.js">
+  <a href=""https://codeberg.org/createthirdplaces/DMVBoardGames/src/branch/main/src/ui/list/EventListComponent.js>
     Here
   </a> is an example of how this configuration can be applied to a component.
 </p>

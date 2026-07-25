@@ -9,20 +9,20 @@ export class CreateListGuideComponent extends HTMLElement {
       <details open>
         <summary>Add button with event handler.</summary>
           <base-code-display-component>
-          
-attachHandlersToShadowRoot(shadowRoot){
-  shadowRoot.addEventListener("click",(event)=>{
-    if(event.target.id === 'add-board-location'){
-      console.log("A board location should be added");
-    }
-  })
-}          
-
-render(){
-  return \`
-    <h1>Listing component</h1>
-    <button id="add-board-location">Add board location</button>
-  \`
+class ListingComponent extends BaseDynamicComponent{
+  connectedCallback(){
+    this.updateData({});
+    this.addEventListener("click",(event)=>{
+      if(event.target.id === 'add-board-location'){
+        console.log("A board location should be added");
+      }
+    })
+  }          
+  render(){
+     return \`
+      <h1>Listing component</h1>
+      <button id="add-board-location">Add board location</button>\`
+  }
 }</base-code-display-component>
     </details>
 

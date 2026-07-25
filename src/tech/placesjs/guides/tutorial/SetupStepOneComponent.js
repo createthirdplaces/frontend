@@ -11,9 +11,6 @@ export class SetupStepOneComponent extends HtmlCodeDisplayComponent {
   <script type="module">
     //Add minified places.js code here.
     class ListingComponent extends BaseDynamicComponent{
-      getTemplateStyle() {
-        return \`<style></style>\`
-      }
       connectedCallback(){
         this.updateData({});
       }

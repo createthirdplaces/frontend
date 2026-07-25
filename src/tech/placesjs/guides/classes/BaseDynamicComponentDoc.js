@@ -1,7 +1,11 @@
 import {GetTemplateStyleExampleComponent} from "/tech/placesjs/guides/classes/BaseDynamicComponent/GetTemplateStyleExampleComponent.js";
 import {RenderFunctionExample} from "/tech/placesjs/guides/classes/BaseDynamicComponent/RenderFunctionExample.js";
 
+import {LoadingIndicatorComponentGuide} from "/tech/placesjs/guides/classes/BaseDynamicComponent/LoadingIndicatorComponentGuide.js";
+
+
 customElements.define('get-template-style-example-component',GetTemplateStyleExampleComponent);
+customElements.define('loading-indicator-component-guide',LoadingIndicatorComponentGuide);
 customElements.define('render-function-example',RenderFunctionExample);
 
 export class BaseDynamicComponentDoc extends HTMLElement {
@@ -9,8 +13,7 @@ export class BaseDynamicComponentDoc extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
 
-      <p>Base class for a state based UI component with support for asynchronous data fetching. It also
-      has styles scoped to the ShadowDOM. All state based UI components using places.js should extend this class. A
+      <p>Base class for a state based UI component with support for asynchronous data fetching. All state based UI components using places.js should extend this class. A
       component's state data can be accessed in a read only form with the field <b>componentStore.</b></p>
     <!-- Format header -->
       <h4>Constructor parameters </h4>
@@ -48,6 +51,7 @@ export const componentReducer: (groupData) => {
                 fast data will be loaded, and you want to to prevent rapid UI flickering when loading is more quick than usual. It is
                 also useful to make UI responsiveness more consistent.</li>
           </ul>
+        </ul>
           <details open="true">
             <summary>Basic example</summary>
               <base-code-display-component>
@@ -64,11 +68,13 @@ export const LOADING_INDICATOR_CONFIG = {
               <loading-indicator-component-guide></loading-indicator-component-guide>
           </li>
         </ul>
-  
+ 
+        <h4>Adding event listeners</h4>
+
+        <p>A BaseDynamicComponent instance functions a HTML element, and event listeners can be added using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">vanilla JS function addEventListener</a>. <a href="https://codeberg.org/createthirdplaces/DMVBoardGames/src/branch/main/src/ui/user/LoginComponent.js">Here is an example</a> of how an event listener can be added to a button inside a component</a></p>
         <h4>Functions </h4>
         <ul>
-          <li>
-            <b>attachHandlersToShadowRoot(shadowRoot)</b>: Defines event handlers on a component.
+          <li> <b>attachHandlersToShadowRoot(shadowRoot)</b>: Defines event handlers on a component.
           
             <details open="true">
               <summary>Example</summary>

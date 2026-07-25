@@ -69,7 +69,7 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
     return `
       <div id="container">
         
-        <h1>A tutorial on using places.js</h1>
+        <h1>A tutorial on using Places.js</h1>
         <p>By Bharat Ponnaluri</p>
         
         <details id="identify-problem-details" ${urlParams.get("identify-problem-details") ? "open" : ''}>
@@ -85,8 +85,8 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
          discussion about community bulletin boards. We were talking about locations for bulletin boards to post event 
          information, and there wasn't an existing source of information.</p>
          
-         <p>On the other hand, there are instances where places.js or another web-based solution isn't useful. I
-         considered using places.js to create a simple timer application that could help mindful breathing with on
+         <p>On the other hand, there are instances where Places.js or another web-based solution isn't useful. I
+         considered using Places.js to create a simple timer application that could help mindful breathing with on
          a consistent interval. However, I came to the conclusion that it is better to learn in person from someone
          who is experienced with mindful breathing, or self-learn, and then breathe mindfully without using any 
          electronics. Using an online timer involves an extra step, and it can lead to being distracted from mindfulness
@@ -96,7 +96,7 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
 
         <details id="setup-instructions-component-details" ${urlParams.get("setup-instructions-component-details") ? "open" : ''}>
           <summary class="summary-level-one">
-            2. Set up places.js
+            2. Set up Places.js
           </summary>
           <setup-guide-component></setup-guide-component>
         </details>

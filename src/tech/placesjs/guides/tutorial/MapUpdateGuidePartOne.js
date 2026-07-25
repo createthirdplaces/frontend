@@ -7,87 +7,75 @@ export class MapUpdateGuidePartOne extends HtmlCodeDisplayComponent {
   <head>
     <meta charset="UTF-8">
     <title>Location map listing </title>
-  </head>
+    <style>
+        #dc-street-map {
+          display: block;
+          height: 50%;
+          margin-top: 2rem;
+          width: 50%;
+          z-index: -10;
+        }
+        #success-message {
+          color: #00bb51;
+          font-weight: 600;
+        }
+        #status-section {
+          height: 1rem;
+        }
+        .location-point {
+          position: absolute;
+          z-index:10;
+          width: 30px;
+          aspect-ratio: 1;
+          background: #423600;
+          clip-path: polygon(50% 0,
+            calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+            calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+            calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+            calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn)))
+          );
+        }
+
+    </style>
   <script type="module">
     //Places.js source code goes here.
     class ListingComponent extends BaseDynamicComponent{
-      getTemplateStyle() {
-        return \`
-          <style>
-            #dc-street-map {
-              display: block;
-              height: 50%;
-              margin-top: 2rem;
-              width: 50%;
-              z-index: -10;
-            }
-            #success-message {
-              color: #00bb51;
-              font-weight: 600;
-            }
-            #status-section {
-              height: 1rem;
-            }
-            .location-point {
-              position: absolute;
-              z-index:10;
-              width: 30px;
-              aspect-ratio: 1;
-              background: #423600;
-              clip-path: polygon(50% 0,
-                calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
-                calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
-                calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn)))
-              );
-            }
-          </style>\`
-      }
 
       connectedCallback(){
         this.updateData({
           showInput: false
         });
-      }
-
-      attachHandlersToShadowRoot(shadowRoot){
         const self = this;
-        shadowRoot.addEventListener("click",(event)=>{
+        this.addEventListener("click",(event)=>{
 
           if(event.target.id === 'export-data-button') {
             const dataStr = JSON.stringify({...self.componentStore,statusMessage:""});
-
             const blob = new Blob([dataStr], {type: "application/json"});
             const url = URL.createObjectURL(blob);
-
             const fileName = "locationsExport.json"
+
             const anchorEl = document.createElement("a");
             anchorEl.href = url;
             anchorEl.download = fileName;
-
             anchorEl.click();
-
             URL.revokeObjectURL(url);
           }
-
           if(event.target.id === 'import-data-button') {
-            let files = self.shadowRoot.getElementById('select-import-file').files;
+            let files = self.getRootNode().getElementById('select-import-file').files;
             if(files.length <=0){
               return;
             }
 
             let reader = new FileReader();
-
             reader.readAsText(files[0]);
             reader.onload = function () {
               if (reader.result !== null) {
                 self.updateData(JSON.parse(reader.result))
               }
             };
-
           }
 
-          if(event.target.id === 'delete-board-location'){
+          if(event.target.id === 'delete-board-location'){A
 
             const editingLocation = self.componentStore.editingLocation;
             let updatedLocations = [];
@@ -98,7 +86,6 @@ export class MapUpdateGuidePartOne extends HtmlCodeDisplayComponent {
                 updatedLocations.push(item);
               }
             }
-
             self.updateData({
               editingLocation: null,
               locations: updatedLocations
@@ -106,13 +93,12 @@ export class MapUpdateGuidePartOne extends HtmlCodeDisplayComponent {
           }
 
           if(event.target.id === 'update-board-location'){
-
             let updatedLocations = self.componentStore.locations.slice();
 
             for(let i=0;i<updatedLocations.length;i++){
               const item = updatedLocations[i];
               if(item.displayX === editingLocation.displayX && item.displayY === editingLocation.displayY){
-                updatedLocations[i] = {...item,locationName: shadowRoot.getElementById('location-name-input').value};;
+                updatedLocations[i] = {...item,locationName: self.getRootNode().getElementById('location-name-input').value};;
               }
             }
             self.updateData({
@@ -129,7 +115,7 @@ export class MapUpdateGuidePartOne extends HtmlCodeDisplayComponent {
             locationData.push({
               displayX: self.componentStore.mapClickX-15,
               displayY: self.componentStore.mapClickY-15,
-              locationName: shadowRoot.getElementById('location-name-input').value,
+              locationName: self.getRootNode().getElementById('location-name-input').value,
             })
             self.updateData(
               {
@@ -178,6 +164,7 @@ export class MapUpdateGuidePartOne extends HtmlCodeDisplayComponent {
         })
       }
 
+
       getLocationDisplayHtml(data) {
         if(!data.locations){
           return \`\`;
@@ -193,7 +180,6 @@ export class MapUpdateGuidePartOne extends HtmlCodeDisplayComponent {
 
       getLocationInputHtml(data){
 
-        console.log("Updating with data:"+JSON.stringify(data));
         if(!data.showInput){
           return \`\`
         }
@@ -275,10 +261,10 @@ export class MapUpdateGuidePartOne extends HtmlCodeDisplayComponent {
     }
     customElements.define('listing-component',ListingComponent);
   </script>
+</head>
 <body>
   <listing-component></listing-component>
 </body>
-</html> 
-    `
+</html>`
   }
 }

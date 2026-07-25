@@ -4,9 +4,9 @@ export class SetupGuideComponent extends HTMLElement {
       <ul>
         <p>Note: This tutorial assumes you are not using a build step. In production, it is recommended that you split
               up components in a manner similar to the example
-              <a href="https://github.com/gatherspiel/DMVBoardGames/blob/main/src/index.html">here</a></p>
-        <li>Download places.js from 
-          <a href="https://github.com/gatherspiel/places-js/blob/main/places-js-latest-min.js">here</a>
+              <a href="https://codeberg.org/createthirdplaces/DMVBoardGames/src/branch/main/src/index.html">here</a></p>
+        <li>Download Places.js from 
+          <a href="https://codeberg.org/createthirdplaces/places-js/src/branch/main/places-js-min.js">here</a>
         </li>
         <li>
           <details open>

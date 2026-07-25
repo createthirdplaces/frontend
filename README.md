@@ -17,6 +17,7 @@ This repo contains a .vimrc file with some useful settings for Vim editing.
 - vimgrep: Search: Example to search in current directory: vim /word/ \*\*/\*
 - cnext: Move to next match in search
 - bd: Close search and return to file that was last open
+- gg=G: Reformat file
 - tabnew: Open new tab
 - tabnext and :tabprevious: Update tab
 - t + character: Move to next occurrence of character

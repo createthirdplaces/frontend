@@ -15,12 +15,11 @@ if(event.target.id === 'dc-street-map'){
         <summary>Rendering updates</summary>
         <base-code-display-component>
 getLocationInputHtml(data){
-  console.log(data.showInput)
   if(!data.showInput){
     return \`\`
   }
   return \`
-     <label>Name of location</label>
+    <label>Name of location</label>
     <input
       id="location-name-input"
       value="\${data.name ?? ''}"
@@ -44,19 +43,13 @@ render(data){
     </details>
 
 <details open>
-  <summary>Style updates</summary>
-  <base-code-display-component>getTemplateStyle() {
-  return \`
-    <style>
-      #dc-street-map {
-        display: block;
-        height: 50%;
-        margin-top: 1rem;
-        width: 50%;
-
-      }
-
-    </style>\`
+  <summary>Style updates in CSS file</summary>
+  <base-code-display-component>
+#dc-street-map {
+  display: block;
+  height: 50%;
+  margin-top: 1rem;
+  width: 50%;
 }
 </base-code-display-component>
 </details>
