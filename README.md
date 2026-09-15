@@ -1,7 +1,11 @@
-# Development notes for createthirdplaces.org
+# Overview of repo
+
+This repo contains the UI code for createthirdplaces.org.
+
+
+# Useful notes for development with Vim
 
 This repo contains a .vimrc file with some useful settings for Vim editing.
-## Useful notes for development
 
 ### Keyboard shortcuts
 - hjkl: Move cursor
