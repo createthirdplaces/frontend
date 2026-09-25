@@ -28,28 +28,32 @@
       class GuidelinesComponent extends HTMLElement {
         connectedCallback(){
           this.innerHTML = `
-        <h3>Before using Places.js, think carefully about your use case and how the framework will help</h3>        
+        <h3>Think carefully about your use case and how Places.js will help</h3>        
           <p>
           Using Places.js 
-          over vanilla JavaScript will add complexity in instances such as creating a basic show hide component or an 
+          over vanilla JavaScript for instances such as creating a basic show/hide component or an 
           image hover component. If you are unsure about using Places.js, try experimenting it on a new project or a 
           small part of an existing project.
           </p>
           <p>
-          In a website that uses places.js, often it will make sense to create pages using standard web components, only
-          use a JavaScript event handler,  or not use any JavaScript. There are many instances where standard web 
-          components will be less complex to use,  and standard web components will be significantly faster to render 
-          for large numbers of simple components. Places.js is designed to be used on specific parts of a webpage with 
-          complex interactivity or backend data fetching.
+           For websites that use Places.js, often it will make sense to create pages using standard web components, only
+          use a JavaScript event handler,  or not use any JavaScript. Places.js
+          is designed to be used on specific parts of a webpage that
+          are interactive or require backend data fetching.
           </p>
           <p>
-          As a general rule, one should make sure to minimize the amount of complexity
-          and dependencies. Sometimes, this means using HTML on certain pages or going with a solution that does not 
-          involve tech. For example, Places.js could theoretically be used for a coin flipping application 
-          to randomly pick the start player for a 2 player board game. However, if one of the players has a physical coin, that
-          could be used instead.
+          One should make sure to minimize the amount of complexity. Sometimes,
+          this means using creating pages without JavaScript or implementing an
+          offline solution. For example, Places.js could be used for a coin
+          flipping application that pick the start player for a 2 player board
+          game. However, a physical coin could be used instead.
+
           </p>
-          Web components including Places.js components can also have attributes passed to them. 
+
+          <p>
+          Places.js components are web components, and vanilla JS web components
+          can be added inside them. These components can have attributes passed
+          to them.
                     
           <details>
             <summary><b>Example of passing data using attributes</b></summary>
@@ -104,22 +108,20 @@
           </details>
          
                   
-<h3>Consider using standard web component when interactivity needs aren't complex</h3> 
+<h3>Consider using vanilla JS web components, HTML, or CSS for simple interactivity needs</h3> 
 
-          <p>
-          For example, this documentation page is mostly HTML with standard web components. The main use of
-          Places.js on this documentation page is to create components to show
-          code examples. Places.js
-          components are used to make sure the code examples are inside shadow DOM. This ensures a separation
-          between syntax highlighting styles and the styles for the rest of the page, and it makes sure that
-          CSS inside example code style tags doesn't affect outside styling.Also, standard web
-          components can be embedded inside places.js web components.
-          </p>
-           HTML provides a native show/hide functionality that doesn't require
-          JavaScript. Components nested inside can include a native show hide component. To do so, the html should be 
-          rendered after connectedCallback is called.
+          <p>There are many cases where vanilla JS, HTML, and CSS should be used
+          for simple interactivity needs. For example, the CSS <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has">:has()
+          CSS pseudo-class</a> can be used to conditionally add styling based
+          on UI state without JavaScript. <a href="https://gomakethings.com/creating-a-toggle-switch-with-just-css/">Here </a> is an example
+          of how a toggle switch can be created using only HTML and CSS.          
+</p>
+
+          <h4>Other examples of interactivity using vanilla JS and HTML</h4>
+        
           <details>
-            <summary><b>Example of HTML show/hide functionality</b></summary>
+            <summary><b> HTML show/hide functionality</b></summary>
             <base-code-display-component>
 <details>
   <summary>Click to show details</summary>
@@ -127,31 +129,24 @@
 </details></base-code-display-component>
             </details>
             <details>
-              <summary><b>Standard web component that resizes an image when hovering</b></summary>
+              <summary><b>Vanilla JS  web component that resizes an image when hovering</b></summary>
               <image-hover-component-guide></image-hover-component-guide>
             </details>
-            Image resizing with a hover can also be implemented using the :hover CSS psuedo-class.
                  
             <details>
               <summary><b>Image resizing example with a vanilla JS event handler</b></summary>
               <vanilla-js-click-resize-example></vanilla-js-click-resize-example>
           </details>
 
-          <p><a href="https://gomakethings.com/creating-a-toggle-switch-with-just-css/">Here </a> is an example
-          of how a toggle switch can be created using only HTML and CSS. It is also available as a 
-          <a href="https://kelpui.com/docs/components/switch/">web component</a> in the Kelp UI library. Kelp
-           can be installed without a build step by following 
-           <a href="https://kelpui.com/docs/getting-started/installation/">this</a> tutorial.</p> 
-          
+          <p>
     On the other hand, a component that is responsible for querying a backend API to update a user's event
             RSVP status, show the status of the RSVP API call, and show an updated RSVP count is a good candidate
-            for a places.js component.
+            for a Places.js component.
           </li>
           </br>
           <h3>Create your website a multi page application(MPA) instead of a single page application(SPA)</h3> 
           <p>Places.js is
-          designed around support for an MPA. It has not been fully tested with a SPA. 
-          Second, it is very important for software projects to limit complexity in order to maximize long term 
+          designed around support for an MPA.           Second, it is very important for software projects to limit complexity in order to maximize long term 
           maintainability, speed up development, and minimize the risk of bugs.
           An MPA isolates complexity to a specific part of a website, which makes it easier to test and reason about
           the effects of a change, while helping to reduce the complexity of change.</p>
@@ -165,16 +160,12 @@
           <h3>If shadow DOM is used, make sure related elements are inside the
           same shadow root </h3>
           
-          <p>Separating HTML elements that should be related such as label for an input will cause accessibility 
-              challenges. See this link for more information.
+          <p>Separating HTML elements that should be related such as label and
+          associated input will cause accessibility 
+              challenges. See the following link for more information.<a
+              href="https://alice.pages.igalia.com/blog/how-shadow-dom-and-accessibility-are-in-conflict/">
+              How Shadow DOM and accessibility are in conflict.</a>
           </p>    
-   
-          <ul>
-            <li><a href="https://alice.pages.igalia.com/blog/how-shadow-dom-and-accessibility-are-in-conflict/">
-              How Shadow DOM and accessibility are in conflict</a></li>
-        </ul>
-           
-        
         </ol>
     ` 
         }
