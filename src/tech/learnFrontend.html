@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script defer fetchpriority="low" type="module">
+      import {BaseTemplateComponent} from "/js/shared/lib/places-js-latest.js"
+      import {runGlobal} from "/js/globalProd.js";
+      runGlobal(); 
+		</script>
+			<title>Software Information</title>
+	</head>
+    <body>	
+      {{>navbar}}
+      <div class="container-xl" id="article-text">
+      
+      <h1>Getting started with frontend development</h1>
+
+      <h2>Learning tips </h2>
+
+      <h3>Start by adding all your CSS,  HTML, and JavaScript in one file</h3>
+
+      <ol>
+        <li>Add the following code to a .html file and save it.</li>
+      {{>tech/learnFrontend/startExample}}
+        <li>Open the file browser on your computer, navigate to the file, and
+          then right click on it.</li>
+        <li>CLick the option that opens the file in the browser, and view
+              the page. You should see a popup alert that says "Hello World"</li>
+      </ol>
+
+      <p>While there are disadvantages of including code for all three languages in
+      a single file, it does minimize the initial learning curve. You can also
+      open a file without needing to setup a dedicated server or custom build. </p>
+
+
+      <h3>Don't use third party libraries or frameworks when learning</h3>
+
+      <p>While third party tools are useful, they also obscure basic
+      concepts and inhibit foundational learning. Also, having knowledge of
+      fundamental concepts will help you evaluate third party tools and make
+      sure you know how to use them effectively. </p>
+
+      <h3>Avoid all use of LLMs such as ChatGPT or Claude when learning</h3>
+
+      <p>LLMs interfere with the learning process by pushing you towards
+      shortcuts and solving problems you should figure out on your own. LLMs are
+      also very addictive and will probably push you away from trying to learn.
+      If you are stuck, email gulu@createthirdplaces.org or look at the links
+      below.
+      </p>
+
+      <h2> Useful learning resources</h3>
+      
+      <h3>General frontend guide</h3>
+
+      <ul>
+        <li><a href="https://gomakethings.com/guides/?filter=html">Guides on frontend concepts</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/">Reference guide for
+            CSS, HTML, and JavaScript</a></li>
+      </ul>
+
+      <h3>CSS</h3>
+        <li><a href="https://css-tricks.com/">Articles on using CSS
+            features</a></li>
+        <li><a href="https://www.kevinpowell.co/youtube/">Videos by Kevin Powell
+            on learning CSS</li>
+
+      
+    </div>
+  <div id="bot-container"></div>
+  {{>footer}}
+
+  </body>
+</html>
