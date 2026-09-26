@@ -1,0 +1,39 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+  class HtmlExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+        <presentation-component
+         data-store = "search-results-store"
+         id = "event-list-component">
+        >
+          <div class="container">
+          <p id="no-events-found">No events found</p>
+          <h1 id="search-results-header">Event search results</h1>
+            <ul data-template=data>
+              <li>
+                <a href="{url}">
+                  {eventName}
+                </a>
+                <div class="event-time">
+                  {eventTime}
+                </div>
+                <div class="event-location">
+                  {location}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </presentation-component>
+      `
+    }
+
+  }
+
+  customElements.define('html-example',HtmlExample);
+</script>
+
+
+<html-example></html-example>

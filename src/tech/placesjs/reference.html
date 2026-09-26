@@ -41,24 +41,17 @@
   <body>
 
     {{>navbar}}
-		{{>places-js-navbar}}
+		{{>places-js/places-js-navbar}}
     <div id="container" class="container-xl section-div">
       <h2>Reference</h2>
 
       <h3>Classes</h3>
 
-      <details id="api-load-action-details">
+      <details open>
         <summary>
-          ApiLoadAction
+          PresentationComponent
         </summary>
-        <api-load-action-doc></api-load-action-doc>
-      </details>
-
-      <details id="base-dynamic-component-details" >
-        <summary>
-          BaseDynamicComponent
-        </summary>
-        <base-dynamic-component-doc></base-dynamic-component-doc>  
+        {{>places-js/reference/PresentationComponent/index}}
       </details>
 
       <details id="base-template-component-details">

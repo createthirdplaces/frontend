@@ -1,0 +1,135 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+  class SearchComponentExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+        import { PresentationComponent } from "/lib/places-js-latest.js";
+        import { SEARCH_COMPONENT_STORE } from "../../data/list/SearchComponentStore.js";
+        import { SEARCH_RESULTS_STORE } from "../../data/list/SearchResultsStore.js";
+
+        import { getDaysOfWeekSelectState } from "../../shared/html/SelectGenerator.js";
+
+        import { searchWithDefaultParams } from "../../data/list/SearchResultsStore.js";
+        
+        export class SearchComponent extends PresentationComponent {
+          constructor() {
+            super();
+          }
+
+          this.setAttribute("search-button-enabled", false);
+
+          const checkboxUpdated = () => {
+            this.setAttribute("search-button-enabled", true);
+          };
+
+          const distanceUpdated = () => {
+            this.setAttribute("search-button-enabled", true);
+          };
+
+          const citiesUpdated = () => {
+            this.setAttribute("search-button-enabled", true);
+          };
+
+          this.setChangeEvents({
+            citiesUpdated: citiesUpdated,
+            checkboxUpdated: checkboxUpdated,
+            distanceUpdated: distanceUpdated,
+          });
+          
+          const searchEvents = () => {
+            this.setAttribute("search-button-enabled", false);
+
+            const searchParams = {
+              location: document.getElementById("select-city").value ?? "",
+              days: getDaysOfWeekSelectState("#select-days").join(","),
+              distance: document.getElementById("select-distance").value ?? "",
+            };
+           
+            const baseUrl = window.location.origin.split("?");
+            let updatedUrl = \`\${baseUrl}?\`;
+            updatedUrl += \`location=\${searchParams.location.replaceAll(" ", "_")}&\`;
+            updatedUrl += \`days=\${searchParams.days.replaceAll(" ", "_")}&\`;
+            updatedUrl += \`distance=\${searchParams?.distance?.replaceAll(" ", "_") ?""}\`;
+
+            window.history.replaceState({}, "", updatedUrl);
+
+            SEARCH_RESULTS_STORE.fetchData({
+              ...searchParams,
+              ...{ apiUrl: searchUrl ?? "" },
+            });
+          }
+          
+          this.setClickEvents({
+            searchEvents: searchEvents,
+          });
+        }
+      `;
+    }
+
+  }
+
+  class EventExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+        <search-component 
+         data-store="search-component-store"
+        >
+          <div data-template>
+            <div id="form-div-outer">
+              <div class="{searchInputClass}" id="search-form-inputs">
+                <label class="searchDropdownLabel"> Select event day: </label>
+
+                <fieldset
+                  id="select-days"
+                  innerHTML="{getDaysSelect}"
+                  onChange="{checkboxUpdated}"
+                ></fieldset>
+
+                <label class="searchDropdownLabel"> Select city: </label>
+
+                <select
+                  id="select-city"
+                  innerHTML="{getCitySelect}"
+                  onChange="{citiesUpdated}"
+                ></select>
+
+                <div id="select-distance-outer">
+                  <label id="max-distance-label" class="searchDropdownLabel"
+                    >Max distance:</label
+                  >
+                  <select
+                    id="select-distance"
+                    innerHTML="{getDistanceSelect}"
+                    onChange="{distanceUpdated}"
+                  ></select>
+                </div>
+                <div id="search-input-div">
+                  <button class="secondary" id="search-button" onClick="{searchEvents}">
+                    {searchAllText}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </search-component>
+      `
+    }
+  }
+
+  customElements.define('event-example',EventExample);
+  customElements.define('search-component-example',SearchComponentExample);
+
+</script>
+
+
+<p>In the components template HTML, use the onChange attribute to add a change
+event and the onChange attribute to add a click event.</p>
+
+<event-example></event-example>
+
+
+<p>Afterwards, create a new component to configure the events</p>
+
+<search-component-example></search-component-example>
