@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reference</title>
+  </head>
+  <body>
+
+		{{>places-js/reference-navbar}}
+    <div id="container" class="container-xl section-div">
+      <h1>PresentationComponent.js guide</h1>
+
+      <p>PresentationComponent.js is a base component that supports dynamic
+      state and templating.</p>
+
+      <h2>Attributes</h2>
+
+      <ul>
+        <li><b>data-store</b>: Name of store used by component</li>
+      </ul>
+
+      {{>places-js/reference/PresentationComponent/htmlExample}}
+
+      See data store class for an example of how to configure state
+      <h2>Adding event listeners</h2>
+
+      {{>places-js/reference/PresentationComponent/eventExample}}
+
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+
+  </body>
+</html>

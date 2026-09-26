@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <style>
+        body {
+					background-image:none;
+				}
+				h2 {
+            margin-top:1rem;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reference</title>
+  </head>
+  <body>
+
+		{{>places-js/reference-navbar}}
+    <div id="container" class="container-xl section-div">
+      <h1>Advanced customization</h1>
+
+        <p>These classes can be used or extended to provide customized
+        functionality.</p>
+
+        <ul>
+          <li>
+            <a
+              href="https://codeberg.org/createthirdplaces/places-js/src/branch/main/src/state/ApiLoadAction.js">
+              ApiLoadAction
+            </a>:
+            Load data into a store from an API
+          </li>
+          <li>
+            <a
+              href="https://codeberg.org/createthirdplaces/places-js/src/branch/main/src/state/CustomLoadSignal.js">
+              CustomLoadSignal
+            </a>: Load data into a store with a custom load function.
+          </li>
+          <li>
+            <a
+                href="https://codeberg.org/createthirdplaces/places-js/src/state/DataStoreSignal.js">
+              DataStoreSignal
+            </a>
+            :Combine data from multiple stores.
+          </li>
+          <li>
+            <a
+              href="https://codeberg.org/createthirdplaces/places-js/src/branch/main/src/state/ItemUpdater.js">ItemUpdater
+            </a>
+            : Update presentation component template with one data item</li>
+          <li>
+            <a
+              href="https://codeberg.org/createthirdplaces/places-js/src/branch/main/src/state/ListUpdater.js">ListUpdater
+            </a>
+            : Update presentation component template that has a list of items.
+          </li>
+          <li>
+            <a
+                href="https://codeberg.org/createthirdplaces/places-js/src/branch/main/src/render/ShadowDOMComponent.js">ShadowDOMComponent
+            </a>: Component inside shadow DOM
+          </li>
+          <li>
+            <a
+              href="https://codeberg.org/createthirdplaces/places-js/src/branch/main/src/render/StaticComponent.js">
+              StaticComponent
+            </a>: Static component with event handlers. 
+          </li>
+
+
+          <li>
+            <a
+              href="https://codeberg.org/createthirdplaces/places-js/src/branch/main/src/render/TemplateItem.js">
+              TemplateItem
+            </a>: Parses HTML templates and connects them to state management.
+          </li>
+        </ul>
+      </details>
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+
+  </body>
+</html>
