@@ -12,11 +12,96 @@
     <div id="container" class="container-xl section-div">
       <h1>Data management guide</h1>
 
-      <p>DataStore.js is the main class for storing state and upating
-      subscribers. </p>
+      <p>Data is managed through the DataStore.js class. </p>
+
+      <h2>Data store factory methods</h2>
+      <p>To create a data store, use one of these factory methods.</p>
+
+      {{>places-js/reference/function
+        name = 'createWithApiLoadSignal(config)'
+        description = 'Create store with signal to load from API'
+        param1 = 'presentationSignals'
+        param2 = 'queryConfig'
+        param3 = 'storeName'
+      }}
+
+      {{>places-js/reference/function
+        name = 'createWithDataStoreSignals(config)'
+        description = 'Create store with signals to load from data stores'
+        param1 = 'presentationSignals'
+        param2 = 'storeSignals'
+        param3 = 'storeName'
+      }}
 
 
+      {{>places-js/reference/function
+        name = 'createWithCustomLoadSignal(config)'
+        description = 'Create store with a custom laod signal'
+        param1 = 'presentationSignals'
+        param2 = 'storeSignals'
+        param3 = 'storeName'
+      }}
 
+      <details open>
+        <summary>Other DataStore.js functions</summary>
+        
+        <h3>Static methods</h3>
+        <ul>
+          <li>{{>places-js/reference/function 
+                name = 'clearStores()'
+              }}
+          </li> 
+          <li>{{>places-js/reference/function 
+                name = 'getStore(storeName)'
+              }}
+          </li> 
+        </ul>
+
+        <h3>Instance methods</h3>
+        <ul>
+          <li>
+            {{>places-js/reference/function
+              name = 'getStoreData()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'getComponentUpdateData()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'fetchData(params, dataStore)'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'getSuscribedComponents()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'hasLatestData()' 
+            }}
+          </li>
+ 
+          <li>
+            {{>places-js/reference/function
+              name = 'suscribeComponent()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'unsubscribeComponent()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'updateStoreData(storeUpdates)'
+            }}
+          </li>
+        </ul>
+      </details>
     </div>
     <div id="bot-container"></div>
     {{>footer}}
