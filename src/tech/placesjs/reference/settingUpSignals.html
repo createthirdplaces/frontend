@@ -4,29 +4,24 @@
     <link rel="icon" href="data:,">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reference</title>
+    <title>Setting up signals</title>
   </head>
   <body>
 
 		{{>places-js/reference-navbar}}
     <div id="container" class="container-xl section-div">
       <h1>Guide to setting up signals</h1>
+      
+      <p>This page is a guide to creating signal configurations. A configuration
+      can be used by passing it as an argument to a DataStore factory
+      method.</p>
 
-      <p>PresentationComponent.js is a base component that supports dynamic
-      state and templating.</p>
+      {{>places-js/reference/SettingUpSignals/ApiLoadSignalExample}}
 
-      <h2>Attributes</h2>
+      {{>places-js/reference/SettingUpSignals/DataStoreSignalExample}}
 
-      <ul>
-        <li><b>data-store</b>: Name of store used by component</li>
-      </ul>
+      {{>places-js/reference/SettingUpSignals/CustomLoadSignalExample}}
 
-      {{>places-js/reference/PresentationComponent/htmlExample}}
-
-      See data store class for an example of how to configure state
-      <h2>Adding event listeners</h2>
-
-      {{>places-js/reference/PresentationComponent/eventExample}}
 
     </div>
     <div id="bot-container"></div>

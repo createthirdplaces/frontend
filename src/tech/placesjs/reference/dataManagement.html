@@ -4,7 +4,7 @@
     <link rel="icon" href="data:,">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reference</title>
+    <title>Data management</title>
   </head>
   <body>
 
@@ -12,15 +12,14 @@
     <div id="container" class="container-xl section-div">
       <h1>Data management guide</h1>
 
-      <p>Data is managed through the DataStore.js class. </p>
-
-      <h2>Data store factory methods</h2>
-      <p>To create a data store, use one of these factory methods.</p>
+      <p>Data is managed through the DataStore.js class. To create a data store,
+      use one of these static factory methods.</p>
 
       {{>places-js/reference/function
         name = 'createWithApiLoadSignal(config)'
         description = 'Create store with signal to load from API'
         param1 = 'presentationSignals'
+        paramLink1 = '/tech/placesjs/reference/settingUpSignals.html'
         param2 = 'queryConfig'
         param3 = 'storeName'
       }}
@@ -29,20 +28,22 @@
         name = 'createWithDataStoreSignals(config)'
         description = 'Create store with signals to load from data stores'
         param1 = 'presentationSignals'
-        param2 = 'storeSignals'
-        param3 = 'storeName'
+        paramLink1 = '/tech/placesjs/reference/settingUpSignals.html'
+        param2 = 'storeName'
+        param3 = 'storeSignals'
       }}
 
 
       {{>places-js/reference/function
         name = 'createWithCustomLoadSignal(config)'
-        description = 'Create store with a custom laod signal'
+        description = 'Create store with a custom load signal'
         param1 = 'presentationSignals'
-        param2 = 'storeSignals'
-        param3 = 'storeName'
+        paramLink1 = '/tech/placesjs/reference/settingUpSignals.html'
+        param2 = 'storeName'
+        param3 = 'storeSignals'
       }}
 
-      <details open>
+      <details>
         <summary>Other DataStore.js functions</summary>
         
         <h3>Static methods</h3>

@@ -1,9 +1,16 @@
 <h3>{{name}}</h3>
-
 <p>{{description}}</p>
 {{#if param1}}<b>Parameters</b>{{/if}}
 <ul>
-  {{#if param1}}<li>{{param1}}</li>{{/if}}
+  {{#if param1}}
+    <li>
+      {{#if paramLink1}}
+        <a href="{{paramLink1}}">{{param1}}</a>
+      {{else}}
+        {{param1}}
+      {{/if}}
+    </li>
+  {{/if}}
   {{#if param2}}<li>{{param2}}</li>{{/if}}
   {{#if param3}}<li>{{param3}}</li>{{/if}}
   {{#if param4}}<li>{{param4}}</li>{{/if}}

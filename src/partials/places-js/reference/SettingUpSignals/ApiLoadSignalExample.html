@@ -1,0 +1,50 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+
+  class ApiLoadSignalExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return ` 
+        function getSearchResultsQueryConfig(searchParams) { 
+          let url; 
+          //Code to convert searchParams into url goes here.
+          return {
+            url: url,
+          };
+        }
+        const presentationSignals = { 
+          eventData: {
+            id: (eventData) => eventData.eventId,
+            update: {
+              eventTime: (eventData) => {
+                if (eventData.isRecurring) {
+                  return \`\${eventData.dayOfWeek}s at \${eventData.nextEventTime}\`;
+                }
+                return \`\${eventData.nextEventDate} at \${eventData.nextEventTime}\`;
+              },
+              location: (eventData) => {
+                return
+                \`\${convertLocationDataForDisplay(eventData.eventLocation)}\`;
+              },
+              url: (eventData) => {
+                return
+                \`/html/groups/event.html?id=\${eventData.eventId}&groupId=\${eventData.groupId}\`;
+              },
+            },
+          },
+        };`;
+    }
+  }
+
+  customElements.define('api-load-signal-example',ApiLoadSignalExample);
+
+</script>
+
+<details>
+  <summary class="headline-summary">Example with API load signal</summary>
+  <api-load-signal-example></api-load-signal-example>
+</details>
+
+
+

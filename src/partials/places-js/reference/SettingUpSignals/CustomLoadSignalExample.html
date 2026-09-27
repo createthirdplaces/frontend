@@ -1,0 +1,56 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+  class CustomLoadSignalExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return ` 
+            const presentationSignals = {
+              "selected": {
+                "update":(({prevState,newState,componentUpdate})=>{
+                  return [
+                    {
+                      "id":prevState,
+                      "selected": ""
+                    },
+                    {
+                      "id":newState,
+                      "selected": "danger"
+                    }
+                  ]
+                }),
+                "presentationField":"data"
+              },
+              "data": {
+                "update": [
+                  "label"
+                ]
+              }
+            }
+            const setData = function() {
+              return {
+                data:[],
+                selected: undefined,
+                id: 1
+              }
+            };
+            export const CUSTOM_LOAD_STORE = DataStore.createWithCustomLoadSignal({
+              storeName: "main-store",
+              loadAction: setData,
+              presentationSignals
+            })
+        `;
+    }
+  }
+
+  customElements.define('custom-load-signal-example',CustomLoadSignalExample);
+
+</script>
+
+<details>
+  <summary class="headline-summary">Example with custom load signals</summary>
+  <custom-load-signal-example></custom-load-signal-example>
+</details>
+
+
+

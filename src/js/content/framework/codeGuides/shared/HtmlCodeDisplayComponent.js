@@ -19,16 +19,18 @@ export class HtmlCodeDisplayComponent extends BaseTemplateComponent {
       .replaceAll("&lt;","<");
     
     let indent = 0;
-   
+    let i =0; 
     while(true){
-      const charCode = code.charCodeAt(indent);
+      const charCode = code.charCodeAt(i);
       if(charCode !== 10 && charCode !== 32){
         break;
       }
-      indent++; 
+      i++;
+      if(charCode === 32){
+        indent++; 
+      }
     }
     indent--;
-
     const lines = code.split("\n");
     for(let i=0; i<lines.length; i++){
       lines[i] = lines[i].substring(indent); 
