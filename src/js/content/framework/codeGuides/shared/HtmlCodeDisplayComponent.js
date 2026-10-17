@@ -31,9 +31,22 @@ export class HtmlCodeDisplayComponent extends BaseTemplateComponent {
       }
     }
     indent--;
+
+		let spacesIncluded = false;
+		let tabsIncluded = false;
+	
     const lines = code.split("\n");
     for(let i=0; i<lines.length; i++){
-      lines[i] = lines[i].substring(indent); 
+
+			if(lines[i].includes(String.fromCharCode(9))){
+				console.error("Tabs included with code:"+lines[i]);
+				
+				const items = [];
+				for(let j=0;j<lines[i].length;j++){
+					items.push(lines[i].charCodeAt(j));
+				}
+			}
+			lines[i]=lines[i].substring(indent);
     }
     
     code = lines.join("\n");

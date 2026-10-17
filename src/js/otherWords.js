@@ -196,5 +196,6 @@ export const otherWords = new Set([
   'laptops',
   'snowcrete',
   'chatgpt',
-  'powell'
+  'powell',
+	'webpage'
 ]);

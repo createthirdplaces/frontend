@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script defer fetchpriority="low" type="module">
+      import {runGlobal} from "/js/globalProd.js";
+      runGlobal(); 
+		</script>
+			<title>Interactivty without JavaScript</title>
+	</head>
+    <body>	
+      {{>navbar}}
+      <div class="container-xl" id="article-text">
+				<h1>Making a webpage interactive without JavaScript</h1>
+
+				<details open>
+					<summary>HTML details element</summary>
+{{>tech/learnFrontend/noJS/detailsExample}}
+				</details>
+
+				<details open>
+					<summary>Conditionally show content based on value of select</summary>
+{{>tech/learnFrontend/noJS/conditionalDisplay}}
+				</details>
+
+				<details>
+					<summary>Conditionally showing header if list has at least one element</summary>
+				</details>
+
+				<details>
+					<summary>Conditionally showing placeholder text for empty list</summary>
+				</details>
+
+				<details>
+					<summary>Enabling form submit when placeholder text for input field is hidden</summary>
+				</details>
+
+			</div>		
+
+			<div id="bot-container"></div>
+		{{>footer}}
+
+  </body>
+</html>

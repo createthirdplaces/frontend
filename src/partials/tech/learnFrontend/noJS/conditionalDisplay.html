@@ -1,0 +1,49 @@
+<script type="module">
+  
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+     
+  class ConditionalFormValueExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+      <form>
+        <label class="searchDropdownLabel"> Select city: </label>
+        <select id="select-city">
+          <option value="any">Any location</option>
+          <option value="Alexandria">Alexandria</option>
+          <option value="Arlington">Arlington</option>
+          <option value="Fairfax">Fairfax</option>
+        </select>
+        <div id="select-distance-outer">
+          <label>Max distance:</label>
+          <select id="select-distance">
+            <option value="0 miles">0 miles</option>
+            <option value="5 miles">5 miles</option>
+            <option value="10 miles">10 miles</option>
+            <option value="15 miles">15 miles</option>
+            <option value="30 miles">30 miles</option>
+          </select>
+        </div>
+        <button type="submit">Submit</button>
+      </form>` 
+    }
+  }
+  class ConditionalFormValueCSS extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+      #select-city:has(> option[value="any"]:checked) + div {
+        display: none;
+     }
+     `
+    }
+  }
+
+  customElements.define('conditional-form-value-example',ConditionalFormValueExample)     
+  customElements.define('conditional-form-value-css',ConditionalFormValueCSS)     
+</script> 
+
+<b>HTML</b>
+<conditional-form-value-example></conditional-form-value-example>
+
+<b>CSS</b>
+<conditional-form-value-css></conditional-form-value-css>
+  
