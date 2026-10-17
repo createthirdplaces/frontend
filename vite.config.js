@@ -32,7 +32,6 @@ const buildConfig = {
         
         framework: resolve(__dirname, "src/tech/placesjs.html"),
 
-        locationListingTutorial: resolve(__dirname, "src/tech/locationListingTutorial.html"),
         locationMapListing: resolve(__dirname, "src/locationMapListing.html"),
 
         main: resolve(__dirname, "src/index.html"),
@@ -52,7 +51,6 @@ const buildConfig = {
 
         gettingStarted: resolve(__dirname, "src/tech/placesjs/gettingStarted.html"),
         goals: resolve(__dirname, "src/tech/placesjs/goals.html"),
-        reference: resolve(__dirname, "src/tech/placesjs/reference.html"),
         tips: resolve(__dirname, "src/tech/placesjs/tips.html"),
       },
     },

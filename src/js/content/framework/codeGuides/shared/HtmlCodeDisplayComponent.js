@@ -39,12 +39,13 @@ export class HtmlCodeDisplayComponent extends BaseTemplateComponent {
     for(let i=0; i<lines.length; i++){
 
 			if(lines[i].includes(String.fromCharCode(9))){
-				console.error("Tabs included with code:"+lines[i]);
-				
+				console.error("Tabs included with code and componnent "+this.nodeName+":"+lines[i]);
+					
 				const items = [];
 				for(let j=0;j<lines[i].length;j++){
 					items.push(lines[i].charCodeAt(j));
 				}
+				console.log(items.join());
 			}
 			lines[i]=lines[i].substring(indent);
     }

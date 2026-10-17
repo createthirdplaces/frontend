@@ -1,0 +1,36 @@
+<script type="module">
+  
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+     
+  class ConditionalHeaderExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+        #search-results-header:not(:has(+ ul > li)) {
+          display: none;
+        }
+      ` 
+    }
+  }
+
+  class ConditionalHTML extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+      <h1 id="search-results-header">Event search results</h1>
+        <ul>
+          <li><a href="dmvboardgames.com/eventA.html">Event A</a></li>
+          <li><a href="dmvboardgames.com/eventB.html">Event B</a></li>
+        </ul>
+      ` 
+    }
+  }
+
+  customElements.define('conditional-header-example',ConditionalHeaderExample)     
+  customElements.define('conditional-html',ConditionalHTML)     
+</script> 
+
+<b>HTML</b>
+<conditional-html></conditional-html>
+<b>CSS</b>
+<conditional-header-example></conditional-header-example>
+
+  

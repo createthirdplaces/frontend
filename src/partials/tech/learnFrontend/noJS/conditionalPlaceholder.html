@@ -1,0 +1,47 @@
+<script type="module">
+  
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+     
+  class ConditionalPlaceholderCSS extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+			 #no-events-found:has(~ ul > li) {
+         display: none;
+       }
+      ` 
+    }
+  }
+
+  class ConditionalPlaceholderVisible extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+        <p id="no-events-found">No events found</p> 
+      ` 
+    }
+  }
+
+ class ConditionalPlaceholderHidden extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+      <p id="no-events-found">No events found</p>
+      <ul>
+        <li>Event 1</li>
+        <li>Event 2</li>
+      </ul> 
+      ` 
+    }
+  }
+
+  customElements.define('conditional-placeholder-css',ConditionalPlaceholderCSS)     
+  customElements.define('conditional-placeholder-hidden',ConditionalPlaceholderHidden)     
+  customElements.define('conditional-placeholder-visible',ConditionalPlaceholderVisible)   
+</script> 
+
+<b>HTML when placeholder is visible</b>
+<conditional-placeholder-visible></conditional-placeholder-visible>
+<b>HTML when placeholder is hidden</b>
+<conditional-placeholder-hidden></conditional-placeholder-hidden>
+<b>CSS</b>
+<conditional-header-example></conditional-header-example>
+
+  
