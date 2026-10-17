@@ -4,8 +4,7 @@
      
   class ConditionalSubmitExample extends HtmlCodeDisplayComponent {
     getCode(){
-      return `
-        <form>
+      return `        <form>
           <label>Email</label>
           <input id="username-input" type="email" />
           
@@ -33,7 +32,6 @@
           <p>Rule 2: ...</p>
           <p>Rule 3: ...</p>
         </form>
-
 ` 
     }
   }
@@ -47,8 +45,7 @@
 #agree-rules-input:has(> input:checked) ~ #create-account-button-disabled {
   display: none;
 }
-
-     `
+`
     }
   }
 
