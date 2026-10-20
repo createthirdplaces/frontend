@@ -17,15 +17,24 @@
 
       <h2>Example of using presentation component</h2>
 
+      <h3>Attributes</h3>
       <ul>
         <li><b>data-store</b>: Name of store used by component</li>
+        <li><b>data-template</b>: Enables templating.</b></li>
       </ul>
 
       {{>places-js/reference/PresentationComponent/htmlExample}}
 
-      <p>The data-store attribute refers to the name of of the store used.
+      <h3>Important notes</h3>
+
+      <ul>
+        <li>A presentation component with templating enabled must have a single
+          top level child node.</li>
+        <li>The data-store attribute refers to the name of of the store used.
       See the <a href="/tech/placesjs/reference/dataManagement.html">Data
-        Management</a> page for an example of how to configure state
+        Management</a> page for an example of how to configure state.</li>
+
+      </ul>
       <h2>Adding event listeners to presentation component</h2>
 
       {{>places-js/reference/PresentationComponent/eventExample}}

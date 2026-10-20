@@ -1,0 +1,76 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+  class HtmlExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+        <html>
+          <head>
+            <title>Logging out</title>
+            <script type="module">
+              import { LOGOUT_STORE } from "/data/user/LogoutStore.js";
+              LOGOUT_STORE.fetchData();
+            \<\/script>
+          </head>
+        </html>
+
+     `
+    }
+  }
+
+  class LogoutStoreDisplay extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+       import {
+         AUTH_TOKEN_KEY,
+         SUPABASE_CLIENT_KEY,
+         SUPABASE_CLIENT_URL,
+       } from "/shared/Params.js";
+       import { AuthResponse } from "../../ui/user/AuthResponse.js";
+       import { CustomLoadSignal, DataStore } from "/lib/places-js-latest.js";
+
+       async function retrieveData() {
+         const authStr = window.localStorage.getItem(AUTH_TOKEN_KEY);
+         const authData = authStr ? JSON.parse(authStr) : null;
+
+         const data = await fetch(
+         \`\${SUPABASE_CLIENT_URL}/auth/v1/logout?scope=global\`,
+          {
+            method: "POST",
+            headers: {
+              apiKey: SUPABASE_CLIENT_KEY,
+              authorization: "bearer " + authData?.access_token,
+            },
+          },
+        );
+
+        if (data.ok) {
+          if (window.localStorage.getItem(AUTH_TOKEN_KEY)) {
+            window.localStorage.removeItem(AUTH_TOKEN_KEY);
+         }
+         window.location.assign("/index.html");
+         return new AuthResponse(false);
+      } else {
+        return new AuthResponse(
+          true,
+          {},
+          "Failed to logout:" + JSON.stringify(data),
+        );
+      }
+    }
+      export const LOGOUT_STORE = new DataStore(new CustomLoadSignal(retrieveData)); 
+     `
+    }
+  }
+
+  customElements.define('html-example',HtmlExample);
+  customElements.define('logout-store-display',LogoutStoreDisplay);
+
+</script>
+
+<h3>logout.html</h3>
+<html-example></html-example>
+
+<h3>LogoutStore.js</h3>
+<logout-store-display></logout-store-display>
