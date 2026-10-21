@@ -1,0 +1,45 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+  class DynamicHtmlExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+    <presentation-component data-store="event-summary-store" data-template>
+      <div class="container-xl">
+        <h1>{name}</h1>
+        <a
+          class="btn secondary event-website-link"
+          href="{url}"
+        >
+          Event website
+        </a>
+        <div class="event-info">
+          <b>Location: </b>
+          <span>{location}</span>
+        </div>
+
+        <div class="event-info">
+          <b>Time:</b>
+          <span>{eventTime}</span>
+        </div>
+        <div innerHTML="{moderatorHTML}"></div>
+
+        <div 
+          id="event-description"
+          innerHTML="{eventDescriptionHTML}">
+        </div>
+      </div>
+      `
+    }
+
+  }
+  customElements.define('dynamic-html-example',DynamicHtmlExample);
+</script>
+
+
+<details>
+  <summary class="headline-summary">Dynamic HTML inside component</summary>
+
+  <dynamic-html-example></dynamic-html-example>
+</details>

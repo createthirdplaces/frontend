@@ -1,0 +1,32 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+  class ConditionalVisibilityExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+          <div
+            class="form-section"
+            display="{isOneTime}"
+            id="start-date-select"
+          >
+            <label class="required-field">Start date</label>
+            <input name="start-date-input" type="date" value="{startDate}" />
+            <span class="error-message">{startDateErrorMessage}</span>
+          </div>
+      `
+    }
+
+  }
+  customElements.define('conditional-visibility-example',ConditionalVisibilityExample);
+</script>
+
+
+<details>
+  <summary class="headline-summary">Conditional visibility of component nodes </summary>
+
+  <p>Component nodes can have conditional visibility that can be changed based
+  on state with the display or visibility attributes. These will be converted to
+  the respective CSS attributes.</p>
+  <conditional-visibility-example></conditional-visibility-example>
+</details>

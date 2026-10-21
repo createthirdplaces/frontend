@@ -5,6 +5,12 @@
   class HtmlExample extends HtmlCodeDisplayComponent {
     getCode(){
       return `
+        <script type="module">
+          import { SEARCH_RESULTS_STORE } from "/data/list/SearchResultsStore.js";
+          import { PresentationComponent } from "/lib/places-js-latest.js";
+         
+         customElements.define("presentation-component", PresentationComponent);
+        \<\/script>
         <presentation-component
          data-store = "search-results-store"
          data-template
