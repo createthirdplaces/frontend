@@ -12,7 +12,16 @@
     <div id="container" class="container-xl section-div">
       <h1>Data Management Guide</h1>
 
-      <p>Data is managed through the DataStore.js class. To create a data store,
+      <p>Data is managed through the DataStore.js class.
+
+      <h2> Broadcasting changes</h2>
+      <p>See the Setting Up Signals page for information on broadcasting data
+      stores updates. Data store updates can be broadcast to Places.js
+      components or an <a
+                           href="/tech/placesjs/reference/externalComponents.html">external component</a>.</p>
+
+      <h2>Creating a data store</h2>
+      <p>To create a data store,
       use one of these static factory methods.</p>
 
       {{>places-js/reference/function
@@ -93,7 +102,14 @@
           </li>
           <li>
             {{>places-js/reference/function
-              name = 'unsubscribeComponent()'
+              name = 'suscribeComponent()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              description = 'Subscribe external component to data store'
+              name = 'subscribeWithCallback()'
+              param1="update: Callback function"
             }}
           </li>
           <li>

@@ -34,12 +34,12 @@ export class HtmlCodeDisplayComponent extends BaseTemplateComponent {
 
 		let spacesIncluded = false;
 		let tabsIncluded = false;
-	
-    const lines = code.split("\n");
+
+    let lines = code.split("\n");
     for(let i=0; i<lines.length; i++){
 
 			if(lines[i].includes(String.fromCharCode(9))){
-				console.error("Tabs included with code and componnent "+this.nodeName+":"+lines[i]);
+				console.error("Tabs included with code and component "+this.nodeName+" at line " +(i+1)+":"+lines[i]);
 					
 				const items = [];
 				for(let j=0;j<lines[i].length;j++){
@@ -49,7 +49,10 @@ export class HtmlCodeDisplayComponent extends BaseTemplateComponent {
 			}
 			lines[i]=lines[i].substring(indent);
     }
-    
+   
+    if(lines[0].length === 0){
+      lines = lines.slice(1);
+    }
     code = lines.join("\n");
     
     return `
