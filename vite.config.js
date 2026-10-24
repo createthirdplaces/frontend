@@ -42,7 +42,7 @@ const buildConfig = {
         recommendedBooks: resolve(__dirname,"src/recommendedBooks.html"),
         rejectedIdeas: resolve(__dirname,"src/ideas/rejectedIdeas.html"),
 
-        software: resolve(__dirname, "src/tech/software.html"),
+        civicTech: resolve(__dirname, "src/tech/civicTech.html"),
         support: resolve(__dirname, "src/support.html"),
 
         techStrategy: resolve(__dirname, "src/tech/techStrategy.html"),
@@ -52,6 +52,8 @@ const buildConfig = {
         gettingStarted: resolve(__dirname, "src/tech/placesjs/gettingStarted.html"),
         goals: resolve(__dirname, "src/tech/placesjs/goals.html"),
         tips: resolve(__dirname, "src/tech/placesjs/tips.html"),
+        
+
       },
     },
   },
@@ -68,6 +70,7 @@ if(process.env.NODE_ENV === 'development'){
   buildConfig['resolve'] =  update;
 }
 
-Object.assign(buildConfig['build']['rollupOptions']['input'],globSync('src/articles/*.html'));
+Object.assign(buildConfig['build']['rollupOptions']['input'],globSync('src/articles/*.html'),
+globSync('src/tech/*html'));
 export default defineConfig(buildConfig);
 
