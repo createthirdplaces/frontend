@@ -195,4 +195,7 @@ export const otherWords = new Set([
   'hitpoint',
   'laptops',
   'snowcrete',
+  'chatgpt',
+  'powell',
+	'webpage'
 ]);

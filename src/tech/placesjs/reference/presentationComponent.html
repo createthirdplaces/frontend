@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Components</title>
+  </head>
+  <body>
+
+		{{>places-js/reference-navbar}}
+    <div id="container" class="container-xl section-div">
+      <h1>Components</h1>
+
+      <p>Components are created through the PresentationComponent.js class,
+      which supports dynamic state and templating.</p>
+
+      <details>
+        <summary class="headline-summary">Creating a presentation
+          component</summary>
+
+        <h3>Attributes</h3>
+        <ul>
+          <li><b>data-store</b>: Name of store used by component</li>
+          <li><b>data-template</b>: Enables templating.</b></li>
+        </ul>
+
+        {{>places-js/reference/PresentationComponent/htmlExample}}
+
+        <h3>Important notes</h3>
+
+        <ul>
+          <li>A presentation component with templating enabled must have a single
+            top level child node.</li>
+          <li>The data-store attribute refers to the name of of the store used.
+        See the <a href="/tech/placesjs/reference/dataManagement.html">Data
+          Management</a> page for an example of how to configure state.</li>
+          <li>If a store is defined using the data-store attribute, it should be
+            imported before the customElements.define call.</li>
+        </ul>
+      </details>
+
+      {{>places-js/reference/PresentationComponent/eventExample}}
+
+      {{>places-js/reference/PresentationComponent/nestedComponent}}
+
+      {{>places-js/reference/PresentationComponent/conditionalVisibility}}
+
+      {{>places-js/reference/PresentationComponent/dynamicHtmlExample}}
+
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+
+  </body>
+</html>

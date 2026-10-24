@@ -1,0 +1,20 @@
+<script type="module">
+  
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+     
+  class StartExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+        <details>
+          <summary>HTML details element</summary>
+          <span>The details element can be used to toggile visibility of content</span>
+        </details>
+      ` 
+    }
+  }
+  customElements.define('start-example',StartExample)     
+</script> 
+
+<start-example></start-example>
+
+  

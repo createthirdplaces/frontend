@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Management Guide</title>
+  </head>
+  <body>
+
+		{{>places-js/reference-navbar}}
+    <div id="container" class="container-xl section-div">
+      <h1>Data Management Guide</h1>
+
+      <p>Data is managed through the DataStore.js class.
+
+      <h2> Broadcasting changes</h2>
+      <p>See the Setting Up Signals page for information on broadcasting data
+      stores updates. Data store updates can be broadcast to Places.js
+      components or an <a
+                           href="/tech/placesjs/reference/externalComponents.html">external component</a>.</p>
+
+      <h2>Creating a data store</h2>
+      <p>To create a data store,
+      use one of these static factory methods.</p>
+
+      {{>places-js/reference/function
+        name = 'createWithApiLoadSignal(config)'
+        description = 'Create store with signal to load from API'
+        param1 = 'presentationSignals'
+        paramLink1 = '/tech/placesjs/reference/settingUpSignals.html'
+        param2 = 'queryConfig'
+        param3 = 'storeName'
+      }}
+
+      {{>places-js/reference/function
+        name = 'createWithDataStoreSignals(config)'
+        description = 'Create store with signals to load from data stores'
+        param1 = 'presentationSignals'
+        paramLink1 = '/tech/placesjs/reference/settingUpSignals.html'
+        param2 = 'storeName'
+        param3 = 'storeSignals'
+      }}
+
+
+      {{>places-js/reference/function
+        name = 'createWithCustomLoadSignal(config)'
+        description = 'Create store with a custom load signal'
+        param1 = 'presentationSignals'
+        paramLink1 = '/tech/placesjs/reference/settingUpSignals.html'
+        param2 = 'storeName'
+        param3 = 'storeSignals'
+      }}
+
+      <details>
+        <summary>Other DataStore.js functions</summary>
+        
+        <h3>Static methods</h3>
+        <ul>
+          <li>{{>places-js/reference/function 
+                name = 'clearStores()'
+              }}
+          </li> 
+          <li>{{>places-js/reference/function 
+                name = 'getStore(storeName)'
+              }}
+          </li> 
+        </ul>
+
+        <h3>Instance methods</h3>
+        <ul>
+          <li>
+            {{>places-js/reference/function
+              name = 'getStoreData()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'getComponentUpdateData()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'fetchData(params, dataStore)'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'getSuscribedComponents()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'hasLatestData()' 
+            }}
+          </li>
+ 
+          <li>
+            {{>places-js/reference/function
+              name = 'suscribeComponent()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'suscribeComponent()'
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              description = 'Subscribe external component to data store'
+              name = 'subscribeWithCallback()'
+              param1="update: Callback function"
+            }}
+          </li>
+          <li>
+            {{>places-js/reference/function
+              name = 'updateStoreData(storeUpdates)'
+            }}
+          </li>
+        </ul>
+      </details>
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+
+  </body>
+</html>

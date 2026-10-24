@@ -1,0 +1,142 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+  class HtmlLoginExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+      <script type="module">
+        import {LOGGED_OFF_STATUS_STORE, LOGIN_STATUS_STORE } from "./data/user/LoginStatusStore.js";
+      \<\/script>
+      <presentation-component
+        data-store="logged-off-status-store"
+        data-template
+      >
+        <li>
+          <div style="{showIfLoggedOff}">
+            <a class="btn secondary" href="/html/user/login.html">Login</a>
+            <a
+              class="btn secondary"
+              href="/html/user/createAccount.html"
+              id="new-account-link"
+              >New account
+            </a>
+          </div>
+        </li>
+      </presentation-component>
+
+      <presentation-component 
+        data-store="login-status-store" 
+        data-template
+      >
+        <li>
+          <div style="{showIfLoggedIn}">
+            <a
+              class="btn secondary"
+              href="/html/user/logout.html"
+              id="sign-out-link-id"
+            >
+              Sign out
+            </a>
+            <a
+              class="btn secondary"
+              href="/html/user/editProfile.html"
+              id="edit-profile-link"
+              >Edit profile
+            </a>
+            <span id="username-display">{username}</span>
+            <div id="user-image-container">
+              <img class="avatar" id="user-image-icon" src="\${imageFilePath}" />
+            </div>
+          </div>
+        </li>
+      </presentation-component>
+     `
+    }
+  }
+
+  class LoginStoreExample extends HtmlCodeDisplayComponent{
+    getCode(){
+      return `
+import { LOGIN_STORE } from "../../data/user/LoginStore.js";
+import { LOGOUT_STORE } from "../../data/user/LogoutStore.js";
+import { DataStore, PresentationComponent } from "/lib/places-js-latest.js";
+import { USER_DATA_STORE } from "../../data/user/UserDataStore.js";
+
+const presentationSignals = {
+  update: {
+    imageFilePath: (state) => {
+      if (state.isLoggedIn) {
+        return state.userData.imageFilePath;
+      }
+    },
+    showIfLoggedIn: (state) => {
+      return state.isLoggedIn ? "" : "display:none";
+    },
+    username: (state) => {
+      return state?.userData?.username;
+    },
+  },
+};
+
+async function retrieveData() {
+  await LOGIN_STORE.fetchData();
+  const loginState = LOGIN_STORE.getStoreData();
+
+  if (loginState.isLoggedIn) {
+    const data = await USER_DATA_STORE.fetchData();
+
+    if (data.status && data.status !== 200) {
+      console.error(\`\${data.status}: \${data.errorMessage}\`);
+    } else {
+      return {
+        isLoggedIn: true,
+        userData: USER_DATA_STORE.getStoreData(),
+      };
+    }
+  }
+
+  return {
+    isLoggedIn: false,
+  };
+}
+
+export const LOGIN_STATUS_STORE = DataStore.createWithCustomLoadSignal({
+  loadAction: retrieveData,
+  presentationSignals: presentationSignals,
+  storeName: "login-status-store",
+});
+
+LOGIN_STATUS_STORE.fetchData();
+
+const logOffSignals = {
+  update: {
+    showIfLoggedOff(data) {
+      const loginStatus = data.loginStatus.isLoggedIn;
+      return loginStatus ? "display:none" : "";
+    },
+  },
+};
+
+export const LOGGED_OFF_STATUS_STORE = DataStore.createWithDataStoreSignals({
+  storeSignals: [
+    {
+      fieldName: "loginStatus",
+      store: LOGIN_STATUS_STORE,
+    },
+  ],
+  presentationSignals: logOffSignals,
+  storeName: "logged-off-status-store",
+}); `
+    }
+  }
+  customElements.define('html-login-example',HtmlLoginExample);
+  customElements.define('login-store-example',LoginStoreExample);
+
+</script>
+
+<h3>HTML</h3>
+<html-login-example></html-login-example>
+
+<h3>Login status stores</h3>
+<login-store-example></login-store-example>

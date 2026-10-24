@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <style>
+        body {
+					background-image:none;
+				}
+				h2 {
+            margin-top:1rem;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>External Components</title>
+  </head>
+  <body>
+
+		{{>places-js/reference-navbar}}
+    <div id="container" class="container-xl section-div">
+      <h1>External comonponents</h1>
+      
+      <p>Places.js data stores can also broadcast changes to external
+      components using the subscribeWithCallback method. Integration with
+      vanilla JS rendering or another UI tool should be done through
+      subscribeWithCallback. </p>
+      <details open>
+        <summary><b>Example using vanilla JS web component</b></summary>
+        {{>places-js/reference/externalComponents/webComponentExample}}
+      </details>
+ 
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+
+  </body>
+</html>

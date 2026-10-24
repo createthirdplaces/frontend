@@ -1,0 +1,75 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+  class NestedComponentExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit profile</title>
+    <link rel="stylesheet" href="/styles/sharedHtmlOnlyStyles.css" />
+    <link rel="stylesheet" href="/styles/sharedHtmlAndComponentStyles.css" />
+
+    <link rel="stylesheet" href="/styles/designersAndLinks.css" />
+    <link rel="icon" type="image/ico" href="/assets/images/favicon.ico" />
+    <script defer fetchpriority="low" type="module">
+      import { EditProfileComponent } from "/ui/user/EditProfileComponent.js";
+      import {ImageUploadComponent} from
+      "/shared/components/ImageUploadComponent"
+      import { PresentationComponent } from "/lib/places-js-latest.js";
+      
+      customElements.define(\"edit-profile-component\", EditProfileComponent);
+      customElements.define("image-upload-component", ImageUploadComponent);
+      customElements.define("presentation-component", PresentationComponent);
+    \<\/script>
+  </head>
+  <body>
+    <div class="container-xl">
+      <h1>Edit profile</h1>
+      <edit-profile-component>
+        <div data-template>
+          <form id="update-user-form" onsubmit="return false">
+            <div>
+              <span class="{successStyle}">{successMessage} </span>
+              <span class="error-message">{errorMessage}</span>
+              <label class="required-field">Name</label>
+              <input id="username-input" name="username-input" />
+              <span class="error-message">{usernameError}</span>
+            </div>
+            <div class="form-section" id="image-upload">
+              <image-upload-component
+                id="image-upload-ui"
+                image-path="{imageFilePath}"
+              ></image-upload-component>
+            </div>
+            <button
+              class="primary"
+              id="update-user-profile"
+              onClick="{updateUserProfile}"
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </edit-profile-component>
+    </div>
+  </body>
+</html>
+      `
+    }
+
+  }
+  customElements.define('nested-component-example',NestedComponentExample);
+</script>
+
+
+<details>
+  <summary class="headline-summary">Presentation component with nested vanilla JS web component</summary>
+
+  <nested-component-example></nested-component-example>
+</details>

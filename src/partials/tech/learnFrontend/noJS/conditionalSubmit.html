@@ -1,0 +1,61 @@
+<script type="module">
+  
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+     
+  class ConditionalSubmitExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `        <form>
+          <label>Email</label>
+          <input id="username-input" type="email" />
+          
+          <label>Password</label>
+          <input id="password-input" type="password" />
+
+          <label>Confirm password</label>
+          <input id="confirm-password-input" />
+
+          <div id="agree-rules-input">
+            <label for="agree-rules-checkbox">
+              I agree to the site rules listed below
+            </label>
+            <input type="checkbox" id="agree-rules-checkbox" />
+          </div>
+          <button id="create-account-button">
+            Create account
+          </button>
+          <button id="create-account-button-disabled" class="neutral">
+            Create account
+          </button>
+
+          <h2>Site rules</h2>
+          <p>Rule 1: ...</p>
+          <p>Rule 2: ...</p>
+          <p>Rule 3: ...</p>
+        </form>
+` 
+    }
+  }
+  class ConditionalSubmitCSS extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+#agree-rules-input:not(:has(> input:checked)) ~ #create-account-button {
+  display: none;
+}
+
+#agree-rules-input:has(> input:checked) ~ #create-account-button-disabled {
+  display: none;
+}
+`
+    }
+  }
+
+  customElements.define('conditional-submit-example',ConditionalSubmitExample)     
+  customElements.define('conditional-submit-css',ConditionalSubmitCSS)     
+</script> 
+
+<b>CSS</b>
+<conditional-submit-css></conditional-submit-css>
+ 
+<b>HTML</b>
+<conditional-submit-example></conditional-submit-example>
+ 

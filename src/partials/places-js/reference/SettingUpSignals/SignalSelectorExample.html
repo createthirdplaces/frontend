@@ -1,0 +1,65 @@
+<script type="module">
+
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+
+  class DataStoreSignalSelectorExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return ` 
+export const GROUP_WEEKLY_EVENT_STORE = DataStore.createWithDataStoreSignals({
+  presentationSignals: {
+    data: {
+      update: {
+        eventTime: (data) => {
+          const dayString = convertDayOfWeekForDisplay(data.day);
+          return \`\${dayString}s from \${data.startTime} to \${data.endTime}\`;
+        },
+        key: (data) => {
+          return \`\${data.groupId}-event-\${data.id}\`;
+        },
+        location: (data) => {
+          return data.location;
+        },
+        rsvpCount: (data) => data.rsvpCount,
+        url: (data) => {
+          const eventId = encodeURIComponent(data.id);
+          const groupId = encodeURIComponent(data.groupId);
+          return \`/html/groups/events/?id=\${eventId}&groupId=\${groupId}\`;
+        },
+        userCanRsvp: (data) => data.permissions.userCanRsvp,
+        userHasRsvp: (data) => data.userHasRsvp,
+      },
+    },
+  },
+  storeSignals: [
+    {
+      fieldName: "data",
+      selector: (data) => {
+        const events = [];
+        if (!data.weeklyEventData) {
+          return events;
+        }
+        data.weeklyEventData.forEach((event) => {
+          event.groupId = data.id;
+          events.push(event);
+        });
+        return events;
+      },
+      store: GROUP_STORE,
+    },
+  ],
+  storeName: "group-weekly-event-store",
+});`;
+    }
+  }
+
+  customElements.define('data-store-signal-selector-example',DataStoreSignalSelectorExample);
+
+</script>
+
+<details>
+  <summary>Data store signal with custom selector</summary>
+  <data-store-signal-selector-example></data-store-signal-selector-example>
+</details>
+
+
+

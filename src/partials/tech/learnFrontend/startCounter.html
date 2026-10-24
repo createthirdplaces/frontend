@@ -1,0 +1,34 @@
+<script type="module">
+  
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+     
+  class CounterExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+<html>
+  <head>
+    <script>
+      window.addEventListener("load",()=>{
+        let clickCount = 0;
+        document.getElementById("increment").addEventListener("click",()=>{
+          clickCount = clickCount + 1; 
+          document.getElementById("counter").innerHTML = "Number of clicks: "
+          + clickCount;
+        });
+      });
+    <\/script>
+  </head>
+  <body>
+    <button id="increment">Increment</button>
+    <span id="counter">Number of clicks: 0</span>
+  </body>
+</html>
+      ` 
+    }
+  }
+  customElements.define('counter-example',CounterExample)     
+</script> 
+
+<counter-example></counter-example>
+
+  

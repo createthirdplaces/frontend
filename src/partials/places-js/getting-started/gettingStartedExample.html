@@ -1,0 +1,27 @@
+<script type="module">
+  
+  import {HtmlCodeDisplayComponent} from '/js/content/framework/codeGuides/shared/HtmlCodeDisplayComponent.js'
+     
+  class GettingStartedExample extends HtmlCodeDisplayComponent {
+    getCode(){
+      return `
+        <html>
+          <head>
+            <script type="module">
+              import {PresentationComponent} from '/lib/places-js-latest.js';  //Replace with path to Places.js download.
+              customElements.define('presentation-component',PresentationComponent);
+            \<\/script>
+          </head>
+          <body>
+            <presentation-component></presentation-component>      
+          </body>
+        </html>
+      ` 
+    }
+  }
+  customElements.define('getting-started-example',GettingStartedExample)     
+</script> 
+
+  <getting-started-example></getting-started-example>
+
+  
