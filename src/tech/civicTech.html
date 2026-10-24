@@ -10,17 +10,23 @@
       import {runGlobal} from "/js/globalProd.js";
       runGlobal(); 
 		</script>
-			<title>Software Information</title>
+			<title>Civic Tech</title>
 	</head>
     <body>	
       {{>navbar}}
       <div class="container-xl" id="article-text">
-      <h1>Software Information</h1>
-      <p> Create Third  Places is working on civic tech software will support the goal of promoting
-            in person interaction through third places.</p>
+      <h1>Civic Tech</h1>
+      <p> Create Third Places is working on civic tech software to support promoting in person interaction through third places.</p>
     
-      <h2>Guidelines for new software</h2>
-     
+      <h2>Guidelines</h2>
+    
+      <details>
+          <summary>Clearly defined bounds on
+            functionality</summary>
+          <p>Clearly defined bounds on functionality make it easier for users
+          to understand how to use the software. They also prevent software
+          from being misused.</p>
+        </details> 
         <details>
           <summary>Incremental change</summary>       
           <p>Changes to software should be done as small incremental
@@ -30,7 +36,16 @@
         </details>
 
         <details>
-          <summary>Minimize number of new features</summary>
+          <summary>Make development accessible to more people</summary>
+          <p>Create Third Places encourages support for third places through
+          bottom-up action. To be consistent with this mission, software
+          will be open source and minimize complexity so that more people can
+          understand it. People will also be encouraged to modify the software
+          for their own public space advocacy initiatives.</p>
+        </details>
+
+        <details>
+          <summary>Minimize features</summary>
           <p>
            While
           text or email communication features can be useful, they will not be supported by Create Third Places. People should be encouraged
@@ -57,10 +72,9 @@
           complexity and increase the time necessary to test and maintain code.
         </p>
       </details>
-    
-
-        <details>
-          <summary>No use of LLMs</summary>
+  
+      <details>
+          <summary>No LLM use</summary>
           
           <p>Generative AI doesn't have defined bounds on functionality, and
           can be used as a way to replace human interaction. Supporting human
@@ -73,24 +87,6 @@
           problems.</p>
         </details>
     
-      <details>
-          <summary>Software has clearly defined bounds on
-            functionality</summary>
-          <p>Clearly defined bounds on functionality make it easier for users
-          to understand how to use the software. They also prevent software
-          from being misused.</p>
-        </details>
-  
-
-        <details>
-          <summary>Support making development accessible to more people</summary>
-          <p>Create Third Places encourages support for third places through
-          bottom-up action. To be consistent with this mission, software
-          will be open source and minimize complexity so that more people can
-          understand it. People will also be encouraged to modify the software
-          for their own public space advocacy initiatives.</p>
-        </details>
-
             <p>See the <a href="/tech/techStrategy">tech strategy</a> 
              page for more information on how software should be developed. </p>
 
@@ -141,8 +137,6 @@
                 </li>
               </ul>
             </li>
-
-
           </ul>
           
           <p>Create Third Places is looking for programming help. See the <a href="/contribute">contribute page</a> for more information.</p>
