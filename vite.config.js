@@ -71,6 +71,6 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 Object.assign(buildConfig['build']['rollupOptions']['input'],globSync('src/articles/*.html'),
-globSync('src/tech/*html'));
+globSync('src/tech/**/*html'));
 export default defineConfig(buildConfig);
 
