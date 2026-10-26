@@ -3,15 +3,8 @@ const blockFunction = function(...args){
 	console.error("Unauthorized");
 }
 
-function blockObjectMethods() {
-	Object.keys = blockFunction;
-	Object.values = blockFunction;
-	Object.getOwnPropertyNames = blockFunction; 
-}
-
 export function blockJavaScriptFunctions(){
 
-    blockObjectMethods();
     setTimeout( ()=>{   
    
 			const a = document; 
