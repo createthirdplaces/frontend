@@ -70,7 +70,7 @@ if(process.env.NODE_ENV === 'development'){
   buildConfig['resolve'] =  update;
 }
 
-Object.assign(buildConfig['build']['rollupOptions']['input'],globSync('src/articles/*.html'),
-globSync('src/tech/**/*html'));
+Object.assign(buildConfig['build']['rollupOptions']['input'],
+	globSync(['src/articles/*.html','src/tech/**/*.html']))
 export default defineConfig(buildConfig);
 
