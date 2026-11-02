@@ -53,14 +53,13 @@ const buildConfig = {
         goals: resolve(__dirname, "src/tech/placesjs/goals.html"),
         tips: resolve(__dirname, "src/tech/placesjs/tips.html"),
         
-
+				riddles: resolve(__dirname, "src/articles/social/riddles.html") 
       },
+	
     },
   },
 }
 
-console.log(process.env);
-if(process.env.NODE_ENV === 'development'){
   const update=
   	{	
 	    alias:{	
@@ -68,9 +67,11 @@ if(process.env.NODE_ENV === 'development'){
 				}	
     }
   buildConfig['resolve'] =  update;
-}
 
 Object.assign(buildConfig['build']['rollupOptions']['input'],
-	globSync(['src/articles/*.html','src/tech/**/*.html']))
+	globSync([
+		'src/articles/social/riddles.html',
+		'src/articles/*.html',
+		'src/tech/**/*.html']))
 export default defineConfig(buildConfig);
 
