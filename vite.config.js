@@ -59,7 +59,7 @@ const buildConfig = {
   },
 }
 
-if(proccess.env.NODE_ENV === 'development'){
+if(process.env.NODE_ENV === 'development'){
   const update=
   	{	
 	    alias:{	
