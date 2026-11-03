@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/styles/sharedStyles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module">
+      import { runGlobal } from "/js/globalProd.js";
+      runGlobal();
+    </script>
+    <title>Riddles</title>
+  </head>
+  <body>
+    {{>navbar}}
+    <div class="container-xl" id="container">
+      <div class="display-section" id="article-text">
+        <h1>Riddles</h1>
+        {{>authors/articleHeading name='Bharat Ponnaluri' date='November 2026'
+        imageLink='https://createthirdplaces.nyc3.cdn.digitaloceanspaces.com/people/Bharat_Picture.jpg'
+        }} 
+
+				{{>social/riddles 
+					question='How much dirt is in a 4ft x 4ft hole?'
+					answer='None, there is no dirt in a hole.' 
+				}} 
+
+				{{>social/riddles
+					question='A chicken lays an egg on top of a sloped roof. Which way does
+        the egg roll?' 
+					answer='Down.' 
+				}} 
+
+				{{>social/riddles 
+					question='Which came first, the chicken or the egg?' 
+					answer='The egg.' 
+				}}
+
+				{{>social/riddles
+					question='A person has 1 match, 1 lantern, 1 stove, and 1 heater. What
+        do they light first?' 
+					answer='The match.' 
+				}} 
+
+				{{>social/riddles
+					question='You are driving a bus. At the first stop, 10 people get on. At
+        the second stop, 5 people get off. At the third stop, 3 people get on,
+        and 13 people get off. Who is the bus driver?' 
+					answer='You' 
+				}}
+        
+				{{>social/riddles 
+					question='Jack’s mom has 5 sons, the first son is
+        named firstCup, the second son is named secondCup, the third son is
+        named thirdCup, and the fourth son is named fourthCup. What is the name
+        of the fifth son?' 
+					answer='Jack' 
+				}} 
+
+				{{>social/riddles 
+					question='What is the center of gravity?' 
+					answer='The letter V.' 
+				}} 
+
+				{{>social/riddles
+					question='Spell my name?' 
+					answer='M-Y-N-A-M-E' 
+				}} 
+
+				{{>social/riddles
+					question='Say shop.
+						<br />
+						Spell shop.
+						<br />
+						What do you do at a green light? '
+					answer='Go' 
+				}} 
+
+				{{>social/riddles
+					question='Say silk.
+						<br />
+						Spell silk.
+						<br />
+						What do cows drink?' 
+					answer='Water' 
+				}} 
+
+				{{>social/riddles 
+					question='Say fort.
+						<br />
+						Spell fort.
+						<br />
+						What do you have soup with?' 
+					answer='A spoon' 
+				}}
+      </div>
+      {{>authors/bharatPonnaluri}}
+      <br />
+    </div>
+    <div id="bot-container"></div>
+    {{>footer}}
+  </body>
+</html>
