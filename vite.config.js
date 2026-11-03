@@ -5,7 +5,6 @@ import handlebars from "vite-plugin-handlebars";
 import fs from 'node:fs';
 import {globSync} from 'glob';
 
-console.log(resolve(__dirname,"src/about.html"));
 const buildConfig = {
   plugins: [
     handlebars({
@@ -60,6 +59,7 @@ const buildConfig = {
   },
 }
 
+if(proccess.env.NODE_ENV === 'development'){
   const update=
   	{	
 	    alias:{	
@@ -67,6 +67,7 @@ const buildConfig = {
 				}	
     }
   buildConfig['resolve'] =  update;
+}
 
 Object.assign(buildConfig['build']['rollupOptions']['input'],
 	globSync([
