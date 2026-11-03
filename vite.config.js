@@ -5,6 +5,7 @@ import handlebars from "vite-plugin-handlebars";
 import fs from 'node:fs';
 import {globSync} from 'glob';
 
+console.log(resolve(__dirname,"src/about.html"));
 const buildConfig = {
   plugins: [
     handlebars({
@@ -53,7 +54,6 @@ const buildConfig = {
         goals: resolve(__dirname, "src/tech/placesjs/goals.html"),
         tips: resolve(__dirname, "src/tech/placesjs/tips.html"),
         
-				riddles: resolve(__dirname, "src/articles/social/riddles.html") 
       },
 	
     },
@@ -70,8 +70,10 @@ const buildConfig = {
 
 Object.assign(buildConfig['build']['rollupOptions']['input'],
 	globSync([
-		'src/articles/social/riddles.html',
+		'src/articles/social/riddles/index.html',
 		'src/articles/*.html',
-		'src/tech/**/*.html']))
+		'src/tech/**/*.html'
+	])
+)
 export default defineConfig(buildConfig);
 
