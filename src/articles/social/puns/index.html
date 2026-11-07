@@ -1,0 +1,83 @@
+<!doctype html> 
+<html lang="en">
+  <head> 
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles/social/puns.css">
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <script defer fetchpriority="low" type="module">
+      import {runGlobal} from "/js/globalProd.js";
+      runGlobal();
+    </script>
+    <title>Puns</title> 
+  </head> 
+  <body> 
+    
+		{{>navbar}}
+    <div class="container-xl" id="article-text">
+      <h2>Puns</h2> 
+      <ul>
+        {{>social/puns
+          text='Did you hear about the pedestrian who turned into a store?'
+        }}
+
+        {{>social/puns
+          text='Whiteboards are remarkable.'
+        }}
+
+        {{>social/puns
+          text='Did you read the book about tearable puns?'
+        }}
+
+        {{>social/puns
+          text='The future, present, and past walked into a bar. Things got a
+          little tense.'
+        }}
+
+        {{>social/puns
+          text='Yesterday, a clown held the door open for me. I thought it was a
+          nice jester.'
+        }}
+        
+        {{>social/puns
+          text='My bike could not stand up because it was two tired.'
+        }}
+
+        {{>social/puns
+          text='Two antennae got married on the roof. The reception was
+          excellent.'
+        }}
+
+        {{>social/puns
+          text='I like peppermint patties in mint condition.'
+        }}
+
+        {{>social/puns
+          text='I gave away dead batteries free of charge.'
+        }}
+
+        {{>social/puns
+          text='Eating a clock is very time consuming.'
+        }}
+
+      </ul>
+      <h3>Math and science puns</h3>
+
+      {{>social/puns
+        text='Did you hear about the cyclops with one eye? He was complex and
+        imaginary?'
+      }}
+
+      {{>social/puns
+        text='Never trust atoms. They make up everything.'
+      }}
+
+      {{>social/puns
+        text='I like telling chemistry jokes to get a reaction.'
+      }}
+    </div>
+		<div id="bot-container"></div>
+    {{>footer}}
+
+  </body>
+</html>
