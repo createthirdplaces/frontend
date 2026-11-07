@@ -199,5 +199,6 @@ export const otherWords = new Set([
   'powell',
 	'webpage',
   'baldur',
-  'bjarnason'
+  'bjarnason',
+  'whiteboards'
 ]);

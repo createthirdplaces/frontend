@@ -72,6 +72,8 @@ if(process.env.NODE_ENV === 'development'){
 Object.assign(buildConfig['build']['rollupOptions']['input'],
 	globSync([
 		'src/articles/social/riddles/index.html',
+    'src/articles/social/puns/index.html',
+    'src/articles/social/index.html',
 		'src/articles/*.html',
 		'src/tech/**/*.html'
 	])

@@ -1,0 +1,8 @@
+#article-text ul {
+  padding-inline-start:0;
+}
+
+#article-text li {
+  list-style:none;
+  margin-bottom:1rem;
+}
