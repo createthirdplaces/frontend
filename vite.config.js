@@ -18,8 +18,7 @@ const buildConfig = {
     emptyOutDir: true,
     outDir: "../dist",
     rollupOptions: {
-      input: {
-        
+      input: {        
         about: resolve(__dirname, "src/about.html"),
         apiEndpoints: resolve(__dirname, "src/tech/apiEndpoints.html"),
        
