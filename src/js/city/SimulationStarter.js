@@ -1,10 +1,14 @@
-import {DEFAULT_CIRCLE_DISPLAY_CONFIG} from 'CircleDisplayConfig.js';
-import {RANDOM_UPDATER} from 'RandomUpdater.js';
 
-import {RENDER_UPDATER} from 'RenderStore.js';
+import {PLACE_UPDATER} from './PlaceUpdater.js';
+import {RANDOM_UPDATER} from './RandomUpdater.js';
 
-import {init} from 'CanvasRender.js';
-let items = [];
+import {Entity} from './Entity.js';
+
+import {createDefaultCircleConfig} from './render/CircleDisplayConfig.js';
+
+import {init} from './CanvasRender.js';
+
+let entities = [];
 
 export function startSimulation() {
 	
@@ -13,12 +17,15 @@ export function startSimulation() {
 		let xPos = Math.floor(Math.random()*499) + 1;
 		let yPos = Math.floor(Math.random()*499) + 1;
 
-		items.push(new Item(
-			xPos,
-			yPos,
-			RANDOM_UPDATER,
-			DEFAULT_CIRCLE_DISPLAY_CONFIG
+		entities.push(new Entity({
+			xPos:xPos,
+			yPos:yPos,
+			moveUpdater:RANDOM_UPDATER,
+			displayConfig:createDefaultCircleConfig()
+		}));
 	}
 
-	RENDER_UPDATER.start();
+	PLACE_UPDATER.start();
+	init();
 }
+
