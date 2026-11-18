@@ -1,6 +1,5 @@
 import {DataStore,EmptyInitializer} from '/js/shared/lib/places-js-latest.js';
 
-//Debouncing for updates
 
 const FRAMES_PER_SECOND = 60.0;
 
@@ -28,9 +27,18 @@ class PlaceUpdater {
 
 }
 
+
+/* Debouncing for updates
+ * All requests to update the simulation state should be made to PLACE_UPDATER
+*/
 export const PLACE_UPDATER = new PlaceUpdater();
 
-export const RENDER_STORE = DataStore.createWithInitialState({
+/*
+	This stores the current simulation data. Data is then passed to a renderer for a visual display. 
+
+	If an object in the simulation are dependent on the simulation data, then the object should have a store subscribed to this store. 
+*/
+export const PLACE_STORE = DataStore.createWithInitialState({
 	initialState:{},
-	storeName = "render-store";
+	storeName = "place-store";
 });
