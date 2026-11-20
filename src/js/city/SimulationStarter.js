@@ -12,7 +12,7 @@ let entities = [];
 
 export function startSimulation() {
 
-	for(let	i=0;i<10;i++){
+	for(let	i=0;i<10000;i++){
 
 		let xPos = Math.floor(Math.random()*999) + 1;
 		let yPos = Math.floor(Math.random()*999) + 1;

@@ -18,7 +18,7 @@ export function drawCircle({xPos,yPos,displayConfig,id,ctx}){
 const DEFAULT_CIRCLE_CONFIG = {
 	color:"#000000",
 	shapeType: "circle",
-	radius:20
+	radius:5
 }
 
 export function createDefaultCircleConfig(){

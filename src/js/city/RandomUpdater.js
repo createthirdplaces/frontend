@@ -1,6 +1,6 @@
 import {CITY_SIZE_X,CITY_SIZE_Y} from './Config.js';
 
-const MAX_VELOCITY = 10;
+const MAX_VELOCITY = 2;
 class RandomUpdater {
 
   static velocityX = new Map();
@@ -13,8 +13,8 @@ class RandomUpdater {
       RandomUpdater.velocityY.set(id,Math.random()*20-10);
     } else {
    
-      let accX = (Math.random()* 2) - 1;
-		  let accY = (Math.random()* 2) - 1;
+      let accX = (Math.random()/2) - 0.25;
+		  let accY = (Math.random()/2) - 0.25;
 
       let updatedVelocityX = RandomUpdater.velocityX.get(id) + accX;
       let updatedVelocityY = RandomUpdater.velocityY.get(id) + accY;
@@ -26,7 +26,6 @@ class RandomUpdater {
       if(updatedVelocityY > MAX_VELOCITY){
         updatedVelocityY = MAX_VELOCITY;
       }
-
       
       if(updatedVelocityX < -1*MAX_VELOCITY){
         updatedVelocityX = -1*MAX_VELOCITY;
@@ -45,20 +44,32 @@ class RandomUpdater {
 
 		if(newX >= CITY_SIZE_X){
 			newX = CITY_SIZE_X -1;	
-      RandomUpdater.velocityX.set(id,0);
+      RandomUpdater.velocityX.set(
+        id,
+        RandomUpdater.velocityX.get(id)*-1);
     }
 		if(newX <= 0){
 			newX = 1;
-      RandomUpdater.velocityX.set(id,0);
+      RandomUpdater.velocityX.set(
+        id,
+        RandomUpdater.velocityX.get(id)*-1
+      );
+		}
+    if(newY >= CITY_SIZE_Y){
+			newY = CITY_SIZE_Y -1;
+      RandomUpdater.velocityY.set(
+        id,
+        RandomUpdater.velocityY.get(id)*-1
+      );
 		}
 		if(newY <=0){
 			newY=1;
-      RandomUpdater.velocityY.set(id,0);
+      RandomUpdater.velocityY.set(
+        id,
+        RandomUpdater.velocityY.get(id)*-1
+      );
 		}
-		if(newY >= CITY_SIZE_Y){
-			newY = CITY_SIZE_Y -1;
-      RandomUpdater.velocityY.set(id,0);
-		}
+		
 	  return {xPos:newX,yPos:newY};	
 	}
 
