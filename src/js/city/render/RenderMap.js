@@ -1,16 +1,14 @@
-
 import {drawCircle} from './CircleDisplayConfig.js';
 
-
-export function render(xPos,yPos,renderConfig,ctx){
-	if(!renderConfig.shapeType){
+export function render(params){
+	if(!params.displayConfig.shapeType){
 		throw new Error("No shape type defined");
 	}
 
-	const shapeType = renderConfig.shapeType;
+	const shapeType = params.displayConfig.shapeType;
 	
 	if(shapeType === "circle"){
-		drawCircle(xPos,yPos,renderConfig,ctx);
+		drawCircle(params);
 	}
 	else {
 		throw new Error(`No renderer defined for shape type ${shapeType}`);

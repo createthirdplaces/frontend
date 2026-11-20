@@ -11,17 +11,24 @@ import {init} from './CanvasRender.js';
 let entities = [];
 
 export function startSimulation() {
-	
+
 	for(let	i=0;i<10;i++){
 
-		let xPos = Math.floor(Math.random()*499) + 1;
-		let yPos = Math.floor(Math.random()*499) + 1;
+		let xPos = Math.floor(Math.random()*999) + 1;
+		let yPos = Math.floor(Math.random()*999) + 1;
 
+    const config = createDefaultCircleConfig();
+
+    if(xPos > 500){
+      config.color = "#008000";
+    } else {
+      config.color = "#800080";
+    }
 		entities.push(new Entity({
 			xPos:xPos,
 			yPos:yPos,
 			moveUpdater:RANDOM_UPDATER,
-			displayConfig:createDefaultCircleConfig()
+			displayConfig:config
 		}));
 	}
 

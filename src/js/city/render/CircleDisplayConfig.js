@@ -1,24 +1,17 @@
 
-export function drawCircle(xPos,yPos,displayConfig,ctx){
-
+export function drawCircle({xPos,yPos,displayConfig,id,ctx}){
+  
+  ctx.strokeStyle = "white";
 	ctx.beginPath();
 	ctx.arc(
 		xPos,
 		yPos,
-		200,
-		//displayConfig.radius,
+		displayConfig.radius,
 		0,
 		2 * Math.PI);
 
-	console.log(xPos+":"+yPos);
-
-	//TODO: Make sure hexadecimal config is working for color.
-	//Afterwards, make sure radius is not hardcoded and display updates	
-	ctx.fillStyle = "red";
+  ctx.fillStyle = displayConfig.color;
 	ctx.fill();
-	ctx.lineWith = 2;
-	ctx.strokeStyle = "black";
-	ctx.stroke();
 
 }
 

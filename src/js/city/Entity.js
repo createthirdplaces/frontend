@@ -29,7 +29,7 @@ export class Entity {
 		Entity.numCreated++;
 
 		setInterval(()=>{
-			const newLoc = this.#moveUpdater.update(this.#xPos,this.#yPos);	
+			const newLoc = this.#moveUpdater.update(this.#xPos,this.#yPos,this.#id);	
 			this.#xPos = newLoc.xPos;
 			this.#yPos = newLoc.yPos;
 
@@ -37,7 +37,7 @@ export class Entity {
 				displayConfig:this.#displayConfig,
 				xPos: this.#xPos,
 				yPos: this.#yPos,
-				id: this.id
+				id: this.#id
 			});
 
 

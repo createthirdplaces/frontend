@@ -1,36 +1,36 @@
 import {DataStore} from '/js/shared/lib/places-js-v0-1-2.js';
 
-
-const FRAMES_PER_SECOND = 1;
-
+export const FRAMES_PER_SECOND = 20;
 
 class PlaceUpdater {
 
 	#updates;
 
 	constructor(){
-		this.#updates = [];
+		this.#updates = new Map();
 	}
 
 	start(){
 		setInterval(()=>{
 		
 			let updatesToSave = [];
-			for(let i=0;i<this.#updates.length;i++){
-				updatesToSave.push(this.#updates[i]);
-			}
 
-			//console.log(updatesToSave);
+      this.#updates.forEach((value)=>{ 
+				updatesToSave.push(value);
+      });
+
 			PLACE_STORE.updateStoreData({
 				updates:updatesToSave
 			});
-			this.#updates = [];	
+			this.#updates.clear();
 		},1000/FRAMES_PER_SECOND);
 	}
 
 	update(itemConfig){
-		//console.log("update");
-		this.#updates.push(itemConfig);
+    
+    //If multiple updates are made to the same object, only
+    //apply the latest one.
+    this.#updates.set(itemConfig.id, itemConfig);
 	}
 }
 
@@ -45,7 +45,6 @@ export const PLACE_UPDATER = new PlaceUpdater();
 
 	If an object in the simulation are dependent on the simulation data, then the object should have a store subscribed to this store. 
 */
-console.log(DataStore);
 export const PLACE_STORE = DataStore.createWithInitialState({
 	initialState:{},
 	storeName:"place-store"
