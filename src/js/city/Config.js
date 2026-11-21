@@ -1,2 +1,3 @@
-export const CITY_SIZE_X = 1000;
-export const CITY_SIZE_Y = 1000;
+export const CANVAS_ID = "simulation-display";
+export const DISPLAY_HEIGHT= 1000;
+export const DISPLAY_WIDTH = 1000;

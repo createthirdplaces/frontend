@@ -1,4 +1,4 @@
-import {CITY_SIZE_X,CITY_SIZE_Y} from './Config.js';
+import {DISPLAY_HEIGHT,DISPLAY_WIDTH} from './Config.js';
 
 const MAX_VELOCITY = 2;
 class RandomUpdater {
@@ -42,8 +42,8 @@ class RandomUpdater {
     let newX = xPos + RandomUpdater.velocityX.get(id);
     let newY = yPos + RandomUpdater.velocityY.get(id);
 
-		if(newX >= CITY_SIZE_X){
-			newX = CITY_SIZE_X -1;	
+		if(newX >= DISPLAY_WIDTH){
+			newX = DISPLAY_WIDTH -1;	
       RandomUpdater.velocityX.set(
         id,
         RandomUpdater.velocityX.get(id)*-1);
@@ -55,8 +55,8 @@ class RandomUpdater {
         RandomUpdater.velocityX.get(id)*-1
       );
 		}
-    if(newY >= CITY_SIZE_Y){
-			newY = CITY_SIZE_Y -1;
+    if(newY >= DISPLAY_HEIGHT){
+			newY = DISPLAY_HEIGHT -1;
       RandomUpdater.velocityY.set(
         id,
         RandomUpdater.velocityY.get(id)*-1
