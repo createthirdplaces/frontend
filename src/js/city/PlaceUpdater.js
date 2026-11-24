@@ -1,6 +1,6 @@
 import {DataStore} from '/js/shared/lib/places-js-v0-1-2.js';
 
-export const FRAMES_PER_SECOND = 20;
+import {FRAMES_PER_SECOND} from './Config';
 
 class PlaceUpdater {
 
@@ -18,11 +18,11 @@ class PlaceUpdater {
       this.#updates.forEach((value)=>{ 
 				updatesToSave.push(value);
       });
+			this.#updates.clear();
 
 			PLACE_STORE.updateStoreData({
 				updates:updatesToSave
 			});
-			this.#updates.clear();
 		},1000/FRAMES_PER_SECOND);
 	}
 

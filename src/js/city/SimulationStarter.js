@@ -11,10 +11,10 @@ let entities = [];
 
 export function startSimulation() {
 
-	for(let	i=0;i<10000;i++){
+	for(let	i=0; i<10000; i++){
 
-		let xPos = Math.floor(Math.random()*DISPLAY_WIDTH-1) + 1;
-		let yPos = Math.floor(Math.random()*DISPLAY_HEIGHT-1) + 1;
+		let xPos = Math.floor(Math.random()*DISPLAY_WIDTH - 1) + 1;
+		let yPos = Math.floor(Math.random()*DISPLAY_HEIGHT - 1) + 1;
 
     const config = createDefaultCircleConfig();
 
@@ -24,10 +24,10 @@ export function startSimulation() {
       config.color = "#800080";
     }
 		entities.push(new Entity({
+			displayConfig:config,
+			moveUpdater:RANDOM_UPDATER,
 			xPos:xPos,
 			yPos:yPos,
-			moveUpdater:RANDOM_UPDATER,
-			displayConfig:config
 		}));
 	}
 

@@ -10,10 +10,6 @@ export class Entity {
 	#xPos;
 	#yPos;
 
-	/**
-	 TODO: Add updater for state metrics with
-	  the results being passed to PLACE_UPDATER.
-	**/
 	constructor({
 		xPos,
 		yPos,
@@ -21,12 +17,13 @@ export class Entity {
 		moveUpdater})
 	{
 		this.#displayConfig = displayConfig;
+		
+		this.#id = Entity.numCreated;
+		Entity.numCreated++;
+
 		this.#moveUpdater = moveUpdater;
 		this.#xPos = xPos;
 		this.#yPos = yPos;
-
-		this.#id = Entity.numCreated;
-		Entity.numCreated++;
 
 		setInterval(()=>{
 			const newLoc = this.#moveUpdater.update(this.#xPos,this.#yPos,this.#id);	
@@ -34,15 +31,11 @@ export class Entity {
 			this.#yPos = newLoc.yPos;
 
 			PLACE_UPDATER.update({
-				displayConfig:this.#displayConfig,
+				displayConfig:this.#displayConfig,	
+				id: this.#id,
 				xPos: this.#xPos,
 				yPos: this.#yPos,
-				id: this.#id
 			});
-
-
-		},moveUpdater.getUpdatesPerSecond())	
-	
+		},moveUpdater.getUpdatesPerSecond())		
 	}
-
 }

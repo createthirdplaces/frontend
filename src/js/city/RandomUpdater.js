@@ -1,12 +1,13 @@
 import {DISPLAY_HEIGHT,DISPLAY_WIDTH} from './Config.js';
 
 const MAX_VELOCITY = 2;
+
 class RandomUpdater {
 
   static velocityX = new Map();
   static velocityY = new Map();
   
-	update(xPos, yPos,id){
+	update(xPos, yPos, id){
 		
 		if(!RandomUpdater.velocityX.has(id)){
       RandomUpdater.velocityX.set(id,Math.random()*20-10);
@@ -70,7 +71,10 @@ class RandomUpdater {
       );
 		}
 		
-	  return {xPos:newX,yPos:newY};	
+	  return {
+			xPos:newX,
+			yPos:newY
+		};	
 	}
 
 	getUpdatesPerSecond() {
