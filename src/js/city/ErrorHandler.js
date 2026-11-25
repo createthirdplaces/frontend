@@ -1,16 +1,14 @@
 class ErrorHandler {
-		
-	handleError({errorData,message,intervalPid}) {
+  handleError({ errorData, message, intervalPid }) {
+    console.error(message);
+    if (intervalPid) {
+      clearInterval(intervalPid);
+    }
 
-		console.error(message);		
-		if(intervalPid){
-			clearInterval(intervalPid);
-		}
-
-		throw errorData;
-	}
+    throw errorData;
+  }
 }
 
-export function createErrorHandler(){
-	return new ErrorHandler();
+export function createErrorHandler() {
+  return new ErrorHandler();
 }
