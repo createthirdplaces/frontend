@@ -9,6 +9,25 @@ const cellSize = 10;
 let mapWidth = Math.ceil(width/cellSize);
 let mapHeight = Math.ceil(height/cellSize);
 
+let lastCheckTime = Date.now();
+let lastSize = 0;
+const collisionMapSize = () =>{
+
+	if(Date.now()-lastCheckTime < 1000){
+		return lastSize;			
+	}
+	let size = 0;
+	for(let x=0;x*cellSize<width;x++){
+		for(let y=0;y*cellSize<height;y++){
+			size+=collisionMap[x][y].size;	
+		}
+	}
+
+	lastCheckTime = Date.now();
+	console.log(size);
+	return size;
+}
+
 const initMap = ()=>{
 	for(let x=0;x<width;x+=cellSize){	
 
@@ -19,6 +38,7 @@ const initMap = ()=>{
 		collisionMap.push(col);
 	}
 }
+
 
 initMap();
 
@@ -31,7 +51,7 @@ class CollisionDetector {
 	}
 
 	
-	hasCollision(xPos,yPos,id, radius){
+	hasCollision({xPos,yPos,id, radius}){
 
 		const centerX = Math.floor(xPos/cellSize);
 		const centerY = Math.floor(yPos/cellSize);
@@ -51,11 +71,11 @@ class CollisionDetector {
 		const endY = Math.max(
 			0,
 			Math.ceil(centerY-radius/cellSize))
-	
+
 		for(let x=startX;x<endX;x++){
 			for(let y=startY;y<endY;y++){
-				hasCollision = false;
-				
+				let hasCollision = false;
+
 				collisionMap[x][y].forEach((value,key)=>{
 					if(key !== id){
 						
@@ -63,7 +83,7 @@ class CollisionDetector {
 							Math.pow(Math.abs(value.xPos-xPos),2) +
 							Math.pow(Math.abs(value.yPos-yPos),2)
 						)
-
+						
 						if(distance < (radius + value.radius)){
 							hasCollision = true;
 						}
@@ -80,7 +100,7 @@ class CollisionDetector {
 	
 	updateCollisionMap({xPos,yPos,id,radius}){
 
-		if(!id){
+		if(!id && id !== 0){
 			throw new Error("Invalid id ${id} for collision map");
 		}
 		const centerX = Math.floor(xPos/cellSize);
@@ -88,13 +108,33 @@ class CollisionDetector {
 
 		if(coordinateMap.has(id)){
 
-			const oldX = Math.floor(coordinateMap.get(id).xPos/cellSize);
-			const oldY = Math.floor(coordinateMap.get(id).yPos/cellSize);
+			const oldCenterX = Math.floor(coordinateMap.get(id).xPos/cellSize);
+			const oldCenterY = Math.floor(coordinateMap.get(id).yPos/cellSize);
 
-			collisionMap[oldX][oldY].delete(id);
+			//Delete old positions for collision map.
+			const oldStartX = Math.max(
+				0,
+				Math.floor(oldCenterX-radius/cellSize))
+
+			const oldEndX = Math.min(
+				mapWidth,
+				Math.ceil(oldCenterX+radius/cellSize))
+
+			const oldStartY = Math.max(
+				0,
+				Math.floor(oldCenterY-radius/cellSize))
+
+			const oldEndY = Math.max(
+				0,
+				Math.ceil(oldCenterY-radius/cellSize))	
+
+			for(let x=oldStartX;x<oldEndX;x++){
+				for(let y=oldStartY;y<oldEndY;y++){
+					collisionMap[x][y].delete(id);
+				}
+			}
 		}
 
-		
 		coordinateMap.set(id,{xPos:xPos,yPos:yPos});		
 	
 		const startX = Math.max(
@@ -122,6 +162,7 @@ class CollisionDetector {
 				})
 			}
 		}
+		collisionMapSize();
 	}
 
 }

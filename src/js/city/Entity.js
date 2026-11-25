@@ -64,6 +64,6 @@ export class Entity {
 					message: `Error when updating entity #${this.#id}`	
 				});
 			}
-		},moveUpdater.getUpdatesPerSecond())		
+		},1000/moveUpdater.getUpdatesPerSecond())		
 	}
 }

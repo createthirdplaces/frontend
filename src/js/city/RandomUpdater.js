@@ -39,9 +39,11 @@ class RandomUpdater {
       RandomUpdater.velocityX.set(id,updatedVelocityX);
       RandomUpdater.velocityY.set(id,updatedVelocityY);
     }
-    
-    let newX = xPos + RandomUpdater.velocityX.get(id);
-    let newY = yPos + RandomUpdater.velocityY.get(id);
+   
+		let velocityX = RandomUpdater.velocityX.get(id);
+		let velocityY = RandomUpdater.velocityY.get(id); 
+    let newX = xPos + velocityX;
+    let newY = yPos + velocityY;
 
 		if(newX >= DISPLAY_WIDTH){
 			newX = DISPLAY_WIDTH -1;	
@@ -80,16 +82,29 @@ class RandomUpdater {
 		if(collisionDetector.hasCollision(collisionConfig) === false){
 
 			collisionDetector.updateCollisionMap(collisionConfig);
+
 			return {
 				xPos:newX,
 				yPos:newY
-			};
+			}		
 		}
-		return {xPos,yPos};
+
+		velocityX = velocityX*-1;
+		velocityY = velocityY*-1;
+	
+		collisionConfig.xPos=newX+velocityX;
+		collisionConfig.yPos=newY+velocityY;	
+		
+		collisionDetector.updateCollisionMap(collisionConfig);
+
+		return {
+			xPos:collisionConfig.xPos,
+			yPos:collisionConfig.yPos
+		};
 	}
 
 	getUpdatesPerSecond() {
-		return 50;
+		return 20;
 	}
 }
 
