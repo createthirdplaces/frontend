@@ -18,7 +18,6 @@ class PlaceUpdater {
       this.#updates.forEach((value)=>{ 
 				updatesToSave.push(value);
       });
-			this.#updates.clear();
 
 			PLACE_STORE.updateStoreData({
 				updates:updatesToSave
@@ -30,6 +29,8 @@ class PlaceUpdater {
     
     //If multiple updates are made to the same object, only
     //apply the latest one.
+		//This also means that if an item is not updated during a			//a render cycle, data  from the last update will
+		//be used.
     this.#updates.set(itemConfig.id, itemConfig);
 	}
 }

@@ -30,9 +30,6 @@ class CollisionDetector {
 		this.#config = config;
 	}
 
-
-	//TODO: Update to exclude small cells in corners
-	// when entities are large circles.
 	
 	hasCollision(xPos,yPos,id, radius){
 
@@ -94,10 +91,31 @@ class CollisionDetector {
 
 		coordinateMap.set(id,{xPos:xPos,yPos:yPos});		
 
-		collisionMap[x][y]= {
-			radius,
-			xPos,
-			yPos,
+		
+		const startX = Math.max(
+			0,
+			Math.floor(centerX-radius/cellSize))
+
+		const endX = Math.min(
+			mapWidth,
+			Math.ceil(centerX+radius/cellSize))
+
+		const startY = Math.max(
+			0,
+			Math.floor(centerY-radius/cellSize))
+
+		const endY = Math.max(
+			0,
+			Math.ceil(centerY-radius/cellSize))	
+
+		for(let x=startX;x<endX;x++){
+			for(let y=startY;y<endY;y++){
+				collisionMap[x][y]= {
+					radius,
+					xPos,
+					yPos,
+				}
+			}
 		}
 	}
 
