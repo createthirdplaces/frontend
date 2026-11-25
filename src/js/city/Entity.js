@@ -14,8 +14,10 @@ export class Entity {
 	static numCreated = 0;
 	
 	#displayConfig;
+
 	#id;
 	#moveUpdater;
+	#radius;
 	#xPos;
 	#yPos;
 
@@ -33,6 +35,7 @@ export class Entity {
 		Entity.numCreated++;
 
 		this.#moveUpdater = moveUpdater;
+		this.#radius = this.#displayConfig.radius;
 		this.#xPos = xPos;
 		this.#yPos = yPos;
 
@@ -41,6 +44,7 @@ export class Entity {
 				const newLoc = this.#moveUpdater.update({	
 					id:this.#id,
 					collisionDetector: collisionDetector??emptyCollisionDetector,
+					radius: this.#radius,	
 					xPos:this.#xPos,
 					yPos:this.#yPos,
 				});	

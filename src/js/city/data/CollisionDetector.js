@@ -80,18 +80,23 @@ class CollisionDetector {
 	
 	updateCollisionMap({xPos,yPos,id,radius}){
 
-		const x = Math.floor(xPos/cellSize);
-		const y = Math.floor(yPos/cellSize);
+		if(!id){
+			throw new Error("Invalid id ${id} for collision map");
+		}
+		const centerX = Math.floor(xPos/cellSize);
+		const centerY = Math.floor(yPos/cellSize);
 
 		if(coordinateMap.has(id)){
-			const oldX = coordinateMap.get(id).xPos;
-			const oldY = coordinateMap.get(id).yPos;
+
+			const oldX = Math.floor(coordinateMap.get(id).xPos/cellSize);
+			const oldY = Math.floor(coordinateMap.get(id).yPos/cellSize);
+
 			collisionMap[oldX][oldY].delete(id);
 		}
 
-		coordinateMap.set(id,{xPos:xPos,yPos:yPos});		
-
 		
+		coordinateMap.set(id,{xPos:xPos,yPos:yPos});		
+	
 		const startX = Math.max(
 			0,
 			Math.floor(centerX-radius/cellSize))
@@ -110,11 +115,11 @@ class CollisionDetector {
 
 		for(let x=startX;x<endX;x++){
 			for(let y=startY;y<endY;y++){
-				collisionMap[x][y]= {
+				collisionMap[x][y].set(id, {
 					radius,
 					xPos,
 					yPos,
-				}
+				})
 			}
 		}
 	}
