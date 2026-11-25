@@ -34,6 +34,7 @@ class CanvasRender{
     
     const data = updates.updates;
 
+		//TODO: Draw by z index. Default should be 0.
     for(let i=0;i<data.length;i++){
   
       const xPos = data[i].xPos;

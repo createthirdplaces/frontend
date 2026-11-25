@@ -7,7 +7,7 @@ class RandomUpdater {
   static velocityX = new Map();
   static velocityY = new Map();
   
-	update(xPos, yPos, id){
+	update({xPos, yPos, id, collisionDetector}){
 		
 		if(!RandomUpdater.velocityX.has(id)){
       RandomUpdater.velocityX.set(id,Math.random()*20-10);
@@ -70,11 +70,16 @@ class RandomUpdater {
         RandomUpdater.velocityY.get(id)*-1
       );
 		}
-		
-	  return {
-			xPos:newX,
-			yPos:newY
-		};	
+	
+		if(collisionDetector.hasCollision(newX,newY) === false){
+
+			collisionDetector.updateCollisionMap(newX,newY);
+			return {
+				xPos:newX,
+				yPos:newY
+			};
+		}
+		return {xPos,yPos};
 	}
 
 	getUpdatesPerSecond() {

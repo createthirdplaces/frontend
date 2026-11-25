@@ -1,9 +1,18 @@
 import {PLACE_UPDATER} from './PlaceUpdater.js';
 
+class EmptyCollisionDetector {
+	hasCollision(){
+		return false;
+	}
+}
+
+const emptyCollisionDetector = new EmptyCollisionDetector();
+
+
 export class Entity {
 
 	static numCreated = 0;
-		
+	
 	#displayConfig;
 	#id;
 	#moveUpdater;
@@ -13,6 +22,7 @@ export class Entity {
 	constructor({
 		xPos,
 		yPos,
+		collisionDetector,
 		displayConfig,
 		moveUpdater})
 	{
@@ -26,7 +36,12 @@ export class Entity {
 		this.#yPos = yPos;
 
 		setInterval(()=>{
-			const newLoc = this.#moveUpdater.update(this.#xPos,this.#yPos,this.#id);	
+			const newLoc = this.#moveUpdater.update({	
+				id:this.#id,
+				collisionDetector: collisionDetector??emptyCollisionDetector,
+				xPos:this.#xPos,
+				yPos:this.#yPos,
+			});	
 			this.#xPos = newLoc.xPos;
 			this.#yPos = newLoc.yPos;
 

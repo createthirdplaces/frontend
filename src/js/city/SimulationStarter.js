@@ -4,6 +4,7 @@ import {RANDOM_UPDATER} from './RandomUpdater.js';
 
 import {Entity} from './Entity.js';
 
+import {createCollisionDetector} from './data/CollisionDetector.js';
 import {createDefaultCircleConfig} from './render/lib/CircleDisplayConfig.js';
 import {init} from './render/lib/CanvasRender.js';
 
@@ -24,6 +25,7 @@ export function startSimulation() {
       config.color = "#800080";
     }
 		entities.push(new Entity({
+			collisionDetector: createCollisionDetector({radius:5}),
 			displayConfig:config,
 			moveUpdater:RANDOM_UPDATER,
 			xPos:xPos,
