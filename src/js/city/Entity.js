@@ -23,6 +23,7 @@ export class Entity {
 		xPos,
 		yPos,
 		collisionDetector,
+		errorHandler,
 		displayConfig,
 		moveUpdater})
 	{
@@ -35,22 +36,30 @@ export class Entity {
 		this.#xPos = xPos;
 		this.#yPos = yPos;
 
-		setInterval(()=>{
-			const newLoc = this.#moveUpdater.update({	
-				id:this.#id,
-				collisionDetector: collisionDetector??emptyCollisionDetector,
-				xPos:this.#xPos,
-				yPos:this.#yPos,
-			});	
-			this.#xPos = newLoc.xPos;
-			this.#yPos = newLoc.yPos;
+		const pid = setInterval(()=>{
+			try {
+				const newLoc = this.#moveUpdater.update({	
+					id:this.#id,
+					collisionDetector: collisionDetector??emptyCollisionDetector,
+					xPos:this.#xPos,
+					yPos:this.#yPos,
+				});	
+				this.#xPos = newLoc.xPos;
+				this.#yPos = newLoc.yPos;
 
-			PLACE_UPDATER.update({
-				displayConfig:this.#displayConfig,	
-				id: this.#id,
-				xPos: this.#xPos,
-				yPos: this.#yPos,
-			});
+				PLACE_UPDATER.update({
+					displayConfig:this.#displayConfig,	
+					id: this.#id,
+					xPos: this.#xPos,
+					yPos: this.#yPos,
+				});
+			} catch(e) {
+				errorHandler.handleError({
+					errorData:e,
+					intervalPid: pid,
+					message: `Error when updating entity #${this.#id}`	
+				});
+			}
 		},moveUpdater.getUpdatesPerSecond())		
 	}
 }
