@@ -1,6 +1,7 @@
 import { CANVAS_ID, DISPLAY_HEIGHT, DISPLAY_WIDTH } from "./Config.js";
+import {NO_MOVE_UPDATER} from "./data/move/NoMoveUpdater.js";
 import { PLACE_STORE, PLACE_UPDATER } from "./PlaceUpdater.js";
-import { RANDOM_UPDATER } from "./RandomUpdater.js";
+import { RANDOM_UPDATER } from "./data/move/RandomUpdater.js";
 
 import { Entity } from "./Entity.js";
 
@@ -35,6 +36,14 @@ export function startSimulation() {
       }),
     );
   }
+
+	/*
+	const water = new Entity({
+		collisionDetector:createCollisionDetector({radius:5}),
+		moveUpdater: NO_MOVE_UPDATER,
+		xPos:xPos,
+		yPos:yPos
+	})*/
 
   PLACE_UPDATER.start();
   init({

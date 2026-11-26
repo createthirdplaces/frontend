@@ -1,4 +1,4 @@
-import { DISPLAY_HEIGHT, DISPLAY_WIDTH } from "./Config.js";
+import { DISPLAY_HEIGHT, DISPLAY_WIDTH } from "../../Config.js";
 
 const MAX_VELOCITY = 2;
 

@@ -1,5 +1,8 @@
 import { drawCircle } from "./CircleDisplayConfig.js";
 
+import { drawSquare } from "./SquareDisplayConfig.js";
+
+
 export function render(params) {
   if (!params.displayConfig.shapeType) {
     throw new Error("No shape type defined");
@@ -9,7 +12,11 @@ export function render(params) {
 
   if (shapeType === "circle") {
     drawCircle(params);
-  } else {
+  } else if(shapeType ==="square"){
+		drawSquare(params);
+	}else {
     throw new Error(`No renderer defined for shape type ${shapeType}`);
   }
+
+
 }
