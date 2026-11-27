@@ -8,6 +8,7 @@ import { Entity } from "./Entity.js";
 import { createCollisionDetector } from "./data/CollisionDetector.js";
 import { createDefaultCircleConfig } from "./render/lib/CircleDisplayConfig.js";
 import { createErrorHandler } from "./ErrorHandler.js";
+import { createRiver} from "./data/WaterGenerator.js";
 import { init } from "./render/lib/CanvasRender.js";
 
 let entities = [];
@@ -36,14 +37,15 @@ export function startSimulation() {
       }),
     );
   }
+	
+	entities.concat(
+		createRiver({
+			mapHeight: DISPLAY_HEIGHT,
+			mapWidth:DISPLAY_WIDTH
+		})
+	);
+			
 
-	/*
-	const water = new Entity({
-		collisionDetector:createCollisionDetector({radius:5}),
-		moveUpdater: NO_MOVE_UPDATER,
-		xPos:xPos,
-		yPos:yPos
-	})*/
 
   PLACE_UPDATER.start();
   init({

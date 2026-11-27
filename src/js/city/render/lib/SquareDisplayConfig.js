@@ -1,6 +1,5 @@
 export function drawSquare({ xPos, yPos, displayConfig, id, ctx }) {
 	//TODO: Add logic for drawing square.
-
 }
 
 const DEFAULT_SQUARE_CONFIG = {

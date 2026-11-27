@@ -1,5 +1,6 @@
 import { PLACE_UPDATER } from "./PlaceUpdater.js";
 
+
 class EmptyCollisionDetector {
   hasCollision() {
     return false;
@@ -46,8 +47,12 @@ export class Entity {
           xPos: this.#xPos,
           yPos: this.#yPos,
         });
-        this.#xPos = newLoc.xPos;
-        this.#yPos = newLoc.yPos;
+
+				//An entity may not change position.
+				if(newLoc){
+					this.#xPos = newLoc.xPos;
+					this.#yPos = newLoc.yPos;
+				}	
 
         PLACE_UPDATER.update({
           displayConfig: this.#displayConfig,
