@@ -131,7 +131,6 @@ class CollisionDetector {
         });
       }
     }
-    collisionMapSize();
   }
 }
 
