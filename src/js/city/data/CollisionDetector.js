@@ -39,6 +39,8 @@ const initMap = () => {
 
 initMap();
 
+const DEFAULT_RANDOM_MAX = 5;
+
 class CollisionDetector {
   #config;
 
@@ -46,7 +48,26 @@ class CollisionDetector {
     this.#config = config;
   }
 
-  hasCollision({ xPos, yPos, id, radius }) {
+  generateEmptyPoint({ height, width, checks }) {
+    const radius = this.#config.radius;
+    const maxChecks = checks ?? DEFAULT_RANDOM_MAX;
+    for (let i = 0; i < maxChecks; i++) {
+      const x = Math.floor(Math.random() * width);
+      const y = Math.floor(Math.random() * height);
+
+      if (
+        !this.hasCollision({
+          radius: radius,
+          xPos: x,
+          yPos: y,
+        })
+      )
+        return { xPos: x, yPos: y };
+    }
+  }
+
+  hasCollision({ xPos, yPos, id }) {
+    const radius = this.#config.radius;
     const centerX = Math.floor(xPos / cellSize);
     const centerY = Math.floor(yPos / cellSize);
 
@@ -56,7 +77,7 @@ class CollisionDetector {
 
     const startY = Math.max(0, Math.floor(centerY - radius / cellSize));
 
-    const endY = Math.max(0, Math.ceil(centerY - radius / cellSize));
+    const endY = Math.min(mapHeight, Math.ceil(centerY + radius / cellSize));
 
     for (let x = startX; x < endX; x++) {
       for (let y = startY; y < endY; y++) {
@@ -82,7 +103,8 @@ class CollisionDetector {
     return false;
   }
 
-  updateCollisionMap({ xPos, yPos, id, radius }) {
+  updateCollisionMap({ xPos, yPos, id }) {
+    const radius = this.#config.radius;
     if (!id && id !== 0) {
       throw new Error("Invalid id ${id} for collision map");
     }

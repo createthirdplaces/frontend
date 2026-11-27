@@ -1,10 +1,11 @@
 import { PLACE_UPDATER } from "./PlaceUpdater.js";
 
-
 class EmptyCollisionDetector {
   hasCollision() {
     return false;
   }
+
+  updateCollisionMap() {}
 }
 
 const emptyCollisionDetector = new EmptyCollisionDetector();
@@ -12,6 +13,7 @@ const emptyCollisionDetector = new EmptyCollisionDetector();
 export class Entity {
   static numCreated = 0;
 
+  #collisionDetector;
   #displayConfig;
 
   #id;
@@ -38,21 +40,29 @@ export class Entity {
     this.#xPos = xPos;
     this.#yPos = yPos;
 
+    this.#collisionDetector = collisionDetector ?? emptyCollisionDetector;
+    this.#collisionDetector.updateCollisionMap({
+      id: this.#id,
+      radius: this.#radius,
+      xPos: this.#xPos,
+      yPos: this.#yPos,
+    });
+
     const pid = setInterval(() => {
       try {
         const newLoc = this.#moveUpdater.update({
           id: this.#id,
-          collisionDetector: collisionDetector ?? emptyCollisionDetector,
+          collisionDetector: this.#collisionDetector,
           radius: this.#radius,
           xPos: this.#xPos,
           yPos: this.#yPos,
         });
 
-				//An entity may not change position.
-				if(newLoc){
-					this.#xPos = newLoc.xPos;
-					this.#yPos = newLoc.yPos;
-				}	
+        //An entity may not change position.
+        if (newLoc) {
+          this.#xPos = newLoc.xPos;
+          this.#yPos = newLoc.yPos;
+        }
 
         PLACE_UPDATER.update({
           displayConfig: this.#displayConfig,

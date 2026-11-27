@@ -1,5 +1,5 @@
 import { CANVAS_ID, DISPLAY_HEIGHT, DISPLAY_WIDTH } from "./Config.js";
-import {NO_MOVE_UPDATER} from "./data/move/NoMoveUpdater.js";
+import { NO_MOVE_UPDATER } from "./data/move/NoMoveUpdater.js";
 import { PLACE_STORE, PLACE_UPDATER } from "./PlaceUpdater.js";
 import { RANDOM_UPDATER } from "./data/move/RandomUpdater.js";
 
@@ -8,15 +8,32 @@ import { Entity } from "./Entity.js";
 import { createCollisionDetector } from "./data/CollisionDetector.js";
 import { createDefaultCircleConfig } from "./render/lib/CircleDisplayConfig.js";
 import { createErrorHandler } from "./ErrorHandler.js";
-import { createRiver} from "./data/WaterGenerator.js";
+import { createRiver } from "./data/WaterGenerator.js";
 import { init } from "./render/lib/CanvasRender.js";
 
 let entities = [];
 
 export function startSimulation() {
+  entities.concat(
+    createRiver({
+      mapHeight: DISPLAY_HEIGHT,
+      mapWidth: DISPLAY_WIDTH,
+    }),
+  );
+
+  const spawnCollisionDetector = createCollisionDetector({ radius: 3 });
+
   for (let i = 0; i < 10000; i++) {
-    let xPos = Math.floor(Math.random() * DISPLAY_WIDTH - 1) + 1;
-    let yPos = Math.floor(Math.random() * DISPLAY_HEIGHT - 1) + 1;
+    const spawnLoc = spawnCollisionDetector.generateEmptyPoint({
+      height: DISPLAY_HEIGHT,
+      width: DISPLAY_WIDTH,
+    });
+
+    if (!spawnLoc) {
+      continue;
+    }
+    let xPos = spawnLoc.xPos;
+    let yPos = spawnLoc.yPos;
 
     const config = createDefaultCircleConfig();
     const errorHandler = createErrorHandler();
@@ -28,7 +45,7 @@ export function startSimulation() {
 
     entities.push(
       new Entity({
-        collisionDetector: createCollisionDetector({ radius: 5 }),
+        collisionDetector: createCollisionDetector({ radius: 3 }),
         displayConfig: config,
         errorHandler: errorHandler,
         moveUpdater: RANDOM_UPDATER,
@@ -37,15 +54,6 @@ export function startSimulation() {
       }),
     );
   }
-	
-	entities.concat(
-		createRiver({
-			mapHeight: DISPLAY_HEIGHT,
-			mapWidth:DISPLAY_WIDTH
-		})
-	);
-			
-
 
   PLACE_UPDATER.start();
   init({

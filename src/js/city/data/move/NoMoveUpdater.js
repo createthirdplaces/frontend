@@ -1,11 +1,9 @@
 class NoMoveUpdater {
-	getUpdatesPerSecond(){
-		return 1;
-	}
+  getUpdatesPerSecond() {
+    return 1;
+  }
 
-	update(){
-
-	}
+  update() {}
 }
 
 export const NO_MOVE_UPDATER = new NoMoveUpdater();
