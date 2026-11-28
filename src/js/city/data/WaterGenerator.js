@@ -1,4 +1,4 @@
-import {CELL_SIZE} from "../Config.js";
+import { BACKGROUND_Z_INDEX, CELL_SIZE } from "../Config.js";
 import { NO_MOVE_UPDATER } from "./move/NoMoveUpdater.js";
 
 import { Entity } from "../Entity.js";
@@ -61,6 +61,7 @@ export function createRiver({ mapHeight, mapWidth }) {
     for (let x = xPos - width / 2; x < xPos + width / 2; x += RIVER_CELL_SIZE) {
       const displayConfig = createDefaultSquareConfig();
       displayConfig.color = "#68A0B0";
+			displayConfig.zIndex = BACKGROUND_Z_INDEX;
       const riverEntity = new Entity({
         collisionDetector: createCollisionDetector(
 					{ radius: RIVER_CELL_SIZE }

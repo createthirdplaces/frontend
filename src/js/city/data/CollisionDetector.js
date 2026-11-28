@@ -82,10 +82,10 @@ class CollisionDetector {
 
         collisionMap[x][y].forEach((value, key) => {
           if (key !== id) {
-            const distance = Math.sqrt(
-              Math.pow(Math.abs(value.xPos - xPos), 2) +
-                Math.pow(Math.abs(value.yPos - yPos), 2),
-            );
+            const distance = Math.hypot(
+							value.xPos-xPos,
+							value.yPos-yPos
+						)
 
             if (distance < radius + value.radius) {
               hasCollision = true;

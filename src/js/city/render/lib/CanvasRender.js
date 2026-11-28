@@ -30,21 +30,45 @@ class CanvasRender {
     ctx.fillRect(0, 0, 1000, 1000);
 
     const data = updates.updates;
+		const layers = [];
+		const zIndexMap = new Map();
 
-    //TODO: Draw by z index. Default should be 0.
-    for (let i = 0; i < data.length; i++) {
-      const xPos = data[i].xPos;
-      const yPos = data[i].yPos;
-      const displayConfig = data[i].displayConfig;
+		for(let i=0;i<data.length;i++){
+			const zIndex = data[i].displayConfig.zIndex ?? 0;
 
-      render({
-        xPos,
-        yPos,
-        displayConfig,
-        id: data[i].id,
-        ctx,
-      });
-    }
+			if(!zIndexMap.has(zIndex)){
+				zIndexMap.set(zIndex,[]);
+				layers.push(zIndex);
+			}
+			
+			zIndexMap.get(zIndex).push(data[i]);	
+		}
+
+		layers.sort();
+
+		for(let i=0; i < layers.length; i++){
+			const layerIndex = layers[i];
+			const layerData = zIndexMap.get(layerIndex);
+
+			for (let j = 0; j < layerData.length; j++) {
+
+				if(!layerData[j]){
+					console.log(j);
+					console.log(layerData);
+				}
+				const xPos = layerData[j].xPos;
+				const yPos = layerData[j].yPos;
+				const displayConfig = layerData[j].displayConfig;
+
+				render({
+					xPos,
+					yPos,
+					displayConfig,
+					id: layerData[j].id,
+					ctx,
+				});
+			}
+		}
 
     requestAnimationFrame((timestamp) => {
       const canvas = document.getElementById(self.#drawCanvasId);
