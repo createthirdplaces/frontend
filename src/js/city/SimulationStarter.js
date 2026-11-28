@@ -1,7 +1,7 @@
 import { CANVAS_ID, DISPLAY_HEIGHT, DISPLAY_WIDTH } from "./Config.js";
 import { NO_MOVE_UPDATER } from "./data/move/NoMoveUpdater.js";
 import { PLACE_STORE, PLACE_UPDATER } from "./PlaceUpdater.js";
-import { PERSON_ENTITY} from "/js/city/data/EntityTypes.js"
+import { PERSON_ENTITY } from "/js/city/data/EntityTypes.js";
 import { RANDOM_UPDATER } from "./data/move/RandomUpdater.js";
 
 import { Entity } from "./data/Entity.js";
@@ -48,7 +48,7 @@ export function startSimulation() {
       new Entity({
         collisionDetector: createCollisionDetector({ radius: 5 }),
         displayConfig: config,
-				entityType: PERSON_ENTITY,
+        entityType: PERSON_ENTITY,
         errorHandler: errorHandler,
         moveUpdater: RANDOM_UPDATER,
         xPos: xPos,

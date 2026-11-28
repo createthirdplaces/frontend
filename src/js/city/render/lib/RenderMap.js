@@ -1,5 +1,5 @@
 import { drawCircle } from "./CircleDisplayConfig.js";
-import { drawPolygon} from "./PolygonDisplayConfig.js";
+import { drawPolygon } from "./PolygonDisplayConfig.js";
 import { drawSquare } from "./SquareDisplayConfig.js";
 
 export function render(params) {
@@ -11,9 +11,9 @@ export function render(params) {
 
   if (shapeType === "circle") {
     drawCircle(params);
-  } else if(shapeType === "polygon"){
-		drawPolygon(params);	
-	} else if (shapeType === "square") {
+  } else if (shapeType === "polygon") {
+    drawPolygon(params);
+  } else if (shapeType === "square") {
     drawSquare(params);
   } else {
     throw new Error(`No renderer defined for shape type ${shapeType}`);

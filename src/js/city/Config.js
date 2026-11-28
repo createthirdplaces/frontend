@@ -6,4 +6,4 @@ export const DISPLAY_WIDTH = 1000;
 
 export const FRAMES_PER_SECOND = 20;
 
-export const BACKGROUND_Z_INDEX = -1 * Math.pow(2,15);
+export const BACKGROUND_Z_INDEX = -1 * Math.pow(2, 15);

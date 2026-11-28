@@ -1,4 +1,4 @@
-import {CELL_SIZE,DISPLAY_HEIGHT,DISPLAY_WIDTH} from "../Config.js"
+import { CELL_SIZE, DISPLAY_HEIGHT, DISPLAY_WIDTH } from "../Config.js";
 
 let coordinateMap = new Map();
 let collisionMap = [];
@@ -82,10 +82,7 @@ class CollisionDetector {
 
         collisionMap[x][y].forEach((value, key) => {
           if (key !== id) {
-            const distance = Math.hypot(
-							value.xPos-xPos,
-							value.yPos-yPos
-						)
+            const distance = Math.hypot(value.xPos - xPos, value.yPos - yPos);
 
             if (distance < radius + value.radius) {
               hasCollision = true;
@@ -113,14 +110,20 @@ class CollisionDetector {
       const oldCenterY = Math.floor(coordinateMap.get(id).yPos / CELL_SIZE);
 
       //Delete old positions for collision map.
-      const oldStartX = Math.max(0, Math.floor(oldCenterX - radius / CELL_SIZE));
+      const oldStartX = Math.max(
+        0,
+        Math.floor(oldCenterX - radius / CELL_SIZE),
+      );
 
       const oldEndX = Math.min(
         mapWidth,
         Math.ceil(oldCenterX + radius / CELL_SIZE),
       );
 
-      const oldStartY = Math.max(0, Math.floor(oldCenterY - radius / CELL_SIZE));
+      const oldStartY = Math.max(
+        0,
+        Math.floor(oldCenterY - radius / CELL_SIZE),
+      );
 
       const oldEndY = Math.max(0, Math.ceil(oldCenterY - radius / CELL_SIZE));
 

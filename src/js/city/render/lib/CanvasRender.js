@@ -30,46 +30,46 @@ class CanvasRender {
     ctx.fillRect(0, 0, 1000, 1000);
 
     const data = updates.updates;
-		const layers = [];
-		const zIndexMap = new Map();
+    const layers = [];
+    const zIndexMap = new Map();
 
-		for(let i=0;i<data.length;i++){
-			const zIndex = data[i].displayConfig.zIndex ?? 0;
+    for (let i = 0; i < data.length; i++) {
+      const zIndex = data[i].displayConfig.zIndex ?? 0;
 
-			if(!zIndexMap.has(zIndex)){
-				zIndexMap.set(zIndex,[]);
-				layers.push(parseInt(zIndex));
-			}
-			
-			zIndexMap.get(zIndex).push(data[i]);	
-		}
+      if (!zIndexMap.has(zIndex)) {
+        zIndexMap.set(zIndex, []);
+        layers.push(parseInt(zIndex));
+      }
 
-		layers.sort((a,b)=>{return a-b});
+      zIndexMap.get(zIndex).push(data[i]);
+    }
 
-		for(let i=0; i < layers.length; i++){
-			const layerIndex = layers[i];
-			const layerData = zIndexMap.get(layerIndex);
+    layers.sort((a, b) => {
+      return a - b;
+    });
 
-			for (let j = 0; j < layerData.length; j++) {
+    for (let i = 0; i < layers.length; i++) {
+      const layerIndex = layers[i];
+      const layerData = zIndexMap.get(layerIndex);
 
-				if(!layerData[j]){
-					console.log(j);
-					console.log(layerData);
-				}
-				const xPos = layerData[j].xPos;
-				const yPos = layerData[j].yPos;
-				const displayConfig = layerData[j].displayConfig;
+      for (let j = 0; j < layerData.length; j++) {
+        if (!layerData[j]) {
+          console.log(j);
+          console.log(layerData);
+        }
+        const xPos = layerData[j].xPos;
+        const yPos = layerData[j].yPos;
+        const displayConfig = layerData[j].displayConfig;
 
-				render({
-					xPos,
-					yPos,
-					displayConfig,
-					id: layerData[j].id,
-					ctx,
-				});
-			}
-		}
-
+        render({
+          xPos,
+          yPos,
+          displayConfig,
+          id: layerData[j].id,
+          ctx,
+        });
+      }
+    }
 
     requestAnimationFrame((timestamp) => {
       const canvas = document.getElementById(self.#drawCanvasId);
