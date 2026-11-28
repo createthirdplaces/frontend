@@ -1,10 +1,10 @@
-import { PLACE_UPDATER } from "./PlaceUpdater.js";
+import { DEFAULT_ENTITY } from "/js/city/data/EntityTypes.js"
+import { PLACE_UPDATER } from "../PlaceUpdater.js";
 
 class EmptyCollisionDetector {
   hasCollision() {
     return false;
   }
-
   updateCollisionMap() {}
 }
 
@@ -15,6 +15,7 @@ export class Entity {
 
   #collisionDetector;
   #displayConfig;
+	#entityType;
   #id;
   #moveUpdater;
   #radius;
@@ -22,15 +23,17 @@ export class Entity {
   #yPos;
 
   constructor({
-    xPos,
-    yPos,
-    collisionDetector,
-    errorHandler,
+    collisionDetector, 
     displayConfig,
+		entityType,
+		errorHandler,
     moveUpdater,
+		 xPos,
+    yPos,
   }) {
     this.#displayConfig = displayConfig;
 
+		this.#entityType = entityType ?? DEFAULT_ENTITY;
     this.#id = Entity.numCreated;
     Entity.numCreated++;
 

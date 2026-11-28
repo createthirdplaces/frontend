@@ -3,13 +3,15 @@ export function drawPolygon({ xPos, yPos, displayConfig, id, ctx }) {
 	const points = displayConfig.points;
 
 	ctx.beginPath();
+	
 	ctx.moveTo(
 		xPos+points[0].xPos,
 		yPos+points[0].yPos
 	);
 
+
 	for(let i=1;i<points.length;i++){
-		ctx.moveTo(
+		ctx.lineTo(
 			xPos+points[i].xPos,
 			yPos+points[i].yPos
 		);
@@ -21,7 +23,7 @@ export function drawPolygon({ xPos, yPos, displayConfig, id, ctx }) {
 }
 
 //Create a rotated rectange with angle specified in 
-//radians
+//radians.
 export function createRotatedRectConfig({angle,height,width}){
 	const config  = {
 		color: "#000000",
@@ -45,19 +47,20 @@ export function createRotatedRectConfig({angle,height,width}){
 	]		
 
 	const rotated = [];	
-	
+
 	for(let i=0;i<4;i++){
 		
 		const updatedAngle = points[i]+ angle;	
 		const updatedTan = Math.tan(updatedAngle);
 
 		rotated.push({
-			xPos: distance*Math.cos(angle),
-			yPos: distance*Math.sin(angle)
+			xPos: Math.floor(distance*Math.cos(updatedAngle)),
+			yPos: Math.floor(distance*Math.sin(updatedAngle))
 		})
 	}
 
 	config.points = rotated;
+	return config;
 }
 
 export function createDefaultSquareConfig() {

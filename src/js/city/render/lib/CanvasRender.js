@@ -38,13 +38,13 @@ class CanvasRender {
 
 			if(!zIndexMap.has(zIndex)){
 				zIndexMap.set(zIndex,[]);
-				layers.push(zIndex);
+				layers.push(parseInt(zIndex));
 			}
 			
 			zIndexMap.get(zIndex).push(data[i]);	
 		}
 
-		layers.sort();
+		layers.sort((a,b)=>{return a-b});
 
 		for(let i=0; i < layers.length; i++){
 			const layerIndex = layers[i];
@@ -69,6 +69,7 @@ class CanvasRender {
 				});
 			}
 		}
+
 
     requestAnimationFrame((timestamp) => {
       const canvas = document.getElementById(self.#drawCanvasId);

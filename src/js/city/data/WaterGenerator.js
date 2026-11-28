@@ -1,10 +1,11 @@
 import { BACKGROUND_Z_INDEX, CELL_SIZE } from "../Config.js";
 import { NO_MOVE_UPDATER } from "./move/NoMoveUpdater.js";
-
-import { Entity } from "../Entity.js";
+import { BRIDGE_ENTITY,WATER_ENTITY } from "/js/city/data/EntityTypes.js"
+import { Entity } from "/js/city/data/Entity.js";
 
 import { createCollisionDetector } from "./CollisionDetector.js";
 import { createDefaultSquareConfig } from "../render/lib/SquareDisplayConfig.js";
+import { createRotatedRectConfig} from "/js/city/render/lib/PolygonDisplayConfig.js";
 import { createLogger } from "../Logger.js";
 
 const DEFAULT_RIVER_WIDTH = 100;
@@ -14,6 +15,41 @@ const MIDPOINT_ADJUST_RATE = 0.01;
 
 const RIVER_CELL_SIZE = CELL_SIZE/2;
 const Y_CHANGE = RIVER_CELL_SIZE;
+
+const generateBridgeEntity = (config)=>{
+
+	const {
+		angle,
+		height,
+		width,
+		xPos,
+		yPos
+	} = config;
+
+	const bridgeConfig = createRotatedRectConfig({
+		angle,
+		height,
+		width
+	})
+
+	bridgeConfig.color = "#da6d42";
+	bridgeConfig.zIndex = BACKGROUND_Z_INDEX + 1;
+	
+	const bridgeEntity = new Entity({
+		collisionDetector: createCollisionDetector(
+			{ radius: RIVER_CELL_SIZE }
+		),
+		displayConfig: bridgeConfig,
+		entityType: BRIDGE_ENTITY,
+		errorHandler: createLogger(),
+		moveUpdater: NO_MOVE_UPDATER,
+		xPos: Math.floor(xPos),
+		yPos: Math.floor(yPos),
+	});
+
+	return bridgeEntity;
+}
+
 /*
 	Create river as static 5 by 5 pixel
 	squares representing static entities
@@ -35,11 +71,14 @@ export function createRiver({ mapHeight, mapWidth }) {
     xChange = -5;
   }
 
+	let lastBridgePos = 0;
+	
   while (yPos < mapHeight) {
-    let minAcc = -1;
-    let maxAcc = 1;
 
     let inertia = 0;
+    let maxAcc = 1;
+		let minAcc = -1;
+
     if (midPoint !== xPos) {
       inertia = (midPoint - xPos) / 500;
 
@@ -55,8 +94,31 @@ export function createRiver({ mapHeight, mapWidth }) {
     const diagonalWidth = Math.sqrt(
       Math.pow(Y_CHANGE, 2) + Math.pow(xChange, 2),
     );
-
+		
     width = (width * diagonalWidth) / 5;
+		
+		let createBridge = true;
+		if((yPos - lastBridgePos) <= 500){
+			const roll = Math.random();
+
+			if(roll < (yPos - lastBridgePos)/500){
+				createBridge = true;	
+			}	else {
+				createBridge = false;
+			}
+		}
+		
+		if(createBridge){
+			const bridgeConfig = {
+				angle: Math.acos(5/diagonalWidth),
+				height: 200,
+				width: 20,
+				xPos:xPos,
+				yPos:yPos
+			}
+			riverEntities.push(generateBridgeEntity(bridgeConfig));
+			lastBridgePos = yPos;
+		}
 
     for (let x = xPos - width / 2; x < xPos + width / 2; x += RIVER_CELL_SIZE) {
       const displayConfig = createDefaultSquareConfig();
@@ -67,6 +129,7 @@ export function createRiver({ mapHeight, mapWidth }) {
 					{ radius: RIVER_CELL_SIZE }
 				),
         displayConfig: displayConfig,
+				entityType: WATER_ENTITY, 
         errorHandler: createLogger(),
         moveUpdater: NO_MOVE_UPDATER,
         xPos: x - (x % RIVER_CELL_SIZE),
