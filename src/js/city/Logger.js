@@ -1,4 +1,4 @@
-class ErrorHandler {
+class Logger {
   handleError({ errorData, message, intervalPid }) {
     console.error(message);
     if (intervalPid) {
@@ -9,6 +9,6 @@ class ErrorHandler {
   }
 }
 
-export function createErrorHandler() {
-  return new ErrorHandler();
+export function createLogger() {
+  return new Logger();
 }

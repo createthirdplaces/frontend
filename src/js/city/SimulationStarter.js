@@ -7,7 +7,7 @@ import { Entity } from "./Entity.js";
 
 import { createCollisionDetector } from "./data/CollisionDetector.js";
 import { createDefaultCircleConfig } from "./render/lib/CircleDisplayConfig.js";
-import { createErrorHandler } from "./ErrorHandler.js";
+import { createLogger } from "./Logger.js";
 import { createRiver } from "./data/WaterGenerator.js";
 import { init } from "./render/lib/CanvasRender.js";
 
@@ -23,7 +23,7 @@ export function startSimulation() {
 
   const spawnCollisionDetector = createCollisionDetector({ radius: 3 });
 
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < 1000; i++) {
     const spawnLoc = spawnCollisionDetector.generateEmptyPoint({
       height: DISPLAY_HEIGHT,
       width: DISPLAY_WIDTH,
@@ -36,7 +36,7 @@ export function startSimulation() {
     let yPos = spawnLoc.yPos;
 
     const config = createDefaultCircleConfig();
-    const errorHandler = createErrorHandler();
+    const errorHandler = createLogger();
     if (xPos > DISPLAY_WIDTH / 2) {
       config.color = "#008000";
     } else {
@@ -45,7 +45,7 @@ export function startSimulation() {
 
     entities.push(
       new Entity({
-        collisionDetector: createCollisionDetector({ radius: 3 }),
+        collisionDetector: createCollisionDetector({ radius: 5 }),
         displayConfig: config,
         errorHandler: errorHandler,
         moveUpdater: RANDOM_UPDATER,

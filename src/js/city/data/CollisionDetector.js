@@ -1,13 +1,10 @@
+import {CELL_SIZE,DISPLAY_HEIGHT,DISPLAY_WIDTH} from "../Config.js"
+
 let coordinateMap = new Map();
 let collisionMap = [];
 
-const width = 1000;
-const height = 1000;
-
-const cellSize = 10;
-
-let mapWidth = Math.ceil(width / cellSize);
-let mapHeight = Math.ceil(height / cellSize);
+let mapWidth = Math.ceil(DISPLAY_WIDTH / CELL_SIZE);
+let mapHeight = Math.ceil(DISPLAY_HEIGHT / CELL_SIZE);
 
 let lastCheckTime = Date.now();
 let lastSize = 0;
@@ -16,8 +13,8 @@ const collisionMapSize = () => {
     return lastSize;
   }
   let size = 0;
-  for (let x = 0; x * cellSize < width; x++) {
-    for (let y = 0; y * cellSize < height; y++) {
+  for (let x = 0; x * CELL_SIZE < DISPLAY_WIDTH; x++) {
+    for (let y = 0; y * CELL_SIZE < DISPLAY_HEIGHT; y++) {
       size += collisionMap[x][y].size;
     }
   }
@@ -28,9 +25,9 @@ const collisionMapSize = () => {
 };
 
 const initMap = () => {
-  for (let x = 0; x < width; x += cellSize) {
+  for (let x = 0; x < DISPLAY_WIDTH; x += CELL_SIZE) {
     const col = [];
-    for (let y = 0; y < height; y += cellSize) {
+    for (let y = 0; y < DISPLAY_HEIGHT; y += CELL_SIZE) {
       col.push(new Map());
     }
     collisionMap.push(col);
@@ -68,16 +65,16 @@ class CollisionDetector {
 
   hasCollision({ xPos, yPos, id }) {
     const radius = this.#config.radius;
-    const centerX = Math.floor(xPos / cellSize);
-    const centerY = Math.floor(yPos / cellSize);
+    const centerX = Math.floor(xPos / CELL_SIZE);
+    const centerY = Math.floor(yPos / CELL_SIZE);
 
-    const startX = Math.max(0, Math.floor(centerX - radius / cellSize));
+    const startX = Math.max(0, Math.floor(centerX - radius / CELL_SIZE));
 
-    const endX = Math.min(mapWidth, Math.ceil(centerX + radius / cellSize));
+    const endX = Math.min(mapWidth, Math.ceil(centerX + radius / CELL_SIZE));
 
-    const startY = Math.max(0, Math.floor(centerY - radius / cellSize));
+    const startY = Math.max(0, Math.floor(centerY - radius / CELL_SIZE));
 
-    const endY = Math.min(mapHeight, Math.ceil(centerY + radius / cellSize));
+    const endY = Math.min(mapHeight, Math.ceil(centerY + radius / CELL_SIZE));
 
     for (let x = startX; x < endX; x++) {
       for (let y = startY; y < endY; y++) {
@@ -108,24 +105,24 @@ class CollisionDetector {
     if (!id && id !== 0) {
       throw new Error("Invalid id ${id} for collision map");
     }
-    const centerX = Math.floor(xPos / cellSize);
-    const centerY = Math.floor(yPos / cellSize);
+    const centerX = Math.floor(xPos / CELL_SIZE);
+    const centerY = Math.floor(yPos / CELL_SIZE);
 
     if (coordinateMap.has(id)) {
-      const oldCenterX = Math.floor(coordinateMap.get(id).xPos / cellSize);
-      const oldCenterY = Math.floor(coordinateMap.get(id).yPos / cellSize);
+      const oldCenterX = Math.floor(coordinateMap.get(id).xPos / CELL_SIZE);
+      const oldCenterY = Math.floor(coordinateMap.get(id).yPos / CELL_SIZE);
 
       //Delete old positions for collision map.
-      const oldStartX = Math.max(0, Math.floor(oldCenterX - radius / cellSize));
+      const oldStartX = Math.max(0, Math.floor(oldCenterX - radius / CELL_SIZE));
 
       const oldEndX = Math.min(
         mapWidth,
-        Math.ceil(oldCenterX + radius / cellSize),
+        Math.ceil(oldCenterX + radius / CELL_SIZE),
       );
 
-      const oldStartY = Math.max(0, Math.floor(oldCenterY - radius / cellSize));
+      const oldStartY = Math.max(0, Math.floor(oldCenterY - radius / CELL_SIZE));
 
-      const oldEndY = Math.max(0, Math.ceil(oldCenterY - radius / cellSize));
+      const oldEndY = Math.max(0, Math.ceil(oldCenterY - radius / CELL_SIZE));
 
       for (let x = oldStartX; x < oldEndX; x++) {
         for (let y = oldStartY; y < oldEndY; y++) {
@@ -136,13 +133,13 @@ class CollisionDetector {
 
     coordinateMap.set(id, { xPos: xPos, yPos: yPos });
 
-    const startX = Math.max(0, Math.floor(centerX - radius / cellSize));
+    const startX = Math.max(0, Math.floor(centerX - radius / CELL_SIZE));
 
-    const endX = Math.min(mapWidth, Math.ceil(centerX + radius / cellSize));
+    const endX = Math.min(mapWidth, Math.ceil(centerX + radius / CELL_SIZE));
 
-    const startY = Math.max(0, Math.floor(centerY - radius / cellSize));
+    const startY = Math.max(0, Math.floor(centerY - radius / CELL_SIZE));
 
-    const endY = Math.max(0, Math.ceil(centerY - radius / cellSize));
+    const endY = Math.max(0, Math.ceil(centerY - radius / CELL_SIZE));
 
     for (let x = startX; x < endX; x++) {
       for (let y = startY; y < endY; y++) {

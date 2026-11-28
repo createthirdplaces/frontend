@@ -15,7 +15,6 @@ export class Entity {
 
   #collisionDetector;
   #displayConfig;
-
   #id;
   #moveUpdater;
   #radius;

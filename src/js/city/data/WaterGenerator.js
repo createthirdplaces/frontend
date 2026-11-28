@@ -1,18 +1,19 @@
+import {CELL_SIZE} from "../Config.js";
 import { NO_MOVE_UPDATER } from "./move/NoMoveUpdater.js";
 
 import { Entity } from "../Entity.js";
 
-import { createErrorHandler } from "../ErrorHandler.js";
-
 import { createCollisionDetector } from "./CollisionDetector.js";
 import { createDefaultSquareConfig } from "../render/lib/SquareDisplayConfig.js";
+import { createLogger } from "../Logger.js";
 
 const DEFAULT_RIVER_WIDTH = 100;
 
 //Determine how much the midpoint will adjust.
 const MIDPOINT_ADJUST_RATE = 0.01;
 
-const Y_CHANGE = 5;
+const RIVER_CELL_SIZE = CELL_SIZE/2;
+const Y_CHANGE = RIVER_CELL_SIZE;
 /*
 	Create river as static 5 by 5 pixel
 	squares representing static entities
@@ -57,15 +58,17 @@ export function createRiver({ mapHeight, mapWidth }) {
 
     width = (width * diagonalWidth) / 5;
 
-    for (let x = xPos - width / 2; x < xPos + width / 2; x += 5) {
+    for (let x = xPos - width / 2; x < xPos + width / 2; x += RIVER_CELL_SIZE) {
       const displayConfig = createDefaultSquareConfig();
       displayConfig.color = "#68A0B0";
       const riverEntity = new Entity({
-        collisionDetector: createCollisionDetector({ radius: 5 }),
+        collisionDetector: createCollisionDetector(
+					{ radius: RIVER_CELL_SIZE }
+				),
         displayConfig: displayConfig,
-        errorHandler: createErrorHandler(),
+        errorHandler: createLogger(),
         moveUpdater: NO_MOVE_UPDATER,
-        xPos: x - (x % 5),
+        xPos: x - (x % RIVER_CELL_SIZE),
         yPos: yPos,
       });
       riverEntities.push(riverEntity);
